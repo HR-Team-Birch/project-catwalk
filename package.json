@@ -1,0 +1,40 @@
+{
+  "name": "my-webpack-project",
+  "version": "1.0.0",
+  "description": "My webpack project",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "build": "webpack --mode=production --node-env=production",
+    "start": "npx nodemon ./server/index.js",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HR-Team-Birch/FEC-project-catwalk.git"
+  },
+  "author": "Team Birch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HR-Team-Birch/FEC-project-catwalk/issues"
+  },
+  "homepage": "https://github.com/HR-Team-Birch/FEC-project-catwalk#readme",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "express": "^4.17.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.2",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@webpack-cli/generators": "^2.4.2",
+    "babel-loader": "^8.2.3",
+    "nodemon": "^2.0.15",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
