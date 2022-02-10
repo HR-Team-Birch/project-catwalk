@@ -139,14 +139,15 @@ const getQuestions = (productId) => {
 }
 
 const getAnswers = (questionId) => {
+  console.log('questionId', questionId);
+  // need to get page and count query working
   let options = {
-    url: `${url}/qa/questions/${questionId}/answers`,
+    url: `${url}/qa/questions/${questionId.question_id}/answers`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`,
-      'Content-Type': 'application/json'
+      'Authorization': `${TOKEN}`,
     }
   };
-  return axios.get(options)
+  return axios.get(options.url, options);
 }
 
 const addQuestion = (data) => {
