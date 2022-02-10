@@ -3,7 +3,7 @@ const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
 const {TOKEN} = require('../config.js')
 
 
-//get list of all products
+
 const getAllProducts = () => {
   let options = {
     url: `${url}/products`,
@@ -37,6 +37,15 @@ const getAllStyles = (prodID) => {
   return axios.get(options.url, options)
 }
 
+//get products related to display item
+const relatedProductIds = (id) => {
+  return axios.get(`${url}/products/${id}/related`,{
+    headers: {
+      'Authorization': `token ${config.TOKEN}`
+    }
+  })
+  }
+
 //retrieves list of products added to card
 const getItemsInCart = () => {
   let options = {
@@ -65,36 +74,34 @@ const addToCart = (prodID) => {
 
 
 const getReviews = (productId) => {
+  console.log('productId inside apiconnect', productId)
   let options = {
-    url: `${url}/reviews/${productId}`,
+    url: `${url}/reviews/?product_id=${productId.product_id}&count=${productId.count ? productId.count : 5}&page=${productId.page ? productId.page : 1}`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`,
-      'Content-Type': 'application/json'
+      'Authorization': `${TOKEN}`
     }
   };
-  return axios.get(options);
+  return axios.get(options.url, options);
 };
 
 const getReviewsMeta = (productId) => {
   let options = {
-    url: `${url}/reviews/meta/${productId}`,
+    url: `${url}/reviews/meta/?product_id=${productId.product_id}`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`,
-      'Content-Type': 'application/json'
+      'Authorization': `${TOKEN}`
     }
   };
-  return axios.get(options);
+  return axios.get(options.url, options);
 };
 
-const postReview = (review) => {
+const postReview = (product) => {
   let options = {
-    url: `${url}/reviews`,
+    url: `${url}/reviews/${product.product_id}`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`,
-      'Content-Type': 'application/json'
+      'Authorization': `${TOKEN}`
     }
   };
-  return axios.post(options, review);
+  return axios.post(options.url, options, product.review);
 };
 
 const markReviewAsHelpful = (reviewId) => {

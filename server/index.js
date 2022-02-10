@@ -76,11 +76,11 @@ app.post('/cart', (req, res) => {
 
 //returns ids of porduct related to specified product
 //param must be an INTEGER
-// app.get(`/products/:productId/related`, (req, res) =>{
-//   //invoke call
-//   .then((res) =>console.log(res))
-//   .catch((error) => console.log(error))
-// })
+app.get(`/products/:productId/related`, (req, res) =>{
+  relatedProductIds()
+  .then((res) =>console.log(res))
+  .catch((error) => console.log(error))
+})
 
 //==========================================
 // Reviews and Ratings Routes
@@ -88,68 +88,80 @@ app.post('/cart', (req, res) => {
 
 //get list of reviews for a particular product (does not include reported reviews)
 //get reviews for a particular product by id and sort order
-// app.get('/reviews/:id', (req, res) => {
-//   let product = req.params;
-//   //invoke api request
-//   .then((data) => {
-//     //console.log('data from get reviews', data);
-//     res.send(data).status(200);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//     res.sendStatus(400);
-//   });
-// });
+app.get('/reviews/', (req, res) => {
+  let product = req.query;
 
-// app.get('/reviews/meta/:id', (req, res) => {
-//   let productId = req.params;
-//   //invoke api request for specific product id
-//   .then((data) => {
-//     //console.log('data from get reviews'meta, data);
-//     res.send(data).status(200);
-//   })
-//     .catch((err) => {
-//       console.error(err);
-//       res.sendStatus(400);
-//     });
-// });
+  api.getReviews(product)
+  .then((data) => {
+    console.log('data from get reviews', data.data);
+    res.send(data.data).status(200);
+  })
+  .catch((err) => {
+    console.error(err);
+    res.sendStatus(400);
+  });
+});
 
-// app.post('/reviews', (req, res) => {
-//   let newReview = req.body;
-//   //invoke api request handler for posting reviews to api
-//     //fires off a get request to save new review in database
-//   .then((data) => {
-//      //console.log('data from post reviews', data);
-//     res.sendStatus(201);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//     res.sendStatus(418);
-//   });
-// });
+app.get('/reviews/meta/', (req, res) => {
+  let product = req.query;
+  //invoke api request for specific product id
+  api.getReviewsMeta(product)
+    .then((data) => {
+      console.log('data from get reviews meta', data.data);
+      res.send(data.data).status(200);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(400);
+    });
+});
 
-// app.put('/reviews/:review_id/helpful', (res, req) => {
-//   let updateReviewWithID = req.params;
-//   //invoke api request handler to update review in api
-//     //fires off a get request to save updated review in database
-//   .then((data) => {
-//      //console.log('data from put reviews', data);
-//     res.sendstatus(204);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//     res.sendStatus(404);
-//   });
-// });
+app.post('/reviews', (req, res) => {
+  let newReview = req.body;
+  //invoke api request handler for posting reviews to api
+    //fires off a get request to save new review in database
+    console.log('post review', req.body)
+    api.postReview(newReview)
+      .then((data) => {
+        console.log('data from post reviews', data.data);
+        res.sendStatus(201);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(418);
+      });
+});
 
-// app.put('/reviews/:review_id/report', (req, res) => {
-//   //call apiconnect fun
-//   .then((data) {
-//     console.log('data inside reported review put', data);
-//     res.sendStatus(204);
-//   })
-//   .catch((err) => console.error(err));
-// });
+// { "product_id": "37311", "rating": 2, "summary": "is this working??", "body": "test 111111", "recommend": true, "photos": "",
+// "characteristics": {
+//     "Fit": 5,
+//     "Comfort": 4
+//   }
+// }
+
+
+app.put('/reviews/:review_id/helpful', (res, req) => {
+  let updateReviewWithID = req.params;
+  //invoke api request handler to update review in api
+    //fires off a get request to save updated review in database
+  .then((data) => {
+     //console.log('data from put reviews', data);
+    res.sendstatus(204);
+  })
+  .catch((err) => {
+    console.error(err);
+    res.sendStatus(404);
+  });
+});
+
+app.put('/reviews/:review_id/report', (req, res) => {
+  //call apiconnect fun
+  .then((data) {
+    console.log('data inside reported review put', data);
+    res.sendStatus(204);
+  })
+  .catch((err) => console.error(err));
+});
 
 //==========================================
 // Interactions Routes
@@ -162,9 +174,9 @@ app.post('/interactions', (req, res) => {
 })
 
 
-//==========================================
-// Questions And Answers Routes
-//==========================================
+// //==========================================
+// // Questions And Answers Routes
+// //==========================================
 
 
 // Get all questions
