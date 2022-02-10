@@ -1,6 +1,6 @@
 const axios = require('axios');
-const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
-const TOKEN = require('../config.js')
+let url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
+const {TOKEN} = require('../config.js')
 
 
 //get list of all products
@@ -8,11 +8,12 @@ const getAllProducts = () => {
   let options = {
     url: `${url}/products`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
-      'Content-Type': 'application/json'
+      'Authorization': `${TOKEN}`,
+      // 'Content-Type': 'application/json'
     }
   };
-  return axios.get(options)
+  console.log(options.url);
+  return axios.get(options.url, options)
 }
 
 //get data for product with this ID
@@ -21,7 +22,7 @@ const getProductInfo = (prodID) => {
   let options = {
     url: `${url}/products/${prodID}`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `token ${config.TOKEN}`,
       'Content-Type': 'application/json'
     }
   };
@@ -34,7 +35,7 @@ const getAllStyles = (prodID) => {
   let options = {
     url: `${url}/products/${prodID}/styles`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `token ${config.TOKEN}`,
       'Content-Type': 'application/json'
     }
   };
@@ -46,7 +47,7 @@ const getItemsInCart = () => {
   let options = {
     url: `${url}/cart`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `token ${config.TOKEN}`,
       'Content-Type': 'application/json'
     }
   };
@@ -58,7 +59,7 @@ const addToCart = (prodID) => {
   let options = {
     url: `${url}/cart/`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `token ${config.TOKEN}`,
       'Content-Type': 'application/json'
     }
   };
@@ -126,21 +127,22 @@ const reportReview = (reviewId) => {
 }
 
 const getQuestions = (productId) => {
+  // console.log('product ID', productId);
+  // need to setup multiple querys
   let options = {
-    url: `${url}/qa/questions/${productId}`,
+    url: `${url}/qa/questions/?product_id=${productId.product_id}`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
-      'Content-Type': 'application/json'
+      'Authorization': `${TOKEN}`
     }
   };
-  return axios.get(options)
+  return axios.get(options.url, options)
 }
 
 const getAnswers = (questionId) => {
   let options = {
     url: `${url}/qa/questions/${questionId}/answers`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `token ${config.TOKEN}`,
       'Content-Type': 'application/json'
     }
   };
@@ -151,7 +153,7 @@ const addQuestion = (data) => {
   let options = {
     url: `${url}/qa/questions`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `token ${config.TOKEN}`,
       'Content-Type': 'application/json'
     },
     data: data
@@ -159,11 +161,11 @@ const addQuestion = (data) => {
   return axios.post(options, data)
 }
 
-const addAnswer = (questionId) => {
+const addAnswer = (questionId, data) => {
   let options = {
     url: `${url}/qa/questions/${questionId}/answers`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `token ${config.TOKEN}`,
       'Content-Type': 'application/json'
     },
     data: data
@@ -175,7 +177,7 @@ const markQHelpful = (questionId) => {
   let options = {
     url: `${url}/qa/questions/${questionId}/helpful`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `token ${config.TOKEN}`,
       'Content-Type': 'application/json'
     },
   };
@@ -186,7 +188,7 @@ const reportQuestion = (questionId) => {
   let options = {
     url: `${url}/qa/questions/${questionId}/report`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `token ${config.TOKEN}`,
       'Content-Type': 'application/json'
     },
   };
@@ -197,7 +199,7 @@ const markAHelpful = (answerId) => {
   let options = {
     url: `${url}/qa/answers/${answerId}/helpful`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `token ${config.TOKEN}`,
       'Content-Type': 'application/json'
     },
   };
@@ -208,7 +210,7 @@ const reportAnswer = (answerId) => {
   let options = {
     url: `${url}/qa/answers/${answerId}/report`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `token ${config.TOKEN}`,
       'Content-Type': 'application/json'
     },
   };
