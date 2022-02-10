@@ -154,12 +154,11 @@ const addQuestion = (data) => {
   let options = {
     url: `${url}/qa/questions`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`,
+      'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
     },
-    data: data
   };
-  return axios.post(options, data)
+  return axios.post(options.url, data, options)
 }
 
 const addAnswer = (questionId, data) => {
