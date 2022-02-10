@@ -1,4 +1,5 @@
 const express = require('express');
+const api = require('./apiconnect.js')
 
 const app = express();
 let port = 3000;
@@ -12,7 +13,7 @@ app.use(express.json());
 
 //gets the list of products
 app.get('/products', (req, res) => {
-  //call function defined in apiconnect
+  api.getAllProducts()
   .then((response) => {
   res.status(200).send(response)
 })
@@ -24,7 +25,7 @@ app.get('/products', (req, res) => {
 
 //gets the data for the product with this ID
 app.get('/products/:product_id', (req, res) => {
-  //call function defined in apiconnect
+  api.getProductInfo(req.params.id)
   .then((response) => {
   res.status(200).send(response)
 })
@@ -36,7 +37,7 @@ app.get('/products/:product_id', (req, res) => {
 
 //gets all styles of the product with this ID
 app.get('/products/:product_id/styles', (req, res) => {
-  //call function defined in apiconnect
+  api.getAllStyles(req.params.id)
   .then((response) => {
   res.status(200).send(response)
 })
@@ -48,7 +49,7 @@ app.get('/products/:product_id/styles', (req, res) => {
 
 //retrieves list of products added to the cart
 app.get('/cart', (req, res) => {
-  //call function defined in apiconnect
+  api.getItemsInCart()
   .then((response) => {
   res.status(200).send(response)
 })
@@ -60,7 +61,7 @@ app.get('/cart', (req, res) => {
 
 //adds a product to the cart
 app.post('/cart', (req, res) => {
-  //call function defined in apiconnect
+  api.addToCart(item)
   .then((response) => {
   res.status(201).send(response)
 })
