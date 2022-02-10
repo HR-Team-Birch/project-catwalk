@@ -84,7 +84,7 @@ app.get(`/products/:productId/related`, (req, res) =>{
 
 //get list of reviews for a particular product (does not include reported reviews)
 //get reviews for a particular product by id and sort order
-app.get('/reviews/:id/:sort', (req, res) => {
+app.get('/reviews/:id', (req, res) => {
   let product = req.params;
   //invoke api request
   .then((data) => {
@@ -138,6 +138,14 @@ app.put('/reviews/:review_id/helpful', (res, req) => {
   });
 });
 
+app.put('/reviews/:review_id/report', (req, res) => {
+  //call apiconnect fun
+  .then((data) {
+    console.log('data inside reported review put', data);
+    res.sendStatus(204);
+  })
+  .catch((err) => console.error(err));
+});
 
 //==========================================
 // Interactions Routes
