@@ -1,6 +1,6 @@
 const axios = require('axios');
 const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
-const TOKEN = require('../config.js')
+const {TOKEN} = require('../config.js')
 
 
 //get list of all products
@@ -8,11 +8,10 @@ const getAllProducts = () => {
   let options = {
     url: `${url}/products`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
-      'Content-Type': 'application/json'
+      'Authorization': `${TOKEN}`
     }
   };
-  return axios.get(options)
+  return axios.get(options.url, options)
 }
 
 //get data for product with this ID
@@ -21,24 +20,21 @@ const getProductInfo = (prodID) => {
   let options = {
     url: `${url}/products/${prodID}`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
-      'Content-Type': 'application/json'
+      'Authorization': `${TOKEN}`,
     }
   };
-  return axios.get(options)
+  return axios.get(options.url, options)
 }
 
 //gets all styles of product with this id
 const getAllStyles = (prodID) => {
-  //options?
   let options = {
     url: `${url}/products/${prodID}/styles`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
-      'Content-Type': 'application/json'
+      'Authorization': `${TOKEN}`
     }
   };
-  return axios.get(options)
+  return axios.get(options.url, options)
 }
 
 //retrieves list of products added to card
@@ -46,23 +42,23 @@ const getItemsInCart = () => {
   let options = {
     url: `${url}/cart`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
-      'Content-Type': 'application/json'
+      'Authorization': `${TOKEN}`
     }
   };
-  return axios.get(options)
+  return axios.get(options.url, options)
 }
 
 //adds a product to the cart
 const addToCart = (prodID) => {
+  let data = prodID
   let options = {
-    url: `${url}/cart/`,
+    url: `${url}/cart`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
     }
   };
-  return axios.post(options, prodID)
+  return axios.post(options.url, data, options)
 }
 
 

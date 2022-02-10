@@ -14,20 +14,21 @@ app.use(express.json());
 //gets the list of products
 app.get('/products', (req, res) => {
   api.getAllProducts()
-  .then((response) => {
-  res.status(200).send(response)
-})
+    .then((response) => {
+    res.status(200).send(response.data)
+    //res.sendStatus(200)
+    })
     .catch((error) => {
-      console.error('ERROR IN SERVER GET', error)
+      console.error('ERROR IN SERVER GET')
       res.sendStatus(400)
     })
 })
 
 //gets the data for the product with this ID
 app.get('/products/:product_id', (req, res) => {
-  api.getProductInfo(req.params.id)
+  api.getProductInfo(req.params.product_id)
   .then((response) => {
-  res.status(200).send(response)
+  res.status(200).send(response.data)
 })
     .catch((error) => {
       console.error('ERROR IN SERVER GET', error)
@@ -37,9 +38,9 @@ app.get('/products/:product_id', (req, res) => {
 
 //gets all styles of the product with this ID
 app.get('/products/:product_id/styles', (req, res) => {
-  api.getAllStyles(req.params.id)
+  api.getAllStyles(req.params.product_id)
   .then((response) => {
-  res.status(200).send(response)
+  res.status(200).send(response.data)
 })
     .catch((error) => {
       console.error('ERROR IN SERVER GET', error)
@@ -50,25 +51,26 @@ app.get('/products/:product_id/styles', (req, res) => {
 //retrieves list of products added to the cart
 app.get('/cart', (req, res) => {
   api.getItemsInCart()
-  .then((response) => {
-  res.status(200).send(response)
-})
+    .then((response) => {
+    res.status(200).send(response.data)
+    })
     .catch((error) => {
-      console.error('ERROR IN SERVER GET', error)
+      console.error('ERROR IN SERVER GET')
       res.sendStatus(400)
     })
 })
 
 //adds a product to the cart
 app.post('/cart', (req, res) => {
-  api.addToCart(item)
+  console.log(req.body)
+  api.addToCart(req.body)
   .then((response) => {
-  res.status(201).send(response)
-})
-    .catch((error) => {
-      console.error('ERROR IN SERVER GET', error)
-      res.sendStatus(400)
-    })
+    res.status(201).send(response.data)
+  })
+  .catch((error) => {
+    console.error('ERROR IN SERVER POST')
+    res.sendStatus(400)
+  })
 })
 
 //returns ids of porduct related to specified product
