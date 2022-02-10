@@ -168,12 +168,9 @@ app.post('/interactions', (req, res) => {
 
 // Get all questions
 app.get('/qa/questions/', (req, res) => {
-  console.log('trying to get questions')
-  console.log('request query', req.query);
-
+ // need to setup multiple queries
   api.getQuestions(req.query)
     .then((results) => {
-      //console.log('results', results);
       res.status(200);
       res.send(results.data);
     })
@@ -190,12 +187,11 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
 
   api.getAnswers(req.params)
     .then((results) => {
-      let resultsJSON = JSON.stringify(results);
       res.status(200);
-      res.send(resultsJSON);
+      res.send(results.data);
     })
     .catch((err) => {
-      console.log('Error retrieving answers for question', err);
+      //console.log('Error retrieving answers for question', err);
       res.status(404);
       res.send('Error retrieving answers for question');
     })
@@ -204,7 +200,7 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
 // Add a question
 
 app.post('/qa/questions', (req, res) => {
-
+ // need to get page and count query working
   api.addQuestion(req.body)
     .then((success) => {
       res.status(201);
