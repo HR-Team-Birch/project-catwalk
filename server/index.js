@@ -11,73 +11,73 @@ app.use(express.json());
 // Products Routes
 //==========================================
 
-//gets the list of products
-app.get('/products', (req, res) => {
-  api.getAllProducts()
-  .then((response) => {
-  res.status(200).send(response)
-})
-    .catch((error) => {
-      console.error('ERROR IN SERVER GET', error)
-      res.sendStatus(400)
-    })
-})
+// //gets the list of products
+// app.get('/products', (req, res) => {
+//   api.getAllProducts()
+//   .then((response) => {
+//   res.status(200).send(response)
+// })
+//     .catch((error) => {
+//       console.error('ERROR IN SERVER GET', error)
+//       res.sendStatus(400)
+//     })
+// })
 
-//gets the data for the product with this ID
-app.get('/products/:product_id', (req, res) => {
-  api.getProductInfo(req.params.id)
-  .then((response) => {
-  res.status(200).send(response)
-})
-    .catch((error) => {
-      console.error('ERROR IN SERVER GET', error)
-      res.sendStatus(400)
-    })
-})
+// //gets the data for the product with this ID
+// app.get('/products/:product_id', (req, res) => {
+//   api.getProductInfo(req.params.id)
+//   .then((response) => {
+//   res.status(200).send(response)
+// })
+//     .catch((error) => {
+//       console.error('ERROR IN SERVER GET', error)
+//       res.sendStatus(400)
+//     })
+// })
 
-//gets all styles of the product with this ID
-app.get('/products/:product_id/styles', (req, res) => {
-  api.getAllStyles(req.params.id)
-  .then((response) => {
-  res.status(200).send(response)
-})
-    .catch((error) => {
-      console.error('ERROR IN SERVER GET', error)
-      res.sendStatus(400)
-    })
-})
+// //gets all styles of the product with this ID
+// app.get('/products/:product_id/styles', (req, res) => {
+//   api.getAllStyles(req.params.id)
+//   .then((response) => {
+//   res.status(200).send(response)
+// })
+//     .catch((error) => {
+//       console.error('ERROR IN SERVER GET', error)
+//       res.sendStatus(400)
+//     })
+// })
 
-//retrieves list of products added to the cart
-app.get('/cart', (req, res) => {
-  api.getItemsInCart()
-  .then((response) => {
-  res.status(200).send(response)
-})
-    .catch((error) => {
-      console.error('ERROR IN SERVER GET', error)
-      res.sendStatus(400)
-    })
-})
+// //retrieves list of products added to the cart
+// app.get('/cart', (req, res) => {
+//   api.getItemsInCart()
+//   .then((response) => {
+//   res.status(200).send(response)
+// })
+//     .catch((error) => {
+//       console.error('ERROR IN SERVER GET', error)
+//       res.sendStatus(400)
+//     })
+// })
 
-//adds a product to the cart
-app.post('/cart', (req, res) => {
-  api.addToCart(item)
-  .then((response) => {
-  res.status(201).send(response)
-})
-    .catch((error) => {
-      console.error('ERROR IN SERVER GET', error)
-      res.sendStatus(400)
-    })
-})
+// //adds a product to the cart
+// app.post('/cart', (req, res) => {
+//   api.addToCart(item)
+//   .then((response) => {
+//   res.status(201).send(response)
+// })
+//     .catch((error) => {
+//       console.error('ERROR IN SERVER GET', error)
+//       res.sendStatus(400)
+//     })
+// })
 
-//returns ids of porduct related to specified product
-//param must be an INTEGER
-app.get(`/products/:productId/related`, (req, res) =>{
-  //invoke call
-  .then((res) =>console.log(res))
-  .catch((error) => console.log(error))
-})
+// //returns ids of porduct related to specified product
+// //param must be an INTEGER
+// app.get(`/products/:productId/related`, (req, res) =>{
+//   //invoke call
+//   .then((res) =>console.log(res))
+//   .catch((error) => console.log(error))
+// })
 
 //==========================================
 // Reviews and Ratings Routes
@@ -85,12 +85,13 @@ app.get(`/products/:productId/related`, (req, res) =>{
 
 //get list of reviews for a particular product (does not include reported reviews)
 //get reviews for a particular product by id and sort order
-app.get('/reviews/:id', (req, res) => {
-  let product = req.params;
-  //invoke api request
+app.get('/reviews/', (req, res) => {
+  let product = req.query;
+
+  api.getReviews(product)
   .then((data) => {
-    //console.log('data from get reviews', data);
-    res.send(data).status(200);
+    console.log('data from get reviews', data.data);
+    res.send(data.data).status(200);
   })
   .catch((err) => {
     console.error(err);
@@ -98,13 +99,14 @@ app.get('/reviews/:id', (req, res) => {
   });
 });
 
-app.get('/reviews/meta/:id', (req, res) => {
-  let productId = req.params;
+app.get('/reviews/meta/', (req, res) => {
+  let product = req.query;
   //invoke api request for specific product id
-  .then((data) => {
-    //console.log('data from get reviews'meta, data);
-    res.send(data).status(200);
-  })
+  api.getReviewsMeta(product)
+    .then((data) => {
+      console.log('data from get reviews meta', data.data);
+      res.send(data.data).status(200);
+    })
     .catch((err) => {
       console.error(err);
       res.sendStatus(400);
@@ -115,190 +117,200 @@ app.post('/reviews', (req, res) => {
   let newReview = req.body;
   //invoke api request handler for posting reviews to api
     //fires off a get request to save new review in database
-  .then((data) => {
-     //console.log('data from post reviews', data);
-    res.sendStatus(201);
-  })
-  .catch((err) => {
-    console.error(err);
-    res.sendStatus(418);
-  });
+    console.log('post review', req.body)
+    api.postReview(newReview)
+      .then((data) => {
+        console.log('data from post reviews', data.data);
+        res.sendStatus(201);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(418);
+      });
 });
 
-app.put('/reviews/:review_id/helpful', (res, req) => {
-  let updateReviewWithID = req.params;
-  //invoke api request handler to update review in api
-    //fires off a get request to save updated review in database
-  .then((data) => {
-     //console.log('data from put reviews', data);
-    res.sendstatus(204);
-  })
-  .catch((err) => {
-    console.error(err);
-    res.sendStatus(404);
-  });
-});
+// { "product_id": "37311", "rating": 2, "summary": "is this working??", "body": "test 111111", "recommend": true, "photos": "",
+// "characteristics": {
+//     "Fit": 5,
+//     "Comfort": 4
+//   }
+// }
 
-app.put('/reviews/:review_id/report', (req, res) => {
-  //call apiconnect fun
-  .then((data) {
-    console.log('data inside reported review put', data);
-    res.sendStatus(204);
-  })
-  .catch((err) => console.error(err));
-});
+
+// app.put('/reviews/:review_id/helpful', (res, req) => {
+//   let updateReviewWithID = req.params;
+//   //invoke api request handler to update review in api
+//     //fires off a get request to save updated review in database
+//   .then((data) => {
+//      //console.log('data from put reviews', data);
+//     res.sendstatus(204);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//     res.sendStatus(404);
+//   });
+// });
+
+// app.put('/reviews/:review_id/report', (req, res) => {
+//   //call apiconnect fun
+//   .then((data) {
+//     console.log('data inside reported review put', data);
+//     res.sendStatus(204);
+//   })
+//   .catch((err) => console.error(err));
+// });
 
 //==========================================
 // Interactions Routes
 //==========================================
 
 
-//will receive following data in the req.body - element,widget,time (all strings, all required) for post into database
-app.post('/interactions', (req, res) => {
-  //invoke call
-})
+// //will receive following data in the req.body - element,widget,time (all strings, all required) for post into database
+// app.post('/interactions', (req, res) => {
+//   //invoke call
+// })
 
 
-//==========================================
-// Questions And Answers Routes
-//==========================================
+// //==========================================
+// // Questions And Answers Routes
+// //==========================================
 
 
-// Get all questions
-app.get('qa/questions', (req, res) => {
+// // Get all questions
+// app.get('qa/questions', (req, res) => {
 
-  // api function to get qustions for particular product
+//   // api function to get qustions for particular product
 
-  .then((results) => {
-  let results = JSON.stringify(results);
-  res.status(200);
-  res.send(results);
-})
-    .catch((err) => {
-      console.log('Error retrieving questions from api', err);
-      res.status(404);
-      res.send('Error retrieving questions');
-    })
-})
+//   .then((results) => {
+//   let results = JSON.stringify(results);
+//   res.status(200);
+//   res.send(results);
+// })
+//     .catch((err) => {
+//       console.log('Error retrieving questions from api', err);
+//       res.status(404);
+//       res.send('Error retrieving questions');
+//     })
+// })
 
-// Get answers for given question
+// // Get answers for given question
 
-app.get('/qa/questions/:question_id/answers', (req, res) => {
+// app.get('/qa/questions/:question_id/answers', (req, res) => {
 
-  // api function to get answers to question
+//   // api function to get answers to question
 
-  .then((results) => {
-  let results = JSON.stringify(results);
-  res.status(200);
-  res.send(results);
-})
-    .catch((err) => {
-      console.log('Error retrieving answers for question', err);
-      res.status(404);
-      res.send('Error retrieving answers for question');
-    })
-})
+//   .then((results) => {
+//   let results = JSON.stringify(results);
+//   res.status(200);
+//   res.send(results);
+// })
+//     .catch((err) => {
+//       console.log('Error retrieving answers for question', err);
+//       res.status(404);
+//       res.send('Error retrieving answers for question');
+//     })
+// })
 
-// Add a question
+// // Add a question
 
-app.post('/qa/questions', (req, res) => {
+// app.post('/qa/questions', (req, res) => {
 
-  // api function to post a question
+//   // api function to post a question
 
-  .then((success) => {
-  res.status(201);
-  res.send('Successfully Posted A Question');
-})
-    .catch((err) => {
-      console.log('Error Posting Question to API', err);
-      res.status(404);
-      res.send('Error Posting A Question');
-    })
-})
+//   .then((success) => {
+//   res.status(201);
+//   res.send('Successfully Posted A Question');
+// })
+//     .catch((err) => {
+//       console.log('Error Posting Question to API', err);
+//       res.status(404);
+//       res.send('Error Posting A Question');
+//     })
+// })
 
-// Add an answer
+// // Add an answer
 
-app.post('/qa/questions/:question_id/answers', (req, res) => {
+// app.post('/qa/questions/:question_id/answers', (req, res) => {
 
-  // api function to post an answer
+//   // api function to post an answer
 
-  .then((success) => {
-  res.status(201);
-  res.send('Successfully Posted an Answer');
-})
-    .catch((err) => {
-      console.log('Error Posting Answer to API', err);
-      res.status(404);
-      res.send('Error Posting an Answer');
-    })
-})
+//   .then((success) => {
+//   res.status(201);
+//   res.send('Successfully Posted an Answer');
+// })
+//     .catch((err) => {
+//       console.log('Error Posting Answer to API', err);
+//       res.status(404);
+//       res.send('Error Posting an Answer');
+//     })
+// })
 
-// Mark Question as Helpful
+// // Mark Question as Helpful
 
-app.put('/qa/questions/:question_id/helpful', (req, res) => {
+// app.put('/qa/questions/:question_id/helpful', (req, res) => {
 
-   // api function to mark question
+//    // api function to mark question
 
-   .then((success) => {
-     res.status(201);
-     res.send('Successfully Marked Question Helpful');
-   })
-   .catch((err) => {
-      console.log('Error Marking Question Helpful to API', err);
-      res.status(404);
-      res.send('Error Marking Question Helpful');
-  })
-})
+//    .then((success) => {
+//      res.status(201);
+//      res.send('Successfully Marked Question Helpful');
+//    })
+//    .catch((err) => {
+//       console.log('Error Marking Question Helpful to API', err);
+//       res.status(404);
+//       res.send('Error Marking Question Helpful');
+//   })
+// })
 
-// Report Question
+// // Report Question
 
-app.put('/qa/questions/:question_id/report', (req, res) => {
+// app.put('/qa/questions/:question_id/report', (req, res) => {
 
-  // api function to report question
+//   // api function to report question
 
-  .then((success) => {
-    res.status(201);
-    res.send('Successfully Reported Question');
-  })
-  .catch((err) => {
-     console.log('Error Reporting Question to API', err);
-     res.status(404);
-     res.send('Error Reporting Question');
- })
-})
+//   .then((success) => {
+//     res.status(201);
+//     res.send('Successfully Reported Question');
+//   })
+//   .catch((err) => {
+//      console.log('Error Reporting Question to API', err);
+//      res.status(404);
+//      res.send('Error Reporting Question');
+//  })
+// })
 
-// Mark Answer as Helpful
+// // Mark Answer as Helpful
 
-app.put('/qa/answers/:answer_id/helpful', (req, res) => {
+// app.put('/qa/answers/:answer_id/helpful', (req, res) => {
 
-  // api function to mark answer helpful
+//   // api function to mark answer helpful
 
-  .then((success) => {
-    res.status(201);
-    res.send('Successfully Marked Answer Helpful');
-  })
-  .catch((err) => {
-     console.log('Error Marking Answer Helpful', err);
-     res.status(404);
-     res.send('Error Marking Answer Helpful');
- })
-})
+//   .then((success) => {
+//     res.status(201);
+//     res.send('Successfully Marked Answer Helpful');
+//   })
+//   .catch((err) => {
+//      console.log('Error Marking Answer Helpful', err);
+//      res.status(404);
+//      res.send('Error Marking Answer Helpful');
+//  })
+// })
 
-// Report Answer
+// // Report Answer
 
-app.put('/qa/answers/:answer_id/report', (req, res) => {
+// app.put('/qa/answers/:answer_id/report', (req, res) => {
 
-  // api function to report answer
-  .then((success) => {
-    res.status(201);
-    res.send('Successfully Reported Answer');
-  })
-  .catch((err) => {
-     console.log('Error Reporting Answer', err);
-     res.status(404);
-     res.send('Error Reporting Answer');
- })
-})
+//   // api function to report answer
+//   .then((success) => {
+//     res.status(201);
+//     res.send('Successfully Reported Answer');
+//   })
+//   .catch((err) => {
+//      console.log('Error Reporting Answer', err);
+//      res.status(404);
+//      res.send('Error Reporting Answer');
+//  })
+// })
 
 
 
