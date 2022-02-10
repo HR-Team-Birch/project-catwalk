@@ -219,5 +219,13 @@ module.exports = {
   getReviewsMeta: getReviewsMeta,
   postReview: postReview,
   markReviewAsHelpful: markReviewAsHelpful,
-  reportReview: reportReview
+  reportReview: reportReview,
+  getQuestions: getQuestions,
+  getAnswers: getAnswers,
+  addQuestion: addQuestion,
+  addAnswer: addAnswer,
+  markQHelpful: markQHelpful,
+  reportQuestion: reportQuestion,
+  markAHelpful: markAHelpful,
+  reportAnswer: reportAnswer
 }
