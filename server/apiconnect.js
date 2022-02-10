@@ -37,6 +37,15 @@ const getAllStyles = (prodID) => {
   return axios.get(options.url, options)
 }
 
+//get products related to display item
+const relatedProductIds = (id) => {
+  return axios.get(`${url}/products/${id}/related`,{
+    headers: {
+      'Authorization': `token ${config.TOKEN}`
+    }
+  })
+  }
+
 //retrieves list of products added to card
 const getItemsInCart = () => {
   let options = {
