@@ -184,7 +184,7 @@ app.get('/qa/questions/', (req, res) => {
 // Get answers for given question
 
 app.get('/qa/questions/:question_id/answers', (req, res) => {
-
+// need to get page and count query working
   api.getAnswers(req.params)
     .then((results) => {
       res.status(200);
@@ -200,14 +200,13 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
 // Add a question
 
 app.post('/qa/questions', (req, res) => {
- // need to get page and count query working
   api.addQuestion(req.body)
     .then((success) => {
       res.status(201);
       res.send('Successfully Posted A Question');
     })
     .catch((err) => {
-      console.log('Error Posting Question to API', err);
+      //console.log('Error Posting Question to API', err);
       res.status(404);
       res.send('Error Posting A Question');
     })
@@ -223,7 +222,7 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
       res.send('Successfully Posted an Answer');
     })
     .catch((err) => {
-      console.log('Error Posting Answer to API', err);
+      //console.log('Error Posting Answer to API', err);
       res.status(404);
       res.send('Error Posting an Answer');
     })
