@@ -141,5 +141,4 @@ module.exports = {
   postReview: postReview,
   markReviewAsHelpful: markReviewAsHelpful,
   reportReview: reportReview
-
 }
