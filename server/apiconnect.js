@@ -162,10 +162,12 @@ const addQuestion = (data) => {
 }
 
 const addAnswer = (questionId, data) => {
+  console.log('questionID', question_id)
+  console.log('data', data);
   let options = {
     url: `${url}/qa/questions/${questionId}/answers`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`,
+      'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
     },
     data: data
