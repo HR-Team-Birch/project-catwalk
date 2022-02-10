@@ -18,6 +18,13 @@ const getAllProducts = () => {
 //get data for product with this ID
 const getProductInfo = (prodID) => {
   //options?
+  let options = {
+    url: `${url}/products/${prodID}`,
+    headers: {
+      'Authorization': `token ${config.TOKEN}`
+      'Content-Type': 'application/json'
+    }
+  };
   return axios.get(options)
 }
 
