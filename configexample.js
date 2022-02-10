@@ -1,4 +1,5 @@
 module.exports = {
   TOKEN: "insertokenhere"
 }
+
 //DO NOT PUT TOKEN IN THIS EXAMPLE FILE, MAKE YOUR OWN CONFIG.JS LOCALLY
