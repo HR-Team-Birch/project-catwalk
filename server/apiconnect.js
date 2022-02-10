@@ -118,9 +118,95 @@ const reportReview = (reviewId) => {
   return axios.put(options);
 }
 
+const getQuestions = (productId) => {
+  let options = {
+    url: `${url}/qa/questions/${productId}`,
+    headers: {
+      'Authorization': `token ${config.TOKEN}`
+      'Content-Type': 'application/json'
+    }
+  };
+  return axios.get(options)
+}
 
+const getAnswers = (questionId) => {
+  let options = {
+    url: `${url}/qa/questions/${questionId}/answers`,
+    headers: {
+      'Authorization': `token ${config.TOKEN}`
+      'Content-Type': 'application/json'
+    }
+  };
+  return axios.get(options)
+}
 
+const addQuestion = (data) => {
+  let options = {
+    url: `${url}/qa/questions`,
+    headers: {
+      'Authorization': `token ${config.TOKEN}`
+      'Content-Type': 'application/json'
+    },
+    data: data
+  };
+  return axios.post(options, data)
+}
 
+const addAnswer = (questionId) => {
+  let options = {
+    url: `${url}/qa/questions/${questionId}/answers`,
+    headers: {
+      'Authorization': `token ${config.TOKEN}`
+      'Content-Type': 'application/json'
+    },
+    data: data
+  };
+  return axios.post(options, data)
+}
+
+const markQHelpful = (questionId) => {
+  let options = {
+    url: `${url}/qa/questions/${questionId}/helpful`,
+    headers: {
+      'Authorization': `token ${config.TOKEN}`
+      'Content-Type': 'application/json'
+    },
+  };
+  return axios.put(options)
+}
+
+const reportQuestion = (questionId) => {
+  let options = {
+    url: `${url}/qa/questions/${questionId}/report`,
+    headers: {
+      'Authorization': `token ${config.TOKEN}`
+      'Content-Type': 'application/json'
+    },
+  };
+  return axios.put(options)
+}
+
+const markAHelpful = (answerId) => {
+  let options = {
+    url: `${url}/qa/answers/${answerId}/helpful`,
+    headers: {
+      'Authorization': `token ${config.TOKEN}`
+      'Content-Type': 'application/json'
+    },
+  };
+  return axios.put(options)
+}
+
+const reportAnswer = (answerId) => {
+  let options = {
+    url: `${url}/qa/answers/${answerId}/report`,
+    headers: {
+      'Authorization': `token ${config.TOKEN}`
+      'Content-Type': 'application/json'
+    },
+  };
+  return axios.put(options)
+}
 
 
 module.exports = {
