@@ -72,7 +72,7 @@ const getReviews = (productId) => {
   return axios.get(options);
 };
 
-const getReviews = (productId) => {
+const getReviewsMeta = (productId) => {
   let options = {
     url: `${url}/reviews/meta/${productId}`,
     headers: {
@@ -83,7 +83,7 @@ const getReviews = (productId) => {
   return axios.get(options);
 };
 
-const postReview= (review) => {
+const postReview = (review) => {
   let options = {
     url: `${url}/reviews`,
     headers: {
@@ -214,5 +214,10 @@ module.exports = {
   getProductInfo: getProductInfo,
   addToCart: addToCart,
   getItemsInCart: getItemsInCart,
-  getAllStyles: getAllStyles
+  getAllStyles: getAllStyles,
+  getReviews: getReviews,
+  getReviewsMeta: getReviewsMeta,
+  postReview: postReview,
+  markReviewAsHelpful: markReviewAsHelpful,
+  reportReview: reportReview
 }
