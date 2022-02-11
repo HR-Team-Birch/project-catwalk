@@ -13,6 +13,7 @@ app.use(express.json());
 
 //gets the list of products
 app.get('/products', (req, res) => {
+  console.log('PRODUCTS');
   api.getAllProducts()
     .then((response) => {
     res.status(200).send(response.data)
@@ -122,8 +123,6 @@ app.post('/reviews', (req, res) => {
     });
 });
 
-
-
 app.put('/reviews/:review_id/helpful', (req, res) => {
   api.markReviewAsHelpful(req.params)
     .then((data) => {
@@ -142,6 +141,7 @@ app.put('/reviews/:review_id/report', (req, res) => {
     .catch((err) => res.sendStatus(418));
 });
 
+
 //==========================================
 // Interactions Routes
 //==========================================
@@ -159,17 +159,15 @@ app.post('/interactions', (req, res) => {
 
 
 // Get all questions
-app.get('qa/questions', (req, res) => {
-
-  // api function to get qustions for particular product
-
-  .then((results) => {
-  let results = JSON.stringify(results);
-  res.status(200);
-  res.send(results);
-})
+app.get('/qa/questions/', (req, res) => {
+ // need to setup multiple queries
+  api.getQuestions(req.query)
+    .then((results) => {
+      res.status(200);
+      res.send(results.data);
+    })
     .catch((err) => {
-      console.log('Error retrieving questions from api', err);
+      console.log(err);
       res.status(404);
       res.send('Error retrieving questions');
     })
@@ -178,16 +176,14 @@ app.get('qa/questions', (req, res) => {
 // Get answers for given question
 
 app.get('/qa/questions/:question_id/answers', (req, res) => {
-
-  // api function to get answers to question
-
-  .then((results) => {
-  let results = JSON.stringify(results);
-  res.status(200);
-  res.send(results);
-})
+// need to get page and count query working
+  api.getAnswers(req.params)
+    .then((results) => {
+      res.status(200);
+      res.send(results.data);
+    })
     .catch((err) => {
-      console.log('Error retrieving answers for question', err);
+      //console.log('Error retrieving answers for question', err);
       res.status(404);
       res.send('Error retrieving answers for question');
     })
@@ -196,15 +192,13 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
 // Add a question
 
 app.post('/qa/questions', (req, res) => {
-
-  // api function to post a question
-
-  .then((success) => {
-  res.status(201);
-  res.send('Successfully Posted A Question');
-})
+  api.addQuestion(req.body)
+    .then((success) => {
+      res.status(201);
+      res.send('Successfully Posted A Question');
+    })
     .catch((err) => {
-      console.log('Error Posting Question to API', err);
+      //console.log('Error Posting Question to API', err);
       res.status(404);
       res.send('Error Posting A Question');
     })
@@ -213,15 +207,12 @@ app.post('/qa/questions', (req, res) => {
 // Add an answer
 
 app.post('/qa/questions/:question_id/answers', (req, res) => {
-
-  // api function to post an answer
-
-  .then((success) => {
-  res.status(201);
-  res.send('Successfully Posted an Answer');
-})
+  api.addAnswer(req.params, req.body)
+    .then((success) => {
+      res.status(201);
+      res.send('Successfully Posted an Answer');
+    })
     .catch((err) => {
-      console.log('Error Posting Answer to API', err);
       res.status(404);
       res.send('Error Posting an Answer');
     })
@@ -230,68 +221,60 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
 // Mark Question as Helpful
 
 app.put('/qa/questions/:question_id/helpful', (req, res) => {
-
-   // api function to mark question
-
-   .then((success) => {
-     res.status(201);
-     res.send('Successfully Marked Question Helpful');
-   })
-   .catch((err) => {
-      console.log('Error Marking Question Helpful to API', err);
+  api.markQHelpful(req.params)
+    .then((success) => {
+      res.status(204);
+      res.send('Successfully Marked Question Helpful');
+    })
+    .catch((err) => {
       res.status(404);
       res.send('Error Marking Question Helpful');
-  })
+    })
 })
 
 // Report Question
 
 app.put('/qa/questions/:question_id/report', (req, res) => {
-
-  // api function to report question
-
-  .then((success) => {
-    res.status(201);
-    res.send('Successfully Reported Question');
-  })
-  .catch((err) => {
-     console.log('Error Reporting Question to API', err);
-     res.status(404);
-     res.send('Error Reporting Question');
- })
+  console.log('report question!!!!!!!!!!')
+  api.reportQuestion(req.params)
+    .then((success) => {
+      res.status(204);
+      res.send('Successfully Reported Question');
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(404);
+      res.send('Error Reporting Question');
+    })
 })
 
 // Mark Answer as Helpful
 
 app.put('/qa/answers/:answer_id/helpful', (req, res) => {
 
-  // api function to mark answer helpful
-
-  .then((success) => {
-    res.status(201);
-    res.send('Successfully Marked Answer Helpful');
-  })
-  .catch((err) => {
-     console.log('Error Marking Answer Helpful', err);
-     res.status(404);
-     res.send('Error Marking Answer Helpful');
- })
+  api.markAHelpful(req.params)
+    .then((success) => {
+      res.status(204);
+      res.send('Successfully Marked Answer Helpful');
+    })
+    .catch((err) => {
+      res.status(404);
+      res.send('Error Marking Answer Helpful');
+    })
 })
 
 // Report Answer
 
 app.put('/qa/answers/:answer_id/report', (req, res) => {
-
-  // api function to report answer
-  .then((success) => {
-    res.status(201);
-    res.send('Successfully Reported Answer');
-  })
-  .catch((err) => {
-     console.log('Error Reporting Answer', err);
-     res.status(404);
-     res.send('Error Reporting Answer');
- })
+  api.reportAnswer(req.params)
+    .then((success) => {
+      res.status(204);
+      res.send('Successfully Reported Answer');
+    })
+    .catch((err) => {
+      res.status(404);
+      res.send('Error Reporting Answer');
+    })
 })
 
 
