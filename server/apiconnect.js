@@ -164,24 +164,21 @@ const addQuestion = (data) => {
 }
 
 const addAnswer = (questionId, data) => {
-  console.log('questionID', question_id)
-  console.log('data', data);
   let options = {
-    url: `${url}/qa/questions/${questionId}/answers`,
+    url: `${url}/qa/questions/${questionId.question_id}/answers`,
     headers: {
       'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
     },
-    data: data
   };
-  return axios.post(options, data)
+  return axios.post(options.url, data, options)
 }
 
 const markQHelpful = (questionId) => {
   let options = {
     url: `${url}/qa/questions/${questionId}/helpful`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`,
+      'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
     },
   };
