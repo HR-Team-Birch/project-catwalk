@@ -175,36 +175,38 @@ const addAnswer = (questionId, data) => {
 }
 
 const markQHelpful = (questionId) => {
+  console.log(questionId);
   let options = {
-    url: `${url}/qa/questions/${questionId}/helpful`,
+    url: `${url}/qa/questions/${questionId.question_id}/helpful`,
     headers: {
       'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
     },
   };
-  return axios.put(options)
+  console.log('yoooooo', options.url);
+  return axios.put(options.url, options)
 }
 
 const reportQuestion = (questionId) => {
   let options = {
-    url: `${url}/qa/questions/${questionId}/report`,
+    url: `${url}/qa/questions/${questionId.question_id}/report`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`,
+      'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
     },
   };
-  return axios.put(options)
+  return axios.put(options.url, options)
 }
 
 const markAHelpful = (answerId) => {
-  let options = {
-    url: `${url}/qa/answers/${answerId}/helpful`,
+   return axios({
+    method: 'PUT',
+    url: `${url}/qa/answers/${answerId.answer_id}/helpful`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`,
+      'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
-    },
-  };
-  return axios.put(options)
+    }
+  })
 }
 
 const reportAnswer = (answerId) => {
