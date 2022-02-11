@@ -140,28 +140,28 @@ app.post('/reviews', (req, res) => {
 // }
 
 
-app.put('/reviews/:review_id/helpful', (res, req) => {
-  let updateReviewWithID = req.params;
-  //invoke api request handler to update review in api
-    //fires off a get request to save updated review in database
-  .then((data) => {
-     //console.log('data from put reviews', data);
-    res.sendstatus(204);
-  })
-  .catch((err) => {
-    console.error(err);
-    res.sendStatus(404);
-  });
-});
+// app.put('/reviews/:review_id/helpful', (res, req) => {
+//   let updateReviewWithID = req.params;
+//   //invoke api request handler to update review in api
+//     //fires off a get request to save updated review in database
+//   .then((data) => {
+//      //console.log('data from put reviews', data);
+//     res.sendstatus(204);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//     res.sendStatus(404);
+//   });
+// });
 
-app.put('/reviews/:review_id/report', (req, res) => {
-  //call apiconnect fun
-  .then((data) {
-    console.log('data inside reported review put', data);
-    res.sendStatus(204);
-  })
-  .catch((err) => console.error(err));
-});
+// app.put('/reviews/:review_id/report', (req, res) => {
+//   //call apiconnect fun
+//   .then((data) {
+//     console.log('data inside reported review put', data);
+//     res.sendStatus(204);
+//   })
+//   .catch((err) => console.error(err));
+// });
 
 //==========================================
 // Interactions Routes
@@ -235,7 +235,6 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
       res.send('Successfully Posted an Answer');
     })
     .catch((err) => {
-      //console.log('Error Posting Answer to API', err);
       res.status(404);
       res.send('Error Posting an Answer');
     })
@@ -267,7 +266,6 @@ app.put('/qa/questions/:question_id/report', (req, res) => {
       res.send('Successfully Reported Question');
     })
     .catch((err) => {
-      console.log('Error Reporting Question to API', err);
       res.status(404);
       res.send('Error Reporting Question');
     })
