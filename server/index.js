@@ -250,7 +250,7 @@ app.put('/qa/questions/:question_id/helpful', (req, res) => {
       res.send('Successfully Marked Question Helpful');
     })
     .catch((err) => {
-      console.log('Error Marking Question Helpful to API', err);
+      //console.log('Error Marking Question Helpful to API', err);
       res.status(404);
       res.send('Error Marking Question Helpful');
     })
@@ -259,13 +259,14 @@ app.put('/qa/questions/:question_id/helpful', (req, res) => {
 // Report Question
 
 app.put('/qa/questions/:question_id/report', (req, res) => {
-
+  console.log('report!!!!!!!!!!')
   api.reportQuestion(req.params)
     .then((success) => {
       res.status(201);
       res.send('Successfully Reported Question');
     })
     .catch((err) => {
+      console.log(err);
       res.status(404);
       res.send('Error Reporting Question');
     })
@@ -281,7 +282,6 @@ app.put('/qa/answers/:answer_id/helpful', (req, res) => {
       res.send('Successfully Marked Answer Helpful');
     })
     .catch((err) => {
-      console.log('Error Marking Answer Helpful', err);
       res.status(404);
       res.send('Error Marking Answer Helpful');
     })
