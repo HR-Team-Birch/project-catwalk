@@ -175,16 +175,25 @@ const addAnswer = (questionId, data) => {
 }
 
 const markQHelpful = (questionId) => {
-  console.log(questionId);
-  let options = {
+  // console.log(questionId);
+  // let options = {
+  //   url: `${url}/qa/questions/${questionId.question_id}/helpful`,
+  //   headers: {
+  //     'Authorization': `${TOKEN}`,
+  //     'Content-Type': 'application/json'
+  //   },
+  // };
+  // console.log('yoooooo', options.url);
+  // return axios.put(options.url, options)
+
+  return axios({
+    method: 'PUT',
     url: `${url}/qa/questions/${questionId.question_id}/helpful`,
     headers: {
       'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
-    },
-  };
-  console.log('yoooooo', options.url);
-  return axios.put(options.url, options)
+    }
+  })
 }
 
 const reportQuestion = (questionId) => {
