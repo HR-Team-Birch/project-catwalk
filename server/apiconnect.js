@@ -129,93 +129,90 @@ const reportReview = (reviewId) => {
 }
 
 const getQuestions = (productId) => {
+  // console.log('product ID', productId);
+  // need to setup multiple queries
   let options = {
-    url: `${url}/qa/questions/${productId}`,
+    url: `${url}/qa/questions/?product_id=${productId.product_id}`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
-      'Content-Type': 'application/json'
+      'Authorization': `${TOKEN}`
     }
   };
-  return axios.get(options)
+  return axios.get(options.url, options)
 }
 
 const getAnswers = (questionId) => {
+  console.log('questionId', questionId);
+  // need to get page and count query working
   let options = {
-    url: `${url}/qa/questions/${questionId}/answers`,
+    url: `${url}/qa/questions/${questionId.question_id}/answers`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
-      'Content-Type': 'application/json'
+      'Authorization': `${TOKEN}`,
     }
   };
-  return axios.get(options)
+  return axios.get(options.url, options);
 }
 
 const addQuestion = (data) => {
   let options = {
     url: `${url}/qa/questions`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
     },
-    data: data
   };
-  return axios.post(options, data)
+  return axios.post(options.url, data, options)
 }
 
-const addAnswer = (questionId) => {
+const addAnswer = (questionId, data) => {
   let options = {
-    url: `${url}/qa/questions/${questionId}/answers`,
+    url: `${url}/qa/questions/${questionId.question_id}/answers`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
     },
-    data: data
   };
-  return axios.post(options, data)
+  return axios.post(options.url, data, options)
 }
 
 const markQHelpful = (questionId) => {
-  let options = {
-    url: `${url}/qa/questions/${questionId}/helpful`,
+  return axios({
+    method: 'PUT',
+    url: `${url}/qa/questions/${questionId.question_id}/helpful`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
-    },
-  };
-  return axios.put(options)
+    }
+  })
 }
 
 const reportQuestion = (questionId) => {
-  let options = {
-    url: `${url}/qa/questions/${questionId}/report`,
+  return axios({
+    method: 'PUT',
+    url: `${url}/qa/questions/${questionId.question_id}/report`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
-      'Content-Type': 'application/json'
-    },
-  };
-  return axios.put(options)
+      'Authorization': `${TOKEN}`
+    }
+  })
 }
 
 const markAHelpful = (answerId) => {
-  let options = {
-    url: `${url}/qa/answers/${answerId}/helpful`,
+   return axios({
+    method: 'PUT',
+    url: `${url}/qa/answers/${answerId.answer_id}/helpful`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
-      'Content-Type': 'application/json'
-    },
-  };
-  return axios.put(options)
+      'Authorization': `${TOKEN}`
+    }
+  })
 }
 
 const reportAnswer = (answerId) => {
-  let options = {
-    url: `${url}/qa/answers/${answerId}/report`,
+  return axios({
+    method: 'PUT',
+    url: `${url}/qa/answers/${answerId.answer_id}/report`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`
-      'Content-Type': 'application/json'
-    },
-  };
-  return axios.put(options)
+      'Authorization': `${TOKEN}`
+    }
+  })
 }
 
 
