@@ -175,17 +175,6 @@ const addAnswer = (questionId, data) => {
 }
 
 const markQHelpful = (questionId) => {
-  // console.log(questionId);
-  // let options = {
-  //   url: `${url}/qa/questions/${questionId.question_id}/helpful`,
-  //   headers: {
-  //     'Authorization': `${TOKEN}`,
-  //     'Content-Type': 'application/json'
-  //   },
-  // };
-  // console.log('yoooooo', options.url);
-  // return axios.put(options.url, options)
-
   return axios({
     method: 'PUT',
     url: `${url}/qa/questions/${questionId.question_id}/helpful`,
@@ -197,14 +186,13 @@ const markQHelpful = (questionId) => {
 }
 
 const reportQuestion = (questionId) => {
-  let options = {
+  return axios({
+    method: 'PUT',
     url: `${url}/qa/questions/${questionId.question_id}/report`,
     headers: {
-      'Authorization': `${TOKEN}`,
-      'Content-Type': 'application/json'
-    },
-  };
-  return axios.put(options.url, options)
+      'Authorization': `${TOKEN}`
+    }
+  })
 }
 
 const markAHelpful = (answerId) => {
@@ -212,21 +200,19 @@ const markAHelpful = (answerId) => {
     method: 'PUT',
     url: `${url}/qa/answers/${answerId.answer_id}/helpful`,
     headers: {
-      'Authorization': `${TOKEN}`,
-      'Content-Type': 'application/json'
+      'Authorization': `${TOKEN}`
     }
   })
 }
 
 const reportAnswer = (answerId) => {
-  let options = {
-    url: `${url}/qa/answers/${answerId}/report`,
+  return axios({
+    method: 'PUT',
+    url: `${url}/qa/answers/${answerId.answer_id}/report`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`,
-      'Content-Type': 'application/json'
-    },
-  };
-  return axios.put(options)
+      'Authorization': `${TOKEN}`
+    }
+  })
 }
 
 
