@@ -244,7 +244,7 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
 app.put('/qa/questions/:question_id/helpful', (req, res) => {
   api.markQHelpful(req.params)
     .then((success) => {
-      res.status(201);
+      res.status(204);
       res.send('Successfully Marked Question Helpful');
     })
     .catch((err) => {
@@ -256,10 +256,10 @@ app.put('/qa/questions/:question_id/helpful', (req, res) => {
 // Report Question
 
 app.put('/qa/questions/:question_id/report', (req, res) => {
-  console.log('report!!!!!!!!!!')
+  console.log('report question!!!!!!!!!!')
   api.reportQuestion(req.params)
     .then((success) => {
-      res.status(201);
+      res.status(204);
       res.send('Successfully Reported Question');
     })
     .catch((err) => {
@@ -275,7 +275,7 @@ app.put('/qa/answers/:answer_id/helpful', (req, res) => {
 
   api.markAHelpful(req.params)
     .then((success) => {
-      res.status(201);
+      res.status(204);
       res.send('Successfully Marked Answer Helpful');
     })
     .catch((err) => {
@@ -287,14 +287,12 @@ app.put('/qa/answers/:answer_id/helpful', (req, res) => {
 // Report Answer
 
 app.put('/qa/answers/:answer_id/report', (req, res) => {
-
   api.reportAnswer(req.params)
     .then((success) => {
-      res.status(201);
+      res.status(204);
       res.send('Successfully Reported Answer');
     })
     .catch((err) => {
-      console.log('Error Reporting Answer', err);
       res.status(404);
       res.send('Error Reporting Answer');
     })
