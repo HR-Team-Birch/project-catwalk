@@ -2,7 +2,9 @@ const axios = require('axios');
 const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
 const {TOKEN} = require('../config.js')
 
-
+//==========================================
+// Products Routes
+//==========================================
 
 const getAllProducts = () => {
   let options = {
@@ -70,11 +72,12 @@ const addToCart = (prodID) => {
   return axios.post(options.url, data, options)
 }
 
-
+//==========================================
+// Reviews and Ratings Routes
+//==========================================
 
 
 const getReviews = (productId) => {
-  console.log('productId inside apiconnect', productId)
   let options = {
     url: `${url}/reviews/?product_id=${productId.product_id}&count=${productId.count ? productId.count : 5}&page=${productId.page ? productId.page : 1}`,
     headers: {
@@ -94,39 +97,42 @@ const getReviewsMeta = (productId) => {
   return axios.get(options.url, options);
 };
 
-const postReview = (product) => {
+const postReview = (newReview) => {
   let options = {
-    url: `${url}/reviews/${product.product_id}`,
+    url: `${url}/reviews`,
     headers: {
       'Authorization': `${TOKEN}`
     }
   };
-  return axios.post(options.url, options, product.review);
+  return axios.post(options.url, newReview, options);
 };
 
 const markReviewAsHelpful = (reviewId) => {
-  let options = {
-    url: `${url}/reviews`,
+  return axios({
+    method: "PUT",
+    url: `${url}/reviews/${reviewId.review_id}/helpful`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`,
+      'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
     }
-  };
-  //increment helpfulness count
-  return axios.put(options, reviewId);
+  })
 };
 
 const reportReview = (reviewId) => {
-  let options = {
-    url: `${url}/reviews/${reviewId}/`,
+  return axios({
+    method: "PUT",
+    url: `${url}/reviews/${reviewId.review_id}/report`,
     headers: {
-      'Authorization': `token ${config.TOKEN}`,
+      'Authorization': `${TOKEN}`,
       'Content-Type': 'application/json'
     }
-  };
-  //changes something from false to true
-  return axios.put(options);
+  })
 }
+
+// //==========================================
+// // Questions And Answers Routes
+// //==========================================
+
 
 const getQuestions = (productId) => {
   let options = {

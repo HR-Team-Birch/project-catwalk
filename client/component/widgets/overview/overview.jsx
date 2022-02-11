@@ -81,3 +81,5 @@ return (
     <addToCart />
   </div>
 )
+
+export default Overview;
