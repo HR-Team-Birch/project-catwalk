@@ -228,7 +228,6 @@ app.post('/qa/questions', (req, res) => {
 // Add an answer
 
 app.post('/qa/questions/:question_id/answers', (req, res) => {
-
   api.addAnswer(req.params, req.body)
     .then((success) => {
       res.status(201);
@@ -243,14 +242,12 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
 // Mark Question as Helpful
 
 app.put('/qa/questions/:question_id/helpful', (req, res) => {
-
   api.markQHelpful(req.params)
     .then((success) => {
       res.status(201);
       res.send('Successfully Marked Question Helpful');
     })
     .catch((err) => {
-      //console.log('Error Marking Question Helpful to API', err);
       res.status(404);
       res.send('Error Marking Question Helpful');
     })
