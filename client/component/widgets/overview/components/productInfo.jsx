@@ -1,6 +1,7 @@
 import React from 'react'
-//import socialMedia from '/socialMedia.jsx'
-//import starRatings from './../../Shared components/starRatings.jsx'
+import socialMedia from './little components/socialMedia.jsx'
+import starRatings from './../../Shared components/starRatings.jsx'
+
 function productInfo(props) {
   return(
     <div>
@@ -8,8 +9,8 @@ function productInfo(props) {
       <div>Category</div>
       <div>Name</div>
       <div>Description</div>
-      <div>Social Media</div>
-      <div>Star ratings</div>
+      <socialMedia />
+      <starRatings />
     </div>
   )
 }
