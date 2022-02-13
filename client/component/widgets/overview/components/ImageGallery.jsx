@@ -1,19 +1,14 @@
 import React from 'react'
 //import ExtendedView from './ExtendedView.jsx'
 
-class ImageGallery extends React.Component {
-  constructor(props) {
-    super(props)
-    //current photo
-  }
-  render() {
+  function ImageGallery(props) {
     return (
       <div className="ImageGallery">
-        Photos
+        <img className="mainimg" src={props.currentStyle.photos[0].url} alt="some pic idk"/>
         {/*<ExtendedView className="ExtendedView"/>*/}
       </div>
     )
   }
-}
+//}
 
 export default ImageGallery;

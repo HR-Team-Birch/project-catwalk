@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Description() {
+function Description(props) {
   return(
-    <div className="Description">Description</div>
+    <div className="Description">{props.currentProduct.description}</div>
   )
 }
 

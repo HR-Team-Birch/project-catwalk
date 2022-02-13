@@ -13,7 +13,6 @@ app.use(express.json());
 
 //gets the list of products
 app.get('/products', (req, res) => {
-  console.log('PRODUCTS');
   api.getAllProducts()
     .then((response) => {
     res.status(200).send(response.data)

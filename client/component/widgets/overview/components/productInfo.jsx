@@ -7,11 +7,11 @@ function ProductInfo(props) {
     <div className="ProductInfo">
       <StarRatings />
       <SocialMedia />
-      <div>
+      <div className="Details">
         
-        <div>Price</div>
-        <div>Category</div>
-        <div>Name</div>
+        <div>{props.currentProduct.default_price}</div>
+        <div>{props.currentProduct.category}</div>
+        <div>{props.currentProduct.name}</div>
       </div>
     </div>
   )

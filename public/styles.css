@@ -53,3 +53,14 @@
   grid-row-start: 4;
   grid-column: 1 / span 5
 }
+
+.Details {
+  border: 5px solid rgb(128, 70, 4);
+  grid-row: 2 / span 4;
+}
+
+.mainimg {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
