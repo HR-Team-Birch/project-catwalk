@@ -2,9 +2,13 @@ import React from 'react'
 
 function socialMedia(props) {
   return (
-    <div>Twitter</div>
-    <div>Facebook</div>
-    <div>Pinterest</div>
+    <div>
+      
+      <div>Twitter</div>
+      <div>Facebook</div>
+      <div>Pinterest</div>
+      
+    </div>
   )
 }
 

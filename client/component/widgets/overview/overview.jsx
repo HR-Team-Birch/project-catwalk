@@ -3,8 +3,6 @@ import axios from 'axios'
 import productInfo from './components/productInfo.jsx'
 import styleSelector from './components/styleSelector.jsx'
 
-//Will get current product from App.js
-//will be an object
 //example product object
 //{
 //  "id": 37311,
@@ -20,7 +18,7 @@ import styleSelector from './components/styleSelector.jsx'
 
 
 
-class overview extends React.Component {
+class Overview extends React.Component {
   
   constructor(props) {
     super(props)

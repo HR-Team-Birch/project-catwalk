@@ -1,5 +1,5 @@
 import React from 'react'
-import extendedView from './extendedView'
+import extendedView from './extendedView.jsx'
 
 class imageGallery extends React.Component {
   constructor(props) {
