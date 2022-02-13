@@ -9,9 +9,9 @@ function ProductInfo(props) {
       <SocialMedia />
       <div className="Details">
         
-        <div>{props.currentProduct.default_price}</div>
-        <div>{props.currentProduct.category}</div>
-        <div>{props.currentProduct.name}</div>
+        <div className="productCategory">{props.currentProduct.category}</div>
+        <div className="productName">{props.currentProduct.name}</div>
+        <div className="productPrice">${props.currentProduct.default_price}</div>
       </div>
     </div>
   )

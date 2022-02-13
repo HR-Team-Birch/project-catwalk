@@ -45,9 +45,9 @@ class Overview extends React.Component {
     axios.get('/products')
       .then((response) => {
         this.setState({
-          currentProduct: response.data[0]
+          currentProduct: response.data[5]
         })
-        this.getAllStyles(response.data[0].id);
+        this.getAllStyles(response.data[5].id);
       })
       .catch((error) => {
         console.error('ERROR IN CLIENT GET', error)
