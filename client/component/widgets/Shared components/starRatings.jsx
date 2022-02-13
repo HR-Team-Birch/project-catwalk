@@ -1,9 +1,9 @@
 import React from 'react'
 
-function starRatings(props) {
+function StarRatings(props) {
   return(
-    <div>Star Ratings</div> 
+    <div className="StarRatings">Star Ratings</div> 
   )
 }
 
-export default starRatings
+export default StarRatings

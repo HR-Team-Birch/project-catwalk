@@ -1,7 +1,11 @@
 import React from 'react'
 import axios from 'axios'
-import productInfo from './components/productInfo.jsx'
-import styleSelector from './components/styleSelector.jsx'
+import ProductInfo from './components/ProductInfo.jsx'
+import StyleSelector from './components/StyleSelector.jsx'
+import ImageGallery from './components/ImageGallery.jsx'
+import Description from './components/Description.jsx'
+import AddToCart from './components/AddToCart.jsx'
+
 
 //example product object
 //{
@@ -81,9 +85,12 @@ class Overview extends React.Component {
   
   render() {
     return (
-      <div>
-        <productInfo />
-        <styleSelector />
+      <div className="Overview">
+        <ImageGallery />
+        <ProductInfo />
+        <StyleSelector />
+        <Description />
+        <AddToCart />
       </div>
     )
     

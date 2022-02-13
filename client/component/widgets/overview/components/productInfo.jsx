@@ -1,20 +1,22 @@
 import React from 'react'
-import socialMedia from './little components/socialMedia.jsx'
-import starRatings from './../../Shared components/starRatings.jsx'
+import SocialMedia from './little components/SocialMedia.jsx'
+import StarRatings from './../../Shared components/StarRatings.jsx'
 
-function productInfo(props) {
+function ProductInfo(props) {
   return(
-    <div>
-      <div>Price {props.product.default_price}.</div>
-      <div>Category</div>
-      <div>Name</div>
-      <div>Description</div>
-      <socialMedia />
-      <starRatings />
+    <div className="ProductInfo">
+      <StarRatings />
+      <SocialMedia />
+      <div>
+        
+        <div>Price</div>
+        <div>Category</div>
+        <div>Name</div>
+      </div>
     </div>
   )
 }
-export default productInfo;
+export default ProductInfo;
 
 
 

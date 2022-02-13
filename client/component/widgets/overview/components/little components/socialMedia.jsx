@@ -1,15 +1,12 @@
 import React from 'react'
 
-function socialMedia(props) {
+function SocialMedia(props) {
   return (
-    <div>
-      
-      <div>Twitter</div>
-      <div>Facebook</div>
-      <div>Pinterest</div>
+    <div className="SocialMedia">
+      Socials
       
     </div>
   )
 }
 
-export default socialMedia;
+export default SocialMedia;

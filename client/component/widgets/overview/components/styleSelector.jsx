@@ -1,8 +1,6 @@
 import React from 'react'
-import imageGallery from './little components/imageGallery.jsx'
-import addToCart from './little components/imageGallery.jsx'
 
-class styleSelector extends React.Component {
+class StyleSelector extends React.Component {
   constructor(props) {
     super(props)
     //current style
@@ -11,12 +9,11 @@ class styleSelector extends React.Component {
   render() {
     return (
       
-    <div>
-      <imageGallery />
-      <addToCart />
+    <div className="StyleSelector">
+      Style Selector
     </div>
     )
   }
 }
 
-export default styleSelector
+export default StyleSelector

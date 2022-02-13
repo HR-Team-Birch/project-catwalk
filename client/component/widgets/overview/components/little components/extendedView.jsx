@@ -1,9 +1,10 @@
 import React from 'react'
 
-function extendedView(props) {
-  return(
-    <div>extendedView</div>
-  )
-}
+//function ExtendedView(props) {
+//  //if view extention is clicked:
+//  return(
+//    <div>extendedView</div>
+//  )
+//}
 
-export default extendedView;
+//export default ExtendedView;

@@ -1,18 +1,17 @@
 import React from 'react'
-import cartForm from './cartForm.jsx'
 
-class addToCart extends React.Component {
+class AddToCart extends React.Component {
   constructor(props) {
     super(props)
   }
   render() {
     return (
-      <div>
+      <div className="AddToCart">
+        <div> Dropdowns </div>
         <button>Add To Cart</button>
-        <cartForm />
       </div>
     )
   }
 }
 
-export default addToCart
+export default AddToCart
