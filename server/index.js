@@ -140,9 +140,9 @@ app.put('/reviews/:review_id/report', (req, res) => {
 
 
 //will receive following data in the req.body - element,widget,time (all strings, all required) for post into database
-app.post('/interactions', (req, res) => {
-  //invoke call
-})
+// app.post('/interactions', (req, res) => {
+//   //invoke call
+// })
 
 
 // //==========================================
