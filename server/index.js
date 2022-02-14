@@ -13,7 +13,6 @@ app.use(express.json());
 
 //gets the list of products
 app.get('/products', (req, res) => {
-  console.log('PRODUCTS');
   api.getAllProducts()
     .then((response) => {
     res.status(200).send(response.data)
@@ -74,13 +73,6 @@ app.post('/cart', (req, res) => {
   })
 })
 
-//returns ids of porduct related to specified product
-//param must be an INTEGER
-app.get(`/products/:productId/related`, (req, res) =>{
-  relatedProductIds()
-  .then((res) =>console.log(res))
-  .catch((error) => console.log(error))
-})
 
 //==========================================
 // Reviews and Ratings Routes

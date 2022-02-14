@@ -1,4 +1,12 @@
-import React from 'react'
-//import imageGallery from '/imageGallery'
+import React, {useEffect, useState} from 'react'
+ 
+const StyleSelector = (props) => {
+  return (
+    <div className="StyleSelector">
+      Style Selector
+    </div>
+  )
+  
+}
 
-export default styleSelector
+export default StyleSelector
