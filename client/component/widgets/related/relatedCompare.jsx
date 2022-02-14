@@ -1,26 +1,26 @@
 import React from 'react';
+
 import Related from './related.jsx'
-import Comparison from './compare.jsx'
-class RelatedComparison extends React.component {
-  constructor(props){
+//import Comparison from './compare.jsx'
+
+class RelatedComparison extends React.Component {
+  constructor(props) {
+    super(props)
     this.state = {
       relatedProduct: [],
       comparisonProducts: []
     }
   }
 
-  render () {
+  render() {
     return (
-      <div>
+      <div id="allRelatedItems">
         <h4>Related Product</h4>
-        <Related relatedProduct={this.state.relatedProducts}/>
+        <Related/>
         <h4>Match/Compare</h4>
-        <Comparison comparisonProducts={this.state.comparisonProducts}/>
       </div>
     )
   }
-
-
 }
 
 export default RelatedComparison
