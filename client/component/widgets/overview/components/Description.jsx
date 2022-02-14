@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
-function Description(props) {
+const Description = (props) => {
   return(
     <div className="Description">{props.currentProduct.description}</div>
   )

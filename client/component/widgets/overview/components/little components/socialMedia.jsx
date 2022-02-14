@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
-function SocialMedia(props) {
+
+const SocialMedia = (props) => {
   return (
     <div className="SocialMedia">
       Socials

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import SocialMedia from './little components/SocialMedia.jsx'
 import StarRatings from './../../Shared components/StarRatings.jsx'
 
-function ProductInfo(props) {
+const ProductInfo = (props) => {
   return(
     <div className="ProductInfo">
       <StarRatings />

@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 //import ExtendedView from './ExtendedView.jsx'
 
-  function ImageGallery(props) {
+  const ImageGallery = (props) => {
     return (
       <div className="ImageGallery">
         <img className="mainimg" src={props.currentStyle.photos[0].url} alt="some pic idk"/>

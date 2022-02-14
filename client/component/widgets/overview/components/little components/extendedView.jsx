@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+
 
 //function ExtendedView(props) {
 //  //if view extention is clicked:
