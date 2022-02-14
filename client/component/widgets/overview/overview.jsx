@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
-import ProductInfo from './components/ProductInfo.jsx'
-import StyleSelector from './components/StyleSelector.jsx'
-import ImageGallery from './components/ImageGallery.jsx'
-import Description from './components/Description.jsx'
-import AddToCart from './components/AddToCart.jsx'
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+import ProductInfo from './components/ProductInfo.jsx';
+import StyleSelector from './components/StyleSelector.jsx';
+import ImageGallery from './components/ImageGallery.jsx';
+import Description from './components/Description.jsx';
+import AddToCart from './components/AddToCart.jsx';
 
 //example product object
 //{
