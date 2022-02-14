@@ -13,11 +13,9 @@ app.use(express.json());
 
 //gets the list of products
 app.get('/products', (req, res) => {
-  console.log('PRODUCTS');
   api.getAllProducts()
     .then((response) => {
     res.status(200).send(response.data)
-    //res.sendStatus(200)
     })
     .catch((error) => {
       console.error('ERROR IN SERVER GET')
@@ -153,9 +151,9 @@ app.post('/interactions', (req, res) => {
 })
 
 
-// //==========================================
-// // Questions And Answers Routes
-// //==========================================
+//==========================================
+// Questions And Answers Routes
+//==========================================
 
 
 // Get all questions
