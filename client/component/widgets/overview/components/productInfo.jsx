@@ -9,9 +9,9 @@ const ProductInfo = (props) => {
       <SocialMedia />
       <div className="Details">
         
-        <div className="productCategory">{props.currentProduct.category}</div>
-        <div className="productName">{props.currentProduct.name}</div>
-        <div className="productPrice">${props.currentProduct.default_price}</div>
+        <div className="productCategory">{props.product.category}</div>
+        <div className="productName">{props.product.name}</div>
+        <div className="productPrice">${props.product.default_price}</div>
       </div>
     </div>
   )

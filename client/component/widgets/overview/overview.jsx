@@ -20,7 +20,50 @@ import AddToCart from './components/AddToCart.jsx';
 //}
 
 
+//const Overview = (props) => {
 
+//    const [product, setProduct] = useState({})
+//    const [currentStyle, setStyle] = useState({})
+//    const [allStyles, setAllStyles] = useState([])
+    
+//    useEffect(() => {
+//      getAllProducts()
+//    }, [])
+    
+//    const getAllProducts = () => {
+//      axios.get('/products')
+//      .then((response) => {
+//        setProduct(response.data[5])
+//        getAllStyles(response.data[5].id);
+//      })
+//      .catch((error) => {
+//        console.error('ERROR IN CLIENT GET', error)
+//      })
+//    }
+    
+//    const getAllStyles = (productID) => {
+//      axios.get(`/products/${productID}/styles`)
+//      .then((response) => {
+//        //do some other stuff with it
+//        setAllStyles(response.data.results)
+//        setStyle(response.data.results[0])
+//      })
+//      .catch((error) => {
+//        console.error('ERROR IN CLIENT GET', error)
+//      })
+//    }
+    
+//    return (
+//      <div className="Overview">
+//        <ImageGallery currentStyle={currentStyle} allStyles={allStyles}/>
+//        <ProductInfo currentProduct=
+//        {product}/>
+//        <StyleSelector allStyles={allStyles}/>
+//        <Description currentProduct={product}/>
+//        <AddToCart />
+//      </div>
+//    )
+//}
 class Overview extends React.Component {
   
   constructor(props) {
