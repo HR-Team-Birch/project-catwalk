@@ -1,0 +1,71 @@
+
+
+
+/*==============================
+  Reviews
+==============================*/
+
+.reviewsparent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  margin: 50px auto;
+  border: 1px solid grey;
+  width: 70%;
+  height: 350px;
+  padding: 10px;
+}
+
+.reviewsmeta {
+  align-items: center;
+  border: 1px solid black;
+  width: 15%;
+  justify-content: center;
+  order: 1;
+  flex-grow: 1;
+}
+
+.reviewlistparent {
+  flex-grow: 4;
+  order: 2;
+  border: 1px solid black;
+  margin: 0 5px;
+}
+
+.sortandsearchparent {
+  display: flex;
+  border: 1px grey;
+  border-style: solid;
+  height: 30px;
+
+}
+
+.sort {
+  border: 1px solid black;
+  flex: 1;
+  margin: 2px;
+}
+
+.reviewsearch {
+  border: 1px solid black;
+  flex: 1;
+  margin: 2px;
+}
+
+.reviewtileparent {
+  display: flex;
+  border: 1px grey;
+  border-style: solid;
+  height: 280px;
+  flex-direction: column;
+}
+
+.reviewtile {
+  display: flex;
+  border: 1px grey;
+  border-style: solid;
+  height: 120px;
+  width: auto;
+  margin: 10px;
+}

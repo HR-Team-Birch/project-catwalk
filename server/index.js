@@ -72,13 +72,6 @@ app.post('/cart', (req, res) => {
   })
 })
 
-//returns ids of porduct related to specified product
-//param must be an INTEGER
-app.get(`/products/:productId/related`, (req, res) =>{
-  relatedProductIds()
-  .then((res) =>console.log(res))
-  .catch((error) => console.log(error))
-})
 
 //==========================================
 // Reviews and Ratings Routes
@@ -146,9 +139,9 @@ app.put('/reviews/:review_id/report', (req, res) => {
 
 
 //will receive following data in the req.body - element,widget,time (all strings, all required) for post into database
-app.post('/interactions', (req, res) => {
-  //invoke call
-})
+// app.post('/interactions', (req, res) => {
+//   //invoke call
+// })
 
 
 //==========================================
