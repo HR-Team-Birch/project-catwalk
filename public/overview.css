@@ -1,0 +1,76 @@
+.Overview {
+  border: 5px solid pink;
+  display: inline-grid;
+  width: 90%;
+  height: 800px;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(4, 25%)
+}
+
+.ImageGallery {
+  border: 5px solid blue;
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 3;
+}
+
+.StyleSelector {
+  border: 5px solid lavender;
+  grid-column: 4 / span 2;
+  grid-row: 2 / span 1;
+  
+}
+
+.ProductInfo {
+  border: 5px solid rgb(247, 247, 161);
+  grid-column-start: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, 20%);
+  grid-row: 1 / span 1;
+}
+
+.StarRatings {
+  border: 5px solid lime;
+  grid-column-start: 1;
+  grid-row: 1 / span 1
+}
+.SocialMedia {
+  border: 5px solid turquoise;
+  grid-column-start: 2;
+  grid-row: 1 / span 1
+}
+
+.AddToCart {
+  border: 5px solid orange;
+  grid-column: 4 / span 2;
+  grid-row: 3 / span 1;
+}
+
+.Description {
+  border: 5px solid maroon;
+  grid-row-start: 4;
+  grid-column: 1 / span 5
+}
+
+.Details {
+  border: 5px solid rgb(128, 70, 4);
+  grid-row: 2 / span 4;
+}
+
+.mainimg {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.productName {
+  font-size: x-large
+}
+
+.productPrice {
+  font-size: medium
+}
+
+.productCategory {
+  font-size: medium
+}
