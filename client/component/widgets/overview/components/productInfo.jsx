@@ -15,8 +15,7 @@ const ProductInfo = (props) => {
       <StarRatings />
       <SocialMedia />
       <div className="Details">
-        
-        <div className="productCategory">{product.category}</div>
+        <div className="productCategory">{product.category?.toUpperCase()}</div>
         <div className="productName">{product.name}</div>
         <div className="productPrice">${product.default_price}</div>
       </div>

@@ -1,30 +1,26 @@
 import React, {useEffect, useState} from 'react'
+import Carousel from './little components/Carousel.jsx'
 //import ExtendedView from './ExtendedView.jsx'
 
   const ImageGallery = (props) => {
     
-    const [mainPic, setMainPic] = useState("https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-mediumSquareAt3X-v2.jpg")
-    const [allPics, setAllPics] = useState(null)
+    //const [mainPic, setMainPic] = useState("https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-mediumSquareAt3X-v2.jpg")
     
-    useEffect(() => {
-      props.currentStyle ? setAllPics(props.currentStyle.photos) : setAllPics(null)
-    }, [props.currentStyle])
+    //const [allPics, setAllPics] = useState(null)
     
-    useEffect(() => {
-      allPics ? setMainPic(allPics[0]) : console.log('idk')
-    }, [allPics])
+    //useEffect(() => {
+    //  props.currentStyle ? setAllPics(props.currentStyle.photos) : setAllPics(null)
+    //}, [props.currentStyle])
     
-    console.log('ALLLLLLLLLL', allPics)
+    //useEffect(() => {
+    //  allPics ? setMainPic(allPics[0]) : console.log('idk')
+    //}, [allPics])
+    const allPics = props.currentStyle?.photos
+    
     return (
       <div className="ImageGallery">
-        <img className="mainimg" src={mainPic} alt="some pic idk"/>
-        {/*<div className="thumbnails">
-          {allPics 
-            ? (allPics.map((pic, index) => (<img src={pic.url} alt="a thumbnail of the main style" key={index}/>)))
-            : (
-            <div>YO</div>)
-          }
-        </div>*/}
+        {allPics && <img className="mainimg" src={allPics[0].url} alt="some pic idk"/>}
+        <Carousel allPics={allPics}/>
         {/*<ExtendedView className="ExtendedView"/>*/}
       </div>
     )

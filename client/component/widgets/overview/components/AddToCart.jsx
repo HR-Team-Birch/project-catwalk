@@ -7,7 +7,7 @@ const AddToCart = (props) => {
   //state of quantity value
   return (
     <div className="AddToCart">
-      {/*<form>
+      <form>
       <label>
       Select Size
         <select value={size}>
@@ -25,7 +25,7 @@ const AddToCart = (props) => {
         </select>
       </label>
       <button>Add To Cart</button>
-      </form>*/}
+      </form>
     </div>
   ) 
 }

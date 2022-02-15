@@ -11,16 +11,13 @@
   border: 5px solid blue;
   grid-column: 1 / span 3;
   grid-row: 1 / span 3;
-  display: grid;
-  grid-template-columns: repeat(5, 20%)
+  
+  background-color: pink;
+  position: relative;
+  /*display: grid;
+  grid-template-columns: repeat(5, 20%)*/
 }
 
-.StyleSelector {
-  border: 5px solid lavender;
-  grid-column: 4 / span 2;
-  grid-row: 2 / span 1;
-  
-}
 
 .ProductInfo {
   border: 5px solid rgb(247, 247, 161);
@@ -51,7 +48,9 @@
 .Description {
   border: 5px solid maroon;
   grid-row-start: 4;
-  grid-column: 1 / span 5
+  grid-column: 1 / span 5;
+  padding: 20px;
+  font-size: 25px
 }
 
 .Details {
@@ -63,7 +62,8 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
-  grid-column: 1 / span 5;
+  position: absolute
+  /*grid-column: 1 / span 5;*/
 }
 
 .productName {
@@ -76,4 +76,36 @@
 
 .productCategory {
   font-size: medium
+}
+
+.thumbnails {
+  height: 100%;
+  width: 20%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border: 5px solid white;
+}
+
+.thumbnails img {
+  height: 75px;
+  width: 75px;
+  flex-basis: auto;
+  border:5px solid black;
+}
+
+.StyleSelector {
+  border: 5px solid lavender;
+  grid-column: 4 / span 2;
+  grid-row: 2 / span 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start
+}
+.StyleSelector img {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  border: 5px solid red
 }
