@@ -1,3 +1,8 @@
+// import React from 'react'
+// import axios from 'axios'
+// import addToCart from './components/addToCart.jsx'
+// import productInfo from './components/productInfo.jsx'
+// import styleSelector from './components/styleSelector.jsx'
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import ProductInfo from './components/ProductInfo.jsx';
@@ -22,7 +27,7 @@ import AddToCart from './components/AddToCart.jsx';
 
 
 class Overview extends React.Component {
-  
+
   constructor(props) {
     super(props)
     this.state = {
@@ -35,11 +40,11 @@ class Overview extends React.Component {
     this.getAllProducts = this.getAllProducts.bind(this)
     this.getAllStyles = this.getAllStyles.bind(this)
   }
-  
+
   componentDidMount() {
     this.getAllProducts()
   }
-  
+
   getAllProducts() {
     axios.get('/products')
       .then((response) => {
@@ -52,7 +57,7 @@ class Overview extends React.Component {
         console.error('ERROR IN CLIENT GET', error)
       })
   }
-  
+
   getProductInfo(productID) {
     axios.get(`/products/${productID}`)
     .then((response) => {
@@ -63,7 +68,7 @@ class Overview extends React.Component {
       console.error('ERROR IN CLIENT GET', error)
     })
   }
-  
+
   getAllStyles(productID) {
     axios.get(`/products/${productID}/styles`)
     .then((response) => {
@@ -78,7 +83,7 @@ class Overview extends React.Component {
       console.error('ERROR IN CLIENT GET', error)
     })
   }
-  
+
   getItemsInCart() {
     axios.get('/cart')
     .then((response) => {
@@ -89,7 +94,7 @@ class Overview extends React.Component {
       console.error('ERROR IN CLIENT GET', error)
     })
   }
-  
+
   addToCart(productID) {
     axios.post(`/cart`, {sku_id: productID})
     .then((response) => {
@@ -100,7 +105,7 @@ class Overview extends React.Component {
       console.error('ERROR IN CLIENT GET', error)
     })
   }
-  
+
   render() {
     return (
       <div className="Overview">
@@ -112,7 +117,7 @@ class Overview extends React.Component {
         <AddToCart />
       </div>
     )
-    
+
   }
 }
 

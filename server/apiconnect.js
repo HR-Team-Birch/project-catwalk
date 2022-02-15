@@ -129,9 +129,9 @@ const reportReview = (reviewId) => {
   })
 }
 
-// //==========================================
-// // Questions And Answers Routes
-// //==========================================
+//==========================================
+// Questions And Answers Routes
+//==========================================
 
 
 const getQuestions = (productId) => {

@@ -16,7 +16,6 @@ app.get('/products', (req, res) => {
   api.getAllProducts()
     .then((response) => {
     res.status(200).send(response.data)
-    //res.sendStatus(200)
     })
     .catch((error) => {
       console.error('ERROR IN SERVER GET')
@@ -145,9 +144,9 @@ app.put('/reviews/:review_id/report', (req, res) => {
 // })
 
 
-// //==========================================
-// // Questions And Answers Routes
-// //==========================================
+//==========================================
+// Questions And Answers Routes
+//==========================================
 
 
 // Get all questions
