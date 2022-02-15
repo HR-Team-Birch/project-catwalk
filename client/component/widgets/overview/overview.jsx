@@ -1,3 +1,8 @@
+// import React from 'react'
+// import axios from 'axios'
+// import addToCart from './components/addToCart.jsx'
+// import productInfo from './components/productInfo.jsx'
+// import styleSelector from './components/styleSelector.jsx'
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import ProductInfo from './components/ProductInfo.jsx';
