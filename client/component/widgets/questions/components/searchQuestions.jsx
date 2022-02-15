@@ -16,7 +16,7 @@ const SearchQuestions = ({fetchQuestions}) => {
   return (
     <div id="searchQuestions">
       <input id="searchBar" type="search" size="122" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={searchBarChange}></input>
-      <button onClick={submitSearch}>Submit</button>
+      {/* <button onClick={submitSearch}>Submit</button> */}
     </div>
   )
 }

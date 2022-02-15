@@ -41,7 +41,7 @@
 import React from 'react';
 import Overview from './widgets/overview/overview.jsx';
 import Reviews from './widgets/reviews/reviews.jsx';
-//import Questions from './widgets/questions/questions.jsx';
+import Questions from './widgets/questions/questions.jsx';
 // import RelatedComparison from './widgets/related/relatedCompare.jsx';
 
 
@@ -58,7 +58,7 @@ class App extends React.Component {
       <div>
         <Overview />
         <Reviews />
-        {/*<Questions />*/}
+        <Questions />
 
       </div>
     )
