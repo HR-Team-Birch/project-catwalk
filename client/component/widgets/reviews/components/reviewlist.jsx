@@ -7,11 +7,13 @@ class ReviewList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviewlist: []
+      reviewlist: props.reviews,
+      review: props.reviewMeta
     }
   }
 
   render() {
+    // console.log('this. props reviewlist', this.props)
     return (
       <>
         <ReviewMeta reviewmeta={this.props.reviewMeta} />
@@ -20,10 +22,12 @@ class ReviewList extends React.Component {
             <div className="sort">sort dropdown </div>
             <div className="reviewsearch">review search box</div>
           </div>
-          <div className="reviewtileparent">
-            <div className="reviewtile">review tile</div>
-            <div className="reviewtile">review tile</div>
-          </div>
+
+            <ReviewTile reviewlist={this.props.reviews}/>
+
+
+
+
           <div className="buttons">
             <button>More Reviews</button>
             <button >Add Review</button>

@@ -22,7 +22,7 @@ class Reviews extends React.Component {
 
   //needs to get product id from somewhere
   getReviews(productId) {
-    axios.get(`/reviews/?product_id=${37312}`)
+    axios.get(`/reviews/?product_id=${37316}`)
       .then((reviews) => {
         this.setState({
           reviews: reviews.data.results
@@ -33,7 +33,7 @@ class Reviews extends React.Component {
 
   //needs to get product id from somewhere
   getReviewMeta(productId) {
-    axios.get(`/reviews/meta/?product_id=${37312}`)
+    axios.get(`/reviews/meta/?product_id=${37316}`)
       .then((meta) => {
         this.setState({
           reviewMeta: meta.data

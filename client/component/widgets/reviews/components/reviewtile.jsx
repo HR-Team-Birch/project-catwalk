@@ -1,23 +1,31 @@
 import React from 'react';
 import ViewImageModal from './viewimagemodal.jsx';
 
-class ReviewTile extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      reviewtile: []
-    }
-  }
+const ReviewTile = (props) => {
 
-  render() {
+  // componentDidMount() {
+  //   this.setState({
+  //     reviews: this.props.reviewlist
+  //   })
+  // }
+
+    console.log('this.props inside reviewtile', props)
     return (
-      <>
-        <ViewImageModal />
 
-      </>
+      <div className="reviewtileparent">
+        <div className="reviewtile">
+          <div>stars here *****</div>
+          <div></div>
+          {/* <ViewImageModal /> */}
+        </div>
+        <div className="reviewtile">
+          <div>stars here *****</div>
+          {/* <ViewImageModal /> */}
+        </div>
+      </div>
 
     )
-  }
+
 }
 
 export default ReviewTile;
