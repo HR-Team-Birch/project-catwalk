@@ -57,8 +57,8 @@ class App extends React.Component {
     return (
       <div>
         <Overview />
-        <Reviews />
-        <Questions />
+        {/*<Reviews />
+        <Questions />*/}
 
       </div>
     )
