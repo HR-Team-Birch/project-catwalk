@@ -3,27 +3,44 @@ import Carousel from './little components/Carousel.jsx'
 //import ExtendedView from './ExtendedView.jsx'
 
   const ImageGallery = (props) => {
-    
-    //const [mainPic, setMainPic] = useState("https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-mediumSquareAt3X-v2.jpg")
-    
-    //const [allPics, setAllPics] = useState(null)
-    
-    //useEffect(() => {
-    //  props.currentStyle ? setAllPics(props.currentStyle.photos) : setAllPics(null)
-    //}, [props.currentStyle])
-    
-    //useEffect(() => {
-    //  allPics ? setMainPic(allPics[0]) : console.log('idk')
-    //}, [allPics])
+
     const allPics = props.currentStyle?.photos
     
-    return (
-      <div className="ImageGallery">
-        {allPics && <img className="mainimg" src={allPics[0].url} alt="some pic idk"/>}
-        <Carousel allPics={allPics}/>
+    console.log('AAAAALLLLL', props.currentStyle)
+    
+    const [mainImg, setMainImg] = useState("")
+    
+    useEffect(() => {
+      if (allPics?.length > 0) {
+        
+        setMainImg(allPics[0].url)
+      }
+      //ONCE ALLPICS IS RECEIVED, DEFINE WHAT MAINIMG IS
+    }, [allPics])
+    
+    
+    //return (
+    //  //<div className="ImageGallery">
+    //  //  {allPics && <img className="mainimg" src={allPics[0].url} alt="some pic idk"/>}
+    //  //  <Carousel allPics={allPics}/>
+    //  //  {/*<ExtendedView className="ExtendedView"/>*/}
+    //  //</div>
+
+    //)
+    if (allPics && mainImg) {
+      return (
+        <div className="ImageGallery">
+          <img className="mainimg" src={mainImg} alt="some pic idk"/>
+        <Carousel setMainImg={setMainImg} allPics={allPics}/>
         {/*<ExtendedView className="ExtendedView"/>*/}
       </div>
-    )
+      )
+    } else {
+      
+      return (
+        <div className="ImageGallery"></div>
+      )
+    }
   
   }
 //}
