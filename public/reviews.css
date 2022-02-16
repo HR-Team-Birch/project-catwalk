@@ -15,7 +15,7 @@
   margin: 50px auto;
   border: 1px solid grey;
   width: 70%;
-  height: 350px;
+  height: 500px;
   padding: 10px;
 }
 
@@ -59,7 +59,7 @@
   display: flex;
   border: 1px grey;
   border-style: solid;
-  height: 280px;
+  height: 430px;
   flex-direction: column;
 }
 
@@ -67,7 +67,71 @@
   display: flex;
   border: 1px grey;
   border-style: solid;
-  height: 120px;
+  height: 190px;
   width: auto;
   margin: 10px;
+  order: 2;
+
 }
+
+.reviewsummary {
+  font-weight: bold;
+}
+
+.reviewphotoparent {
+  display: inline-grid;
+  grid-template-columns: repeat(5, 10%);
+}
+
+.reviewimage {
+  object-fit: cover;
+  width: 50px;
+  max-height: auto;
+}
+
+/* =====================
+Fix helpful / report alignment
+=======================*/
+
+.markreview {
+  display: flex;
+  justify-content: flex-start ;
+}
+
+.helpful {
+  margin: 0 5px;
+}
+.report {
+  margin: 0 8px;
+}
+
+/* =====================
+
+=======================*/
+
+.starsanduser {
+  display: flex;
+  height: 30px;
+  justify-content: space-between ;
+}
+
+.userdate {
+  font-size: 10px;
+}
+
+
+/* =====================
+review image modal
+=======================*/
+
+.reviewimagemodal {
+  box-shadow: 0 8px 6px -6px black;
+  border: 1px solid black;
+  left: 0%;
+  top: 0%;
+}
+
+.image {
+  width: 600px;
+}
+

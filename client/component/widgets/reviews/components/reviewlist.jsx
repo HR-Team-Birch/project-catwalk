@@ -1,41 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReviewMeta from './reviewmeta.jsx';
 import ReviewTile from './reviewtile.jsx';
 import AddReview from './addreview.jsx';
 
-class ReviewList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      reviewlist: props.reviews,
-      review: props.reviewMeta
-    }
-  }
+const ReviewList = (props) => {
 
-  render() {
-    // console.log('this. props reviewlist', this.props)
+  //render 2 reviews from the props list
+  //if more reviews button is clicked, render 3 reviews
+  //if clicked again, send a get request
+
+  const [showAddReviewModal, setShowAddReviewModal] = useState(false);
+  const [reviewTilesCount, setReviewTilesCount] = useState(props.reviewTiles)
+
+  // useEffect(() => {
+  //   renderReviewTiles();
+  // }, [props.reviewTilesToRender])
+
+
+    console.log('props reviewlist', props)
     return (
       <>
-        <ReviewMeta reviewmeta={this.props.reviewMeta} />
+        <ReviewMeta reviewmeta={props.reviewMeta} />
         <div className="reviewlistparent">
           <div className="sortandsearchparent">
             <div className="sort">sort dropdown </div>
             <div className="reviewsearch">review search box</div>
           </div>
 
-            <ReviewTile reviewlist={this.props.reviews}/>
-
-
-
+            <ReviewTile reviewlist={props.reviews} markHelpful={props.markHelpful}/>
 
           <div className="buttons">
             <button>More Reviews</button>
-            <button >Add Review</button>
+            <button onClick={ () => setShowAddReviewModal(true) } >Add Review</button>
+            <AddReview setShowAddReviewModal={setShowAddReviewModal} />
           </div>
         </div>
       </>
     )
-  }
-}
+
+};
 
 export default ReviewList;

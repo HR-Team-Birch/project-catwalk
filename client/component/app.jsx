@@ -1,8 +1,8 @@
 // import React, { useEffect, useState } from 'react';
-// // import Overview from './widgets/overview/overview.jsx';
-// // import Reviews from './widgets/reviews/reviews.jsx';
+// import Overview from './widgets/overview/overview.jsx';
+// import Reviews from './widgets/reviews/reviews.jsx';
 // import Questions from './widgets/questions/questions.jsx';
-// import RelatedComparison from './widgets/related/relatedCompare.jsx';
+// // import RelatedComparison from './widgets/related/relatedCompare.jsx';
 // const axios = require('axios');
 // const url = 'http://localhost:3000';
 
@@ -38,6 +38,9 @@
 //       <Questions productId={productIdforQuestions} />
 //     </div>
 //   );
+
+
+
 import React from 'react';
 import Overview from './widgets/overview/overview.jsx';
 import Reviews from './widgets/reviews/reviews.jsx';
