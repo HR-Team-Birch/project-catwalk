@@ -77,7 +77,7 @@ class Overview extends React.Component {
         allStyles: response.data.results,
         currentStyle: response.data.results[0]
       })
-      console.log(this.state)
+      // console.log(this.state)
     })
     .catch((error) => {
       console.error('ERROR IN CLIENT GET', error)
@@ -87,7 +87,7 @@ class Overview extends React.Component {
   getItemsInCart() {
     axios.get('/cart')
     .then((response) => {
-      console.log(response)
+      // console.log(response)
       //do some other stuff with it
     })
     .catch((error) => {
@@ -98,7 +98,7 @@ class Overview extends React.Component {
   addToCart(productID) {
     axios.post(`/cart`, {sku_id: productID})
     .then((response) => {
-      console.log(response)
+      // console.log(response)
       //do some other stuff with it
     })
     .catch((error) => {
