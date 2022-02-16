@@ -71,8 +71,9 @@
   display: flex;
   border: 1px grey;
   border-style: solid;
-  height: 430px;
+  max-height: 420px;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .reviewtile {
