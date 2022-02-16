@@ -10,33 +10,49 @@ const ReviewList = (props) => {
   //if clicked again, send a get request
 
   const [showAddReviewModal, setShowAddReviewModal] = useState(false);
-  const [reviewTilesCount, setReviewTilesCount] = useState(props.reviewTiles)
+  const [reviewTilesCount, setReviewTilesCount] = useState(2);
 
-  // useEffect(() => {
-  //   renderReviewTiles();
-  // }, [props.reviewTilesToRender])
+  const renderMoreReviews = () => {
+    let count = reviewTilesCount + 2;
+    setReviewTilesCount(count);
+  }
+
+  const getMoreReviews = () => {
+    props.reviews.length - reviewTilesCount === 1 ? props.getAlotOfReviews(props.product_id) : null
+  }
 
 
-    console.log('props reviewlist', props)
-    return (
-      <>
-        <ReviewMeta reviewmeta={props.reviewMeta} />
-        <div className="reviewlistparent">
-          <div className="sortandsearchparent">
-            <div className="sort">sort dropdown </div>
-            <div className="reviewsearch">review search box</div>
-          </div>
-
-            <ReviewTile reviewlist={props.reviews} markHelpful={props.markHelpful}/>
-
-          <div className="buttons">
-            <button>More Reviews</button>
-            <button onClick={ () => setShowAddReviewModal(true) } >Add Review</button>
-            <AddReview setShowAddReviewModal={setShowAddReviewModal} />
-          </div>
+  return (
+    <>
+      <ReviewMeta reviewmeta={props.reviewMeta} />
+      <div className="reviewlistparent">
+        <div className="sortandsearchparent">
+          <div className="sort">sort dropdown </div>
+          <div className="reviewsearch">review search box</div>
         </div>
-      </>
-    )
+        <div className="reviewtileparent">
+          {reviewTilesCount < props.reviews.length ?
+            props.reviews.slice(0, reviewTilesCount).map((review, idx) => (
+              <ReviewTile review={review} markHelpful={props.markHelpful} reportReview={props.reportReview} key={idx}/>
+            )) : null
+          }
+          {reviewTilesCount > props.reviews.length ?
+            props.reviews.map((review, idx) => (
+              <ReviewTile review={review} markHelpful={props.markHelpful} reportReview={props.reportReview} key={idx}/>
+            )) : null
+          }
+        </div>
+
+        <div className="buttons">
+          <button onClick={ () => {renderMoreReviews(); getMoreReviews(); } }>More Reviews</button>
+          <button onClick={ () => setShowAddReviewModal(true) } >Add Review</button>
+          <AddReview setShowAddReviewModal={setShowAddReviewModal} />
+        </div>
+
+
+      </div>
+    </>
+  )
 
 };
 

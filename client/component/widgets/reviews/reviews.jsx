@@ -7,22 +7,19 @@ const Reviews = (props) => {
 
   const [reviews, setReviews] = useState(null);
   const [reviewMeta, setReviewMeta] = useState(null);
-  const [reviewTilesCount, setReviewTilesCount] = useState(2);
-  const [reviewTilesToRender, setReviewTilesToRender] = useState([]);
 
-  // const updateReviewTilesToRender = () => {
-  //   let container = [];
-  //   if (reviews) {
-  //     for (let i = 0; i < reviewTilesCount; i++) {
-  //       container.push(reviews[i])
-  //     }
-  //   }
-  //   setReviewTilesToRender(container);
-  // }
 
   //needs to get product id from somewhere
   const getReviews = (productId) => {
     axios.get(`/reviews/?product_id=${37316}`)
+      .then((reviews) => {
+        setReviews(reviews.data.results);
+      })
+      .catch((err) => console.error(err));
+  }
+
+  const getAlotOfReviews = (productId) => {
+    axios.get(`/reviews/?product_id=${37316}&count=50`)
       .then((reviews) => {
         setReviews(reviews.data.results);
       })
@@ -49,8 +46,15 @@ const Reviews = (props) => {
   }
 
   const markHelpful = (reviewId) => {
-    console.log('reviewId in reviews', reviewId)
     axios.put(`/reviews/${reviewId}/helpful`)
+      .then(() => {
+        getReviews();
+      })
+      .catch((err) => console.error(err));
+  }
+
+  const reportReview = (reviewId) => {
+    axios.put(`/reviews/${reviewId}/report`)
       .then(() => {
         getReviews();
       })
@@ -65,7 +69,7 @@ const Reviews = (props) => {
 
   return (
     <div className="reviewsparent">
-      {reviews && reviewMeta ? <ReviewList reviews={reviews} reviewMeta={reviewMeta} add={addReview} markHelpful={markHelpful} reviewTilesToRender={reviewTilesToRender} setReviewTilesToRender={setReviewTilesToRender}/> : null}
+      {reviews && reviewMeta ? <ReviewList reviews={reviews} reviewMeta={reviewMeta} add={addReview} markHelpful={markHelpful} reportReview={reportReview}  getAlotOfReviews={getAlotOfReviews}/> : null}
     </div>
   )
 

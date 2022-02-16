@@ -19,6 +19,10 @@
   padding: 10px;
 }
 
+/*==============================
+  Review Meta
+==============================*/
+
 .reviewsmeta {
   align-items: center;
   border: 1px solid black;
@@ -27,6 +31,10 @@
   order: 1;
   flex-grow: 1;
 }
+
+/*==============================
+  Review List
+==============================*/
 
 .reviewlistparent {
   flex-grow: 4;
@@ -54,6 +62,10 @@
   flex: 1;
   margin: 2px;
 }
+
+/*==============================
+  Review Tile
+==============================*/
 
 .reviewtileparent {
   display: flex;
@@ -89,6 +101,16 @@
   max-height: auto;
 }
 
+.starsanduser {
+  display: flex;
+  height: 30px;
+  justify-content: space-between ;
+}
+
+.userdate {
+  font-size: 10px;
+}
+
 /* =====================
 Fix helpful / report alignment
 =======================*/
@@ -105,19 +127,6 @@ Fix helpful / report alignment
   margin: 0 8px;
 }
 
-/* =====================
-
-=======================*/
-
-.starsanduser {
-  display: flex;
-  height: 30px;
-  justify-content: space-between ;
-}
-
-.userdate {
-  font-size: 10px;
-}
 
 
 /* =====================
