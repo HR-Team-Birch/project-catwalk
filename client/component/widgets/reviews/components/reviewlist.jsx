@@ -5,9 +5,8 @@ import AddReview from './addreview.jsx';
 
 const ReviewList = (props) => {
 
-  //render 2 reviews from the props list
-  //if more reviews button is clicked, render 3 reviews
-  //if clicked again, send a get request
+  //create sort drop down
+  //create search functionality
 
   const [showAddReviewModal, setShowAddReviewModal] = useState(false);
   const [reviewTilesCount, setReviewTilesCount] = useState(2);
@@ -27,7 +26,15 @@ const ReviewList = (props) => {
       <ReviewMeta reviewmeta={props.reviewMeta} />
       <div className="reviewlistparent">
         <div className="sortandsearchparent">
-          <div className="sort">sort dropdown </div>
+          <div className="sort">
+            <label> ____ reviews, sorted by </label>
+            <select id="reviewsort">
+              <option value="relevant">Relevant</option>
+              <option value="helpful">Helpful</option>
+              <option value="newest">Newest</option>
+
+            </select>
+          </div>
           <div className="reviewsearch">review search box</div>
         </div>
         <div className="reviewtileparent">

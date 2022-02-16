@@ -1,21 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-class ReviewMeta extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      reviewMeta: []
-    }
-  }
+const ReviewMeta = (props) => {
 
-  render() {
-    return (
-      <div className="reviewsmeta">
-        <h6>Ratings  Reviews</h6>
-        <div>overall rating and stars</div>
-      </div>
-    )
-  }
-}
+  //create stars
+  //create recommendation
+
+  return (
+    <div className="reviewsmeta">
+      <h6>Ratings  Reviews</h6>
+      <div>overall rating and stars</div>
+    </div>
+  )
+
+};
 
 export default ReviewMeta;
