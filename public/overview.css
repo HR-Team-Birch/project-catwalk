@@ -17,7 +17,7 @@
   border: 5px solid lavender;
   grid-column: 4 / span 2;
   grid-row: 2 / span 1;
-  
+
 }
 
 .ProductInfo {
@@ -30,7 +30,7 @@
 }
 
 .StarRatings {
-  border: 5px solid lime;
+  /* border: 5px solid lime; */
   grid-column-start: 1;
   grid-row: 1 / span 1
 }

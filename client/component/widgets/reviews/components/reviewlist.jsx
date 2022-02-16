@@ -26,15 +26,16 @@ const ReviewList = (props) => {
       <ReviewMeta reviewmeta={props.reviewMeta} />
       <div className="reviewlistparent">
         <div className="sortandsearchparent">
+
           <div className="sort">
             <label> ____ reviews, sorted by </label>
             <select id="reviewsort">
               <option value="relevant">Relevant</option>
               <option value="helpful">Helpful</option>
               <option value="newest">Newest</option>
-
             </select>
           </div>
+
           <div className="reviewsearch">review search box</div>
         </div>
         <div className="reviewtileparent">

@@ -7,19 +7,19 @@ const Reviews = (props) => {
 
   const [reviews, setReviews] = useState(null);
   const [reviewMeta, setReviewMeta] = useState(null);
-
+  const [productId, setProductId] = useState(props.productId);
 
   //needs to get product id from somewhere
-  const getReviews = (productId) => {
-    axios.get(`/reviews/?product_id=${37316}`)
+  const getReviews = () => {
+    axios.get(`/reviews/?product_id=${productId}`)
       .then((reviews) => {
         setReviews(reviews.data.results);
       })
       .catch((err) => console.error(err));
   }
 
-  const getAlotOfReviews = (productId) => {
-    axios.get(`/reviews/?product_id=${37316}&count=50`)
+  const getAlotOfReviews = () => {
+    axios.get(`/reviews/?product_id=${productId}&count=50`)
       .then((reviews) => {
         setReviews(reviews.data.results);
       })
@@ -27,8 +27,8 @@ const Reviews = (props) => {
   }
 
   //needs to get product id from somewhere
-  const getReviewMeta = (productId) => {
-    axios.get(`/reviews/meta/?product_id=${37316}`)
+  const getReviewMeta = () => {
+    axios.get(`/reviews/meta/?product_id=${productId}`)
       .then((meta) => {
         setReviewMeta(meta.data);
       })

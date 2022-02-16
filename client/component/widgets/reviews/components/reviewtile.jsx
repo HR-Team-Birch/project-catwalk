@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ViewImageModal from './viewimagemodal.jsx';
+import StarRatings from '../../Shared components/starRatings.jsx';
 
 const ReviewTile = (props) => {
   const [helpfulClicked, setHelpfulClicked] = useState(false);
@@ -15,7 +16,9 @@ const ReviewTile = (props) => {
         <div>
 
           <div className="starsanduser">
-            <div className="stars">stars *****</div>
+            <div className="stars">
+              <StarRatings />
+            </div>
             <div className="userdate">{props.review.reviewer_name}, {props.review.date}</div>
           </div>
 
