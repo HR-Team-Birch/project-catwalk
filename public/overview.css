@@ -11,9 +11,14 @@
   border: 5px solid blue;
   grid-column: 1 / span 3;
   grid-row: 1 / span 3;
-  
   background-color: pink;
   position: relative;
+}
+
+.StyleSelector {
+  border: 5px solid lavender;
+  grid-column: 4 / span 2;
+  grid-row: 2 / span 1;
   /*display: grid;
   grid-template-columns: repeat(5, 20%)*/
 }
@@ -29,6 +34,7 @@
 }
 
 .StarRatings {
+  /* border: 5px solid lime; */
   border: 5px solid lime;
   grid-column: 1 / span 2;
   grid-row: 1 / span 1
@@ -109,7 +115,7 @@
   font-size: medium;
   border: 5px dotted blue;
   grid-row: 5 /span 1
-  
+
 }
 
 .productCategory {
@@ -135,7 +141,7 @@
   border:5px solid white;
   object-fit: cover;
   margin: 2px;
-  
+
 }
 
 .StyleSelector {
