@@ -1,64 +1,78 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReviewList from './components/reviewlist.jsx';
 import AddReview from './components/addreview.jsx';
 
-class Reviews extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      reviews: [],
-      reviewMeta: []
-    }
-    this.getReviews = this.getReviews.bind(this);
-    this.getReviewMeta = this.getReviewMeta.bind(this);
-    this.addReview = this.addReview.bind(this);
-  }
+const Reviews = (props) => {
 
-  componentDidMount() {
-    this.getReviews();
-    this.getReviewMeta();
-  }
+  const [reviews, setReviews] = useState(null);
+  const [reviewMeta, setReviewMeta] = useState(null);
+
 
   //needs to get product id from somewhere
-  getReviews(productId) {
-    axios.get(`/reviews/?product_id=${37312}`)
+  const getReviews = (productId) => {
+    axios.get(`/reviews/?product_id=${37316}`)
       .then((reviews) => {
-        this.setState({
-          reviews: reviews.data.results
-        })
+        setReviews(reviews.data.results);
+      })
+      .catch((err) => console.error(err));
+  }
+
+  const getAlotOfReviews = (productId) => {
+    axios.get(`/reviews/?product_id=${37316}&count=50`)
+      .then((reviews) => {
+        setReviews(reviews.data.results);
       })
       .catch((err) => console.error(err));
   }
 
   //needs to get product id from somewhere
-  getReviewMeta(productId) {
-    axios.get(`/reviews/meta/?product_id=${37312}`)
+  const getReviewMeta = (productId) => {
+    axios.get(`/reviews/meta/?product_id=${37316}`)
       .then((meta) => {
-        this.setState({
-          reviewMeta: meta.data
-        })
+        setReviewMeta(meta.data);
       })
       .catch((err) => console.error(err));
   }
 
-  addReview(review) {
+  const addReview = (review) => {
     axios.post('/reviews', review)
       .then((data) => {
         console.log('data from post', data);
-        // this.getReviews();
-        // this.getReviewMeta();
+        getReviews();
+        getReviewMeta();
       })
       .catch((err) => console.error(err));
   }
 
-  render() {
-    return (
-      <div className="reviewsparent">
-        <ReviewList reviews={this.state.reviews} reviewMeta={this.state.reviewMeta} add={this.addReview}/>
-      </div>
-    )
+  const markHelpful = (reviewId) => {
+    axios.put(`/reviews/${reviewId}/helpful`)
+      .then(() => {
+        getReviews();
+      })
+      .catch((err) => console.error(err));
   }
+
+  const reportReview = (reviewId) => {
+    axios.put(`/reviews/${reviewId}/report`)
+      .then(() => {
+        getReviews();
+      })
+      .catch((err) => console.error(err));
+  }
+
+  useEffect(() => {
+    getReviews();
+    getReviewMeta();
+
+  }, []);
+
+  return (
+    <div className="reviewsparent">
+      {reviews && reviewMeta ? <ReviewList reviews={reviews} reviewMeta={reviewMeta} add={addReview} markHelpful={markHelpful} reportReview={reportReview}  getAlotOfReviews={getAlotOfReviews}/> : null}
+    </div>
+  )
+
 }
 
 
