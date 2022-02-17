@@ -26,7 +26,7 @@ const Overview = (props) => {
     const [product, setProduct] = useState(null)
     const [currentStyle, setCurrentStyle] = useState(null)
     const [allStyles, setAllStyles] = useState(null)
-    
+
 
     const getAllProducts = () => {
       axios.get('/products')
@@ -40,7 +40,7 @@ const Overview = (props) => {
         console.error('ERROR IN CLIENT GET', error)
       })
     }
-    
+
     const getAllStyles = (productID) => {
       axios.get(`/products/${productID}/styles`)
       .then((response) => {
@@ -48,48 +48,15 @@ const Overview = (props) => {
         setAllStyles(response.data.results)
         setCurrentStyle(response.data.results[0])
       })
-<<<<<<< HEAD
-      //console.log(this.state)
-    })
-    .catch((error) => {
-      console.error('ERROR IN CLIENT GET', error)
-    })
-  }
-
-  getItemsInCart() {
-    axios.get('/cart')
-    .then((response) => {
-      //console.log(response)
-      //do some other stuff with it
-    })
-    .catch((error) => {
-      console.error('ERROR IN CLIENT GET', error)
-    })
-  }
-
-  addToCart(productID) {
-    axios.post(`/cart`, {sku_id: productID})
-    .then((response) => {
-      //console.log(response)
-      //do some other stuff with it
-    })
-    .catch((error) => {
-      console.error('ERROR IN CLIENT GET', error)
-    })
-  }
-
-  render() {
-=======
       .catch((error) => {
         console.error('ERROR IN CLIENT GET', error)
       })
     }
-    
+
     useEffect(() => {
       getAllProducts()
     }, [])
-    
->>>>>>> dev
+
     return (
       <div className="Overview">
         <ImageGallery currentStyle={currentStyle} allStyles={allStyles}/>

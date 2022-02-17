@@ -1,19 +1,8 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import Overview from './widgets/overview/overview.jsx';
 import Reviews from './widgets/reviews/reviews.jsx';
 import Questions from './widgets/questions/questions.jsx';
 import RelatedComparison from './widgets/related/relatedCompare.jsx';
-=======
-// import React, { useEffect, useState } from 'react';
-// import Overview from './widgets/overview/overview.jsx';
-// import Reviews from './widgets/reviews/reviews.jsx';
-// import Questions from './widgets/questions/questions.jsx';
-// // import RelatedComparison from './widgets/related/relatedCompare.jsx';
-// const axios = require('axios');
-// const url = 'http://localhost:3000';
->>>>>>> dev
-
 const axios = require('axios');
 const url = 'http://localhost:3000';
 
@@ -39,46 +28,23 @@ const App = () => {
     //console.log('products: ', products)
   }, []);
 
-<<<<<<< HEAD
   return (
     <div>
-      {/* <Overview/>
-      <RelatedComparison/> */}
-      <Questions productId={productIdforQuestions} />
-      {/* <Reviews/> */}
+      <Overview/>
+      <RelatedComparison/>
+      <Questions productId={productIdforQuestions}/>
+      <Reviews/>
     </div>
   );
 }
 
-export default App;
 
-
-
-
-// import React from 'react';
-// import Overview from './widgets/overview/overview.jsx';
-// import Reviews from './widgets/reviews/reviews.jsx';
-// import Questions from './widgets/questions/questions.jsx';
-=======
-//   return (
-//     <div>
-//       { // TODO pass state function to the overview to change the selected product
-//         /* <Overview setSelectedProduct={setSelectedProduct}/>
-//         <Reviews /> */}
-//       {/* <RelatedComparison /> */}
-//       <Questions productId={productIdforQuestions} />
-//     </div>
-//   );
-
-
-
-import React from 'react';
-import Overview from './widgets/overview/overview.jsx';
-import Reviews from './widgets/reviews/reviews.jsx';
+//import React from 'react';
+//import Overview from './widgets/overview/overview.jsx';
+//import Reviews from './widgets/reviews/reviews.jsx';
 // import Questions from './widgets/questions/questions.jsx';
 //import Questions from './widgets/questions/questions.jsx';
-import Questions from './widgets/questions/questions.jsx';
->>>>>>> dev
+//import Questions from './widgets/questions/questions.jsx';
 // import RelatedComparison from './widgets/related/relatedCompare.jsx';
 
 
@@ -103,4 +69,4 @@ import Questions from './widgets/questions/questions.jsx';
 //   }
 // }
 
-// export default App;
+export default App;
