@@ -11,16 +11,14 @@
   border: 5px solid blue;
   grid-column: 1 / span 3;
   grid-row: 1 / span 3;
+  background-color: pink;
+  position: relative;
 }
 
 .StyleSelector {
   border: 5px solid lavender;
   grid-column: 4 / span 2;
   grid-row: 2 / span 1;
-
-
-  background-color: pink;
-  position: relative;
   /*display: grid;
   grid-template-columns: repeat(5, 20%)*/
 }
@@ -37,7 +35,6 @@
 
 .StarRatings {
   /* border: 5px solid lime; */
-  grid-column-start: 1;
   border: 5px solid lime;
   grid-column: 1 / span 2;
   grid-row: 1 / span 1
