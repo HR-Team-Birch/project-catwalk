@@ -3,15 +3,21 @@ import SocialMedia from './little components/SocialMedia.jsx'
 // import StarRatings from './../../Shared components/StarRatings.jsx'
 
 const ProductInfo = (props) => {
+
+  const [product, setProduct] = useState({})
+
+  useEffect(() => {
+    props.product ? setProduct(props.product) : setProduct({})
+  }, [props.product])
+
   return(
     <div className="ProductInfo">
       {/* <StarRatings /> */}
       <SocialMedia />
       <div className="Details">
-
-        <div className="productCategory">{props.currentProduct.category}</div>
-        <div className="productName">{props.currentProduct.name}</div>
-        <div className="productPrice">${props.currentProduct.default_price}</div>
+        <div className="productCategory">{product.category?.toUpperCase()}</div>
+        <div className="productName">{product.name}</div>
+        <div className="productPrice">${product.default_price}</div>
       </div>
     </div>
   )

@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react'
- 
-const StyleSelector = (props) => {
+
+const StyleSelector = ({allStyles, currentStyle, setCurrentStyle}) => {
   return (
     <div className="StyleSelector">
-      Style Selector
+      {allStyles &&
+       allStyles.map((style, index) => (
+         <img onClick={() => setCurrentStyle(style)} key={index} src={style.photos[0].url}/>
+       ))}
     </div>
   )
   
