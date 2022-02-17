@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ViewImageModal from './viewimagemodal.jsx';
-import StarRatings from '../../Shared components/starRatings.jsx';
+import ReviewStarRating from './reviewstarrating.jsx';
 
 const ReviewTile = (props) => {
   const [helpfulClicked, setHelpfulClicked] = useState(false);
@@ -10,14 +10,16 @@ const ReviewTile = (props) => {
     setHelpfulClicked(true);
   }
 
+  // fix user and date not rendering at the end sometimes
+
   return (
 
       <div className="reviewtile">
         <div>
 
-          <div className="starsanduser">
+          <div id="starsanduser">
             <div className="stars">
-              <StarRatings />
+              <ReviewStarRating rating={props.review.rating}/>
             </div>
             <div className="userdate">{props.review.reviewer_name}, {props.review.date}</div>
           </div>
@@ -29,7 +31,7 @@ const ReviewTile = (props) => {
 
             { props.review.photos
               ? props.review.photos.map((photo, idx) => (
-                <ViewImageModal url={"https://static.toiimg.com/thumb/msid-67586673,width-800,height-600,resizemode-75,imgsize-3918697,pt-32,y_pad-40/67586673.jpg"} key={idx}/>
+                <ViewImageModal url={photo.url} key={idx}/>
               )) : null
             }
 

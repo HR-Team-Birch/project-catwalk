@@ -95,7 +95,7 @@
 
 .reviewphotoparent {
   display: inline-grid;
-  grid-template-columns: repeat(5, 10%);
+  grid-template-columns: repeat(5, 30%);
 }
 
 .reviewimage {
@@ -104,10 +104,11 @@
   max-height: auto;
 }
 
-.starsanduser {
+#starsanduser {
   display: flex;
   height: 30px;
   justify-content: space-between ;
+
 }
 
 .userdate {

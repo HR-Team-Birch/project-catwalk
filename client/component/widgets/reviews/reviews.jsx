@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReviewList from './components/reviewlist.jsx';
 import AddReview from './components/addreview.jsx';
+import ReviewMeta from './components/reviewmeta.jsx';
+
 
 const Reviews = (props) => {
 
   const [reviews, setReviews] = useState(null);
   const [reviewMeta, setReviewMeta] = useState(null);
   const [productId, setProductId] = useState(props.productId);
+
 
   //needs to get product id from somewhere
   const getReviews = () => {
