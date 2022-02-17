@@ -4,16 +4,8 @@ config.js
 # node_modules
 node_modules
 
-<<<<<<< HEAD
 # compiled file
 /public/main.js
 
 .DS_Store
-=======
-.DS_Store
 
-<<<<<<< HEAD
-public/main.js
-=======
->>>>>>> dev
->>>>>>> dev

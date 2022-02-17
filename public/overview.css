@@ -11,13 +11,9 @@
   border: 5px solid blue;
   grid-column: 1 / span 3;
   grid-row: 1 / span 3;
-  
   background-color: pink;
   position: relative;
-  /*display: grid;
-  grid-template-columns: repeat(5, 20%)*/
 }
-
 
 .ProductInfo {
   border: 5px solid rgb(247, 247, 161);
@@ -33,6 +29,7 @@
   grid-column: 1 / span 2;
   grid-row: 1 / span 1
 }
+
 .SocialMedia {
   border: 5px solid turquoise;
   grid-column: 3 / span 2;
