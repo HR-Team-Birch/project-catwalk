@@ -26,7 +26,7 @@ const Overview = (props) => {
     const [product, setProduct] = useState(null)
     const [currentStyle, setCurrentStyle] = useState(null)
     const [allStyles, setAllStyles] = useState(null)
-    
+
 
     const getAllProducts = () => {
       axios.get('/products')
@@ -40,7 +40,7 @@ const Overview = (props) => {
         console.error('ERROR IN CLIENT GET', error)
       })
     }
-    
+
     const getAllStyles = (productID) => {
       axios.get(`/products/${productID}/styles`)
       .then((response) => {
@@ -52,11 +52,11 @@ const Overview = (props) => {
         console.error('ERROR IN CLIENT GET', error)
       })
     }
-    
+
     useEffect(() => {
       getAllProducts()
     }, [])
-    
+
     return (
       <div className="Overview">
         <ImageGallery currentStyle={currentStyle} allStyles={allStyles}/>

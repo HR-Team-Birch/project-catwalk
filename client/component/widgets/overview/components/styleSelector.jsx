@@ -9,7 +9,7 @@ const StyleSelector = ({allStyles, currentStyle, setCurrentStyle}) => {
        ))}
     </div>
   )
-  
+
 }
 
 export default StyleSelector

@@ -7,6 +7,8 @@
   padding: 20px;
 }
 
+/* Search Bar */
+
 #searchQuestions {
   border: 3px solid orange;
   border-radius: 10px;
@@ -36,12 +38,28 @@
   grid-row-start: 1;
 }
 
+#helpfulQ {
+  grid-row-start: 1;
+  justify-self: end;
+}
+
 #addAnswer {
- border: 3px solid lime;
+ /* border: 3px solid lime; */
  grid-row-start: 1;
  justify-self: end;
- padding: 2px;
- font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Answers */
+#answers {
+  display: grid;
+}
+
+#answerBody {
+  grid-row-start: 1;
+}
+
+#answerUser {
+  grid-row-start: 2;
 }
 
 #questionFoot {

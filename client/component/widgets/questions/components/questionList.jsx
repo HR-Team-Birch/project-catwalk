@@ -9,9 +9,7 @@ import AddQuestion from './addQuestion.jsx'
 
 const QuestionList = ({productQuestions}) => {
 
-
-  console.log('product Questions in QuestionList', productQuestions)
-
+  //console.log('product Questions in QuestionList', productQuestions)
 
   return(
     <div id="questionlist">
@@ -26,7 +24,6 @@ const QuestionList = ({productQuestions}) => {
       <AddQuestion/>
       </div>
     </div>
-
   )
 }
 
