@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Carousel = (props) => {
+const ThumbnailCarousel = (props) => {
   return (
   <div className="thumbnails">
     {props.allPics && 
@@ -10,4 +10,4 @@ const Carousel = (props) => {
   )
 }
 
-export default Carousel
+export default ThumbnailCarousel

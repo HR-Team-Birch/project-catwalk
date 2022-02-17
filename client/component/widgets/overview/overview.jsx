@@ -27,14 +27,14 @@ const Overview = (props) => {
     const [currentStyle, setCurrentStyle] = useState(null)
     const [allStyles, setAllStyles] = useState(null)
     
-    
+
     const getAllProducts = () => {
       axios.get('/products')
       .then((response) => {
-        setProduct(response.data[5])
+        setProduct(response.data[4])
         console.log('REPOSNE', response)
         console.log('PRODUCT', product)
-        getAllStyles(response.data[5].id);
+        getAllStyles(response.data[4].id);
       })
       .catch((error) => {
         console.error('ERROR IN CLIENT GET', error)
@@ -63,7 +63,7 @@ const Overview = (props) => {
         <ProductInfo product={product}/>
         <StyleSelector allStyles={allStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
         <Description product={product}/>
-        <AddToCart />
+        <AddToCart currentStyle={currentStyle}/>
       </div>
     )
 }

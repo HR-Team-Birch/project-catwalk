@@ -1,26 +1,57 @@
 import React, {useEffect, useState} from 'react'
 
-const AddToCart = (props) => {
+const AddToCart = ({currentStyle}) => {
   //state of size value
   
-  const [size, setSize] = useState("Select Size")
-  const [quantity, setQuantity] = useState(null)
-  const thisFunc = () => {
-    console.log('k')
+  const [size, setSize] = useState("unselected")
+  const [quantity, setQuantity] = useState("unselectedQ")
+  const [quantityChoice, setQuantityChoice] = useState(0)
+  const [styleOptions, setStyleOptions] = useState([])
+  const [quantityArray, setQuantityArray] = useState([])
+  
+  const handleSizeSelect = (event) => {
+    setSize(event.target.name)
+    setQuantity(event.target.value)
   }
-  //state of quantity value
+  
+  const handleQuantitySelect = (event) => {
+    setQuantityChoice(event.target.value)
+  }
+  
+  useEffect(() => {
+    let arr = []
+    for (let option in currentStyle?.skus) {
+      arr.push(currentStyle.skus[option])
+    } 
+    setStyleOptions(arr)
+  }, [currentStyle])
+  
+  useEffect(() => {
+    let numbies = []
+    for (let i = 1; i <= quantity; i++) {
+      if (i===16) {
+        break;
+      }
+      numbies.push(i)
+    }
+    setQuantityArray(numbies)
+  }, [quantity])
+  
   return (
     <div className="AddToCart">
       <form>
-        <select onChange={thisFunc} className="size" value={'size'}>
-          <option value="S">Small</option>
-          <option value="M">Medium</option>
-          <option value="L">Large</option>
+        <select onChange={handleSizeSelect} className="size" name="idk">
+          <option value={size}>SELECT SIZE</option>
+          {styleOptions?.map((element, index) => (
+            <option key={index} value={element.quantity} name={element.size}>{element.size}</option>))
+          }
         </select>
-        <select onChange={thisFunc} className="quantity" value={'quantity'}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
+        <select onChange={handleQuantitySelect} className="quantity">
+          <option value={quantity}>-</option>
+          {quantityArray?.map((element, index) => (
+              <option key={index} value={element}>{element}</option>
+            ))
+          }
         </select>
       <button>ADD TO CART</button>
       </form>
