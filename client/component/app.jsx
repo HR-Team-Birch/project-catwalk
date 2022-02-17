@@ -31,8 +31,12 @@ const App = () => {
       <Overview/>
       <RelatedComparison/>
       <Questions productId={productIdforQuestions}/>
-      <Reviews/>
+      {productIdforQuestions ?  <Reviews productId={productIdforQuestions}/> : null }
     </div>
   );
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
 export default App;
