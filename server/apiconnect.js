@@ -8,7 +8,7 @@ const {TOKEN} = require('../config.js')
 
 const getAllProducts = () => {
   let options = {
-    url: `${url}/products/?count=50`,
+    url: `${url}/products/?count=10`,
     headers: {
       'Authorization': `${TOKEN}`
     }
