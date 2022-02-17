@@ -10,7 +10,7 @@ const Questions = ({productId}) => {
   const [productQuestions, setProductQuestions] = useState ([]);
   //console.log(productId);
 
-  const fetchQuestions = (productId) => {
+  const fetchQuestions = () => {
     axios.get(`${url}${productId}`)
     .then((result) => {
       //console.log('result data', result.data);
