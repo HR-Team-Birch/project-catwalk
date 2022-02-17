@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import StarRatings from '../../Shared components/starRatings.jsx';
 
-class ReviewMeta extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      reviewMeta: []
-    }
-  }
+const ReviewMeta = (props) => {
 
-  render() {
-    return (
-      <div className="reviewsmeta">
-        <h6>Ratings  Reviews</h6>
-        <div>overall rating and stars</div>
+  //create stars
+  //create recommendation
+
+  // console.log('props in meta', props)
+
+  return (
+    <div className="reviewsmeta">
+      <p style={{ fontWeight: "300"}}>Ratings  Reviews</p>
+      <div>
+        <StarRatings  meta={props.reviewmeta.ratings}/>
       </div>
-    )
-  }
-}
+    </div>
+  )
+
+};
 
 export default ReviewMeta;
