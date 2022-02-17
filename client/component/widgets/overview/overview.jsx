@@ -66,6 +66,32 @@ const Overview = (props) => {
         <AddToCart currentStyle={currentStyle}/>
       </div>
     )
-}
+    // console.log(this.state)
+    }
+
+//  getItemsInCart() {
+//    axios.get('/cart')
+//    .then((response) => {
+//      // console.log(response)
+//      //do some other stuff with it
+//    })
+//    .catch((error) => {
+//      console.error('ERROR IN CLIENT GET', error)
+//    })
+//  }
+
+//  addToCart(productID) {
+//    axios.post(`/cart`, {sku_id: productID})
+//    .then((response) => {
+//      // console.log(response)
+//      //do some other stuff with it
+//    })
+//    .catch((error) => {
+//      console.error('ERROR IN CLIENT GET', error)
+//    })
+//  }
+
+//  render() {
+//}
 
 export default Overview;
