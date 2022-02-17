@@ -1,8 +1,4 @@
-// import React from 'react'
-// import axios from 'axios'
-// import addToCart from './components/addToCart.jsx'
-// import productInfo from './components/productInfo.jsx'
-// import styleSelector from './components/styleSelector.jsx'
+
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import ProductInfo from './components/ProductInfo.jsx';
@@ -25,100 +21,77 @@ import AddToCart from './components/AddToCart.jsx';
 //}
 
 
+const Overview = (props) => {
 
-class Overview extends React.Component {
+    const [product, setProduct] = useState(null)
+    const [currentStyle, setCurrentStyle] = useState(null)
+    const [allStyles, setAllStyles] = useState(null)
+    
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      currentProduct: {},
-      currentStyle: {
-        photos: [{url: "https://images.unsplash.com/photo-1532543491484-63e29b3c1f5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"}]
-      },
-      allStyles: []
-    }
-    this.getAllProducts = this.getAllProducts.bind(this)
-    this.getAllStyles = this.getAllStyles.bind(this)
-  }
-
-  componentDidMount() {
-    this.getAllProducts()
-  }
-
-  getAllProducts() {
-    axios.get('/products')
+    const getAllProducts = () => {
+      axios.get('/products')
       .then((response) => {
-        this.setState({
-          currentProduct: response.data[5]
-        })
-        this.getAllStyles(response.data[5].id);
+        setProduct(response.data[4])
+        console.log('REPOSNE', response)
+        console.log('PRODUCT', product)
+        getAllStyles(response.data[4].id);
       })
       .catch((error) => {
         console.error('ERROR IN CLIENT GET', error)
       })
-  }
-
-  getProductInfo(productID) {
-    axios.get(`/products/${productID}`)
-    .then((response) => {
-
-      //do some other stuff with it
-    })
-    .catch((error) => {
-      console.error('ERROR IN CLIENT GET', error)
-    })
-  }
-
-  getAllStyles(productID) {
-    axios.get(`/products/${productID}/styles`)
-    .then((response) => {
-      //do some other stuff with it
-      this.setState({
-        allStyles: response.data.results,
-        currentStyle: response.data.results[0]
+    }
+    
+    const getAllStyles = (productID) => {
+      axios.get(`/products/${productID}/styles`)
+      .then((response) => {
+        //do some other stuff with it
+        setAllStyles(response.data.results)
+        setCurrentStyle(response.data.results[0])
       })
-      // console.log(this.state)
-    })
-    .catch((error) => {
-      console.error('ERROR IN CLIENT GET', error)
-    })
-  }
-
-  getItemsInCart() {
-    axios.get('/cart')
-    .then((response) => {
-      // console.log(response)
-      //do some other stuff with it
-    })
-    .catch((error) => {
-      console.error('ERROR IN CLIENT GET', error)
-    })
-  }
-
-  addToCart(productID) {
-    axios.post(`/cart`, {sku_id: productID})
-    .then((response) => {
-      // console.log(response)
-      //do some other stuff with it
-    })
-    .catch((error) => {
-      console.error('ERROR IN CLIENT GET', error)
-    })
-  }
-
-  render() {
+      .catch((error) => {
+        console.error('ERROR IN CLIENT GET', error)
+      })
+    }
+    
+    useEffect(() => {
+      getAllProducts()
+    }, [])
+    
     return (
       <div className="Overview">
-        <ImageGallery currentStyle={this.state.currentStyle} allStyles={this.state.allStyles}/>
-        <ProductInfo currentProduct=
-        {this.state.currentProduct}/>
-        <StyleSelector allStyles={this.state.allStyles}/>
-        <Description currentProduct={this.state.currentProduct}/>
-        <AddToCart />
+        <ImageGallery currentStyle={currentStyle} allStyles={allStyles}/>
+        <ProductInfo product={product}/>
+        <StyleSelector allStyles={allStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
+        <Description product={product}/>
+        <AddToCart currentStyle={currentStyle}/>
       </div>
     )
+    // console.log(this.state)
+    }
 
-  }
-}
+//  getItemsInCart() {
+//    axios.get('/cart')
+//    .then((response) => {
+//      // console.log(response)
+//      //do some other stuff with it
+//    })
+//    .catch((error) => {
+//      console.error('ERROR IN CLIENT GET', error)
+//    })
+//  }
+
+//  addToCart(productID) {
+//    axios.post(`/cart`, {sku_id: productID})
+//    .then((response) => {
+//      // console.log(response)
+//      //do some other stuff with it
+//    })
+//    .catch((error) => {
+//      console.error('ERROR IN CLIENT GET', error)
+//    })
+//  }
+
+//  render() {
+//}
 
 export default Overview;
