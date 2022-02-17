@@ -16,11 +16,15 @@ const ReviewList = (props) => {
     setReviewTilesCount(count);
   }
 
-  const getMoreReviews = () => {
-    props.reviews.length - reviewTilesCount === 1 ? props.getAlotOfReviews(props.product_id) : null
+  const openAddReviewModal = () => {
+    setShowAddReviewModal(true);
   }
 
+  const closeAddReviewModal = () => {
+    setShowAddReviewModal(false);
+  }
 
+  // console.log('props in reviewlist', props)
   return (
     <>
       <ReviewMeta reviewmeta={props.reviewMeta} />
@@ -28,7 +32,7 @@ const ReviewList = (props) => {
         <div className="sortandsearchparent">
 
           <div className="sort">
-            <label> ____ reviews, sorted by </label>
+            <label> {props.reviews.length} reviews, sorted by </label>
             <select id="reviewsort">
               <option value="relevant">Relevant</option>
               <option value="helpful">Helpful</option>
@@ -52,9 +56,15 @@ const ReviewList = (props) => {
         </div>
 
         <div className="buttons">
-          <button onClick={ () => {renderMoreReviews(); getMoreReviews(); } }>More Reviews</button>
+          {props.reviews.length > 2 ? <button onClick={ () => {renderMoreReviews(); } }>More Reviews</button> : null}
+
+
+          {showAddReviewModal}
           <button onClick={ () => setShowAddReviewModal(true) } >Add Review</button>
-          <AddReview setShowAddReviewModal={setShowAddReviewModal} />
+
+
+
+
         </div>
 
 

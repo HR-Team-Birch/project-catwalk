@@ -12,10 +12,6 @@ const StarRatings = (props) => {
   const [rating, setRating] = useState(0);
 
   const calculateStarRating = () => {
-    //multiply value of each rating by rating
-    //add it all up 674
-    //divide by total number of ratings 171 -> 3.94
-
     let oneStarTotalVal = Number(props.meta['1']);
     let twoStarTotalVal = Number(props.meta['2']) * 2;
     let threeStarTotalVal = Number(props.meta['3']) * 3;
@@ -28,7 +24,6 @@ const StarRatings = (props) => {
 
     setRating(averageStarRating)
   }
-  console.log('props in starratings', rating)
 
   useEffect(() => {
     calculateStarRating()

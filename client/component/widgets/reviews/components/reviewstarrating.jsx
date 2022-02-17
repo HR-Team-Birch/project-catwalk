@@ -17,8 +17,8 @@ const ReviewStarRating = (props) => {
         </span>
       ))}
 
-      {[...Array(5-reviewSolidStar)].map((star) => (
-        <span className="star" >
+      {[...Array(5-reviewSolidStar)].map((star, idx) => (
+        <span className="star" key={idx}>
           {emptyStar}
         </span>
       ))}

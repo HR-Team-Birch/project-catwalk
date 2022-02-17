@@ -6,7 +6,7 @@ const ReviewMeta = (props) => {
   //create stars
   //create recommendation
 
-  console.log('props in meta', props)
+  // console.log('props in meta', props)
 
   return (
     <div className="reviewsmeta">
