@@ -4,11 +4,7 @@
 # tokens
 config.js
 node_modules
-public/main.js
+./public/main.js
 
 .DS_Store
 
-<<<<<<< HEAD
-public/main.js
-=======
->>>>>>> dev
