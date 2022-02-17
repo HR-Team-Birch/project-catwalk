@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import ViewImageModal from './viewimagemodal.jsx';
 import ReviewStarRating from './reviewstarrating.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import moment from 'moment';
+
+//if reviewers email is associated witha  sale in the system, verified check should appear next to username in reviewtile
 
 const ReviewTile = (props) => {
   const [helpfulClicked, setHelpfulClicked] = useState(false);
@@ -10,6 +13,7 @@ const ReviewTile = (props) => {
   const [restOfBody, setRestOfBody] = useState(' ...Show More');
 
   const check = <FontAwesomeIcon icon={faCheck} />;
+  const circleCheck = <FontAwesomeIcon icon={faCircleCheck} />;
 
   const updateHelpfulClicked = () => {
     props.markHelpful(props.review.review_id);
@@ -30,10 +34,10 @@ const ReviewTile = (props) => {
           <div className="stars">
             <ReviewStarRating rating={props.review.rating}/>
           </div>
-          <div className="userdate">{props.review.reviewer_name}, {props.review.date}</div>
+          <div className="userdate">{circleCheck} {props.review.reviewer_name}, {moment(props.review.date).format('MMMM Do YYYY')}</div>
         </div>
 
-        <span className="reviewsummary">{props.review.summary}</span>
+        <div className="reviewsummary">{props.review.summary}</div>
 
         {props.review.body.length > 250 ? renderShortBody() : <div className="reviewbody">{props.review.body}</div> }
 

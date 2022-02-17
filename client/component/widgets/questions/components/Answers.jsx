@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 const Answers = ({answer}) => {
 
-console.log('answers', answer);
+// console.log('answers', answer);
 
   return (
     <div id="answers">
