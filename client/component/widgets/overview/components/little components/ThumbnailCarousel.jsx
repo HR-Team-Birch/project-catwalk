@@ -1,10 +1,18 @@
 import React from 'react'
+import ThumbnailCarouselItem from './ThumbnailCarouselItem'
 
-const ThumbnailCarousel = (props) => {
+const ThumbnailCarousel = ({allPics, mainImg, setMainImg}) => {
+  
+  console.log('ALL PICS', allPics)
+  console.log('MAIN IMAGE', mainImg)
   return (
   <div className="thumbnails">
-    {props.allPics && 
-    props.allPics.map((pic, index) => (<img onClick={() => props.setMainImg(pic.url)} src={pic.url} alt="a thumbnail of the main style" key={index}/>))}
+    {allPics && 
+    allPics.map((pic, index) => (
+      
+        <ThumbnailCarouselItem pic={pic} key={index} mainImg={mainImg} setMainImg={setMainImg} /> 
+    ))
+    }
   </div> 
     
   )

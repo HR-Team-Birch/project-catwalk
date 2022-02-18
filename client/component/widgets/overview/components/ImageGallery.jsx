@@ -21,8 +21,8 @@ import MainCarousel from './little components/MainCarousel.jsx'
     if (allPics && mainImg) {
       return (
         <div className="ImageGallery">
-          <MainCarousel mainImg={mainImg} setMainImg={setMainImg}/>
-        <ThumbnailCarousel setMainImg={setMainImg} allPics={allPics}/>
+          <MainCarousel mainImg={mainImg} setMainImg={setMainImg} allPics={allPics}/>
+        <ThumbnailCarousel mainImg={mainImg} setMainImg={setMainImg} allPics={allPics}/>
         {/*<ExtendedView className="ExtendedView"/>*/}
       </div>
       )
