@@ -453,7 +453,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar MainCarousel = function MainCarousel(_ref) {\n  var mainImg = _ref.mainImg;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n    className: \"mainimg\",\n    src: mainImg,\n    alt: \"some pic idk\"\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MainCarousel);\n\n//# sourceURL=webpack://my-webpack-project/./client/component/widgets/overview/components/little_components/MainCarousel.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _MainCarouselItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MainCarouselItem */ \"./client/component/widgets/overview/components/little components/MainCarouselItem.jsx\");\n\n\n\nvar MainCarousel = function MainCarousel(_ref) {\n  var mainImg = _ref.mainImg,\n      setMainImg = _ref.setMainImg,\n      allPics = _ref.allPics;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"mains\"\n  }, allPics && allPics.map(function (pic, index) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MainCarouselItem__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n      pic: pic,\n      key: index,\n      mainImg: mainImg,\n      setMainImg: setMainImg\n    });\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MainCarousel); //const MainCarousel = ({mainImg}) => {\n//  return(\n//    <img className=\"mainimg\" src={mainImg} alt=\"some pic idk\"/>\n//  )\n//}\n\n//# sourceURL=webpack://my-webpack-project/./client/component/widgets/overview/components/little_components/MainCarousel.jsx?");
+
+/***/ }),
+
+/***/ "./client/component/widgets/overview/components/little components/MainCarouselItem.jsx":
+/*!*********************************************************************************************!*\
+  !*** ./client/component/widgets/overview/components/little components/MainCarouselItem.jsx ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n //import './../../../../../../public/overview.css'\n\nvar MainCarouselItem = function MainCarouselItem(_ref) {\n  var mainImg = _ref.mainImg,\n      setMainImg = _ref.setMainImg,\n      allPics = _ref.allPics;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n    className: \"mainimg main-carousel-item\",\n    src: mainImg,\n    alt: \"some pic idk\"\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MainCarouselItem);\n\n//# sourceURL=webpack://my-webpack-project/./client/component/widgets/overview/components/little_components/MainCarouselItem.jsx?");
 
 /***/ }),
 
