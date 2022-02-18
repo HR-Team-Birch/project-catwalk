@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import StarRatings from '../../Shared components/starRatings.jsx';
 
 const ReviewMeta = (props) => {
@@ -6,7 +6,26 @@ const ReviewMeta = (props) => {
   //create stars
   //create recommendation
 
-  // console.log('props in meta', props)
+  const [percentRecommend, setPercentRecommend] = useState(0);
+
+  const getPercentRecommend = () => {
+    //iterate through props.reviews
+    //create counter to keep track of how many true
+    //divide counter by props.reviews length
+    let counter = 0;
+    props.reviews.forEach((review) => (
+      review.recommend === true ? counter++ : null
+    ))
+    let percent = (counter / props.reviews.length) * 100;
+    setPercentRecommend(percent)
+  }
+  console.log('percentRecommend', percentRecommend)
+
+  console.log('props in meta', props)
+
+  // useEffect(() => {
+  //   setPercentRecommend()
+  // }, [])
 
   return (
     <div className="reviewsmeta">

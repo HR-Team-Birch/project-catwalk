@@ -225,3 +225,18 @@ Add Review Modal
   color: grey;
 }
 
+.addreviewstar {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.on {
+  color: #000;
+}
+.off {
+  color: #ccc;
+}
+
