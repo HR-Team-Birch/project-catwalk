@@ -14,8 +14,8 @@
   justify-content: space-evenly;
   margin: 50px auto;
   border: 1px solid grey;
-  width: 70%;
-  height: 500px;
+  width: 80%;
+  height: 600px;
   padding: 10px;
 }
 
@@ -54,6 +54,8 @@
 .sort {
   border: 1px solid black;
   flex: 1;
+  font-size: 15px;
+  font-weight: bold;
   margin: 2px;
 }
 
@@ -71,17 +73,18 @@
   display: flex;
   border: 1px grey;
   border-style: solid;
-  max-height: 420px;
+  height: 530px;
   flex-direction: column;
   overflow-y: scroll;
+  width: auto;
 }
 
-.reviewtile {
+#reviewtile {
   display: flex;
   border: 1px grey;
   border-style: solid;
-  height: 190px;
-  width: auto;
+  min-height: 240px;
+  overflow-y: scroll;
   margin: 10px;
   order: 2;
 
@@ -89,11 +92,19 @@
 
 .reviewsummary {
   font-weight: bold;
+  width: 100%;
+}
+
+.reviewtilewidth {
+  width: 100%;
+  padding: 10px;
+
 }
 
 .reviewphotoparent {
+  width: 100%;
   display: inline-grid;
-  grid-template-columns: repeat(5, 10%);
+  grid-template-columns: repeat(5, 15%);
 }
 
 .reviewimage {
@@ -102,10 +113,11 @@
   max-height: auto;
 }
 
-.starsanduser {
+#starsanduser {
   display: flex;
   height: 30px;
   justify-content: space-between ;
+
 }
 
 .userdate {
@@ -119,6 +131,7 @@ Fix helpful / report alignment
 .markreview {
   display: flex;
   justify-content: flex-start ;
+
 }
 
 .helpful {

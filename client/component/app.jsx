@@ -28,10 +28,11 @@ const App = () => {
 
   return (
     <div>
-      {/* <Overview/>
-      <RelatedComparison/> */}
+      <Overview/>
+      <RelatedComparison/>
       <Questions productId={productIdforQuestions} product={selectedProduct}/>
       {/* <Reviews/> */}
+      {productIdforQuestions ?  <Reviews productId={productIdforQuestions}/> : null }
     </div>
   );
 }

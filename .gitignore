@@ -1,10 +1,11 @@
+# node_modules
+#node_modules
+
 # tokens
 config.js
 
-# node_modules
 node_modules
 
-# compiled file
 /public/main.js
 
 .DS_Store
