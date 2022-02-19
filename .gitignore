@@ -3,24 +3,12 @@ config.js
 
 # node_modules
 node_modules
-<<<<<<< HEAD
 
-<<<<<<< HEAD
 # compiled file
 /public/main.js
-=======
+
 ./public/main.js
->>>>>>> dev
 
 .DS_Store
-=======
-.DS_Store
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 public/main.js
-=======
->>>>>>> dev
->>>>>>> dev
-=======
->>>>>>> dev
