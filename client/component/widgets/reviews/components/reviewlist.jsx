@@ -67,7 +67,7 @@ const ReviewList = (props) => {
         <div className="buttons">
           {props.reviews.length > 2 ? <button onClick={ () => {renderMoreReviews(); } }>More Reviews</button> : null}
 
-          <AddReview />
+          <AddReview productId={props.productId}/>
 
         </div>
 

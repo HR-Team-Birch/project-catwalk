@@ -185,6 +185,8 @@ Add Review Modal
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+  box-shadow: 0 8px 6px -6px black;
+  border: 1px solid black;
 }
 
 .addreviewmodalheader {
@@ -201,7 +203,7 @@ Add Review Modal
 }
 
 .addreviewmain {
-  padding: 20px;
+  padding: 20px 0 0 120px;
   margin: 0;
 }
 
@@ -240,3 +242,12 @@ Add Review Modal
   color: #ccc;
 }
 
+#reviewsummarytextbox {
+
+  width: 400px;
+}
+
+#reviewbodytextbox {
+  height: 100px;
+  width: 400px;
+}

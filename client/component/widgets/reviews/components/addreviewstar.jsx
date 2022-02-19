@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,7 +8,9 @@ const AddReviewStar = () => {
 
   const solidStar = <FontAwesomeIcon icon={faStar} />;
 
+  // useEffect(())
 
+  console.log('rating in star', rating)
   return (
     <span className="addreviewstar">
       {[...Array(5)].map((star, idx) => {

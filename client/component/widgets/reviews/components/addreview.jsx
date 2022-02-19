@@ -4,9 +4,18 @@ import AddReviewStar from './addreviewstar.jsx';
 //form for adding a new review
 //on submit, triggers a post request in reviews.jsx
 
+//learn how to use grid for characteristics radio buttons
 
-const AddReview = () => {
+const AddReview = (props) => {
   const [showAddReviewModal, setShowAddReviewModal] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [summary, setSummary] = useState('');
+  const [body, setBody] = useState('');
+  const [recommend, setRecommend] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [photos, setPhotos] = useState([]);
+  const [characteristics, setCharacteristics] = useState({});
 
   const openAddReviewModal = () => {
     setShowAddReviewModal(true);
@@ -16,6 +25,29 @@ const AddReview = () => {
     setShowAddReviewModal(false);
   }
 
+  //figure out how to set state on submit and enter data inside review object
+  const createNewReviewObject = () => {
+    return {
+      "product_id": props.productId,
+      "rating": rating,
+      "summary": summary,
+      "body": body,
+      "recommend": recommend,
+      "name": name,
+      "email": email,
+      "photos": [photos],
+      "characteristics": {
+        "Fit": 5,
+        "Comfort": 4
+      }
+    }
+  }
+  console.log('in addreview rating', rating)
+  console.log('in addreview recommend', recommend)
+  console.log('in addreview name', name)
+  console.log('in addreview email', email)
+  console.log('in addreview summary', summary)
+  console.log('in addreview body', body)
   return (
     <>
       <button className="addreviewbutton" onClick={ openAddReviewModal } >Add Review</button>
@@ -30,29 +62,37 @@ const AddReview = () => {
               </header>
               <h4 className="addreviewsubtitle">About the ____ Here</h4>
               <main className="addreviewmain">
+                <div>
                   <label>Overall Rating
                     <AddReviewStar />
                   </label>
+                </div>
+                <br></br>
                 <form>
 
                   <div>
-                    <label>Do you recommend this product?
-                      <input type="radio"/>
+                    <span style={{margin: "0 0 50px 0"}}>Do you recommend this product?
+                      <input type="radio" value="true"/>
                         Yes
-                    </label>
+                    </span>
                     <label>
-                      <input type="radio"/>
+                      <input type="radio" value="false"/>
                         No
                     </label>
                   </div>
-
-                  <label>What is your nickname?</label>
-                  <input type="text"></input>
                   <br></br>
-                  <label>Your email</label>
-                  <input type="text"></input>
 
+                  <div>
+                    <label>What is your nickname?</label>
+                    <input type="text" onChange={ e => setName(e.target.value)}></input>
+                  </div>
 
+                  <br></br>
+                  <div>
+                    <label>Your email</label>
+                    <input type="text" onChange={ e => setEmail(e.target.value)}></input>
+                  </div>
+                  <br></br>
                   <div>
                     <div>Characteristics</div>
                     <div>Size</div>
@@ -109,18 +149,20 @@ const AddReview = () => {
                       <input type="radio"/>
                         Runs long
                   </div>
-
-                  <div>Review Summary</div>
-                  <input type="text"></input>
                   <br></br>
-                  <div>Review Body</div>
-                  <input type="text"></input>
+
+                  <div style={{margin: "0 0 5px 0"}}>Review Summary</div>
+                  <input type="text" id="reviewsummarytextbox" onChange={ e => setSummary(e.target.value)}></input>
+
+                  <br></br>
+                  <div style={{margin: "20px 0 5px 0"}}>Review Body</div>
+                  <input type="text" id="reviewbodytextbox" onChange={ e => setBody(e.target.value)}></input>
 
                   <br></br>
                   <button>Upload Photo</button>
                   <label>Pic thumbnails</label>
                   <br></br>
-                  <button>Submit</button>
+                  <input type="submit" value="Submit"/>
                 </form>
 
               </main>

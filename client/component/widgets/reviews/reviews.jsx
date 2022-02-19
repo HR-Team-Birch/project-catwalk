@@ -11,7 +11,6 @@ const Reviews = (props) => {
   const [reviewMeta, setReviewMeta] = useState(null);
   const [productId, setProductId] = useState(props.productId);
 
-
   //needs to get product id from somewhere
   const getReviews = () => {
     axios.get(`/reviews/?product_id=${productId}&count=500&sort=relevant`)
@@ -80,7 +79,7 @@ const Reviews = (props) => {
 
   return (
     <div className="reviewsparent">
-      {reviews && reviewMeta ? <ReviewList reviews={reviews} reviewMeta={reviewMeta} add={addReview} markHelpful={markHelpful} reportReview={reportReview} getReviewsSortHelpful={getReviewsSortHelpful} getReviewsSortNewest={getReviewsSortNewest}/> : null}
+      {reviews && reviewMeta ? <ReviewList reviews={reviews} productId={productId} reviewMeta={reviewMeta} add={addReview} markHelpful={markHelpful} reportReview={reportReview} getReviewsSortHelpful={getReviewsSortHelpful} getReviewsSortNewest={getReviewsSortNewest}/> : null}
     </div>
   )
 

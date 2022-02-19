@@ -13,11 +13,14 @@ const ReviewMeta = (props) => {
     //create counter to keep track of how many true
     //divide counter by props.reviews length
     let counter = 0;
-    props.reviews.forEach((review) => (
-      review.recommend === true ? counter++ : null
-    ))
+    props.reviews.forEach((review) => {
+      if (review.recommend === true) {
+        counter++;
+      }
+    })
+
     let percent = (counter / props.reviews.length) * 100;
-    setPercentRecommend(percent)
+    setPercentRecommend(counter)
   }
   console.log('percentRecommend', percentRecommend)
 
