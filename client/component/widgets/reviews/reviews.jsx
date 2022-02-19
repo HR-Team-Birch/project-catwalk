@@ -11,14 +11,29 @@ const Reviews = (props) => {
   const [reviewMeta, setReviewMeta] = useState(null);
   const [productId, setProductId] = useState(props.productId);
 
-
   //needs to get product id from somewhere
   const getReviews = () => {
-    axios.get(`/reviews/?product_id=${productId}&count=500`)
+    axios.get(`/reviews/?product_id=${productId}&count=500&sort=relevant`)
       .then((reviews) => {
         setReviews(reviews.data.results);
       })
       .catch((err) => console.error(err));
+  }
+
+  const getReviewsSortHelpful = () => {
+    axios.get(`/reviews/?product_id=${productId}&count=500&sort=helpful`)
+    .then((reviews) => {
+      setReviews(reviews.data.results);
+    })
+    .catch((err) => console.error(err));
+  }
+
+  const getReviewsSortNewest = () => {
+    axios.get(`/reviews/?product_id=${productId}&count=500&sort=newest`)
+    .then((reviews) => {
+      setReviews(reviews.data.results);
+    })
+    .catch((err) => console.error(err));
   }
 
   //needs to get product id from somewhere
@@ -64,7 +79,7 @@ const Reviews = (props) => {
 
   return (
     <div className="reviewsparent">
-      {reviews && reviewMeta ? <ReviewList reviews={reviews} reviewMeta={reviewMeta} add={addReview} markHelpful={markHelpful} reportReview={reportReview} /> : null}
+      {reviews && reviewMeta ? <ReviewList reviews={reviews} productId={productId} reviewMeta={reviewMeta} add={addReview} markHelpful={markHelpful} reportReview={reportReview} getReviewsSortHelpful={getReviewsSortHelpful} getReviewsSortNewest={getReviewsSortNewest}/> : null}
     </div>
   )
 

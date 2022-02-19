@@ -32,8 +32,8 @@ const Overview = (props) => {
       axios.get('/products')
       .then((response) => {
         setProduct(response.data[4])
-        console.log('REPOSNE', response)
-        console.log('PRODUCT', product)
+        // console.log('REPOSNE', response)
+        // console.log('PRODUCT', product)
         getAllStyles(response.data[4].id);
       })
       .catch((error) => {
