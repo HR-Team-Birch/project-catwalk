@@ -14,7 +14,6 @@ const App = () => {
   const getProducts = () => {
     axios.get(`${url}/products`)
       .then((result) => {
-        //console.log('results', result)
         setProducts(result.data);
         setSelectedProduct(result.data[0]);
         setProductIdforQuestions(result.data[0].id)
@@ -25,14 +24,14 @@ const App = () => {
 
   useEffect(() => {
     getProducts();
-    //console.log('products: ', products)
   }, []);
 
   return (
     <div>
       <Overview/>
       <RelatedComparison/>
-      <Questions productId={productIdforQuestions}/>
+      <Questions productId={productIdforQuestions} product={selectedProduct}/>
+      {/* <Reviews/> */}
       {productIdforQuestions ?  <Reviews productId={productIdforQuestions}/> : null }
     </div>
   );

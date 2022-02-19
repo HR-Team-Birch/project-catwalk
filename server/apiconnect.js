@@ -147,7 +147,6 @@ const getQuestions = (productId) => {
 }
 
 const getAnswers = (questionId) => {
-  console.log('questionId', questionId);
   // need to get page and count query working
   let options = {
     url: `${url}/qa/questions/${questionId.question_id}/answers`,
