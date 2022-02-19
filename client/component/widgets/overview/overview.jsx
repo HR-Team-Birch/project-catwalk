@@ -17,7 +17,13 @@ const Overview = (props) => {
     const getAllProducts = () => {
       axios.get('/products')
       .then((response) => {
+<<<<<<< HEAD
         setProduct(response.data[4]);
+=======
+        setProduct(response.data[4])
+        // console.log('REPOSNE', response)
+        // console.log('PRODUCT', product)
+>>>>>>> dev
         getAllStyles(response.data[4].id);
       })
       .catch((error) => {

@@ -1,6 +1,14 @@
 /* Quesions and Answers */
+/* html{
+  height: 100%;
+}
+#app {
+  height: 100%;
+} */
 
 .questions {
+  width: 80%;
+  height: 50%;
   border: 5px solid blue;
   border-radius: 10px;
   width: 80%;
@@ -10,20 +18,26 @@
 /* Search Bar */
 
 #searchQuestions {
+  width: 90%;
   border: 3px solid orange;
   border-radius: 10px;
   padding: 10px;
 }
 
 #searchBar {
-  min-width: max-content;
+  width: 90%;
   padding: 5px;
 }
 
+/* Questions List */
+
 #questionlist {
+  position: relative;
+  width: 100%;
+  height: 80%;
   border: 3px solid green;
   border-radius: 10px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .eachQuestion {
@@ -50,22 +64,41 @@
 }
 
 /* Answers */
-#answers {
+#answerContainer {
   display: grid;
+}
+
+#answers {
+  display: inline-flex;
+  padding-bottom: 10px;
+  gap: 5px;
 }
 
 #answerBody {
   grid-row-start: 1;
+  padding-bottom: 10px;
 }
 
 #answerUser {
   grid-row-start: 2;
+  color: gray;
+}
+
+#answerDate {
+  color: gray;
+}
+
+#moreAnswers:hover {
+ cursor: pointer;
+ color: darkblue;
 }
 
 #questionFoot {
  display: inline-flex;
  gap: 10px;
 }
+
+/* More Answered Questions */
 
 #moreQuestions {
   border: 3px solid purple;
@@ -79,6 +112,8 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+/* Add A Question */
+
 #addQuestion {
   border: 3px solid magenta;
   max-width: 175px;
@@ -90,6 +125,86 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+/* Add A Question Modal */
+
+#modalContainer {
+  max-height: 5px;
+  overflow: visible;
+}
+
+#closeQModal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#closeQModal:hover,
+#closeQModal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#questionModal {
+  position: fixed;
+  top: 25%;
+  left: 33%;
+  max-width: 100%;
+  max-height: 80%;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 4px solid #888;
+  box-shadow: 0 40px 40px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 1s
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 300; opacity: 1}
+}
+
+#questionFields {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+#questionBody {
+  height: 150px;
+  resize: none;
+}
+
+.qModalInfo {
+  font-size: smaller;
+}
+
+.qFieldNames {
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+#QmodalTitle {
+  text-align: center;
+}
+
+#QmodalSubTitle {
+  text-align: center;
+}
+
+#submitQuestion {
+  margin: 20px;
+}
+
+#submitQMessage {
+  font-size: xx-small;
+  color: red;
+}
+
+/* Answer Modal */
 
 /* Related Items */
 
