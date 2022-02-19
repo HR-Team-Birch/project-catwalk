@@ -30,10 +30,10 @@ const App = () => {
 
   return (
     <div>
-      <Overview/>
-      <RelatedComparison/>
+      {/* <Overview/>
+      <RelatedComparison/> */}
       <Questions productId={productIdforQuestions}/>
-      {productIdforQuestions ?  <Reviews productId={productIdforQuestions}/> : null }
+      {/* {productIdforQuestions ?  <Reviews productId={productIdforQuestions}/> : null } */}
     </div>
   );
 }

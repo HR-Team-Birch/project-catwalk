@@ -3,17 +3,10 @@ config.js
 
 # node_modules
 node_modules
-<<<<<<< HEAD
-/public/main.js
-=======
->>>>>>> 5b8837a4e7e3b5402bef041d4375038ff22a77b3
 
 config.js
 
-<<<<<<< HEAD
-=======
 # compiled file
 /public/main.js
 
 .DS_Store
->>>>>>> 5b8837a4e7e3b5402bef041d4375038ff22a77b3
