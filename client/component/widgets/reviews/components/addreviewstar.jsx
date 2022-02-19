@@ -8,7 +8,10 @@ const AddReviewStar = () => {
 
   const solidStar = <FontAwesomeIcon icon={faStar} />;
 
-  // useEffect(())
+  useEffect(() => {
+
+  }, [])
+
 
   console.log('rating in star', rating)
   return (
