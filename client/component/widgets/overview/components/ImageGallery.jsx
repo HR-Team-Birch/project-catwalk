@@ -40,8 +40,8 @@ import MainCarousel from './little components/MainCarousel.jsx'
     if (allPics && mainImg) {
       return (
         <div className="ImageGallery">
-          <MainCarousel mainImg={mainImg} setMainImg={setMainImg} allPics={allPics}/>
-        <ThumbnailCarousel mainImg={mainImg} setMainImg={setMainImg} allPics={allPics}/>
+        <MainCarousel mainImg={mainImg} setMainImg={setMainImg} allPics={allPics}/>
+        <ThumbnailCarousel mainImg={mainImg} setMainImg={setMainImg} allPics={allPics} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
         <div className="forwardArrow" onClick={goToNextSlide}>
           <i className="fa-regular fa-circle-right"></i>
         </div>
