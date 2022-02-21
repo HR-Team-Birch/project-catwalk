@@ -5,7 +5,9 @@ import AddReview from './addreview.jsx';
 import { Dropdown, Item } from 'react-bootstrap';
 import DropdownButton from 'react-bootstrap/DropdownButton'
 
-const ReviewList = (props) => {
+// !!!!!!!!!   DELETEEEEE bootstap   !!!!!!!!!
+
+const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHelpful, reportReview, getReviewsSortHelpful, getReviewsSortNewest}) => {
 
   //create sort drop down
   //create search functionality
@@ -23,11 +25,10 @@ const ReviewList = (props) => {
 
   }
 
-
-  console.log('props in reviewlist', props)
+  // console.log('meta in reviewlist', reviewMeta)
   return (
     <>
-      <ReviewMeta reviewmeta={props.reviewMeta} reviews={props.reviews}/>
+      <ReviewMeta reviewMeta={reviewMeta} reviews={reviews}/>
       <div className="reviewlistparent">
         <div className="sortandsearchparent">
 
@@ -41,33 +42,33 @@ const ReviewList = (props) => {
           </div> */}
 
           <div className="sort">
-            <label> {props.reviews.length} reviews, sorted by </label>
+            <label> {reviews.length} reviews, sorted by </label>
             <DropdownButton id="sortreviewdropdown" title="stuff" autoClose="true">
               <Dropdown.Item >Relevant</Dropdown.Item>
-              <Dropdown.Item onClick={ () => props.getReviewsSortHelpful() }>Newest</Dropdown.Item>
-              <Dropdown.Item onClick={ () => props.getReviewsSortNewest() }>Helpful</Dropdown.Item>
+              <Dropdown.Item onClick={ () => getReviewsSortHelpful() }>Newest</Dropdown.Item>
+              <Dropdown.Item onClick={ () => getReviewsSortNewest() }>Helpful</Dropdown.Item>
             </DropdownButton>
           </div>
 
           <div className="reviewsearch">review search box</div>
         </div>
         <div className="reviewtileparent">
-          {reviewTilesCount < props.reviews.length ?
-            props.reviews.slice(0, reviewTilesCount).map((review, idx) => (
-              <ReviewTile review={review} markHelpful={props.markHelpful} reportReview={props.reportReview} key={idx}/>
+          {reviewTilesCount < reviews.length ?
+            reviews.slice(0, reviewTilesCount).map((review, idx) => (
+              <ReviewTile review={review} markHelpful={markHelpful} reportReview={reportReview} key={idx}/>
             )) : null
           }
-          {reviewTilesCount > props.reviews.length ?
-            props.reviews.map((review, idx) => (
-              <ReviewTile review={review} markHelpful={props.markHelpful} reportReview={props.reportReview} key={idx}/>
+          {reviewTilesCount > reviews.length ?
+            reviews.map((review, idx) => (
+              <ReviewTile review={review} markHelpful={markHelpful} reportReview={reportReview} key={idx}/>
             )) : null
           }
         </div>
 
         <div className="buttons">
-          {props.reviews.length > 2 ? <button onClick={ () => {renderMoreReviews(); } }>More Reviews</button> : null}
+          {reviews.length > 2 ? <button onClick={ () => {renderMoreReviews(); } }>More Reviews</button> : null}
 
-          <AddReview productId={props.productId}/>
+          <AddReview productId={productId} product={product} reviewMeta={reviewMeta.characteristics} addReview={addReview}/>
 
         </div>
 
