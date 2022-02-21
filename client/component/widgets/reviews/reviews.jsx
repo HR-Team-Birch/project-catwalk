@@ -81,9 +81,6 @@ const Reviews = (props) => {
   return (
     <div className="reviewsparent">
       {reviews && reviewMeta ? <ReviewList reviews={reviews} productId={productId} reviewMeta={reviewMeta} add={addReview} markHelpful={markHelpful} reportReview={reportReview} getReviewsSortHelpful={getReviewsSortHelpful} getReviewsSortNewest={getReviewsSortNewest}/> : null}
-      {/*{reviewMeta ? 
-      <ProductInfo reviewMeta={reviewMeta} />
-       : null }*/}
     </div>
   )
 
