@@ -10,6 +10,7 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [productIdforQuestions, setProductIdforQuestions] = useState('')
+  const [reviewMeta, setReviewMeta] = useState(null)
 
   const getProducts = () => {
     axios.get(`${url}/products`)
@@ -23,15 +24,30 @@ const App = () => {
       });
   };
 
+  const getReviewMeta = () => {
+    axios.get(`/reviews/meta/?product_id=${productIdforQuestions}`)
+      .then((meta) => {
+        console.log(meta.data.reviews)
+        setReviewMeta(meta.data);
+      })
+      .catch((err) => console.error(err));
+  }
+  
   useEffect(() => {
     getProducts();
     //console.log('products: ', products)
   }, []);
 
+  useEffect(() => {
+    getReviewMeta(productIdforQuestions)
+  }, [[productIdforQuestions]])
 
   return (
     <div>
-    <Overview/>
+    {/*{reviewMeta ? */}
+    <Overview reviewMeta={reviewMeta}/>
+    {/*//: null*/}
+  {/*//}*/}
     <RelatedComparison/>
     <Questions productId={productIdforQuestions} product={selectedProduct}/>
     {productIdforQuestions ?  <Reviews productId={productIdforQuestions}/> : null }

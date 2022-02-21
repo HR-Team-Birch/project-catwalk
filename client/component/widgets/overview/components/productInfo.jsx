@@ -1,19 +1,37 @@
 import React, {useEffect, useState} from 'react'
 import SocialMedia from './little components/SocialMedia.jsx'
 import StarRatings from './../../Shared components/starRatings.jsx'
+import axios from 'axios'
 
 const ProductInfo = (props) => {
-
+  
   const [product, setProduct] = useState({})
+  //const [reviewMeta, setReviewMeta] = useState(null)
 
   useEffect(() => {
     props.product ? setProduct(props.product) : setProduct({})
+    //getReviewMeta()
   }, [props.product])
-
+  
+  
+  console.log('PRODUCT', props.product)
+  
+  //const getReviewMeta = () => {
+  //  axios.get(`/reviews/meta/?product_id=${props.product?.id}`)
+  //    .then((meta) => {
+  //      console.log(meta.data.reviews)
+  //      setReviewMeta(meta.data);
+  //    })
+  //    .catch((err) => console.error(err));
+  //}
+  
   return(
     <div className="ProductInfo">
-      <div>Star Ratings *****</div>
-      {/*<StarRatings />*/}
+      {/*<div>Star Ratings *****</div>*/}
+      {props.reviewMeta ? 
+      <StarRatings meta={props.reviewMeta.ratings}/>
+      : null
+      }
       <SocialMedia />
       <div className="Details">
         <div className="productCategory">{product.category?.toUpperCase()}</div>
