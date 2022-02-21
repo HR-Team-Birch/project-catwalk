@@ -19,29 +19,25 @@ const App = () => {
         setProducts(result.data);
         setSelectedProduct(result.data[0]);
         setProductIdforQuestions(result.data[0].id)
-      }).catch((error) => {
+        getReviewMeta(result.data[0].id)
+      })
+      .catch((error) => {
         console.log('Error: ', error);
       });
   };
 
-  const getReviewMeta = () => {
-    axios.get(`/reviews/meta/?product_id=${productIdforQuestions}`)
+  const getReviewMeta = (productId) => {
+    axios.get(`/reviews/meta/?product_id=${productId}`)
       .then((meta) => {
-        // console.log(meta.data.reviews)
         setReviewMeta(meta.data);
       })
       .catch((err) => console.error(err));
-  }
-
+  };
 
   useEffect(() => {
     getProducts();
-    //console.log('products: ', products)
-  }, []);
 
-  useEffect(() => {
-    getReviewMeta(productIdforQuestions)
-  }, [[productIdforQuestions]])
+  }, []);
 
   return (
     <div>
@@ -49,7 +45,7 @@ const App = () => {
       <RelatedComparison/>
       <Questions productId={productIdforQuestions} product={selectedProduct}/>
       {/* <Reviews/> */}
-      {productIdforQuestions ?  <Reviews productId={productIdforQuestions} product={selectedProduct.name}/> : null }
+      {productIdforQuestions && reviewMeta ?  <Reviews productId={productIdforQuestions} product={selectedProduct.name} reviewMeta={reviewMeta}/> : null }
     </div>
   );
 }

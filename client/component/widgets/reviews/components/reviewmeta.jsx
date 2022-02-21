@@ -13,22 +13,25 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
     //create counter to keep track of how many true
     //divide counter by props.reviews length
     let counter = 0;
-    reviews.forEach((review) => {
-      if (review.recommend === true) {
+    // reviews.forEach((review) => {
+    //   if (review.recommend === true) {
+    //     counter++;
+    //   }
+    // })
+    for (let i = 0; i < reviews.length; i++) {
+      if (reviews[i].recommend === true) {
         counter++;
       }
-    })
-
-    let percent = (counter / reviews.length) * 100;
-    setPercentRecommend(counter)
+    }
+    let percent = Math.round((counter / reviews.length) * 100);
+    setPercentRecommend(percent)
   }
-  // console.log('percentRecommend', percentRecommend)
 
   // console.log('props in meta', props)
 
-  // useEffect(() => {
-  //   setPercentRecommend()
-  // }, [])
+  useEffect(() => {
+    getPercentRecommend()
+  }, [])
 
   return (
     <div className="reviewsmeta">
@@ -37,7 +40,7 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
         <StarRatings  meta={reviewMeta.ratings}/>
       </div>
       <br></br>
-      <div style={{fontSize: "12px"}}>____ of reviews recommend this product</div>
+      <div style={{fontSize: "12px"}}>{percentRecommend}% of reviews recommend this product</div>
 
       <div className="starBarsContainer">
 
