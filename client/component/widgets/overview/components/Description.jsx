@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
 
-const Description = (props) => {
+const Description = ({product}) => {
   
   const [description, setDesc] = useState("")
   useEffect(() => {
-    props.product ? setDesc(props.product.description) : setDesc("")
+    product ? setDesc(product.description) : setDesc("")
   })
   return(
     <div className="Description">{description}</div>

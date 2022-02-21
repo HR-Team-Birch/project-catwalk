@@ -3,6 +3,7 @@ import axios from 'axios';
 import ReviewList from './components/reviewlist.jsx';
 import AddReview from './components/addreview.jsx';
 import ReviewMeta from './components/reviewmeta.jsx';
+import ProductInfo from './../../widgets/overview/components/ProductInfo.jsx'
 
 
 const Reviews = (props) => {
@@ -80,6 +81,9 @@ const Reviews = (props) => {
   return (
     <div className="reviewsparent">
       {reviews && reviewMeta ? <ReviewList reviews={reviews} productId={productId} reviewMeta={reviewMeta} add={addReview} markHelpful={markHelpful} reportReview={reportReview} getReviewsSortHelpful={getReviewsSortHelpful} getReviewsSortNewest={getReviewsSortNewest}/> : null}
+      {/*{reviewMeta ? 
+      <ProductInfo reviewMeta={reviewMeta} />
+       : null }*/}
     </div>
   )
 
