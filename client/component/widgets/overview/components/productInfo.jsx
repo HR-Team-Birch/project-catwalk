@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import SocialMedia from './little components/SocialMedia.jsx'
-// import StarRatings from './../../Shared components/StarRatings.jsx'
+import StarRatings from './../../Shared components/starRatings.jsx'
 
 const ProductInfo = (props) => {
 
@@ -13,7 +13,8 @@ const ProductInfo = (props) => {
   console.log(props.currentStyle)
   return(
     <div className="ProductInfo">
-      {/* <StarRatings /> */}
+      <div>Star Ratings *****</div>
+      {/*<StarRatings />*/}
       <SocialMedia />
       <div className="Details">
         <div className="productCategory">{product.category?.toUpperCase()}</div>

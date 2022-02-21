@@ -37,7 +37,11 @@
 .SocialMedia {
   /*border: 5px solid turquoise;*/
   grid-column: 3 / span 2;
-  grid-row: 1 / span 1
+  grid-row: 1 / span 1;
+  display: flex;
+  margin: 5px;
+  justify-content: space-around;
+  font-size: 30px
 }
 
 .AddToCart {
@@ -123,19 +127,20 @@
   height: 100%;
   width: 20%;
   position: absolute;
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
   flex-direction: column;
-  margin: 5px
+  margin-left: 10px;
+  overflow: hidden;
 }
 
 .thumbnails img {
   height: 75px;
   width: 75px;
-  flex-basis: auto;
-  /*border:5px solid white;*/
+  border: 3px solid black;
   object-fit: cover;
   margin: 2px;
+  
 
 }
 
