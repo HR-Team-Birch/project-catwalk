@@ -140,7 +140,7 @@
   border: 3px solid black;
   object-fit: cover;
   margin: 2px;
-  
+
 
 }
 
@@ -179,13 +179,13 @@
 .fa-regular {
   font-size: 30px;
   color: white;
-  
+
 }
-.forwardArrow { 
+.forwardArrow {
   position: absolute;
   right: 5px;
   bottom: 50%;
-  
+
 }
 
 .backArrow {
