@@ -10,7 +10,6 @@ const ProductInfo = (props) => {
     props.product ? setProduct(props.product) : setProduct({})
   }, [props.product])
 
-  console.log(props.currentStyle)
   return(
     <div className="ProductInfo">
       <div>Star Ratings *****</div>
