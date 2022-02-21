@@ -39,7 +39,79 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
       <br></br>
       <div style={{fontSize: "12px"}}>____ of reviews recommend this product</div>
 
-      <div>bars</div>
+      <div className="starBarsContainer">
+
+        <div className="starBars">
+          <div className="starBarsLeft">
+            <div style={{fontSize: "14px"}}>5 star</div>
+          </div>
+          <div className="starBarsMiddle">
+            <div className="barcontainer">
+              <div className="bar5"></div>
+            </div>
+          </div>
+          <div className="starsBarsRight">
+            <div>30</div>
+          </div>
+        </div>
+
+        <div className="starBars">
+          <div className="starBarsLeft">
+            <div style={{fontSize: "14px"}}>4 star</div>
+          </div>
+          <div className="starBarsMiddle">
+            <div className="barcontainer">
+              <div className="bar4"></div>
+            </div>
+          </div>
+          <div className="starsBarsRight">
+            <div>#</div>
+          </div>
+        </div>
+
+        <div className="starBars">
+          <div className="starBarsLeft">
+            <div style={{fontSize: "14px"}}>3 star</div>
+          </div>
+          <div className="starBarsMiddle">
+            <div className="barcontainer">
+              <div className="bar3"></div>
+            </div>
+          </div>
+          <div className="starsBarsRight">
+            <div>#</div>
+          </div>
+        </div>
+
+        <div className="starBars">
+          <div className="starBarsLeft">
+            <div style={{fontSize: "14px"}}>2 star</div>
+          </div>
+          <div className="starBarsMiddle">
+            <div className="barcontainer">
+              <div className="bar2"></div>
+            </div>
+          </div>
+          <div className="starsBarsRight">
+            <div >#</div>
+          </div>
+        </div>
+
+        <div className="starBars">
+          <div className="starBarsLeft">
+            <div style={{fontSize: "14px"}}>1 star</div>
+          </div>
+          <div className="starBarsMiddle">
+            <div className="barcontainer">
+              <div className="bar1"></div>
+            </div>
+          </div>
+          <div className="starsBarsRight">
+            <div>#</div>
+          </div>
+        </div>
+
+      </div>
 
       <div>type of filter applied</div>
 

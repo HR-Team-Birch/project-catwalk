@@ -275,3 +275,69 @@ Add Review Image Modal
   width: 70%;
 
 }
+
+
+/* =====================
+Meta Star Bars
+=======================*/
+.starBarsContainer {
+  display: grid;
+  grid: 50px 150px 50px;
+}
+
+.starBars {
+  justify-content: center;
+}
+
+.starBarsLeft {
+  float: left;
+  width: 15%;
+  margin-top:10px;
+}
+
+.starBarsMiddle {
+  margin-top:12px;
+  float: left;
+  width: 70%;
+}
+
+.starsBarsRight {
+  text-align: right;
+  margin-top:10px;
+}
+
+/* .starBars:after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+
+.barcontainer {
+  width: 150px;
+  height: 10px;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+.bar5,
+.bar4,
+.bar3,
+.bar2,
+.bar1 {
+  width: 70%;
+  height: 10px;
+  background-color: #04AA6D;
+}
+
+
+/*
+@media (max-width: 250px) {
+  .starBarsLeft,
+     .starBarsMiddle {
+    width: 100%;
+  }
+  .starsBarsRight {
+    display: none;
+  }
+} */

@@ -22,6 +22,14 @@ const App = () => {
       });
   };
 
+  const getReviewMeta = () => {
+    axios.get(`/reviews/meta/?product_id=${productIdforQuestions}`)
+      .then((meta) => {
+        setReviewMeta(meta.data);
+      })
+      .catch((err) => console.error(err));
+  }
+
   useEffect(() => {
     getProducts();
   }, []);

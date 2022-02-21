@@ -3,7 +3,7 @@ import AddReviewStar from './addreviewstar.jsx';
 import UploadImageModal from './uploadimagemodal.jsx';
 
 
-//on submit, triggers a post request in reviews.jsx
+//figure out add review image modal
 
 
 const AddReview = ({productId, product, reviewMeta, addReview}) => {

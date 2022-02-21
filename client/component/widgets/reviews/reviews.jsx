@@ -34,13 +34,13 @@ const Reviews = ({productId, product}) => {
     .catch((err) => console.error(err));
   }
 
-  const getReviewMeta = () => {
-    axios.get(`/reviews/meta/?product_id=${productId}`)
-      .then((meta) => {
-        setReviewMeta(meta.data);
-      })
-      .catch((err) => console.error(err));
-  }
+  // const getReviewMeta = () => {
+  //   axios.get(`/reviews/meta/?product_id=${productId}`)
+  //     .then((meta) => {
+  //       setReviewMeta(meta.data);
+  //     })
+  //     .catch((err) => console.error(err));
+  // }
 
   const addReview = (review) => {
     axios.post('/reviews', review)
