@@ -182,11 +182,13 @@ Add Review Modal
   z-index: 20;
   background: #fff;
   width: 650px;
+  max-height: 90%;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   box-shadow: 0 8px 6px -6px black;
   border: 1px solid black;
+  overflow-y: scroll;
 }
 
 .addreviewmodalheader {
@@ -250,4 +252,26 @@ Add Review Modal
 #reviewbodytextbox {
   height: 100px;
   width: 400px;
+}
+
+#characteristics {
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  grid-template-rows: 20px;
+}
+
+
+
+/* =====================
+Add Review Image Modal
+=======================*/
+
+
+#reviewphotomodal {
+  box-shadow: 0 8px 6px -6px black;
+  border: 1px solid black;
+  left: 0%;
+  top: 15%;
+  width: 70%;
+
 }

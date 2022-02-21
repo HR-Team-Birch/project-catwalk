@@ -32,7 +32,7 @@ const App = () => {
       <RelatedComparison/>
       <Questions productId={productIdforQuestions} product={selectedProduct}/>
       {/* <Reviews/> */}
-      {productIdforQuestions ?  <Reviews productId={productIdforQuestions}/> : null }
+      {productIdforQuestions ?  <Reviews productId={productIdforQuestions} product={selectedProduct.name}/> : null }
     </div>
   );
 }
