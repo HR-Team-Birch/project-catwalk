@@ -50,7 +50,13 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
             </DropdownButton>
           </div>
 
-          <div className="reviewsearch">review search box</div>
+          {/* <div className="reviewsearchparent">
+            <input id="reviewsearch" type="search" placeholder="search reviews...">
+            </input>
+            <button>Submit</button>
+          </div> */}
+
+
         </div>
         <div className="reviewtileparent">
           {reviewTilesCount < reviews.length ?

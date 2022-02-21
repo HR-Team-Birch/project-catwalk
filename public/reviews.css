@@ -13,7 +13,7 @@
   flex-wrap: nowrap;
   justify-content: space-evenly;
   margin: 50px auto;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   width: 80%;
   height: 650px;
   padding: 10px;
@@ -39,14 +39,13 @@
 .reviewlistparent {
   flex-grow: 3;
   order: 2;
-  border: 1px solid black;
   margin: 0 5px;
 }
 
 .sortandsearchparent {
   display: flex;
-  border: 1px grey;
-  border-style: solid;
+  /* border: 1px grey; */
+  /* border-style: solid; */
   height: 30px;
 
 }
@@ -59,10 +58,15 @@
   margin: 2px;
 }
 
-.reviewsearch {
+.reviewsearchparent {
   border: 1px solid black;
   flex: 1;
   margin: 2px;
+  width: 100px;
+}
+
+#reviewsearch {
+  width: 90%;
 }
 
 /*==============================
@@ -71,8 +75,7 @@
 
 .reviewtileparent {
   display: flex;
-  border: 1px grey;
-  border-style: solid;
+
   height: 590px;
   flex-direction: column;
   overflow-y: scroll;
@@ -81,13 +84,12 @@
 
 #reviewtile {
   display: flex;
-  border: 1px grey;
-  border-style: solid;
+  width: 100%;
+  border-bottom: 1px solid grey ;
   min-height: 280px;
-  overflow-y: scroll;
-  margin: 10px;
+  overflow-y: auto;
   order: 2;
-
+  padding: 0;
 }
 
 .reviewsummary {
@@ -127,8 +129,12 @@
   font-size: 10px;
 }
 
+hr.divider {
+  border-top: 3px solid black;
+}
+
 /* =====================
-Fix helpful / report alignment
+Helpful / Report
 =======================*/
 
 .markreview {
@@ -282,7 +288,7 @@ Meta Star Bars
 =======================*/
 .starBarsContainer {
   display: grid;
-  grid: 50px 150px 50px;
+  grid: 50px 150px 30px;
 }
 
 .starBars {
@@ -292,25 +298,19 @@ Meta Star Bars
 .starBarsLeft {
   float: left;
   width: 15%;
-  margin-top:10px;
+  margin: 10px 0 0 5px;
 }
 
 .starBarsMiddle {
-  margin-top:12px;
+  margin: 15px 0 0 10px;
   float: left;
   width: 70%;
 }
 
 .starsBarsRight {
-  text-align: right;
-  margin-top:10px;
+  text-align: left;
+  margin: 10px 5px 0 0;
 }
-
-/* .starBars:after {
-  content: "";
-  display: table;
-  clear: both;
-} */
 
 .barcontainer {
   width: 150px;
@@ -330,14 +330,3 @@ Meta Star Bars
   background-color: #04AA6D;
 }
 
-
-/*
-@media (max-width: 250px) {
-  .starBarsLeft,
-     .starBarsMiddle {
-    width: 100%;
-  }
-  .starsBarsRight {
-    display: none;
-  }
-} */
