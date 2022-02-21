@@ -8,37 +8,40 @@
 }
 
 .ImageGallery {
-  border: 5px solid blue;
+  /*border: 5px solid blue;*/
   grid-column: 1 / span 3;
   grid-row: 1 / span 3;
   background-color: pink;
   position: relative;
+  margin-right: 30px;
+  box-shadow: 5px 5px 45px 1px;
+
 }
 
 .ProductInfo {
-  border: 5px solid rgb(247, 247, 161);
+  /*border: 5px solid rgb(247, 247, 161);*/
   grid-column-start: span 2;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 20%);
+  grid-template-rows: repeat(6, 1fr);
   grid-row: 1 / span 1;
 }
 
 .StarRatings {
   /* border: 5px solid lime; */
-  border: 5px solid lime;
+  /*border: 5px solid lime;*/
   grid-column: 1 / span 2;
   grid-row: 1 / span 1
 }
 
 .SocialMedia {
-  border: 5px solid turquoise;
+  /*border: 5px solid turquoise;*/
   grid-column: 3 / span 2;
   grid-row: 1 / span 1
 }
 
 .AddToCart {
-  border: 5px solid orange;
+  /*border: 5px solid orange;*/
   grid-column: 4 / span 2;
   grid-row: 3 / span 1;
 }
@@ -74,7 +77,7 @@
 }
 
 .Description {
-  border: 5px solid maroon;
+  /*border: 5px solid maroon;*/
   grid-row-start: 4;
   grid-column: 1 / span 5;
   padding: 20px;
@@ -82,7 +85,7 @@
 }
 
 .Details {
-  border: 5px solid rgb(128, 70, 4);
+  /*border: 5px solid rgb(128, 70, 4);*/
   grid-column: 1 / span 3;
   grid-row: 2 / span 4;
   display: grid;
@@ -99,20 +102,20 @@
 
 .productName {
   font-size: x-large;
-  border: 5px dotted blue;
+  /*border: 5px dotted blue;*/
   grid-row: 2 / span 3
 }
 
 .productPrice {
   font-size: medium;
-  border: 5px dotted blue;
+  /*border: 5px dotted blue;*/
   grid-row: 5 /span 1
 
 }
 
 .productCategory {
   font-size: medium;
-  border: 5px dotted blue;
+  /*border: 5px dotted blue;*/
   grid-row: 1 / span 1
 }
 
@@ -130,14 +133,14 @@
   height: 75px;
   width: 75px;
   flex-basis: auto;
-  border:5px solid white;
+  /*border:5px solid white;*/
   object-fit: cover;
   margin: 2px;
 
 }
 
 .StyleSelector {
-  border: 5px solid lavender;
+  /*border: 5px solid lavender;*/
   grid-column: 4 / span 2;
   grid-row: 2 / span 1;
   display: flex;
@@ -150,7 +153,7 @@
   height: 80px;
   width: 80px;
   border-radius: 50%;
-  border: 5px solid red;
+  /*border: 5px solid red;*/
   margin: 3px;
   margin-right: 5px;
   margin-left: 5px
@@ -177,4 +180,8 @@
   left: 300px;
   bottom: 50%;
 
+}
+
+#app {
+  margin: 20px;
 }

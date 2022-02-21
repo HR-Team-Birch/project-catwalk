@@ -46,7 +46,7 @@ const Overview = (props) => {
   return (
     <div className="Overview">
       <ImageGallery currentStyle={currentStyle} allStyles={allStyles}/>
-      <ProductInfo product={product}/>
+      <ProductInfo product={product} currentStyle={currentStyle}/>
       <StyleSelector allStyles={allStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
       <Description product={product}/>
       <AddToCart currentStyle={currentStyle}/>

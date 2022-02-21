@@ -10,6 +10,7 @@ const ProductInfo = (props) => {
     props.product ? setProduct(props.product) : setProduct({})
   }, [props.product])
 
+  console.log(props.currentStyle)
   return(
     <div className="ProductInfo">
       {/* <StarRatings /> */}
@@ -18,6 +19,7 @@ const ProductInfo = (props) => {
         <div className="productCategory">{product.category?.toUpperCase()}</div>
         <div className="productName">{product.name}</div>
         <div className="productPrice">${product.default_price}</div>
+        <div>Style > {props.currentStyle?.name}</div>
       </div>
     </div>
   )

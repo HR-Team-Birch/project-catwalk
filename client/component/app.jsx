@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Overview from './widgets/overview/overview.jsx';
-// import Reviews from './widgets/reviews/reviews.jsx';
+ import Reviews from './widgets/reviews/reviews.jsx';
 //import Questions from './widgets/questions/questions.jsx';
 //import RelatedComparison from './widgets/related/relatedCompare.jsx';
 import axios from 'axios';
@@ -32,7 +32,7 @@ const App = () => {
   return (
     <div>
       <Overview />
-      {/*{   <Reviews />}*/}
+      {/*<Reviews />*/}
       {/* <RelatedComparison /> */}
       {/*<Questions productId={productIdforQuestions} />
       */}

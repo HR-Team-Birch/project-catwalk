@@ -8,3 +8,4 @@ const MainCarouselItem = ({mainImg, setMainImg, allPics}) => {
 }
 
 export default MainCarouselItem
+//EXTINCT
