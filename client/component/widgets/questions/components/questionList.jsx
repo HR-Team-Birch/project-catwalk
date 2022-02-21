@@ -5,29 +5,37 @@ import MoreQuestions from './moreQuestions.jsx';
 import AddQuestion from './addQuestion.jsx'
 import AddQuestionModal from './AddQuestionModal.jsx';
 
-
-const QuestionList = ({productQuestions, product}) => {
+const QuestionList = ({ productQuestions, product }) => {
 
   const [showQuestionModal, setShowQuestionModal] = useState(false);
+  const [sliceIndex, setSliceIndex] = useState(4);
+  const [showMoreQuestions, setShowMoreQuestions] = useState(true);
 
   const showAddQuestionModal = () => {
     setShowQuestionModal(true);
   }
 
-  return(
-    <div id="questionlist">
-      <span id="modalContainer">
-      {showQuestionModal ? <AddQuestionModal show={setShowQuestionModal} name={product.name} productId={product.id}/> : null }
-      </span>
-      <h3>Question List!!!</h3>
-      {productQuestions ? productQuestions.map((question, index) => {
-        return (
-          <IndividualQuestion question={question} key={index}/>
-        )
-      }) : null }
+  useEffect(() => {
+    if(sliceIndex >= productQuestions.length && productQuestions.length > 4) {
+      setShowMoreQuestions(false);
+    }
+  }, [sliceIndex]);
+
+  return (
+    <div>
+      <div id="questionlist">
+        <span id="modalContainer">
+          {showQuestionModal ? <AddQuestionModal show={setShowQuestionModal} name={product.name} productId={product.id} /> : null}
+        </span>
+        {productQuestions ? productQuestions.slice(0, sliceIndex).map((question, index) => {
+          return (
+            <IndividualQuestion question={question} key={index} product={product} />
+          )
+        }) : null}
+      </div>
       <div id="questionFoot">
-      <MoreQuestions/>
-      <AddQuestion showAddQuestionModal={showAddQuestionModal}/>
+        {productQuestions.length > 4 && showMoreQuestions ? <MoreQuestions productQuestions={productQuestions} setSliceIndex={setSliceIndex} /> : null}
+        {productQuestions ? <AddQuestion showAddQuestionModal={showAddQuestionModal}/> : null}
       </div>
     </div>
   )
