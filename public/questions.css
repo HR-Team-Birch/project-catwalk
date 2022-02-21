@@ -1,32 +1,28 @@
 /* Quesions and Answers */
-/* html{
-  height: 100%;
-}
-#app {
-  height: 100%;
-} */
 
 .questions {
   width: 80%;
   height: 50%;
-  border: 5px solid blue;
+  margin: auto;
+  /* border: 5px solid blue; */
   border-radius: 10px;
-  width: 80%;
   padding: 20px;
 }
 
 /* Search Bar */
 
 #searchQuestions {
-  width: 90%;
-  border: 3px solid orange;
-  border-radius: 10px;
+  width: 100%;
   padding: 10px;
 }
 
 #searchBar {
-  width: 90%;
-  padding: 5px;
+  width: 99%;
+  margin: auto;
+  height: 50px;
+  padding: 10px;
+  font-size: large;
+  font-weight: 400;
 }
 
 /* Questions List */
@@ -35,13 +31,17 @@
   position: relative;
   width: 100%;
   height: 80%;
-  border: 3px solid green;
-  border-radius: 10px;
+  max-height: 650px;
+  overflow: scroll;
   padding: 5px;
 }
 
+#questionlist::-webkit-scrollbar {
+  display: none;
+}
+
 .eachQuestion {
-  border: 3px solid black;
+  /* border: 3px solid black; */
   border-radius: 10px;
   padding: 2px;
   margin-bottom: 5px;
@@ -50,6 +50,8 @@
 
 #question {
   grid-row-start: 1;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
 #helpfulQ {
@@ -64,7 +66,14 @@
 }
 
 /* Answers */
+#answersInQuestion {
+  display: grid;
+  grid-template-columns: 4% 96%;
+}
+
+
 #answerContainer {
+  grid-column-start: 2;
   display: grid;
 }
 
@@ -88,6 +97,14 @@
   color: gray;
 }
 
+#loadAnswers {
+  grid-column-start: 2;
+}
+
+/* #moreAnswers {
+  grid-column-start: 2;
+} */
+
 #moreAnswers:hover {
  cursor: pointer;
  color: darkblue;
@@ -96,33 +113,39 @@
 #questionFoot {
  display: inline-flex;
  gap: 10px;
+ margin-top: 15px;
 }
 
-/* More Answered Questions */
+/* More Answered Questions Button */
 
 #moreQuestions {
-  border: 3px solid purple;
   max-width: 250px;
   padding: 3px;
   display: grid;
-
 }
 
 #moreQButton {
+  height: 50px;
+  width: 200px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+  background-color: white;
 }
 
-/* Add A Question */
+/* Add A Question Button */
 
 #addQuestion {
-  border: 3px solid magenta;
   max-width: 175px;
   padding: 3px;
   display: grid;
 }
 
 #addQButton {
+  height: 50px;
+  width: 150px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+  background-color: white;
 }
 
 /* Add A Question Modal */
@@ -205,6 +228,81 @@
 }
 
 /* Answer Modal */
+
+#closeAModal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#closeAModal:hover,
+#closeAModal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#answerModal {
+  /* visibility: hidden; */
+  position: fixed;
+  top: 25%;
+  left: 33%;
+  max-width: 100%;
+  max-height: 80%;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 4px solid #888;
+  box-shadow: 0 40px 40px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 1s
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 300; opacity: 1}
+}
+
+#answerFields {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+#answerModalBody {
+  height: 150px;
+  resize: none;
+}
+
+.aModalInfo {
+  font-size: smaller;
+}
+
+.aFieldNames {
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+#AmodalTitle {
+  text-align: center;
+}
+
+#AmodalSubTitle {
+  text-align: center;
+}
+
+#submitAnswer {
+  margin: 20px;
+}
+
+#submitAMessage {
+  font-size: xx-small;
+  color: red;
+}
+
+
 
 /* Related Items */
 
