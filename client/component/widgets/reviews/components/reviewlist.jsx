@@ -69,8 +69,8 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
           }
         </div>
 
-        <div className="buttons">
-          {reviews.length > 2 ? <button onClick={ () => {renderMoreReviews(); } }>More Reviews</button> : null}
+        <div id="reviewbuttons">
+          {reviews.length > 2 ? <button id="morereviews" onClick={ () => {renderMoreReviews(); } }>More Reviews</button> : null}
 
           <AddReview productId={productId} product={product} reviewMeta={reviewMeta.characteristics} addReview={addReview}/>
 

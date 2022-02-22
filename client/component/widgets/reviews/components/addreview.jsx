@@ -147,7 +147,7 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
 
   return (
     <>
-      <button className="addreviewbutton" onClick={ ()=> setShowAddReviewModal(true) } >Add Review</button>
+      <button id="addreviewbutton" onClick={ ()=> setShowAddReviewModal(true) } >Add Review</button>
         {showAddReviewModal && (
           <>
             <div className="addreviewoverlay"></div>
