@@ -4,10 +4,10 @@ import ReviewList from './components/reviewlist.jsx';
 import AddReview from './components/addreview.jsx';
 import ReviewMeta from './components/reviewmeta.jsx';
 
-const Reviews = ({productId, product}) => {
+const Reviews = ({productId, product, reviewMeta}) => {
 
   const [reviews, setReviews] = useState(null);
-  const [reviewMeta, setReviewMeta] = useState(null);
+  // const [reviewMeta, setReviewMeta] = useState(null);
 
   const getReviews = () => {
     axios.get(`/reviews/?product_id=${productId}&count=500&sort=relevant`)
@@ -33,13 +33,13 @@ const Reviews = ({productId, product}) => {
     .catch((err) => console.error(err));
   }
 
-  const getReviewMeta = () => {
-    axios.get(`/reviews/meta/?product_id=${productId}`)
-      .then((meta) => {
-        setReviewMeta(meta.data);
-      })
-      .catch((err) => console.error(err));
-  }
+  // const getReviewMeta = () => {
+  //   axios.get(`/reviews/meta/?product_id=${productId}`)
+  //     .then((meta) => {
+  //       setReviewMeta(meta.data);
+  //     })
+  //     .catch((err) => console.error(err));
+  // }
 
   const addReview = (review) => {
     axios.post('/reviews', review)
@@ -69,7 +69,6 @@ const Reviews = ({productId, product}) => {
 
   useEffect(() => {
     getReviews();
-    getReviewMeta();
 
   }, []);
 
