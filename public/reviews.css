@@ -32,6 +32,11 @@
   flex-grow: 1;
 }
 
+#ratingaverage {
+  font-weight: bold;
+  font-size: 35px;
+}
+
 /*==============================
   Review List
 ==============================*/

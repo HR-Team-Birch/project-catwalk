@@ -35,11 +35,15 @@
   /*border: 5px solid lime;*/
   grid-column: 1 / span 2;
   grid-row: 1 / span 1;
-  font-size: 12px
+  /* font-size: 12px */
 }
 
-#OverviewStarRatings a {
+/* #OverviewStarRatings a {
   font-size: 10px
+} */
+
+.ProductInfo div {
+  font-size: 12px;
 }
 
 .SocialMedia {
@@ -183,7 +187,7 @@
 
 .styleIcon {
 margin: 10px
-  
+
 }
 
 
