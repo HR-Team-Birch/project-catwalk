@@ -41,7 +41,7 @@ const App = () => {
 
   useEffect(() => {
     getReviewMeta(productIdforQuestions)
-  }, [[productIdforQuestions]])
+  }, [productIdforQuestions])
 
   return (
     <div>

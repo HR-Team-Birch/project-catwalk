@@ -7,7 +7,7 @@ import Description from './components/Description.jsx';
 import AddToCart from './components/AddToCart.jsx';
 
 
-const Overview = (props) => {
+const Overview = ({reviewMeta}) => {
   
     const [product, setProduct] = useState(null);
     const [currentStyle, setCurrentStyle] = useState(null);
@@ -18,8 +18,6 @@ const Overview = (props) => {
       axios.get('/products')
       .then((response) => {
         setProduct(response.data[5]);
-        // console.log('REPOSNE', response)
-        // console.log('PRODUCT', product)
         getAllStyles(response.data[5].id);
       })
       .catch((error) => {
@@ -46,7 +44,7 @@ const Overview = (props) => {
   return (
     <div className="Overview">
       <ImageGallery currentStyle={currentStyle} allStyles={allStyles}/>
-      <ProductInfo product={product} currentStyle={currentStyle} reviewMeta={props.reviewMeta}/>
+      <ProductInfo product={product} currentStyle={currentStyle} reviewMeta={reviewMeta}/>
       <StyleSelector allStyles={allStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
       <Description product={product}/>
       <AddToCart currentStyle={currentStyle}/>
