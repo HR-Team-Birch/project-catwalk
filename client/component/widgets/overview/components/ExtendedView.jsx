@@ -12,19 +12,22 @@ const ExtendedView = ({currentStyle, allStyles, product, reviewMeta, setCurrentS
   
   const [expandStatus, setExpandStatus] = useState(false)
   
-  if (!expandStatus) {
-    return(
-      <div className="extendedView">
+  return(
+    <div className="ExtendedViewParent">
         <ImageGalleryRegular currentStyle={currentStyle} allStyles={allStyles} expandStatus={expandStatus} setExpandStatus={setExpandStatus}/>
-        <ProductInfo product={product} currentStyle={currentStyle} reviewMeta={reviewMeta}/>
-        <StyleSelector allStyles={allStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
-        <AddToCart currentStyle={currentStyle}/>
-        
+        { !expandStatus && (
+          <div className="allProductStuff">          
+            <ProductInfo product={product} currentStyle={currentStyle} reviewMeta={reviewMeta}/>
+            <StyleSelector allStyles={allStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
+            <AddToCart currentStyle={currentStyle}/>
+          </div>
+          )}
+
       </div>
     )
-  } else {
-    return (<ImageGalleryExpanded currentStyle={currentStyle} allStyles={allStyles} expandStatus={expandStatus} setExpandStatus={setExpandStatus}/>)
-  }
+  //} else {
+  //  return (<ImageGalleryExpanded currentStyle={currentStyle} allStyles={allStyles} expandStatus={expandStatus} setExpandStatus={setExpandStatus}/>)
+  //}
 }
 
 export default ExtendedView;

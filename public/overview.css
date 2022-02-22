@@ -31,11 +31,11 @@
 
 .ProductInfo {
   /*border: 5px solid rgb(247, 247, 161);*/
-  grid-column-start: span 2;
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  grid-row: 1 / span 1;
 }
 
 #OverviewStarRatings {
@@ -66,8 +66,8 @@
 
 .AddToCart {
   /*border: 5px solid orange;*/
-  grid-column: 4 / span 2;
-  grid-row: 3 / span 1;
+  grid-column: 1 / span 2;
+  grid-row: 5 / span 1;
   font-size: 10px;
   font-weight: 500;
 }
@@ -172,8 +172,8 @@
 
 .StyleSelector {
   /*border: 5px solid lavender;*/
-  grid-column: 4 / span 2;
-  grid-row: 2 / span 1;
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 1;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -256,21 +256,28 @@ i.fa-solid.fa-circle-check {
   top: 5px
 }
 
+.thumbnails img:hover, .StyleSelector img:hover, .fa-regular:hover {
+  cursor: pointer
+}
+
+.ExtendedViewParent {
+  grid-column: 1 / span 5;
+  grid-row: 1 / span 3;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(3, 33%);
+}
+
 .ImageGalleryExpanded {
   grid-column: 1 / span 5;
   grid-row: 1 / span 3;
   max-width: 100%
 }
 
-
-.thumbnails img:hover, .StyleSelector img:hover, .fa-regular:hover {
-  cursor: pointer
-}
-
-.extendedView {
-  grid-column: 1 / span 5;
+.allProductStuff {
+  grid-column: 4 / span 2;
   grid-row: 1 / span 3;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: 50% 50%;
+  grid-template-rows: repeat(5, 20%)
 }
