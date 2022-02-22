@@ -369,17 +369,17 @@ Meta Star Bars
 Characteristics Bars
 =======================*/
 
-/* .characteristicscontainer {
-  display: grid;
-  grid: 50px 180px;
+.characteristicscontainer {
+  /* display: grid;
+  grid: 50px 180px; */
 }
 
 .characteristics {
   justify-content: center;
-} */
+}
 
 
-#fit {
+#charname {
   text-align: left;
   margin-left: 10px;
   margin-bottom: 0;
@@ -388,16 +388,19 @@ Characteristics Bars
 .charparent {
   margin: 15px 0 0 10px;
   float: left;
-  width: 70%;
+  width: 90%;
+
 }
 
 .charcontainer {
-  width: 240px;
+
   height: 10px;
   background-color: #f1f1f1;
   text-align: center;
   color: white;
-  margin-left: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  /* position: absolute; */
 }
 
 .fit,
@@ -406,7 +409,7 @@ Characteristics Bars
 .quality,
 .width,
 .length {
-  /* width: 70%; */
+  width: 90%;
   height: 10px;
-  /* background-color: #04AA6D; */
+  color: black;
 }
