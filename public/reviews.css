@@ -1,8 +1,15 @@
 
+<<<<<<< HEAD
 /*#app {
   font-family: "adobe-clean", sans-serif;
 
 }*/
+=======
+/* #app {
+  font-family: "adobe-clean", sans-serif;
+
+} */
+>>>>>>> 147befbbee6f0fff677d5464de77093cde85fffe
 /*==============================
   Reviews
 ==============================*/
@@ -56,7 +63,7 @@
 }
 
 .sort {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   flex: 1;
   font-size: 15px;
   font-weight: bold;
@@ -64,14 +71,14 @@
 }
 
 .reviewsearchparent {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   flex: 1;
   margin: 2px;
   width: 100px;
 }
 
 #reviewsearch {
-  width: 90%;
+  width: 70%;
 }
 
 #reviewbuttons {
@@ -107,6 +114,10 @@
   width: auto;
 }
 
+.reviewtileparent::-webkit-scrollbar {
+  display: none;
+}
+
 #reviewtile {
   display: flex;
   width: 100%;
@@ -116,6 +127,11 @@
   order: 2;
   padding: 0;
 }
+
+#reviewtile::-webkit-scrollbar {
+  display: none;
+}
+
 
 .reviewsummary {
   font-weight: bold;

@@ -1,11 +1,19 @@
+#app {
+  margin: auto;
+  font-family: 'Playfair Display', serif;
+  /* background-color: #E3EAF5; */
+}
+
 .Overview {
-  border: 5px solid pink;
+  /*border: 5px solid pink;*/
   display: inline-grid;
   width: 90%;
   height: 800px;
   grid-template-columns: repeat(5, 20%);
   grid-template-rows: repeat(4, 25%);
-  min-width: 1000px
+  min-width: 1000px;
+  margin-left: 80px;
+  margin-top: 50px;
 }
 
 .ImageGallery {
@@ -16,8 +24,8 @@
   position: relative;
   margin-right: 30px;
   box-shadow: 5px 5px 45px 1px;
-  max-width: 600px;
-  max-height: 600px
+  max-width: 700px;
+  max-height: 700px
 
 }
 
@@ -35,16 +43,16 @@
   /*border: 5px solid lime;*/
   grid-column: 1 / span 2;
   grid-row: 1 / span 1;
-  /* font-size: 12px */
+  /*font-size: 12px*/
 }
 
-/* #OverviewStarRatings a {
+/*#OverviewStarRatings a {
   font-size: 10px
-} */
+}*/
 
-.ProductInfo div {
+/*.ProductInfo div {
   font-size: 12px;
-}
+}*/
 
 .SocialMedia {
   /*border: 5px solid turquoise;*/
@@ -60,6 +68,8 @@
   /*border: 5px solid orange;*/
   grid-column: 4 / span 2;
   grid-row: 3 / span 1;
+  font-size: 10px;
+  font-weight: 500;
 }
 
 
@@ -91,6 +101,7 @@
   border: 3px solid black;
   font-size: 18px;
   margin: 5px;
+  font-weight: 500;
 }
 
 .overviewDescription {
@@ -119,6 +130,7 @@
 
 .productName {
   font-size: x-large;
+  font-weight: 700;
   /*border: 5px dotted blue;*/
   grid-row: 2 / span 3
 }
@@ -227,6 +239,8 @@ i.fa-solid.fa-circle-check {
 
 }
 
-#app {
-  margin: 20px;
+
+
+.thumbnails img:hover, .StyleSelector img:hover, .fa-regular:hover {
+  cursor: pointer
 }
