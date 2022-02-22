@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
 const AddToCart = ({currentStyle}) => {
-  //state of size value
   
   const [size, setSize] = useState("unselected")
   const [quantity, setQuantity] = useState("unselectedQ")
@@ -53,7 +52,7 @@ const AddToCart = ({currentStyle}) => {
             ))
           }
         </select>
-      <button>ADD TO CART</button>
+        <button>ADD TO CART</button>
       </form>
     </div>
   ) 
