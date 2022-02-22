@@ -25,7 +25,7 @@
 
 .reviewsmeta {
   align-items: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   min-width: 250px;
   justify-content: center;
   order: 1;
@@ -74,6 +74,26 @@
   width: 90%;
 }
 
+#reviewbuttons {
+  display: flex;
+  justify-content: left;
+}
+
+#morereviews {
+  height: 50px;
+  width: 200px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+  background-color: white;
+}
+
+#addreviewbutton {
+  height: 50px;
+  width: 200px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+  background-color: white;
+}
 /*==============================
   Review Tile
 ==============================*/
@@ -291,9 +311,10 @@ Add Review Image Modal
 /* =====================
 Meta Star Bars
 =======================*/
+
 .starBarsContainer {
   display: grid;
-  grid: 50px 150px 30px;
+  grid: 50px 180px 30px;
 }
 
 .starBars {
@@ -330,8 +351,53 @@ Meta Star Bars
 .bar3,
 .bar2,
 .bar1 {
-  width: 70%;
+  /* width: 70%; */
   height: 10px;
   background-color: #04AA6D;
 }
 
+/* =====================
+Characteristics Bars
+=======================*/
+
+/* .characteristicscontainer {
+  display: grid;
+  grid: 50px 180px;
+}
+
+.characteristics {
+  justify-content: center;
+} */
+
+
+#fit {
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+
+.charparent {
+  margin: 15px 0 0 10px;
+  float: left;
+  width: 70%;
+}
+
+.charcontainer {
+  width: 240px;
+  height: 10px;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+  margin-left: 10px;
+}
+
+.fit,
+.sizechar,
+.comfort,
+.quality,
+.width,
+.length {
+  /* width: 70%; */
+  height: 10px;
+  /* background-color: #04AA6D; */
+}
