@@ -3,7 +3,7 @@ import ThumbnailCarousel from './little components/ThumbnailCarousel.jsx'
 import MainCarousel from './little components/MainCarousel.jsx'
 //import ExtendedView from './ExtendedView.jsx'
 
-  const ImageGallery = ({currentStyle}) => {
+  const ImageGalleryExpanded = ({currentStyle, allStyles, expandStatus, setExpandStatus}) => {
 
     const allPics = currentStyle?.photos
     
@@ -28,6 +28,10 @@ import MainCarousel from './little components/MainCarousel.jsx'
       }
     }
     
+    const handleMinimize = () => {
+      setExpandStatus(false)
+    }
+    
     
     useEffect(() => {
       if (allPics?.length > 0) {
@@ -39,16 +43,17 @@ import MainCarousel from './little components/MainCarousel.jsx'
     
     if (allPics && mainImg) {
       return (
-        <div className="ImageGallery">
-        <MainCarousel mainImg={mainImg} setMainImg={setMainImg} allPics={allPics}/>
-        <ThumbnailCarousel mainImg={mainImg} setMainImg={setMainImg} allPics={allPics} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
-        <div className="forwardArrow" onClick={goToNextSlide}>
-          <i className="fa-regular fa-circle-right"></i>
-        </div>
-        <div className="backArrow" onClick={goToPrevSlide}>
-          <i className="fa-regular fa-circle-left"></i>
-        </div>
-        {/*<ExtendedView className="ExtendedView"/>*/}
+        <div className="ImageGallery ImageGalleryExpanded">
+          <MainCarousel mainImg={mainImg} setMainImg={setMainImg} allPics={allPics}/>
+          <ThumbnailCarousel mainImg={mainImg} setMainImg={setMainImg} allPics={allPics} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
+          <div className="forwardArrow" onClick={goToNextSlide}>
+            <i className="fa-regular fa-circle-right"></i>
+          </div>
+            <div className="backArrow" onClick={goToPrevSlide}>
+          </div>
+          <i className="fa-solid fa-minimize" onClick={handleMinimize}></i>
+        
+        
       </div>
       )
     } else {
@@ -60,4 +65,4 @@ import MainCarousel from './little components/MainCarousel.jsx'
   }
 //}
 
-export default ImageGallery;
+export default ImageGalleryExpanded;
