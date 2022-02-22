@@ -2,45 +2,78 @@ import React, { useState, useEffect } from 'react';
 import StarRatings from '../../Shared components/starRatings.jsx';
 
 const ReviewMeta = ({reviewMeta, reviews}) => {
-
-  //create stars
-  //create recommendation
+  //TODO
+  //create onclick event for review numbers to filter and rerender review list
 
   const [percentRecommend, setPercentRecommend] = useState(0);
+  const [fiveStarCount, setFiveStarCount] = useState(0);
+  const [fourStarCount, setFourStarCount] = useState(0);
+  const [threeStarCount, setThreeStarCount] = useState(0);
+  const [twoStarCount, setTwoStarCount] = useState(0);
+  const [oneStarCount, setOneStarCount] = useState(0);
+  const [starFilter, setStarFilter] = useState(false);
+
 
   const getPercentRecommend = () => {
-    //iterate through props.reviews
-    //create counter to keep track of how many true
-    //divide counter by props.reviews length
     let counter = 0;
-    // reviews.forEach((review) => {
-    //   if (review.recommend === true) {
-    //     counter++;
-    //   }
-    // })
-    for (let i = 0; i < reviews.length; i++) {
-      if (reviews[i].recommend === true) {
+    reviews.forEach((review) => {
+      if (review.recommend === true) {
         counter++;
       }
-    }
+    })
     let percent = Math.round((counter / reviews.length) * 100);
     setPercentRecommend(percent)
   }
 
-  // console.log('props in meta', props)
+  const countReviews = () => {
+    let five = 0;
+    let four = 0;
+    let three = 0;
+    let two = 0;
+    let one = 0;
+    reviews.forEach((review) => {
+      if (review.rating === 5 ) {
+        five++;
+      }
+      if (review.rating === 4 ) {
+        four++;
+      }
+      if (review.rating === 3 ) {
+        three++;
+      }
+      if (review.rating === 2 ) {
+        two++;
+      }
+      if (review.rating === 1 ) {
+        one++;
+      }
+    })
+    setFiveStarCount(five)
+    setFourStarCount(four)
+    setThreeStarCount(three)
+    setTwoStarCount(two)
+    setOneStarCount(one)
+  };
+
+  const starFilterClicked = () => {
+
+  }
+
+  // console.log('reviews in meta', reviews)
 
   useEffect(() => {
-    getPercentRecommend()
+    getPercentRecommend();
+    countReviews()
   }, [])
 
   return (
     <div className="reviewsmeta">
-      <p style={{ fontWeight: "400"}}>Ratings  Reviews</p>
-      <div>
+      <p style={{ fontWeight: "400"}}>RATINGS & REVIEWS</p>
+      <div style={{marginLeft: "15px"}}>
         <StarRatings  meta={reviewMeta.ratings}/>
       </div>
       <br></br>
-      <div style={{fontSize: "12px"}}>{percentRecommend}% of reviews recommend this product</div>
+      <div style={{fontSize: "12px", textAlign: "center"}}>{percentRecommend}% of reviews recommend this product</div>
 
       <div className="starBarsContainer">
 
@@ -54,7 +87,7 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
             </div>
           </div>
           <div className="starsBarsRight">
-            <div>30</div>
+            <u style={{fontSize: "14px"}} onClick={ () => setStarFilter(true) } >{fiveStarCount}</u>
           </div>
         </div>
 
@@ -68,7 +101,7 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
             </div>
           </div>
           <div className="starsBarsRight">
-            <div>#</div>
+            <u style={{fontSize: "14px"}} onClick={ () => setStarFilter(true) }>{fourStarCount}</u>
           </div>
         </div>
 
@@ -82,7 +115,7 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
             </div>
           </div>
           <div className="starsBarsRight">
-            <div>#</div>
+            <u style={{fontSize: "14px"}} onClick={ () => setStarFilter(true) }>{threeStarCount}</u>
           </div>
         </div>
 
@@ -96,7 +129,7 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
             </div>
           </div>
           <div className="starsBarsRight">
-            <div >#</div>
+            <u style={{fontSize: "14px"}} onClick={ () => setStarFilter(true) }>{twoStarCount}</u>
           </div>
         </div>
 
@@ -110,13 +143,15 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
             </div>
           </div>
           <div className="starsBarsRight">
-            <div>#</div>
+            <u style={{fontSize: "14px"}} onClick={ () => setStarFilter(true) }>{oneStarCount}</u>
           </div>
         </div>
-
       </div>
+      <br></br>
+      {starFilter ? <div style={{fontSize: "12px", textAlign: "center"}}>__star filter applied <u onClick={ () => setStarFilter(false) }>Remove all filters</u></div>
+      : null
+      }
 
-      <div>type of filter applied</div>
 
       <div>Characteristics bars</div>
     </div>

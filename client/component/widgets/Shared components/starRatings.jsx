@@ -31,7 +31,7 @@ const StarRatings = (props) => {
 
   return (
     <div className="StarRatings" id="OverviewStarRatings">
-      <a style={{ fontWeight: "bold", fontSize: "35px" }}>{rating.toFixed(2)}</a>
+      <a id="ratingaverage">{rating.toFixed(2)}</a>
       {[...Array(Math.ceil(rating))].map((star, idx) => (
         <span className="star" key={idx} >
           {solidStar}
