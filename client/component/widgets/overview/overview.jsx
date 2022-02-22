@@ -7,46 +7,46 @@ import Description from './components/Description.jsx';
 import AddToCart from './components/AddToCart.jsx';
 
 
-const Overview = ({reviewMeta}) => {
+const Overview = ({reviewMeta, selectedProduct, currentStyle, setCurrentStyle, allStyles, setAllStyles}) => {
   
-    const [product, setProduct] = useState(null);
-    const [currentStyle, setCurrentStyle] = useState(null);
-    const [allStyles, setAllStyles] = useState(null);
+    //const [product, setProduct] = useState(null);
+    //const [currentStyle, setCurrentStyle] = useState(null);
+    //const [allStyles, setAllStyles] = useState(null);
     
 
-    const getAllProducts = () => {
-      axios.get('/products')
-      .then((response) => {
-        setProduct(response.data[5]);
-        getAllStyles(response.data[5].id);
-      })
-      .catch((error) => {
-        console.error('ERROR IN CLIENT GET', error);
-      })
-    }
+    //const getAllProducts = () => {
+    //  axios.get('/products')
+    //  .then((response) => {
+    //    setProduct(response.data[5]);
+    //    getAllStyles(response.data[5].id);
+    //  })
+    //  .catch((error) => {
+    //    console.error('ERROR IN CLIENT GET', error);
+    //  })
+    //}
     
-    const getAllStyles = (productID) => {
-      axios.get(`/products/${productID}/styles`)
-      .then((response) => {
-        //do some other stuff with it
-        setAllStyles(response.data.results)
-        setCurrentStyle(response.data.results[0])
-      })
-      .catch((error) => {
-        console.error('ERROR IN CLIENT GET', error)
-      })
-    }
+    //const getAllStyles = (productID) => {
+    //  axios.get(`/products/${productID}/styles`)
+    //  .then((response) => {
+    //    //do some other stuff with it
+    //    setAllStyles(response.data.results)
+    //    setCurrentStyle(response.data.results[0])
+    //  })
+    //  .catch((error) => {
+    //    console.error('ERROR IN CLIENT GET', error)
+    //  })
+    //}
     
-    useEffect(() => {
-      getAllProducts()
-    }, [])
+    //useEffect(() => {
+    //  getAllProducts()
+    //}, [])
     
   return (
     <div className="Overview">
       <ImageGallery currentStyle={currentStyle} allStyles={allStyles}/>
-      <ProductInfo product={product} currentStyle={currentStyle} reviewMeta={reviewMeta}/>
+      <ProductInfo product={selectedProduct} currentStyle={currentStyle} reviewMeta={reviewMeta}/>
       <StyleSelector allStyles={allStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
-      <Description product={product}/>
+      <Description product={selectedProduct}/>
       <AddToCart currentStyle={currentStyle}/>
     </div>
   )

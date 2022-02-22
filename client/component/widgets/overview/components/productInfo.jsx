@@ -28,7 +28,7 @@ const ProductInfo = (props) => {
       {/*<div>Star Ratings *****</div>*/}
       {props.reviewMeta ?
       <StarRatings meta={props.reviewMeta.ratings}/>
-      : <div>NOT WORKING</div>
+      : null
       }
       <SocialMedia />
       <div className="Details">
