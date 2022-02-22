@@ -16,6 +16,8 @@
   position: relative;
   margin-right: 30px;
   box-shadow: 5px 5px 45px 1px;
+  max-width: 600px;
+  max-height: 600px
 
 }
 
@@ -139,6 +141,7 @@
   flex-direction: column;
   margin-left: 10px;
   overflow: hidden;
+  max-width: 125px
 }
 
 .thumbnails img {
