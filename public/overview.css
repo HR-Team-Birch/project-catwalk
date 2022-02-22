@@ -4,7 +4,8 @@
   width: 90%;
   height: 800px;
   grid-template-columns: repeat(5, 20%);
-  grid-template-rows: repeat(4, 25%)
+  grid-template-rows: repeat(4, 25%);
+  min-width: 1000px
 }
 
 .ImageGallery {
@@ -15,6 +16,8 @@
   position: relative;
   margin-right: 30px;
   box-shadow: 5px 5px 45px 1px;
+  max-width: 600px;
+  max-height: 600px
 
 }
 
@@ -27,11 +30,16 @@
   grid-row: 1 / span 1;
 }
 
-.StarRatings {
+#OverviewStarRatings {
   /* border: 5px solid lime; */
   /*border: 5px solid lime;*/
   grid-column: 1 / span 2;
-  grid-row: 1 / span 1
+  grid-row: 1 / span 1;
+  font-size: 12px
+}
+
+#OverviewStarRatings a {
+  font-size: 10px
 }
 
 .SocialMedia {
@@ -49,6 +57,7 @@
   grid-column: 4 / span 2;
   grid-row: 3 / span 1;
 }
+
 
 .AddToCart form {
   display: grid;
@@ -80,7 +89,7 @@
   margin: 5px;
 }
 
-.Description {
+.overviewDescription {
   /*border: 5px solid maroon;*/
   grid-row-start: 4;
   grid-column: 1 / span 5;
@@ -132,6 +141,7 @@
   flex-direction: column;
   margin-left: 10px;
   overflow: hidden;
+  max-width: 125px
 }
 
 .thumbnails img {
@@ -152,24 +162,42 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  overflow: hidden
+  overflow: hidden;
+  width: 400px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .StyleSelector img {
-  height: 80px;
-  width: 80px;
   border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
   /*border: 5px solid red;*/
-  margin: 3px;
-  margin-right: 5px;
-  margin-left: 5px
+  /*margin: 3px;*/
 }
 
-.currentSelectedStyle {
-  border: 5px solid goldenrod;
+.StyleSelector div {
+  height: 80px;
+  width: 80px
 }
 
-.selectedStyleDiv {
+.styleIcon {
+margin: 10px
+  
+}
+
+
+/*.unselectedStyle {
+  border: 5px sold;
+}*/
+
+/*.selectedStyleDiv {
   display: flex
+}*/
+
+i.fa-solid.fa-circle-check {
+  position: relative;
+  bottom: 90px
 }
 
 .theChosenOne {
@@ -190,7 +218,7 @@
 
 .backArrow {
   position: absolute;
-  left: 300px;
+  left: 100px;
   bottom: 50%;
 
 }

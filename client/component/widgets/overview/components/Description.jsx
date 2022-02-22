@@ -7,7 +7,7 @@ const Description = ({product}) => {
     product ? setDesc(product.description) : setDesc("")
   })
   return(
-    <div className="Description">{description}</div>
+    <div className="overviewDescription">{description}</div>
   )
 }
 
