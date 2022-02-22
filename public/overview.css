@@ -1,11 +1,12 @@
 .Overview {
-  border: 5px solid pink;
+  /*border: 5px solid pink;*/
   display: inline-grid;
   width: 90%;
   height: 800px;
   grid-template-columns: repeat(5, 20%);
   grid-template-rows: repeat(4, 25%);
-  min-width: 1000px
+  min-width: 1000px;
+  margin-left: 80px
 }
 
 .ImageGallery {
@@ -16,8 +17,8 @@
   position: relative;
   margin-right: 30px;
   box-shadow: 5px 5px 45px 1px;
-  max-width: 600px;
-  max-height: 600px
+  max-width: 700px;
+  max-height: 700px
 
 }
 
@@ -35,16 +36,16 @@
   /*border: 5px solid lime;*/
   grid-column: 1 / span 2;
   grid-row: 1 / span 1;
-  /* font-size: 12px */
+  /*font-size: 12px*/
 }
 
-/* #OverviewStarRatings a {
+/*#OverviewStarRatings a {
   font-size: 10px
-} */
+}*/
 
-.ProductInfo div {
+/*.ProductInfo div {
   font-size: 12px;
-}
+}*/
 
 .SocialMedia {
   /*border: 5px solid turquoise;*/
@@ -119,6 +120,7 @@
 
 .productName {
   font-size: x-large;
+  font-weight: 700;
   /*border: 5px dotted blue;*/
   grid-row: 2 / span 3
 }
@@ -187,7 +189,7 @@
 
 .styleIcon {
 margin: 10px
-
+  
 }
 
 
@@ -228,5 +230,10 @@ i.fa-solid.fa-circle-check {
 }
 
 #app {
-  margin: 20px;
+  margin: auto;
+  font-family: 'Playfair Display', serif;
+}
+
+.thumbnails img:hover, .StyleSelector img:hover, .fa-regular:hover {
+  cursor: pointer
 }
