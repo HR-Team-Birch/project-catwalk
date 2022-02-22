@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import ReviewMeta from './reviewmeta.jsx';
 import ReviewTile from './reviewtile.jsx';
 import AddReview from './addreview.jsx';
-// import { Dropdown, Item } from 'react-bootstrap';
-// import DropdownButton from 'react-bootstrap/DropdownButton'
 
 // !!!!!!!!!   DELETEEEEE bootstap   !!!!!!!!!
 
@@ -32,15 +30,15 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
       <div className="reviewlistparent">
         <div className="sortandsearchparent">
 
-          {/* <div className="sort">
-            <label> {props.reviews.length} reviews, sorted by </label>
+          <div className="sort">
+            <label> {reviews.length} reviews, sorted by </label>
             <select id="reviewsort">
               <option value="relevant">Relevant</option>
               <option value="helpful">Helpful</option>
               <option value="newest">Newest</option>
             </select>
-          </div> */}
-
+          </div>
+{/*
           <div className="sort">
             <label> {reviews.length} reviews, sorted by </label>
             <DropdownButton id="sortreviewdropdown" title="stuff" autoClose="true">
@@ -48,13 +46,13 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
               <Dropdown.Item onClick={ () => getReviewsSortHelpful() }>Newest</Dropdown.Item>
               <Dropdown.Item onClick={ () => getReviewsSortNewest() }>Helpful</Dropdown.Item>
             </DropdownButton>
-          </div>
+          </div> */}
 
-          {/* <div className="reviewsearchparent">
+          <div className="reviewsearchparent">
             <input id="reviewsearch" type="search" placeholder="search reviews...">
             </input>
             <button>Submit</button>
-          </div> */}
+          </div>
 
 
         </div>
