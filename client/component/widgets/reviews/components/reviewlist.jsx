@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ReviewMeta from './reviewmeta.jsx';
 import ReviewTile from './reviewtile.jsx';
 import AddReview from './addreview.jsx';
-import { Dropdown, Item } from 'react-bootstrap';
-import DropdownButton from 'react-bootstrap/DropdownButton'
+// import { Dropdown, Item } from 'react-bootstrap';
+// import DropdownButton from 'react-bootstrap/DropdownButton'
 
 // !!!!!!!!!   DELETEEEEE bootstap   !!!!!!!!!
 
