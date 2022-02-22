@@ -343,9 +343,9 @@
   transform: translate(0%, 0%);
 }
 
-.link_wrapper{
-  /* position: relative; */
-}
+/* .link_wrapper{
+  position: relative;
+} */
 
 .hover{
   display: block;
