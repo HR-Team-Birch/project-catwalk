@@ -7,6 +7,7 @@ const url = 'http://localhost:3000/qa/answers/';
 const Answers = ({ answer }) => {
 
   const [markedAHelpful, setMarkedAHelpful] = useState(false);
+  const [reportAnswerStatus, setReportAnswerStatus] = useState('Report');
 
   const markAnswerHelpful = (event) => {
     event.preventDefault();
@@ -27,6 +28,24 @@ const Answers = ({ answer }) => {
     }
   }
 
+  const reportAnswer = () => {
+    event.preventDefault();
+    if(reportAnswerStatus === 'Report') {
+      axios({
+        method: 'PUT',
+        url: `${url}${answer.answer_id}/report`
+      })
+      .then(() => {
+        setReportAnswerStatus('Reported');
+      })
+      .catch(() => {
+        console.log('error reporting answer');
+      })
+    } else {
+      console.log('already reported answer');
+    }
+  }
+
   return (
     <div id="answerContainer">
       <span id="answerBody">{answer.body}</span>
@@ -36,7 +55,7 @@ const Answers = ({ answer }) => {
         <span>Helpful?</span>
         <a href="" onClick={markAnswerHelpful}>Yes</a>
         <span>{`(${answer.helpfulness})     |     `}</span>
-        <a href="">Report</a>
+        <a href="" onClick={reportAnswer}>{reportAnswerStatus}</a>
       </div>
     </div>
   )

@@ -138,7 +138,7 @@ const getQuestions = (productId) => {
   // console.log('product ID', productId);
   // need to setup multiple queries
   let options = {
-    url: `${url}/qa/questions/?product_id=${productId.product_id}`,
+    url: `${url}/qa/questions/?product_id=${productId.product_id}&count=500`,
     headers: {
       'Authorization': `${TOKEN}`
     }
