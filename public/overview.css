@@ -295,13 +295,27 @@ i.fa-solid.fa-circle-check {
   grid-column: 1 / span 5;
   padding: 20px;
   font-size: 20px;
-  font-weight: 400px
+  font-weight: 400px;
+  display: grid;
+  grid-template-columns: 75% 25%;
 }
 
 #slogan {
   font-size: 25px;
   font-weight: 800px;
-  font-style: italic
+  font-style: italic;
+  grid-column: 1 / span 1
+}
+
+#description {
+  grid-column: 1 / span 1
+}
+
+#features {
+  grid-column-start: 2;
+  grid-row: 1 / span 2;
+  border-left: 3px solid black;
+  padding: 15px
 }
 
 /*etc.*/

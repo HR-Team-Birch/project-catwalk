@@ -46,10 +46,11 @@ const AddToCart = ({currentStyle}) => {
           }
         </select>
         <select onChange={handleQuantitySelect} className="quantity">
-          <option value={quantity}>-</option>
-          {quantityArray?.map((element, index) => (
-              <option key={index} value={element}>{element}</option>
+          {quantityArray.length > 0
+          ? quantityArray.map((element, index) => (
+            <option key={index} value={element}>{element}</option>
             ))
+          : (<option value={quantity}>-</option>)
           }
         </select>
         <button>ADD TO CART</button>

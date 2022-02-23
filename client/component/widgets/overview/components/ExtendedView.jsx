@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import ImageGalleryRegular from './ImageGalleryRegular.jsx'
-import ImageGalleryExpanded from './ImageGalleryExpanded.jsx'
+//import ImageGalleryExpanded from './ImageGalleryExpanded.jsx'
 import ProductInfo from './ProductInfo.jsx'
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
