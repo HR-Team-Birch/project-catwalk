@@ -101,7 +101,7 @@
 .reviewtileparent {
   display: flex;
 
-  height: 590px;
+  max-height: 590px;
   flex-direction: column;
   overflow-y: scroll;
   width: auto;
@@ -115,8 +115,7 @@
   display: flex;
   width: 100%;
   border-bottom: 1px solid grey ;
-  min-height: 280px;
-  overflow-y: auto;
+  max-height: 400px;
   order: 2;
   padding: 0;
 }
@@ -348,7 +347,7 @@ Meta Star Bars
 }
 
 .barcontainer {
-  width: 150px;
+  width: 90%;
   height: 10px;
   background-color: #f1f1f1;
   text-align: center;
@@ -382,7 +381,7 @@ Characteristics Bars
 #charname {
   text-align: left;
   margin-left: 10px;
-  margin-bottom: 0;
+  margin-top: 30px;
 }
 
 .charparent {
@@ -393,7 +392,8 @@ Characteristics Bars
 }
 
 .charcontainer {
-
+  /* display: flex;
+  flex-direction: row; */
   height: 10px;
   background-color: #f1f1f1;
   text-align: center;
@@ -409,7 +409,9 @@ Characteristics Bars
 .quality,
 .width,
 .length {
-  width: 90%;
+  /* width: 90%; */
   height: 10px;
   color: black;
+  position: relative;
+  top: -7px;
 }

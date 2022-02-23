@@ -3,7 +3,7 @@ import StarRatings from '../../Shared components/starRatings.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-const ReviewMeta = ({reviewMeta, reviews}) => {
+const ReviewMeta = ({reviewMeta, reviews, setBarFilter}) => {
   //TODO
   //create onclick event for review numbers to filter and rerender review list
   const triangle = <FontAwesomeIcon icon={faCaretDown} />;
@@ -14,6 +14,7 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
   const [threeStarCount, setThreeStarCount] = useState(0);
   const [twoStarCount, setTwoStarCount] = useState(0);
   const [oneStarCount, setOneStarCount] = useState(0);
+
   const [starFilter, setStarFilter] = useState(false);
 
   const [starFilterClicked, setStarFilterClicked] = useState(false);
@@ -99,32 +100,25 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
       setShowSizeBar(true);
       setSizeBar(Math.round((reviewMeta.characteristics.Size.value / 5) * 100))
     }
-
     if (reviewMeta.characteristics.Comfort) {
       setShowComfortBar(true);
       setComfortBar(Math.round((reviewMeta.characteristics.Comfort.value / 5) * 100))
     }
-
     if (reviewMeta.characteristics.Quality) {
       setShowQualityBar(true);
       setQualityBar(Math.round((reviewMeta.characteristics.Quality.value / 5) * 100))
     }
-
     if (reviewMeta.characteristics.Width) {
       setShowWidthBar(true);
       setWidthBar(Math.round((reviewMeta.characteristics.Width.value / 5) * 100))
     }
-
     if (reviewMeta.characteristics.Length) {
       setShowLengthBar(true);
       setLengthBar(Math.round((reviewMeta.characteristics.Length.value / 5) * 100))
     }
-
   }
 
-  // const starFilterClicked = () => {
 
-  // }
 
   // console.log('reviews in meta', reviews)
 
@@ -160,7 +154,7 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
             </div>
           </div>
           <div className="starsBarsRight">
-            <u style={{fontSize: "14px"}} onClick={ () => { setStarFilter(true); setStarFilterClicked('5'); } } >{fiveStarCount}</u>
+            <u style={{fontSize: "14px"}} onClick={ () => { setStarFilter(true); setStarFilterClicked('5'); setBarFilter(5); } } >{fiveStarCount}</u>
           </div>
         </div>
 
@@ -174,7 +168,7 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
             </div>
           </div>
           <div className="starsBarsRight">
-            <u style={{fontSize: "14px"}} onClick={ () => { setStarFilter(true); setStarFilterClicked('4'); }}>{fourStarCount}</u>
+            <u style={{fontSize: "14px"}} onClick={ () => { setStarFilter(true); setStarFilterClicked('4'); setBarFilter(4); }}>{fourStarCount}</u>
           </div>
         </div>
 
@@ -188,7 +182,7 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
             </div>
           </div>
           <div className="starsBarsRight">
-            <u style={{fontSize: "14px"}} onClick={ () => { setStarFilter(true); setStarFilterClicked('3'); }}>{threeStarCount}</u>
+            <u style={{fontSize: "14px"}} onClick={ () => { setStarFilter(true); setStarFilterClicked('3'); setBarFilter(3); }}>{threeStarCount}</u>
           </div>
         </div>
 
@@ -202,7 +196,7 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
             </div>
           </div>
           <div className="starsBarsRight">
-            <u style={{fontSize: "14px"}} onClick={ () => { setStarFilter(true); setStarFilterClicked('2'); } }>{twoStarCount}</u>
+            <u style={{fontSize: "14px"}} onClick={ () => { setStarFilter(true); setStarFilterClicked('2'); setBarFilter(2); } }>{twoStarCount}</u>
           </div>
         </div>
 
@@ -216,12 +210,12 @@ const ReviewMeta = ({reviewMeta, reviews}) => {
             </div>
           </div>
           <div className="starsBarsRight">
-            <u style={{fontSize: "14px"}} onClick={ () => { setStarFilter(true); setStarFilterClicked('1'); } }>{oneStarCount}</u>
+            <u style={{fontSize: "14px"}} onClick={ () => { setStarFilter(true); setStarFilterClicked('1'); setBarFilter(1); } }>{oneStarCount}</u>
           </div>
         </div>
       </div>
       <br></br>
-      {starFilter ? <div style={{fontSize: "12px", textAlign: "center"}} >{starFilterClicked} star filter applied <u onClick={ () => setStarFilter(false) }>Remove all filters</u></div>
+      {starFilter ? <div style={{fontSize: "12px", textAlign: "center"}} >{starFilterClicked} star filter applied <u onClick={ () => { setStarFilter(false); setReviewsToRender(reviews); }}>Remove all filters</u></div>
       : null
       }
 

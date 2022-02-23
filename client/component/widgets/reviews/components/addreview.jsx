@@ -147,7 +147,7 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
 
   return (
     <>
-      <button id="addreviewbutton" onClick={ ()=> setShowAddReviewModal(true) } >Add Review</button>
+      <button id="addreviewbutton" onClick={ ()=> setShowAddReviewModal(true) } >ADD A REVIEW +</button>
         {showAddReviewModal && (
           <>
             <div className="addreviewoverlay"></div>
@@ -168,7 +168,7 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
 
                   <div>
                     <span style={{margin: "0 0 50px 0"}}>Do you recommend this product?
-                      <input type="radio" name="recommend" onClick={ () => setRecommend(true)}/>
+                      <input required type="radio" name="recommend" onClick={ () => setRecommend(true)} />
                         Yes
                     </span>
                     <label>

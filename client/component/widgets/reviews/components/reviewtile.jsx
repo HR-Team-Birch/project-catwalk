@@ -51,7 +51,7 @@ const ReviewTile = (props) => {
           }
 
         </div>
-
+{/* TODO if review recommend is true, show this div */}
         <div id="recommend">
           <div>{check}  I recommend this product</div>
         </div>

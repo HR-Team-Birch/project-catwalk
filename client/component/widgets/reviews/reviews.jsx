@@ -7,9 +7,22 @@ import ReviewMeta from './components/reviewmeta.jsx';
 const Reviews = ({productId, product, reviewMeta}) => {
 
   const [reviews, setReviews] = useState(null);
-  // const [reviewMeta, setReviewMeta] = useState(null);
+  const [sortOption, setSortOption] = useState('relevant');
 
-  const getReviews = () => {
+  console.log('sortOption in reviews', sortOption)
+  console.log('reviews', reviews)
+
+  const sortReviews = () => {
+    if (sortOption === 'relevant') {
+      getAllReviews();
+    } else if (sortOption === 'helpful') {
+      getReviewsSortHelpful();
+    } else if (sortOption === 'newest') {
+      getReviewsSortNewest();
+    }
+  }
+
+  const getAllReviews = () => {
     axios.get(`/reviews/?product_id=${productId}&count=500&sort=relevant`)
       .then((reviews) => {
         setReviews(reviews.data.results);
@@ -32,14 +45,6 @@ const Reviews = ({productId, product, reviewMeta}) => {
     })
     .catch((err) => console.error(err));
   }
-
-  // const getReviewMeta = () => {
-  //   axios.get(`/reviews/meta/?product_id=${productId}`)
-  //     .then((meta) => {
-  //       setReviewMeta(meta.data);
-  //     })
-  //     .catch((err) => console.error(err));
-  // }
 
   const addReview = (review) => {
     axios.post('/reviews', review)
@@ -67,14 +72,19 @@ const Reviews = ({productId, product, reviewMeta}) => {
       .catch((err) => console.error(err));
   }
 
-  useEffect(() => {
-    getReviews();
+  // useEffect(() => {
+  //   sortReviews();
 
-  }, []);
+  // }, []);
+
+  useEffect(() => {
+    sortReviews();
+  }, [sortOption])
+
 
   return (
     <div className="reviewsparent">
-      {reviews && reviewMeta ? <ReviewList reviews={reviews} productId={productId} product={product} reviewMeta={reviewMeta} addReview={addReview} markHelpful={markHelpful} reportReview={reportReview} getReviewsSortHelpful={getReviewsSortHelpful} getReviewsSortNewest={getReviewsSortNewest}/> : null}
+      {reviews && reviewMeta ? <ReviewList reviews={reviews} productId={productId} product={product} reviewMeta={reviewMeta} addReview={addReview} markHelpful={markHelpful} reportReview={reportReview} getReviewsSortHelpful={getReviewsSortHelpful} getReviewsSortNewest={getReviewsSortNewest} getAllReviews={getAllReviews} setSortOption={setSortOption}/> : null}
     </div>
   )
 
@@ -82,10 +92,4 @@ const Reviews = ({productId, product, reviewMeta}) => {
 
 
 export default Reviews;
-
-
-
-// createContext()
-// useContext()
-// useRef() //references something. doesnt trigger a rerender
 

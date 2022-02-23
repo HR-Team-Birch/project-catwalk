@@ -81,6 +81,7 @@ app.post('/cart', (req, res) => {
 //get reviews for a particular product by id and sort order
 app.get('/reviews/', (req, res) => {
   let product = req.query;
+  console.log(req.query)
   api.getReviews(product)
   .then((data) => {
     res.send(data.data).status(200);

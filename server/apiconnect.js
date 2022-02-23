@@ -79,7 +79,7 @@ const addToCart = (prodID) => {
 
 const getReviews = (productId) => {
   let options = {
-    url: `${url}/reviews/?product_id=${productId.product_id}&count=${productId.count ? productId.count : 5}&page=${productId.page ? productId.page : 1}`,
+    url: `${url}/reviews/?product_id=${productId.product_id}&count=${productId.count}&sort=${productId.sort}`,
     headers: {
       'Authorization': `${TOKEN}`
     }
