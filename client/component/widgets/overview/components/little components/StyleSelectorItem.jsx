@@ -5,7 +5,7 @@ const StyleSelectorItem = ({currentStyle, style, setCurrentStyle}) => {
     return (
       <div className="selectedStyleDiv styleIcon">
         
-        <img className="currentSelectedStyle" src={style.photos[0].url}/>
+        <img className="currentSelectedStyle" src={style.photos[0].thumbnail_url}/>
         <i className="fa-solid fa-circle-check"></i>
         
       </div>
@@ -14,7 +14,7 @@ const StyleSelectorItem = ({currentStyle, style, setCurrentStyle}) => {
     return (
       <div className="styleIcon">
         
-        <img className="unselectedStyle" onClick={() => setCurrentStyle(style)} src={style.photos[0].url}/>
+        <img className="unselectedStyle" onClick={() => setCurrentStyle(style)} src={style.photos[0].thumbnail_url}/>
         
       </div>
     )

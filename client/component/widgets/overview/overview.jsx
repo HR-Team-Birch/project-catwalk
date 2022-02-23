@@ -8,7 +8,7 @@ const Overview = ({reviewMeta, selectedProduct, currentStyle, setCurrentStyle, a
   
   return (
     <div className="Overview">
-      <ExtendedView currentStyle={currentStyle} allStyles={allStyles} product={selectedProduct} currentStyle={currentStyle} rewviewMeta={reviewMeta} setCurrentStyle={setCurrentStyle}/>
+      <ExtendedView currentStyle={currentStyle} allStyles={allStyles} product={selectedProduct} currentStyle={currentStyle} reviewMeta={reviewMeta} setCurrentStyle={setCurrentStyle}/>
       <Description product={selectedProduct}/>
       
     </div>

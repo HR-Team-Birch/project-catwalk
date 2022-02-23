@@ -11,7 +11,7 @@ const ThumbnailCarouselItem = ({pic, setMainImg, mainImg, index, activeIndex, se
     )
   } else {
     return (
-      <img onClick={() => handleClick(pic.url, index)} src={pic.url} alt="a thumbnail of the main style"/>
+      <img onClick={() => handleClick(pic.thumbnail_url, index)} src={pic.thumbnail_url} alt="a thumbnail of the main style"/>
     )
     
   }
