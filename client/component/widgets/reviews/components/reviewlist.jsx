@@ -52,9 +52,8 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
           filteredReviews.push(review)
         }
       })
-    } else if (barFilter === null) {
-      filteredReviews = reviews
     }
+
     setReviewsToRender(filteredReviews);
   }
 
@@ -62,6 +61,11 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
   const renderMoreReviews = () => {
     let count = reviewTilesCount + 2;
     setReviewTilesCount(count);
+  }
+
+  const toggleMoreReviewButton = () => {
+    let count = reviewsToRenderCount - 2;
+    setReviewsToRenderCount(count);
   }
 
   const renderMoreBarReviews = () => {
@@ -84,6 +88,10 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
   useEffect(() => {
     setReviewsToRender(reviews)
   }, [reviews])
+
+  useEffect(() => {
+    setReviewsToRenderCount(reviewsToRender.length)
+  }, [reviewsToRender]);
 
   // console.log('meta in reviewlist', reviewMeta)
   return (
@@ -124,7 +132,7 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
         </div>
 
         <div id="reviewbuttons">
-          {reviewsToRenderCount > 2 ? <button id="morereviews" onClick={ () => {renderMoreReviews(); setReviewsToRenderCount(reviewsToRenderCount - 2)} }>MORE REVIEWS</button> : <div></div>}
+          {reviewsToRenderCount > 2 ? <button id="morereviews" onClick={ () => {renderMoreReviews(); toggleMoreReviewButton(); } }>MORE REVIEWS</button> : null}
 {/* TODO fix rendering of reviews if its less than 2 */}
           <AddReview productId={productId} product={product} reviewMeta={reviewMeta.characteristics} addReview={addReview}/>
 

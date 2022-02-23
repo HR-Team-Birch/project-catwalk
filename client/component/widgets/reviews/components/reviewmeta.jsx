@@ -3,9 +3,7 @@ import StarRatings from '../../Shared components/starRatings.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-const ReviewMeta = ({reviewMeta, reviews, setBarFilter}) => {
-  //TODO
-  //create onclick event for review numbers to filter and rerender review list
+const ReviewMeta = ({reviewMeta, reviews, setBarFilter, setReviewsToRender}) => {
   const triangle = <FontAwesomeIcon icon={faCaretDown} />;
 
   const [percentRecommend, setPercentRecommend] = useState(0);

@@ -228,10 +228,15 @@ Add Review Modal
   box-shadow: 0 8px 6px -6px black;
   border: 1px solid black;
   overflow-y: scroll;
+  border-radius: 8%;
+
+}
+.addreviewmodal::-webkit-scrollbar {
+  display: none;
 }
 
 .addreviewmodalheader {
-  padding: 10px;
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
 
@@ -244,7 +249,7 @@ Add Review Modal
 }
 
 .addreviewmain {
-  padding: 20px 0 0 120px;
+  padding: 20px 120px 0 120px;
   margin: 0;
 }
 
@@ -293,13 +298,25 @@ Add Review Modal
   width: 400px;
 }
 
+#charparent {
+  padding: 0 50px 20px 70px;
+  border-bottom: 2px solid lightgrey;
+}
+
 #characteristics {
   display: grid;
   grid-template-columns: repeat(5, 50px);
   grid-template-rows: 20px;
+  /* justify-content: center; */
 }
 
+.charlabel {
+  font-size: 12px;
+}
 
+.addreviewspacing {
+  padding-bottom: 4px;
+}
 
 /* =====================
 Add Review Image Modal
