@@ -2,17 +2,17 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 
 const AddToCart = ({currentStyle}) => {
-  
+
   const [size, setSize] = useState('unselected')
   const [quantity, setQuantity] = useState('unselectedQ')
   const [quantityArray, setQuantityArray] = useState([])
   const [skus, setSkus] = useState([])
   const [selectedSku, setSelectedSku] = useState(null)
-  
-  console.log(selectedSku, quantity)
-  
+
+  //console.log(selectedSku, quantity)
+
   const addToCart = (ID) => {
-    axios.post(`/cart`, {sku_id: ID, 
+    axios.post(`/cart`, {sku_id: ID,
     count: quantity})
     .then((response) => {
       console.log('Added to Cart Correctly')
@@ -21,19 +21,19 @@ const AddToCart = ({currentStyle}) => {
         console.error('ERROR IN CLIENT GET', error)
       })
   }
-            
-            
+
+
   const handleSizeSelect = (event) => {
     setSelectedSku(event.target.value)
     setSize(currentStyle.skus[event.target.value])
     populateQuantityList(currentStyle.skus[event.target.value].quantity)
     setQuantity(1)
   }
-  
+
   const handleQuantitySelect = (event) => {
     setQuantity(event.target.value)
   }
-  
+
   const handleFormSubmit = () => {
     if (selectedSku && quantity) {
       addToCart(selectedSku, quantity)
@@ -41,7 +41,7 @@ const AddToCart = ({currentStyle}) => {
       console.log('didnt work')
     }
   }
-  
+
   const populateQuantityList = (quantity) => {
     let numbies = []
     for (let i = 1; i <= quantity; i++) {
@@ -52,12 +52,12 @@ const AddToCart = ({currentStyle}) => {
     }
     setQuantityArray(numbies)
   }
-  
+
   useEffect(() => {
     let arr = []
     for (let option in currentStyle?.skus) {
       arr.push([option, currentStyle.skus[option]])
-    } 
+    }
     setSkus(arr)
   }, [currentStyle])
 
@@ -81,7 +81,7 @@ const AddToCart = ({currentStyle}) => {
         <button onClick={handleFormSubmit}>ADD TO CART</button>
       {/*</form>*/}
     </div>
-  ) 
+  )
 }
 
 export default AddToCart

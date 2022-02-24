@@ -17,11 +17,11 @@ const QuestionList = ({ productQuestions, product, searchTerm, filteredStatus })
   }
 
   useEffect(() => {
-    console.log('hit useEffect questions');
+    //console.log('hit useEffect questions');
   }, [productQuestions]);
 
   useEffect(() => {
-    console.log('changed search term');
+    //console.log('changed search term');
   }, [searchTerm]);
 
   useEffect(() => {
