@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react'
-import ImageGalleryRegular from './ImageGalleryRegular.jsx'
-//import ImageGalleryExpanded from './ImageGalleryExpanded.jsx'
-import ProductInfo from './ProductInfo.jsx'
+import React,  {useEffect, useState} from 'react';
+import ImageGalleryRegular from './ImageGalleryRegular.jsx';
+// //import ImageGalleryExpanded from './ImageGalleryExpanded.jsx'
+import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 
@@ -22,7 +22,6 @@ const ExtendedView = ({currentStyle, allStyles, product, reviewMeta, setCurrentS
             <AddToCart currentStyle={currentStyle}/>
           </div>
           )}
-
       </div>
     )
   //} else {

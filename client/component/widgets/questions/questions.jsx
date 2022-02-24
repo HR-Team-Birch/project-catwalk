@@ -8,9 +8,10 @@ const url = 'http://localhost:3000/qa/questions/?product_id=';
 
 const Questions = ({ productId, product }) => {
   const [productQuestions, setProductQuestions] = useState([]);
-  const [filteredQuestions, setFilteredQuestions] = useState(null);
+  const [filteredQuestions, setFilteredQuestions] = useState([]);
   const [filteredStatus, setFilteredStatus] = useState(false);
   const [currentQuestions, setCurrentQuestions] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const fetchQuestions = (productId = product.id) => {
     axios.get(`${url}${productId}`)
@@ -23,23 +24,38 @@ const Questions = ({ productId, product }) => {
       });
   };
 
+  // const highlightText = (productQuestions) => {
+  //   console.log('running');
+
+  //   let collection = document.getElementsByClassName("question");
+  //   let re = new RegExp('(' + searchTerm + ')', 'ig');
+
+  //   for (let i = 0; i < collection.length; i++) {
+  //     let text = collection[i].innerText;
+  //     let newText = text.replace(re, `<mark>$1</mark>`);
+  //     collection[i].innerHTML = newText;
+  //   }
+
+  // }
+
+
   useEffect(() => {
     productId ? fetchQuestions() : null;
   }, [productId]);
 
   useEffect(() => {
-    if (filteredStatus) {
-      setCurrentQuestions(filteredQuestions);
-    } else {
-      setCurrentQuestions(productQuestions);
-    }
+    filteredStatus ? null : setCurrentQuestions(productQuestions);
   }, [filteredStatus]);
+
+  useEffect(() => {
+    setCurrentQuestions(filteredQuestions);
+  }, [filteredQuestions])
 
   return (
     <div className="questions">
       <h3>QUESTIONS & ANSWERS</h3>
-      <SearchQuestions productQuestions={productQuestions} setFilteredStatus={setFilteredStatus} setFilteredQuestions={setFilteredQuestions} />
-      <QuestionList productQuestions={currentQuestions} product={product} />
+      <SearchQuestions productQuestions={productQuestions} setFilteredStatus={setFilteredStatus} setFilteredQuestions={setFilteredQuestions} setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
+      <QuestionList productQuestions={currentQuestions} product={product} searchTerm={searchTerm} filteredStatus={filteredStatus} />
     </div>
   )
 }
