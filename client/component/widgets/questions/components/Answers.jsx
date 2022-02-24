@@ -46,6 +46,7 @@ const Answers = ({ answer }) => {
     }
   }
 
+  // console.log('answer', answer);
   return (
     <div id="answerContainer">
       <span id="answerBody">{answer.body}</span>
