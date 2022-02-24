@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-const SearchQuestions = ({ productQuestions, setFilteredQuestions, setFilteredStatus }) => {
+const SearchQuestions = ({ productQuestions, setFilteredQuestions, setFilteredStatus, setSearchTerm, searchTerm }) => {
 
-  const [searchTerm, setSearchTerm] = useState('');
+  // const [searchTerm, setSearchTerm] = useState('');
 
   const searchBarChange = (event) => {
     setSearchTerm(event.target.value);
@@ -11,8 +11,8 @@ const SearchQuestions = ({ productQuestions, setFilteredQuestions, setFilteredSt
   const searchQuestions = () => {
     let filtered = [];
     for (let i = 0; i < productQuestions.length; i++) {
-      if (productQuestions[i].question_body.indexOf(searchTerm) !== -1) {
-        filtered.push(productQuestions[i]);
+      if (productQuestions[i].question_body.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
+         filtered.push(productQuestions[i]);
       }
     }
     setFilteredQuestions(filtered);
@@ -20,8 +20,7 @@ const SearchQuestions = ({ productQuestions, setFilteredQuestions, setFilteredSt
   }
 
   useEffect(() => {
-    searchTerm.length >= 3 ? searchQuestions() : null;
-    searchTerm.length < 3 ? setFilteredStatus(false): null;
+    searchTerm.length >= 3 ? searchQuestions() : setFilteredStatus(false);
   }, [searchTerm]);
 
   return (

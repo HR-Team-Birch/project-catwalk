@@ -64,12 +64,12 @@ const App = () => {
       console.error('ERROR IN CLIENT GET', error)
     })
   }
-  
+
   useEffect(() => {
     getProducts();
-    
+
   }, []);
-  
+
 
   return (
     <div>
