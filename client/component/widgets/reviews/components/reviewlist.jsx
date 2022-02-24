@@ -3,75 +3,137 @@ import ReviewMeta from './reviewmeta.jsx';
 import ReviewTile from './reviewtile.jsx';
 import AddReview from './addreview.jsx';
 
-// !!!!!!!!!   DELETEEEEE bootstap   !!!!!!!!!
+const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHelpful, reportReview, getReviewsSortHelpful, getReviewsSortNewest, getAllReviews, setSortOption}) => {
 
-const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHelpful, reportReview, getReviewsSortHelpful, getReviewsSortNewest}) => {
-
-  //create sort drop down
-  //create search functionality
-  //currently rendering based on helpful count
+  // TODO create search functionality?
 
   const [reviewTilesCount, setReviewTilesCount] = useState(2);
   const [sort, setSort] = useState('relevant');
+  const [barFilter, setBarFilter] = useState(null);
+
+  const [reviewsToRender, setReviewsToRender] = useState(reviews);
+  const [reviewsToRenderCount, setReviewsToRenderCount] = useState(reviewsToRender.length);
+
+  // console.log('barFilter', barFilter)
+  // console.log('reviewsToRender', reviewsToRender)
+
+  // console.log('sort', sort)
+
+  const starFilterClicked = () => {
+    // iterate through reviews and filter out the ones with 5 stars
+    let filteredReviews = [];
+    if (barFilter === 5) {
+      reviews.forEach((review) => {
+        if (review.rating === 5) {
+          filteredReviews.push(review)
+        }
+      })
+    } else if (barFilter === 4) {
+      reviews.forEach((review) => {
+        if (review.rating === 4) {
+          filteredReviews.push(review)
+        }
+      })
+    } else if (barFilter === 3) {
+      reviews.forEach((review) => {
+        if (review.rating === 3) {
+          filteredReviews.push(review)
+        }
+      })
+    } else if (barFilter === 2) {
+      reviews.forEach((review) => {
+        if (review.rating === 2) {
+          filteredReviews.push(review)
+        }
+      })
+    } else if (barFilter === 1) {
+      reviews.forEach((review) => {
+        if (review.rating === 1) {
+          filteredReviews.push(review)
+        }
+      })
+    }
+
+    setReviewsToRender(filteredReviews);
+  }
+
 
   const renderMoreReviews = () => {
     let count = reviewTilesCount + 2;
     setReviewTilesCount(count);
   }
 
-  const sortByHelpful = () => {
-
+  const toggleMoreReviewButton = () => {
+    let count = reviewsToRenderCount - 2;
+    setReviewsToRenderCount(count);
   }
+
+  const renderMoreBarReviews = () => {
+    !barFilter && reviewsToRenderCount > 2 ?
+    <button id="morereviews"
+      onClick={ () => {renderMoreReviews(); setReviewsToRenderCount(reviewsToRenderCount - 2)} }
+      >MORE REVIEWS
+    </button>
+    : <div></div>
+  }
+
+  useEffect(() => {
+    setSortOption(sort)
+  }, [sort]);
+
+  useEffect(() => {
+    starFilterClicked();
+  }, [barFilter] );
+
+  useEffect(() => {
+    setReviewsToRender(reviews)
+  }, [reviews])
+
+  useEffect(() => {
+    setReviewsToRenderCount(reviewsToRender.length)
+  }, [reviewsToRender]);
 
   // console.log('meta in reviewlist', reviewMeta)
   return (
     <>
-      <ReviewMeta reviewMeta={reviewMeta} reviews={reviews}/>
+      <ReviewMeta reviewMeta={reviewMeta} reviews={reviews} setBarFilter={setBarFilter} setReviewsToRender={setReviewsToRender}/>
       <div className="reviewlistparent">
         <div className="sortandsearchparent">
 
           <div className="sort">
             <label> {reviews.length} reviews, sorted by </label>
-            <select id="reviewsort">
+            <select id="reviewsort" onChange={ (e) => setSort(e.target.value)}>
               <option value="relevant">Relevant</option>
               <option value="helpful">Helpful</option>
               <option value="newest">Newest</option>
             </select>
           </div>
-{/*
-          <div className="sort">
-            <label> {reviews.length} reviews, sorted by </label>
-            <DropdownButton id="sortreviewdropdown" title="stuff" autoClose="true">
-              <Dropdown.Item >Relevant</Dropdown.Item>
-              <Dropdown.Item onClick={ () => getReviewsSortHelpful() }>Newest</Dropdown.Item>
-              <Dropdown.Item onClick={ () => getReviewsSortNewest() }>Helpful</Dropdown.Item>
-            </DropdownButton>
-          </div> */}
 
-          <div className="reviewsearchparent">
+          {/* <div className="reviewsearchparent">
             <input id="reviewsearch" type="search" placeholder="search reviews...">
             </input>
             <button>Submit</button>
-          </div>
+          </div> */}
+
+{/* TODO fix stars not rendering right when filtering by stars */}
 
 
         </div>
         <div className="reviewtileparent">
-          {reviewTilesCount < reviews.length ?
-            reviews.slice(0, reviewTilesCount).map((review, idx) => (
+          {reviewTilesCount < reviewsToRender.length ?
+            reviewsToRender.slice(0, reviewTilesCount).map((review, idx) => (
               <ReviewTile review={review} markHelpful={markHelpful} reportReview={reportReview} key={idx}/>
             )) : null
           }
-          {reviewTilesCount > reviews.length ?
-            reviews.map((review, idx) => (
+          {reviewTilesCount >= reviewsToRender.length ?
+            reviewsToRender.map((review, idx) => (
               <ReviewTile review={review} markHelpful={markHelpful} reportReview={reportReview} key={idx}/>
             )) : null
           }
         </div>
 
         <div id="reviewbuttons">
-          {reviews.length > 2 ? <button id="morereviews" onClick={ () => {renderMoreReviews(); } }>More Reviews</button> : null}
-
+          {reviewsToRenderCount > 2 ? <button id="morereviews" onClick={ () => {renderMoreReviews(); toggleMoreReviewButton(); } }>MORE REVIEWS</button> : null}
           <AddReview productId={productId} product={product} reviewMeta={reviewMeta.characteristics} addReview={addReview}/>
 
         </div>

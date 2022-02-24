@@ -1,8 +1,24 @@
+h1 {
+  text-align: center;
+  color: #2E5475;
+  font-size: 50px;
+}
+
 /*Big Stuff*/
+body {
+  background-color: #e5ebf1;
+  margin: 0;
+}
+
 #app {
-  margin: auto;
+  margin-top: 50px;
   font-family: 'Playfair Display', serif;
-  /* background-color: #E3EAF5; */
+  /* background-color: #d0dae6; */
+}
+
+#overviewparent {
+  background-color: #859ab3;
+  padding-top: 30px;
 }
 
 .Overview {
@@ -34,7 +50,7 @@
   /*border: 5px solid blue;*/
   grid-column: 1 / span 3;
   grid-row: 1 / span 3;
-  background-color: pink;
+  background-color: #d0dae6;
   position: relative;
   margin-right: 30px;
   box-shadow: 5px 5px 45px 1px;
@@ -129,7 +145,10 @@
   grid-row: 1 / span 3;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: repeat(5, 20%)
+  grid-template-rows: repeat(5, 20%);
+  background-color: #d0dae6;
+  box-shadow: 5px 5px 45px 1px;
+  padding: 20px;
 }
 
 /*Product info*/
@@ -193,14 +212,20 @@
 }
 
 .productName {
-  font-size: x-large;
+  font-size: 40px;
   font-weight: 700;
-  grid-row: 2 / span 3
+  grid-row: 2 / span 3;
+  color: #294965;
 }
 
 .productPrice {
+  font-family: Playfair-Display;
   font-size: medium;
   grid-row: 5 /span 1
+}
+
+.stylename {
+  color: #336c95;
 }
 
 /*Style Selector*/
@@ -256,7 +281,7 @@ i.fa-solid.fa-circle-check {
 .size {
   grid-row: 1 / span 1;
   grid-column: 1 / span 3;
-  border: 3px solid black;
+  border: 3px solid #336c95;
   margin: 5px;
   font-family: 'Playfair Display', serif;
   font-weight: 600;
@@ -265,7 +290,7 @@ i.fa-solid.fa-circle-check {
 .quantity {
   grid-row: 1 / span 1;
   grid-column: 4 / span 2;
-  border: 3px solid black;
+  border: 3px solid #336c95;
   margin: 5px;
   font-family: 'Playfair Display', serif;
   font-weight: 600;
@@ -274,8 +299,8 @@ i.fa-solid.fa-circle-check {
 .AddToCart button {
   grid-row-start: 2;
   grid-column: 1 / span 4;
-  background-color: white;
-  border: 3px solid black;
+  background-color: #e5ebf1;
+  border: 3px solid #336c95;
   font-size: 18px;
   margin: 5px;
   font-weight: 500;
@@ -311,7 +336,7 @@ i.fa-solid.fa-circle-check {
 #features {
   grid-column-start: 2;
   grid-row: 1 / span 2;
-  border-left: 3px solid black;
+  border-left: 3px solid #336c95;
   padding: 15px;
   line-height: 45px
 }
