@@ -18,7 +18,6 @@ const App = () => {
   //For when we want to switch products - not working on all widgets currently:
   const currentProductIndex = 0
 
-
   const getProducts = () => {
     axios.get(`${url}/products`)
       .then((result) => {
@@ -61,10 +60,10 @@ const App = () => {
 
   return (
     <div>
-      <Overview reviewMeta={reviewMeta} selectedProduct={selectedProduct} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} allStyles={allStyles} setAllStyles={setAllStyles}/>
-      <RelatedComparison/>
+      {/* <Overview reviewMeta={reviewMeta} selectedProduct={selectedProduct} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} allStyles={allStyles} setAllStyles={setAllStyles}/> */}
+      {/* <RelatedComparison/> */}
       <Questions productId={productIdforQuestions} product={selectedProduct}/>
-      {productIdforQuestions && reviewMeta ?  <Reviews productId={productIdforQuestions} product={selectedProduct.name} reviewMeta={reviewMeta}/> : null }
+      {/* {productIdforQuestions && reviewMeta ?  <Reviews productId={productIdforQuestions} product={selectedProduct.name} reviewMeta={reviewMeta}/> : null } */}
     </div>
   );
 }
