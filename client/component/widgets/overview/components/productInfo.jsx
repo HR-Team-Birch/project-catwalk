@@ -15,7 +15,7 @@ const ProductInfo = ({ product, currentStyle, reviewMeta }) => {
       <div className="Details">
         <div className="productCategory">{product.category?.toUpperCase()}</div>
         <div className="productName">{product.name}</div>
-        <div className="productPrice">$ {product.default_price}</div>
+        <div className="productPrice">${product.default_price}</div>
         <div>Style > {currentStyle?.name}</div>
       </div>
     </div>
