@@ -1,14 +1,29 @@
 import React, {useEffect, useState} from 'react'
 
-const Description = ({product}) => {
+const Description = ({product, productFeatures}) => {
+
+  if (product) {
+    
+    return(
+      <div className="overviewDescription">
+        <div id="slogan">{product.slogan}</div>
+        <div id="description">{product.description}</div>
+        <div id="features">
+          {productFeatures?.length > 0
+          ? productFeatures.map((element, index) => (
+            <div key={index}>{element.feature}: {element.value}</div>
+          ))
+          : null
+          }
+        </div>
+      </div>
+    ) 
+  } else {
+    return (null)
+  }
   
-  const [description, setDesc] = useState("")
-  useEffect(() => {
-    product ? setDesc(product.description) : setDesc("")
-  })
-  return(
-    <div className="overviewDescription">{description}</div>
-  )
+  
+  
 }
 
 export default Description;

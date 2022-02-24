@@ -61,7 +61,6 @@ app.get('/cart', (req, res) => {
 
 //adds a product to the cart
 app.post('/cart', (req, res) => {
-  console.log(req.body)
   api.addToCart(req.body)
   .then((response) => {
     res.status(201).send(response.data)
