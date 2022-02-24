@@ -5,6 +5,7 @@ import AddReview from './addreview.jsx';
 
 const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHelpful, reportReview, getReviewsSortHelpful, getReviewsSortNewest, getAllReviews, setSortOption}) => {
 
+  console.log('reviews', reviews)
   //create search functionality
 
   const [reviewTilesCount, setReviewTilesCount] = useState(2);
@@ -109,17 +110,18 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
             </select>
           </div>
 
-          <div className="reviewsearchparent">
+          {/* <div className="reviewsearchparent">
             <input id="reviewsearch" type="search" placeholder="search reviews...">
             </input>
             <button>Submit</button>
-          </div>
-{/* TODO fix rendering of bar filter when applied should only show reviews with that star rating. first two reviews should update to show the clicked star rating reviews */}
+          </div> */}
 
-{/* TODO fix bar filtering when clicked on another one should render the other ratings */}
+{/* TODO fix stars not rendering right when filtering by stars */}
+
+
         </div>
         <div className="reviewtileparent">
-          {reviewTilesCount <= reviewsToRender.length ?
+          {reviewTilesCount < reviewsToRender.length ?
             reviewsToRender.slice(0, reviewTilesCount).map((review, idx) => (
               <ReviewTile review={review} markHelpful={markHelpful} reportReview={reportReview} key={idx}/>
             )) : null
@@ -133,7 +135,6 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
 
         <div id="reviewbuttons">
           {reviewsToRenderCount > 2 ? <button id="morereviews" onClick={ () => {renderMoreReviews(); toggleMoreReviewButton(); } }>MORE REVIEWS</button> : null}
-{/* TODO fix rendering of reviews if its less than 2 */}
           <AddReview productId={productId} product={product} reviewMeta={reviewMeta.characteristics} addReview={addReview}/>
 
         </div>

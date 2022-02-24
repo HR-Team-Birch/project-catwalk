@@ -85,6 +85,7 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bolder;
   background-color: white;
+  border: 1px solid black;
 }
 
 #addreviewbutton {
@@ -93,6 +94,7 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bolder;
   background-color: white;
+  border: 1px solid black;
 }
 /*==============================
   Review Tile
@@ -145,10 +147,16 @@
   margin: 20px 0;
 }
 
+#reviewimagesection {
+  display: flex;
+
+}
+
 .reviewimage {
   object-fit: cover;
   width: 50px;
   max-height: auto;
+  border: 1px solid lightgrey;
 }
 
 #starsanduser {
@@ -194,7 +202,9 @@ Review Image Modal
   border: 1px solid black;
   left: 0%;
   top: 15%;
-
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
 }
 
 .image {
@@ -206,15 +216,15 @@ Review Image Modal
 Add Review Modal
 =======================*/
 
-.addreviewoverlay {
+/* .addreviewoverlay {
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, .7);
-  position: fixed;
+  height: 100%; */
+  /* background: rgba(0, 0, 0, .7); */
+  /* position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
-}
+} */
 
 .addreviewmodal {
   position: fixed;
@@ -229,8 +239,15 @@ Add Review Modal
   border: 1px solid black;
   overflow-y: scroll;
   border-radius: 8%;
-
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
 }
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 300; opacity: 1}
+}
+
 .addreviewmodal::-webkit-scrollbar {
   display: none;
 }
@@ -271,6 +288,7 @@ Add Review Modal
 
 .closereviewmodal:hover {
   color: grey;
+  padding-left: 20px;
 }
 
 .addreviewstar {
@@ -289,7 +307,6 @@ Add Review Modal
 }
 
 #reviewsummarytextbox {
-
   width: 400px;
 }
 
@@ -318,20 +335,103 @@ Add Review Modal
   padding-bottom: 4px;
 }
 
+#minchar {
+  font-size: 8px;
+  display: block;
+  float: right;
+}
+
+#submitreviewmessage {
+  color: red;
+  font-size: 10px;
+}
+
+.reviewphotobutton {
+  height: 40px;
+  width: 150px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.reviewphotobutton:hover {
+  font-weight: bolder;
+  border: 1px solid black;
+  padding-left: 20px;
+}
+
+#submitreview {
+  height: 40px;
+  width: 150px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+#submitreview:hover {
+  font-weight: bolder;
+  border: 1px solid black;
+  padding-left: 20px;
+}
+
 /* =====================
 Add Review Image Modal
 =======================*/
 
 
-#reviewphotomodal {
-  box-shadow: 0 8px 6px -6px black;
+#reviewphotomodal  {
+  box-shadow: 0 12px 6px -6px black;
   border: 1px solid black;
-  left: 0%;
-  top: 15%;
-  width: 70%;
-
+  left: 20%;
+  top: 90%;
+  height: 250px;
+  width: 400px;
+  position: absolute;
+  background-color: lightgrey;
+  z-index: 2;
+  border-radius: 8%;
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
 }
 
+#reviewimageurl {
+  width: 330px;
+}
+
+#submitreviewphoto {
+  margin-left: 230px;
+}
+
+.closeImgUploadModal {
+  padding-left: 15px;
+  cursor: pointer;
+}
+
+.reviewphotosubmit {
+  height: 30px;
+  width: 130px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.reviewphotosubmit:hover {
+  font-weight: bolder;
+  border: 1px solid black;
+  padding-left: 20px;
+}
+
+#submitreview :hover {
+  color: lightgrey;
+  border: 1px solid black;
+  padding-left: 20px;
+}
 
 /* =====================
 Meta Star Bars
@@ -432,3 +532,4 @@ Characteristics Bars
   position: relative;
   top: -7px;
 }
+

@@ -13,7 +13,7 @@ const ViewImageModal = (props) => {
   }
 
   return (
-    <div >
+    <div id="reviewimagesection">
       <img className="reviewimage" src={props.url} onClick={ handleShowDialog} alt="no image"></img>
 
       {isOpen && (

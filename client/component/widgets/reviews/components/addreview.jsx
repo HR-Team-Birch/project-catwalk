@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddReviewStar from './addreviewstar.jsx';
 import UploadImageModal from './uploadimagemodal.jsx';
 
@@ -16,12 +16,18 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
   const [email, setEmail] = useState('');
   const [photos, setPhotos] = useState([]);
   const [addReviewSubmitMessage, setAddReviewSubmitMessage] = useState('');
+
   const [sizeRating, setSizeRating] = useState('none selected');
   const [widthRating, setWidthRating] = useState('none selected');
   const [comfortRating, setComfortRating] = useState('none selected');
   const [qualityRating, setQualityRating] = useState('none selected');
   const [lengthRating, setLengthRating] = useState('none selected');
   const [fitRating, setFitRating] = useState('none selected');
+
+  const [charCount, setCharCount] = useState(50);
+  const [minNotMet, setMinNotMet] = useState(true);
+
+console.log('photos', photos)
 
   const getStarRating = (stars) => {
     setRating(stars + 1);
@@ -53,7 +59,7 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
   const handleSubmit = () => {
     let message = " is required.";
     if (body.length === 0) {
-      message = 'Review body ' + message;
+      message = 'Minimum 50 characters' + message;
     }
     if (name.length === 0) {
       message = 'Name ' + message;
@@ -75,7 +81,7 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
         "recommend": recommend,
         "name": name,
         "email": email,
-        "photos": [],
+        "photos": photos,
         "characteristics": createCharacteristicsObj()
       }
       addReview(reviewObj);
@@ -139,6 +145,20 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
     }
   }
 
+  const charLeft = () => {
+    let count = charCount - 1;
+    setCharCount(count)
+  }
+
+  const toggleReviewBodyCount = () => {
+
+  }
+
+  useEffect(() => {
+    if (charCount === 0) {
+      setMinNotMet(false)
+    }
+  }, [charCount])
   //figure out how to set state on submit and enter data inside review object
 
   // console.log('reviewMeta in addreview rating', reviewMeta)
@@ -309,16 +329,22 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
 
                   <br></br>
                   <div style={{margin: "20px 0 5px 0"}}>Review Body</div>
-                  <textarea type="text" id="reviewbodytextbox" onChange={ e => setBody(e.target.value)} maxLength="1000"></textarea>
+                  <textarea type="text" id="reviewbodytextbox" onChange={ e => {setBody(e.target.value); charLeft();} } required minLength="50" maxLength="1000"></textarea>
+                  {minNotMet ? <span id="minchar" onChange={ () => charLeft() }>Minimum required characters left : {charCount}</span>
+                  : <span id="minchar">Minimum reached</span>
+                  }
+
 
                   <br></br>
-                  <UploadImageModal />
+                  <br></br>
+                  <UploadImageModal setPhotos={setPhotos}/>
                   <label>Pic thumbnails</label>
                   <br></br>
+                  <div id="submitreviewmessage" >{addReviewSubmitMessage}</div>
+
                   <button id="submitreview" onClick={ () => {
                     handleSubmit(); sizeDescriptions(); widthDescriptions(); comfortDescriptions();qualityDescriptions(); lengthDescriptions(); fitDescriptions();
                     }   }>Submit</button>
-                  <div id="submitreviewmessage" style={{color: "red", justifyContent: "center"}}>{addReviewSubmitMessage}</div>
 
               </main>
             </div>

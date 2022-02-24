@@ -4,13 +4,10 @@ import ReviewList from './components/reviewlist.jsx';
 import AddReview from './components/addreview.jsx';
 import ReviewMeta from './components/reviewmeta.jsx';
 
-const Reviews = ({productId, product, reviewMeta}) => {
+const Reviews = ({productId, product, reviewMeta, getReviewMeta}) => {
 
   const [reviews, setReviews] = useState(null);
   const [sortOption, setSortOption] = useState('relevant');
-
-  console.log('sortOption in reviews', sortOption)
-  console.log('reviews', reviews)
 
   const sortReviews = () => {
     if (sortOption === 'relevant') {
@@ -50,8 +47,8 @@ const Reviews = ({productId, product, reviewMeta}) => {
     axios.post('/reviews', review)
       .then((data) => {
         console.log('data from post', data);
-        getReviews();
-        getReviewMeta();
+        getAllReviews();
+        getReviewMeta(productId);
       })
       .catch((err) => console.error(err));
   }
@@ -59,7 +56,7 @@ const Reviews = ({productId, product, reviewMeta}) => {
   const markHelpful = (reviewId) => {
     axios.put(`/reviews/${reviewId}/helpful`)
       .then(() => {
-        getReviews();
+        getAllReviews();
       })
       .catch((err) => console.error(err));
   }
@@ -67,7 +64,7 @@ const Reviews = ({productId, product, reviewMeta}) => {
   const reportReview = (reviewId) => {
     axios.put(`/reviews/${reviewId}/report`)
       .then(() => {
-        getReviews();
+        getAllReviews();
       })
       .catch((err) => console.error(err));
   }
