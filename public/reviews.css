@@ -6,6 +6,10 @@
 /*==============================
   Reviews
 ==============================*/
+#reviewsparentcontainer {
+  width: 100%;
+  /* background-color: #859ab3; */
+}
 
 .reviewsparent {
   display: flex;
@@ -17,6 +21,7 @@
   width: 80%;
   height: 650px;
   padding: 10px;
+
 }
 
 /*==============================
@@ -35,6 +40,11 @@
 .ratingaverage {
   font-weight: bold;
   font-size: 35px;
+  color:#294965;
+}
+
+.star {
+  color:#294965;
 }
 
 /*==============================
@@ -116,7 +126,7 @@
 #reviewtile {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid grey ;
+  border-bottom: 1px solid #336c95 ;
   max-height: 400px;
   order: 2;
   padding: 0;
@@ -466,9 +476,9 @@ Meta Star Bars
 .barcontainer {
   width: 90%;
   height: 10px;
-  background-color: #f1f1f1;
+  background-color: whitesmoke;
   text-align: center;
-  color: white;
+  color:#e5ebf1;
 }
 
 .bar5,
@@ -478,7 +488,7 @@ Meta Star Bars
 .bar1 {
   /* width: 70%; */
   height: 10px;
-  background-color: #04AA6D;
+  background-color: #336c95;
 }
 
 /* =====================
@@ -512,7 +522,7 @@ Characteristics Bars
   /* display: flex;
   flex-direction: row; */
   height: 10px;
-  background-color: #f1f1f1;
+  background-color: whitesmoke;
   text-align: center;
   color: white;
   margin-left: 15px;

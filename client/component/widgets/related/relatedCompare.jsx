@@ -14,10 +14,12 @@ class RelatedComparison extends React.Component {
 
   render() {
     return (
-      <div id="allRelatedItems">
-        <h3 id="relatedTitle">RELATED PRODUCTS</h3>
-        <Related/>
-        <h4>Match/Compare</h4>
+      <div id="relatedparent">
+        <div id="allRelatedItems">
+          <h3 id="relatedTitle">RELATED PRODUCTS</h3>
+          <Related/>
+          {/* <h4>Match/Compare</h4> */}
+        </div>
       </div>
     )
   }

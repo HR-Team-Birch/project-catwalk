@@ -80,8 +80,11 @@ const Reviews = ({productId, product, reviewMeta, getReviewMeta}) => {
 
 
   return (
-    <div className="reviewsparent">
-      {reviews && reviewMeta ? <ReviewList reviews={reviews} productId={productId} product={product} reviewMeta={reviewMeta} addReview={addReview} markHelpful={markHelpful} reportReview={reportReview} getReviewsSortHelpful={getReviewsSortHelpful} getReviewsSortNewest={getReviewsSortNewest} getAllReviews={getAllReviews} setSortOption={setSortOption}/> : null}
+    <div id="reviewsparentcontainer">
+      <div className="reviewsparent">
+        {reviews && reviewMeta ? <ReviewList reviews={reviews} productId={productId} product={product} reviewMeta={reviewMeta} addReview={addReview} markHelpful={markHelpful} reportReview={reportReview} getReviewsSortHelpful={getReviewsSortHelpful} getReviewsSortNewest={getReviewsSortNewest} getAllReviews={getAllReviews} setSortOption={setSortOption}/> : null}
+      </div>
+
     </div>
   )
 

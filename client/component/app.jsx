@@ -73,6 +73,7 @@ const App = () => {
 
   return (
     <div>
+      <h1>Kitty Catwalk</h1>
       {selectedProduct &&
         <Overview reviewMeta={reviewMeta} selectedProduct={selectedProduct} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} allStyles={allStyles} setAllStyles={setAllStyles} productFeatures={productFeatures}/>}
       <RelatedComparison/>
