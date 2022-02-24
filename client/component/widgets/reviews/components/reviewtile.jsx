@@ -7,24 +7,23 @@ import moment from 'moment';
 
 //if reviewers email is associated witha  sale in the system, verified check should appear next to username in reviewtile
 
-const ReviewTile = (props) => {
+const ReviewTile = ({review, markHelpful, reportReview}) => {
   const [helpfulClicked, setHelpfulClicked] = useState(false);
-  const [shortBody, setShortBody] = useState(props.review.body.slice(0, 250));
+  const [shortBody, setShortBody] = useState(review.body.slice(0, 250));
   const [restOfBody, setRestOfBody] = useState(' ...Show More');
 
   const check = <FontAwesomeIcon icon={faCheck} />;
   const circleCheck = <FontAwesomeIcon icon={faCircleCheck} />;
 
   const updateHelpfulClicked = () => {
-    props.markHelpful(props.review.review_id);
+    markHelpful(review.review_id);
     setHelpfulClicked(true);
   }
 
   const renderShortBody = () => (
-
-    <div className="reviewbody">{shortBody}<a onClick={ () => setRestOfBody(props.review.body.slice(250)) }>{restOfBody}</a></div>
+    <div className="reviewbody">{shortBody}<a onClick={ () => setRestOfBody(review.body.slice(250)) }>{restOfBody}</a></div>
   )
-    // console.log('props in reviewtile', props)
+
   return (
 
     <div id="reviewtile">
@@ -32,33 +31,36 @@ const ReviewTile = (props) => {
 
         <div id="starsanduser">
           <div className="stars">
-            <ReviewStarRating rating={props.review.rating}/>
+            <ReviewStarRating rating={review.rating}/>
           </div>
-          <div className="userdate">{circleCheck} {props.review.reviewer_name}, {moment(props.review.date).format('MMMM Do YYYY')}</div>
+          <div className="userdate">{circleCheck} {review.reviewer_name}, {moment(review.date).format('MMMM Do YYYY')}</div>
         </div>
 
-        <div className="reviewsummary">{props.review.summary}</div>
+        <div className="reviewsummary">{review.summary}</div>
 
-        {props.review.body.length > 250 ? renderShortBody() : <div className="reviewbody">{props.review.body}</div> }
+        {review.body.length > 250 ? renderShortBody() : <div className="reviewbody">{review.body}</div> }
 
 
         <div className="reviewphotoparent">
 
-          { props.review.photos
-            ? props.review.photos.map((photo, idx) => (
+          { review.photos
+            ? review.photos.map((photo, idx) => (
               <ViewImageModal url={photo.url} key={idx}/>
             )) : null
           }
 
         </div>
-{/* TODO if review recommend is true, show this div */}
+
+        {review.recommend ?
         <div id="recommend">
           <div>{check}  I recommend this product</div>
         </div>
+        : null
+        }
         <br></br>
         <div className="reviewresponse">
-          {props.review.response
-            ? <div>{props.review.response}</div>
+          {review.response
+            ? <div>{review.response}</div>
             : null
           }
         </div>
@@ -68,10 +70,10 @@ const ReviewTile = (props) => {
 
           <div className="helpful">
             <a style={{textDecorationLine: "underline", marginRight: "3px"}} onClick={ () => { !helpfulClicked ? updateHelpfulClicked() : null } }>Yes</a>
-              ({props.review.helpfulness})
+              ({review.helpfulness})
           </div>
           <a>|    </a>
-          <div style={{textDecorationLine: "underline"}} className="report" onClick={ () => props.reportReview(props.review.review_id) }>
+          <div style={{textDecorationLine: "underline"}} className="report" onClick={ () => reportReview(review.review_id) }>
 
             Report
           </div>

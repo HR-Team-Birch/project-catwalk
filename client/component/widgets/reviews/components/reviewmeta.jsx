@@ -14,7 +14,6 @@ const ReviewMeta = ({reviewMeta, reviews, setBarFilter, setReviewsToRender}) => 
   const [oneStarCount, setOneStarCount] = useState(0);
 
   const [starFilter, setStarFilter] = useState(false);
-
   const [starFilterClicked, setStarFilterClicked] = useState(false);
 
   const [fiveStarPercentage, setFiveStarPercentage] = useState(0);
@@ -45,7 +44,6 @@ const ReviewMeta = ({reviewMeta, reviews, setBarFilter, setReviewsToRender}) => 
     setTwoStarPercentage(Math.round((twoStarCount/totalReviews) * 100));
     setOneStarPercentage(Math.round((oneStarCount/totalReviews) * 100));
   }
-
 
   const getPercentRecommend = () => {
     let counter = 0;
@@ -116,10 +114,6 @@ const ReviewMeta = ({reviewMeta, reviews, setBarFilter, setReviewsToRender}) => 
     }
   }
 
-
-
-  // console.log('reviews in meta', reviews)
-
   useEffect(() => {
     getPercentRecommend();
     countReviews()
@@ -130,6 +124,7 @@ const ReviewMeta = ({reviewMeta, reviews, setBarFilter, setReviewsToRender}) => 
   useEffect(() => {
     starBarsPercentage()
   }, [oneStarCount])
+
 
   return (
     <div className="reviewsmeta">
@@ -217,7 +212,6 @@ const ReviewMeta = ({reviewMeta, reviews, setBarFilter, setReviewsToRender}) => 
       : null
       }
 
-
       <div id="characteristicscontainer">
 
         {showFitBar ?
@@ -292,14 +286,10 @@ const ReviewMeta = ({reviewMeta, reviews, setBarFilter, setReviewsToRender}) => 
         : null
         }
 
-
-
       </div>
-
 
     </div>
   )
-
 };
 
 export default ReviewMeta;

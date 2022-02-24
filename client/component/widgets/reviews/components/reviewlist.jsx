@@ -5,8 +5,7 @@ import AddReview from './addreview.jsx';
 
 const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHelpful, reportReview, getReviewsSortHelpful, getReviewsSortNewest, getAllReviews, setSortOption}) => {
 
-  console.log('reviews', reviews)
-  //create search functionality
+  // TODO create search functionality?
 
   const [reviewTilesCount, setReviewTilesCount] = useState(2);
   const [sort, setSort] = useState('relevant');

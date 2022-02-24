@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import AddReviewStar from './addreviewstar.jsx';
 import UploadImageModal from './uploadimagemodal.jsx';
 
-
-//figure out add review image modal
-
-
 const AddReview = ({productId, product, reviewMeta, addReview}) => {
+
   const [showAddReviewModal, setShowAddReviewModal] = useState(false);
+
   const [rating, setRating] = useState(0);
   const [summary, setSummary] = useState('');
   const [body, setBody] = useState('');
@@ -26,8 +24,6 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
 
   const [charCount, setCharCount] = useState(50);
   const [minNotMet, setMinNotMet] = useState(true);
-
-console.log('photos', photos)
 
   const getStarRating = (stars) => {
     setRating(stars + 1);
@@ -88,8 +84,6 @@ console.log('photos', photos)
       setShowAddReviewModal(false);
     }
   };
-
-
 
   const sizeDescriptions = () => {
     let sizeDesc = ["A size too small", "1/2 a size too small", "Perfect", "1/2 a size too big", "A size too big"]
@@ -159,11 +153,6 @@ console.log('photos', photos)
       setMinNotMet(false)
     }
   }, [charCount])
-  //figure out how to set state on submit and enter data inside review object
-
-  // console.log('reviewMeta in addreview rating', reviewMeta)
-  // console.log('in addreview recommend', fitRating)
-  // console.log('fitDescriptions', fitDescriptions() )
 
   return (
     <>
@@ -185,7 +174,6 @@ console.log('photos', photos)
                   </label>
                 </div>
 
-
                   <div className="addreviewspacing">
                     <span style={{margin: "0 0 50px 0"}}>Do you recommend this product?
                       <input required type="radio" name="recommend" onClick={ () => setRecommend(true)} />
@@ -197,12 +185,10 @@ console.log('photos', photos)
                     </label>
                   </div>
 
-
                   <div className="addreviewspacing">
                     <label>What is your nickname? </label>
                     <input type="text" onChange={ e => setName(e.target.value)}></input>
                   </div>
-
 
                   <div className="addreviewspacing">
                     <label>Your email </label>
@@ -320,7 +306,6 @@ console.log('photos', photos)
                       </div>
                     </div>
 
-
                   </div>
                   <br></br>
 
@@ -333,7 +318,6 @@ console.log('photos', photos)
                   {minNotMet ? <span id="minchar" onChange={ () => charLeft() }>Minimum required characters left : {charCount}</span>
                   : <span id="minchar">Minimum reached</span>
                   }
-
 
                   <br></br>
                   <br></br>
@@ -349,7 +333,6 @@ console.log('photos', photos)
               </main>
             </div>
           </>
-
         )}
     </>
   )

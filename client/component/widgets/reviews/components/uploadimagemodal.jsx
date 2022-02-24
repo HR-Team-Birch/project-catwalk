@@ -9,10 +9,6 @@ const UploadImageModal = ({setPhotos}) => {
   const [reviewImageFour, setReviewImageFour] = useState(null);
   const [reviewImageFive, setReviewImageFive] = useState(null);
 
-  console.log('reviewImageOne', reviewImageOne)
-  console.log('reviewImageTwo', typeof reviewImageTwo)
-
-
   const openAddReviewImageModal = () => {
     setUploadReviewPhoto(true);
   }
