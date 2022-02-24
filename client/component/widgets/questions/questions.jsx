@@ -52,10 +52,13 @@ const Questions = ({ productId, product }) => {
   }, [filteredQuestions])
 
   return (
-    <div className="questions">
-      <h3>QUESTIONS & ANSWERS</h3>
-      <SearchQuestions productQuestions={productQuestions} setFilteredStatus={setFilteredStatus} setFilteredQuestions={setFilteredQuestions} setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
-      <QuestionList productQuestions={currentQuestions} product={product} searchTerm={searchTerm} filteredStatus={filteredStatus} />
+    <div id="questionsparent">
+      <div className="questions">
+        <h3>QUESTIONS & ANSWERS</h3>
+        <SearchQuestions productQuestions={productQuestions} setFilteredStatus={setFilteredStatus} setFilteredQuestions={setFilteredQuestions} setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
+        <QuestionList productQuestions={currentQuestions} product={product} searchTerm={searchTerm} filteredStatus={filteredStatus} />
+      </div>
+
     </div>
   )
 }

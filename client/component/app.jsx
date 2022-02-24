@@ -40,7 +40,7 @@ const App = () => {
       .then((meta) => {
         setReviewMeta(meta.data);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error('meta error', err));
   };
 
   const getAllStyles = (productID) => {
@@ -73,11 +73,12 @@ const App = () => {
 
   return (
     <div>
+      <h1>Kitty Catwalk</h1>
       {selectedProduct &&
         <Overview reviewMeta={reviewMeta} selectedProduct={selectedProduct} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} allStyles={allStyles} setAllStyles={setAllStyles} productFeatures={productFeatures}/>}
       <RelatedComparison/>
       <Questions productId={productIdforQuestions} product={selectedProduct}/>
-      {productIdforQuestions && reviewMeta ?  <Reviews productId={productIdforQuestions} product={selectedProduct.name} reviewMeta={reviewMeta}/> : null }
+      {productIdforQuestions && reviewMeta ?  <Reviews productId={productIdforQuestions} product={selectedProduct.name} reviewMeta={reviewMeta} getReviewMeta={getReviewMeta}/> : null }
     </div>
   );
 }

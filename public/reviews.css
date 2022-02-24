@@ -6,6 +6,10 @@
 /*==============================
   Reviews
 ==============================*/
+#reviewsparentcontainer {
+  width: 100%;
+  /* background-color: #859ab3; */
+}
 
 .reviewsparent {
   display: flex;
@@ -17,6 +21,7 @@
   width: 80%;
   height: 650px;
   padding: 10px;
+
 }
 
 /*==============================
@@ -35,6 +40,11 @@
 .ratingaverage {
   font-weight: bold;
   font-size: 35px;
+  color:#294965;
+}
+
+.star {
+  color:#294965;
 }
 
 /*==============================
@@ -85,6 +95,7 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bolder;
   background-color: white;
+  border: 1px solid black;
 }
 
 #addreviewbutton {
@@ -93,6 +104,7 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bolder;
   background-color: white;
+  border: 1px solid black;
 }
 /*==============================
   Review Tile
@@ -101,7 +113,7 @@
 .reviewtileparent {
   display: flex;
 
-  height: 590px;
+  max-height: 590px;
   flex-direction: column;
   overflow-y: scroll;
   width: auto;
@@ -114,9 +126,8 @@
 #reviewtile {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid grey ;
-  min-height: 280px;
-  overflow-y: auto;
+  border-bottom: 1px solid #336c95 ;
+  max-height: 400px;
   order: 2;
   padding: 0;
 }
@@ -146,10 +157,16 @@
   margin: 20px 0;
 }
 
+#reviewimagesection {
+  display: flex;
+
+}
+
 .reviewimage {
   object-fit: cover;
   width: 50px;
   max-height: auto;
+  border: 1px solid lightgrey;
 }
 
 #starsanduser {
@@ -195,7 +212,9 @@ Review Image Modal
   border: 1px solid black;
   left: 0%;
   top: 15%;
-
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
 }
 
 .image {
@@ -207,15 +226,15 @@ Review Image Modal
 Add Review Modal
 =======================*/
 
-.addreviewoverlay {
+/* .addreviewoverlay {
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, .7);
-  position: fixed;
+  height: 100%; */
+  /* background: rgba(0, 0, 0, .7); */
+  /* position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
-}
+} */
 
 .addreviewmodal {
   position: fixed;
@@ -229,10 +248,22 @@ Add Review Modal
   box-shadow: 0 8px 6px -6px black;
   border: 1px solid black;
   overflow-y: scroll;
+  border-radius: 8%;
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
+}
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 300; opacity: 1}
+}
+
+.addreviewmodal::-webkit-scrollbar {
+  display: none;
 }
 
 .addreviewmodalheader {
-  padding: 10px;
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
 
@@ -245,7 +276,7 @@ Add Review Modal
 }
 
 .addreviewmain {
-  padding: 20px 0 0 120px;
+  padding: 20px 120px 0 120px;
   margin: 0;
 }
 
@@ -267,6 +298,7 @@ Add Review Modal
 
 .closereviewmodal:hover {
   color: grey;
+  padding-left: 20px;
 }
 
 .addreviewstar {
@@ -285,7 +317,6 @@ Add Review Modal
 }
 
 #reviewsummarytextbox {
-
   width: 400px;
 }
 
@@ -294,28 +325,123 @@ Add Review Modal
   width: 400px;
 }
 
+#charparent {
+  padding: 0 50px 20px 70px;
+  border-bottom: 2px solid lightgrey;
+}
+
 #characteristics {
   display: grid;
   grid-template-columns: repeat(5, 50px);
   grid-template-rows: 20px;
+  /* justify-content: center; */
 }
 
+.charlabel {
+  font-size: 12px;
+}
 
+.addreviewspacing {
+  padding-bottom: 4px;
+}
+
+#minchar {
+  font-size: 8px;
+  display: block;
+  float: right;
+}
+
+#submitreviewmessage {
+  color: red;
+  font-size: 10px;
+}
+
+.reviewphotobutton {
+  height: 40px;
+  width: 150px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.reviewphotobutton:hover {
+  font-weight: bolder;
+  border: 1px solid black;
+  padding-left: 20px;
+}
+
+#submitreview {
+  height: 40px;
+  width: 150px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+#submitreview:hover {
+  font-weight: bolder;
+  border: 1px solid black;
+  padding-left: 20px;
+}
 
 /* =====================
 Add Review Image Modal
 =======================*/
 
 
-#reviewphotomodal {
-  box-shadow: 0 8px 6px -6px black;
+#reviewphotomodal  {
+  box-shadow: 0 12px 6px -6px black;
   border: 1px solid black;
-  left: 0%;
-  top: 15%;
-  width: 70%;
-
+  left: 20%;
+  top: 90%;
+  height: 250px;
+  width: 400px;
+  position: absolute;
+  background-color: lightgrey;
+  z-index: 2;
+  border-radius: 8%;
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
 }
 
+#reviewimageurl {
+  width: 330px;
+}
+
+#submitreviewphoto {
+  margin-left: 230px;
+}
+
+.closeImgUploadModal {
+  padding-left: 15px;
+  cursor: pointer;
+}
+
+.reviewphotosubmit {
+  height: 30px;
+  width: 130px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.reviewphotosubmit:hover {
+  font-weight: bolder;
+  border: 1px solid black;
+  padding-left: 20px;
+}
+
+#submitreview :hover {
+  color: lightgrey;
+  border: 1px solid black;
+  padding-left: 20px;
+}
 
 /* =====================
 Meta Star Bars
@@ -348,11 +474,11 @@ Meta Star Bars
 }
 
 .barcontainer {
-  width: 150px;
+  width: 90%;
   height: 10px;
-  background-color: #f1f1f1;
+  background-color: whitesmoke;
   text-align: center;
-  color: white;
+  color:#e5ebf1;
 }
 
 .bar5,
@@ -362,42 +488,46 @@ Meta Star Bars
 .bar1 {
   /* width: 70%; */
   height: 10px;
-  background-color: #04AA6D;
+  background-color: #336c95;
 }
 
 /* =====================
 Characteristics Bars
 =======================*/
 
-/* .characteristicscontainer {
-  display: grid;
-  grid: 50px 180px;
+.characteristicscontainer {
+  /* display: grid;
+  grid: 50px 180px; */
 }
 
 .characteristics {
   justify-content: center;
-} */
+}
 
 
-#fit {
+#charname {
   text-align: left;
   margin-left: 10px;
-  margin-bottom: 0;
+  margin-top: 30px;
 }
 
 .charparent {
   margin: 15px 0 0 10px;
   float: left;
-  width: 70%;
+  width: 90%;
+
 }
 
 .charcontainer {
-  width: 240px;
+  /* display: flex;
+  flex-direction: row; */
   height: 10px;
-  background-color: #f1f1f1;
+  background-color: whitesmoke;
   text-align: center;
   color: white;
-  margin-left: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  /* position: absolute; */
 }
 
 .fit,
@@ -406,7 +536,10 @@ Characteristics Bars
 .quality,
 .width,
 .length {
-  /* width: 70%; */
+  /* width: 90%; */
   height: 10px;
-  /* background-color: #04AA6D; */
+  color: black;
+  position: relative;
+  top: -7px;
 }
+
