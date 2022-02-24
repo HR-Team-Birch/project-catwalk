@@ -13,6 +13,7 @@ const App = () => {
   const [reviewMeta, setReviewMeta] = useState(null)
   const [currentStyle, setCurrentStyle] = useState(null);
   const [allStyles, setAllStyles] = useState(null);
+  const [productFeatures, setProductFeatures] = useState([])
 
 
   //For when we want to switch products - not working on all widgets currently:
@@ -27,6 +28,7 @@ const App = () => {
         setProductIdforQuestions(result.data[currentProductIndex].id);
         getReviewMeta(result.data[currentProductIndex].id);
         getAllStyles(result.data[currentProductIndex].id)
+        getProductDetails(result.data[currentProductIndex].id)
       })
       .catch((error) => {
         console.log('Error: ', error);
@@ -53,15 +55,26 @@ const App = () => {
     })
   }
 
+  const getProductDetails = (productID) => {
+    axios.get(`/products/${productID}`)
+    .then((response) => {
+      setProductFeatures(response.data.features)
+    })
+    .catch((error) => {
+      console.error('ERROR IN CLIENT GET', error)
+    })
+  }
+
   useEffect(() => {
     getProducts();
 
   }, []);
 
+
   return (
     <div>
-      {/* <Overview reviewMeta={reviewMeta} selectedProduct={selectedProduct} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} allStyles={allStyles} setAllStyles={setAllStyles}/> */}
-      {/* <RelatedComparison/> */}
+      <Overview reviewMeta={reviewMeta} selectedProduct={selectedProduct} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} allStyles={allStyles} setAllStyles={setAllStyles} productFeatures={productFeatures}/>
+      <RelatedComparison/>
       <Questions productId={productIdforQuestions} product={selectedProduct}/>
       {/* {productIdforQuestions && reviewMeta ?  <Reviews productId={productIdforQuestions} product={selectedProduct.name} reviewMeta={reviewMeta}/> : null } */}
     </div>
