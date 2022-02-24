@@ -9,14 +9,14 @@ import AddToCart from './AddToCart.jsx';
 
 const ExtendedView = ({currentStyle, allStyles, product, reviewMeta, setCurrentStyle}) => {
   //if view extention is clicked:
-  
+
   const [expandStatus, setExpandStatus] = useState(false)
-  
+
   return(
     <div className="ExtendedViewParent">
         <ImageGalleryRegular currentStyle={currentStyle} allStyles={allStyles} expandStatus={expandStatus} setExpandStatus={setExpandStatus}/>
         { !expandStatus && (
-          <div className="allProductStuff">          
+          <div className="allProductStuff">
             <ProductInfo product={product} currentStyle={currentStyle} reviewMeta={reviewMeta}/>
             <StyleSelector allStyles={allStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
             <AddToCart currentStyle={currentStyle}/>
