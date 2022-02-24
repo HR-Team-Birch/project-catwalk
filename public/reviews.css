@@ -32,7 +32,7 @@
   flex-grow: 1;
 }
 
-#ratingaverage {
+.ratingaverage {
   font-weight: bold;
   font-size: 35px;
 }
