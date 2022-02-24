@@ -60,8 +60,8 @@ const getItemsInCart = () => {
 }
 
 //adds a product to the cart
-const addToCart = (prodID) => {
-  let data = prodID
+const addToCart = (dataObj) => {
+  let data = dataObj
   let options = {
     url: `${url}/cart`,
     headers: {

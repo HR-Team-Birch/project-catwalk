@@ -3,18 +3,12 @@ import SocialMedia from './little components/SocialMedia.jsx'
 import StarRatings from './../../Shared components/starRatings.jsx'
 import axios from 'axios'
 
-const ProductInfo = (props) => {
-
-  const [product, setProduct] = useState({})
-
-  useEffect(() => {
-    props.product ? setProduct(props.product) : setProduct({})
-  }, [props.product])
+const ProductInfo = ({product, currentStyle, reviewMeta}) => {
 
   return(
     <div className="ProductInfo" id="TEST">
-      {props.reviewMeta ?
-      <StarRatings meta={props.reviewMeta.ratings}/>
+      {reviewMeta ?
+      <StarRatings meta={reviewMeta.ratings}/>
       : null
       }
       <SocialMedia />
@@ -22,7 +16,7 @@ const ProductInfo = (props) => {
         <div className="productCategory">{product.category?.toUpperCase()}</div>
         <div className="productName">{product.name}</div>
         <div className="productPrice">${product.default_price}</div>
-        <div>Style > {props.currentStyle?.name}</div>
+        <div>Style > {currentStyle?.name}</div>
       </div>
     </div>
   )

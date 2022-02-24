@@ -32,7 +32,7 @@ import MainCarousel from './little components/MainCarousel.jsx'
       setExpandStatus(!expandStatus)
     }
     
-    const viewClass = expandStatus ? 'ImageGallery ImageGalleryExpanded' : 'ImageGallery'
+    const viewClass = expandStatus ? 'ImageGallery ImageGalleryExpanded' : 'ImageGallery RegularSize'
     
     useEffect(() => {
       if (allPics?.length > 0) {
