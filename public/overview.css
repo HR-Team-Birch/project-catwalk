@@ -136,7 +136,7 @@ body {
 
 .backArrow {
   position: absolute;
-  left: 25%;
+  left: 135px;
   bottom: 50%;
 }
 
@@ -234,10 +234,19 @@ body {
   color: var(--darkest-color);
 }
 
-.productPrice {
+.productPrice, #salePrice {
   font-family: Playfair-Display;
   font-size: medium;
   grid-row: 5 /span 1
+}
+
+.oldPrice {
+  font-family: Playfair-Display;
+  font-size: medium;
+  text-decoration: line-through;
+  color: var(--primary-color);
+  grid-row: 5 / span 1;
+  padding-left: 10px;
 }
 
 /*.stylename {
