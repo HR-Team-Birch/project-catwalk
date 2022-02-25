@@ -16,7 +16,7 @@ class RelatedComparison extends React.Component {
     return (
       <div id="relatedparent">
         <div id="allRelatedItems">
-          <h3 id="relatedTitle">RELATED PRODUCTS</h3>
+          <div id="relatedTitle">RELATED PRODUCTS</div>
           <Related/>
           {/* <h4>Match/Compare</h4> */}
         </div>

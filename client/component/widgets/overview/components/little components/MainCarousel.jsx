@@ -1,8 +1,7 @@
 import React from 'react'
 
 const MainCarousel = ({mainImg, setMainImg, allPics}) => (
-  
-    <img className="mainimg main-carousel-item" src={mainImg} alt="some pic idk"/>
+    <img className="mainimg main-carousel-item" src={mainImg} alt="current product photo"/>
     
 )
 

@@ -99,7 +99,6 @@ const App = () => {
   return (
     <div>
       <h1>Kitty Catwalk
-        {/*<SearchQuestions productQuestions={} setFilteredQuestions={} setFilteredStatus={} setSearchTerm={} searchTerm={}/>*/}
       </h1>
       <div className="theme-switch-wrapper">
         <label className="theme-switch" >

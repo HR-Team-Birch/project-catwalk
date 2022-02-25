@@ -17,14 +17,14 @@ const PhotoModalImage = ({photo}) => {
   if(typeof(photo) === 'string') {
     return (
       <div id="photoModalImgContainer">
-        <img src={photo} id="photoModalImg" onClick={expandPhotoAnswer}></img>
+        <img src={photo} id="photoModalImg" onClick={expandPhotoAnswer} alt="customer photo"></img>
         {showExpandPhotoUpload ? <ExpandImageModal url={photo} show={setShowExpandPhotoUpload}/> : null}
       </div>
     )
   } else {
     return (
       <div id="photoModalImgContainer">
-        <img src={photo.url} id="photoModalImg" onClick={expandPhoto}></img>
+        <img src={photo.url} id="photoModalImg" onClick={expandPhoto} alt="customer photo"></img>
         {showExpandPhoto ? <ExpandImageModal url={photo.url} show={setShowExpandPhoto}/> : null}
       </div>
     )

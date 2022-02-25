@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 
-const AddToCart = ({currentStyle}) => {
+const AddToCart = ({currentStyle, product}) => {
 
   const [size, setSize] = useState('unselected')
   const [quantity, setQuantity] = useState('unselectedQ')
@@ -10,12 +10,14 @@ const AddToCart = ({currentStyle}) => {
   const [selectedSku, setSelectedSku] = useState(null)
 
   //console.log(selectedSku, quantity)
+  console.log(quantity)
 
   const addToCart = (ID) => {
     axios.post(`/cart`, {sku_id: ID,
     count: quantity})
     .then((response) => {
-      console.log('Added to Cart Correctly')
+      alert(`🛍 Added ${quantity} ${product.name}(s) in ${currentStyle.name} in size: ${size.size} to cart! 🛒`)
+      
     })
     .catch((error) => {
         console.error('ERROR IN CLIENT GET', error)
