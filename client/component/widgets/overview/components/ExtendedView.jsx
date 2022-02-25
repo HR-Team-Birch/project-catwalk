@@ -19,7 +19,7 @@ const ExtendedView = ({currentStyle, allStyles, product, reviewMeta, setCurrentS
           <div className="allProductStuff">
             <ProductInfo product={product} currentStyle={currentStyle} reviewMeta={reviewMeta}/>
             <StyleSelector allStyles={allStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
-            <AddToCart currentStyle={currentStyle}/>
+            <AddToCart product={product} currentStyle={currentStyle}/>
           </div>
           )}
       </div>
