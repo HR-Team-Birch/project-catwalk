@@ -18,7 +18,7 @@ const App = () => {
 
 
   //For when we want to switch products - not working on all widgets currently:
-  const currentProductIndex = 7
+  const currentProductIndex = 0
 
   const getProducts = () => {
     axios.get(`${url}/products`)
@@ -84,15 +84,15 @@ const App = () => {
   }
 
   /*========================
-    props for search bar 
+    props for search bar
     productQuestions
     setFilteredQuestions
     setFilteredStatus
     setSearchTerm
     searchTerm
-  
-  
-  
+
+
+
   */
 
 
