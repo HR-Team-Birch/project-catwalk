@@ -94,7 +94,8 @@ const AddAnswerModal = ({ show, question, name, getAnswers }) => {
         <label className="aFieldNames">Your email *</label>
         <input type="text" maxLength="60" placeholder="Example: jack@email.com" onChange={emailFieldChange}></input>
         <span className="aModalInfo">For authentication reasons, you will not be emailed</span>
-        <button id="uploadAnswerPhoto" onClick={showUploadModal}>Upload Photo</button>
+        {/* <button id="uploadAnswerPhoto" onClick={showUploadModal}>Upload Photo</button> */}
+        {modalPhotos.length < 5 ? <button id="uploadAnswerPhoto" onClick={showUploadModal}>Upload Photo</button> : null}
         <button id="submitAnswer" onClick={submitAnswer}>Submit Answer</button>
         <span id="submitAMessage">{submitMessage}</span>
       </div>

@@ -84,15 +84,15 @@ const App = () => {
   }
 
   /*========================
-    props for search bar 
+    props for search bar
     productQuestions
     setFilteredQuestions
     setFilteredStatus
     setSearchTerm
     searchTerm
-  
-  
-  
+
+
+
   */
 
 
