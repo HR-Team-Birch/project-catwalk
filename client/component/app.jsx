@@ -3,6 +3,7 @@ import Overview from './widgets/overview/overview.jsx';
 import Reviews from './widgets/reviews/reviews.jsx';
 import Questions from './widgets/questions/questions.jsx';
 import RelatedComparison from './widgets/related/relatedCompare.jsx';
+import SearchQuestions from './widgets/questions/components/searchQuestions.jsx'
 import axios from 'axios';
 const url = 'http://localhost:3000';
 
@@ -17,7 +18,7 @@ const App = () => {
 
 
   //For when we want to switch products - not working on all widgets currently:
-  const currentProductIndex = 0
+  const currentProductIndex = 7
 
   const getProducts = () => {
     axios.get(`${url}/products`)
@@ -82,11 +83,24 @@ const App = () => {
     }
   }
 
+  /*========================
+    props for search bar 
+    productQuestions
+    setFilteredQuestions
+    setFilteredStatus
+    setSearchTerm
+    searchTerm
+  
+  
+  
+  */
 
 
   return (
     <div>
-      <h1>Kitty Catwalk</h1>
+      <h1>Kitty Catwalk
+        {/*<SearchQuestions productQuestions={} setFilteredQuestions={} setFilteredStatus={} setSearchTerm={} searchTerm={}/>*/}
+      </h1>
       <div className="theme-switch-wrapper">
         <label className="theme-switch" >
           <input type="checkbox" id="checkbox" onClick={ switchTheme }/>
@@ -94,9 +108,7 @@ const App = () => {
         </label>
         <em>Switch Theme</em>
       </div>
-
-      {selectedProduct &&
-        <Overview reviewMeta={reviewMeta} selectedProduct={selectedProduct} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} allStyles={allStyles} setAllStyles={setAllStyles} productFeatures={productFeatures}/>}
+      <Overview reviewMeta={reviewMeta} selectedProduct={selectedProduct} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} allStyles={allStyles} setAllStyles={setAllStyles} productFeatures={productFeatures}/>
       <RelatedComparison/>
       <Questions productId={productIdforQuestions} product={selectedProduct}/>
       {productIdforQuestions && reviewMeta ?  <Reviews productId={productIdforQuestions} product={selectedProduct.name} reviewMeta={reviewMeta} getReviewMeta={getReviewMeta}/> : null }
