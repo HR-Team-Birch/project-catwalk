@@ -9,7 +9,11 @@ const MoreQuestions = ({productQuestions, setSliceIndex, grow}) => {
    if (currentQuestionCount < maxQuestionCount) {
      setSliceIndex(currentQuestionCount + 2);
      setCurrentQuestionCount(currentQuestionCount + 2);
+    //  let height = document.getElementById("questionlist").clientHeight
+    //  console.log(height);
      grow('questionGrow');
+    //  let newheight = document.getElementById("questionGrow").clientHeight
+    //  console.log(newheight);
    }
   }
 

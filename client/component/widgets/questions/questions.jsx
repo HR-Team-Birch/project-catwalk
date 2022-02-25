@@ -24,21 +24,6 @@ const Questions = ({ productId, product }) => {
       });
   };
 
-  // const highlightText = (productQuestions) => {
-  //   console.log('running');
-
-  //   let collection = document.getElementsByClassName("question");
-  //   let re = new RegExp('(' + searchTerm + ')', 'ig');
-
-  //   for (let i = 0; i < collection.length; i++) {
-  //     let text = collection[i].innerText;
-  //     let newText = text.replace(re, `<mark>$1</mark>`);
-  //     collection[i].innerHTML = newText;
-  //   }
-
-  // }
-
-
   useEffect(() => {
     productId ? fetchQuestions() : null;
   }, [productId]);
@@ -56,9 +41,8 @@ const Questions = ({ productId, product }) => {
       <div className="questions">
         <h3>QUESTIONS & ANSWERS</h3>
         <SearchQuestions productQuestions={productQuestions} setFilteredStatus={setFilteredStatus} setFilteredQuestions={setFilteredQuestions} setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
-        <QuestionList productQuestions={currentQuestions} product={product} searchTerm={searchTerm} filteredStatus={filteredStatus} />
+        <QuestionList productQuestions={currentQuestions} product={product} searchTerm={searchTerm} filteredStatus={filteredStatus} fetchQuestions={fetchQuestions} />
       </div>
-
     </div>
   )
 }
