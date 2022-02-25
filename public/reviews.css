@@ -542,10 +542,9 @@ Meta Star Bars
 Characteristics Bars
 =======================*/
 
-.characteristicscontainer {
+/*.characteristicscontainer {
   /* display: grid;
   grid: 50px 180px; */
-}
 
 .characteristics {
   justify-content: center;
