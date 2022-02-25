@@ -128,7 +128,7 @@ const ReviewMeta = ({reviewMeta, reviews, setBarFilter, setReviewsToRender}) => 
 
   return (
     <div className="reviewsmeta">
-      <p style={{ fontWeight: "400"}}>RATINGS & REVIEWS</p>
+      <p id="ratingtitle" style={{ fontWeight: "bold", fontSize: "20px"}}>RATINGS & REVIEWS</p>
       <div style={{marginLeft: "15px"}}>
         <StarRatings  meta={reviewMeta.ratings}/>
       </div>
