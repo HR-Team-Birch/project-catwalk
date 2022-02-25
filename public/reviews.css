@@ -327,6 +327,7 @@ Add Review Modal
   margin: 0;
   display: flex;
   justify-content: center;
+  color: var(--darkest-color);
 }
 
 .closereviewmodal {
