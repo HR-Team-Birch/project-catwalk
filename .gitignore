@@ -3,7 +3,11 @@
 
 # tokens
 config.js
+
 node_modules
+
+# compiled file
+/public/main.js
 
 
 .DS_Store

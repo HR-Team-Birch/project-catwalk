@@ -1,0 +1,545 @@
+
+/* #app {
+  font-family: "adobe-clean", sans-serif;
+
+} */
+/*==============================
+  Reviews
+==============================*/
+#reviewsparentcontainer {
+  width: 100%;
+  /* background-color: #859ab3; */
+}
+
+.reviewsparent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  margin: 50px auto;
+  /* border: 1px solid grey; */
+  width: 80%;
+  height: 650px;
+  padding: 10px;
+
+}
+
+/*==============================
+  Review Meta
+==============================*/
+
+.reviewsmeta {
+  align-items: center;
+  /* border: 1px solid black; */
+  min-width: 250px;
+  justify-content: center;
+  order: 1;
+  flex-grow: 1;
+}
+
+.ratingaverage {
+  font-weight: bold;
+  font-size: 35px;
+  color:#294965;
+}
+
+.star {
+  color:#294965;
+}
+
+/*==============================
+  Review List
+==============================*/
+
+.reviewlistparent {
+  flex-grow: 3;
+  order: 2;
+  margin: 0 5px;
+}
+
+.sortandsearchparent {
+  display: flex;
+  /* border: 1px grey; */
+  /* border-style: solid; */
+  height: 30px;
+
+}
+
+.sort {
+  /* border: 1px solid black; */
+  flex: 1;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 2px;
+}
+
+.reviewsearchparent {
+  /* border: 1px solid black; */
+  flex: 1;
+  margin: 2px;
+  width: 100px;
+}
+
+#reviewsearch {
+  width: 70%;
+}
+
+#reviewbuttons {
+  display: flex;
+  justify-content: left;
+}
+
+#morereviews {
+  height: 50px;
+  width: 200px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+  background-color: white;
+  border: 1px solid black;
+}
+
+#addreviewbutton {
+  height: 50px;
+  width: 200px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+  background-color: white;
+  border: 1px solid black;
+}
+/*==============================
+  Review Tile
+==============================*/
+
+.reviewtileparent {
+  display: flex;
+
+  max-height: 590px;
+  flex-direction: column;
+  overflow-y: scroll;
+  width: auto;
+}
+
+.reviewtileparent::-webkit-scrollbar {
+  display: none;
+}
+
+#reviewtile {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #336c95 ;
+  max-height: 400px;
+  order: 2;
+  padding: 0;
+}
+
+#reviewtile::-webkit-scrollbar {
+  display: none;
+}
+
+
+.reviewsummary {
+  font-weight: bold;
+  font-size: 18px;
+  width: 100%;
+  margin:  15px 0 10px;
+}
+
+.reviewtilewidth {
+  width: 100%;
+  padding: 10px;
+
+}
+
+.reviewphotoparent {
+  width: 100%;
+  display: inline-grid;
+  grid-template-columns: repeat(5, 15%);
+  margin: 20px 0;
+}
+
+#reviewimagesection {
+  display: flex;
+
+}
+
+.reviewimage {
+  object-fit: cover;
+  width: 50px;
+  max-height: auto;
+  border: 1px solid lightgrey;
+}
+
+#starsanduser {
+  display: flex;
+  height: 30px;
+  justify-content: space-between ;
+
+}
+
+.userdate {
+  font-size: 10px;
+}
+
+hr.divider {
+  border-top: 3px solid black;
+}
+
+/* =====================
+Helpful / Report
+=======================*/
+
+.markreview {
+  display: flex;
+  justify-content: flex-start ;
+
+}
+
+.helpful {
+  margin: 0 5px;
+}
+.report {
+  margin: 0 8px;
+}
+
+
+
+/* =====================
+Review Image Modal
+=======================*/
+
+.reviewimagemodal {
+  box-shadow: 0 8px 6px -6px black;
+  border: 1px solid black;
+  left: 0%;
+  top: 15%;
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
+}
+
+.image {
+  width: 600px;
+}
+
+
+/* =====================
+Add Review Modal
+=======================*/
+
+/* .addreviewoverlay {
+  width: 100%;
+  height: 100%; */
+  /* background: rgba(0, 0, 0, .7); */
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+} */
+
+.addreviewmodal {
+  position: fixed;
+  z-index: 20;
+  background: #fff;
+  width: 650px;
+  max-height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  box-shadow: 0 8px 6px -6px black;
+  border: 1px solid black;
+  overflow-y: scroll;
+  border-radius: 8%;
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
+}
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 300; opacity: 1}
+}
+
+.addreviewmodal::-webkit-scrollbar {
+  display: none;
+}
+
+.addreviewmodalheader {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.addreviewtitle {
+  flex-grow: 3;
+  padding: 0 20px 0 210px;
+  margin: 19px 0 0 0;
+}
+
+.addreviewmain {
+  padding: 20px 120px 0 120px;
+  margin: 0;
+}
+
+.addreviewsubtitle {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.closereviewmodal {
+  /* flex-grow:1; */
+  border: none;
+  background: transparent;
+  padding: 10px;
+  cursor: pointer;
+  color: #000;
+  font-size: 36px;
+}
+
+.closereviewmodal:hover {
+  color: grey;
+  padding-left: 20px;
+}
+
+.addreviewstar {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.on {
+  color: #000;
+}
+.off {
+  color: #ccc;
+}
+
+#reviewsummarytextbox {
+  width: 400px;
+}
+
+#reviewbodytextbox {
+  height: 100px;
+  width: 400px;
+}
+
+#charparent {
+  padding: 0 50px 20px 70px;
+  border-bottom: 2px solid lightgrey;
+}
+
+#characteristics {
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  grid-template-rows: 20px;
+  /* justify-content: center; */
+}
+
+.charlabel {
+  font-size: 12px;
+}
+
+.addreviewspacing {
+  padding-bottom: 4px;
+}
+
+#minchar {
+  font-size: 8px;
+  display: block;
+  float: right;
+}
+
+#submitreviewmessage {
+  color: red;
+  font-size: 10px;
+}
+
+.reviewphotobutton {
+  height: 40px;
+  width: 150px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.reviewphotobutton:hover {
+  font-weight: bolder;
+  border: 1px solid black;
+  padding-left: 20px;
+}
+
+#submitreview {
+  height: 40px;
+  width: 150px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+#submitreview:hover {
+  font-weight: bolder;
+  border: 1px solid black;
+  padding-left: 20px;
+}
+
+/* =====================
+Add Review Image Modal
+=======================*/
+
+
+#reviewphotomodal  {
+  box-shadow: 0 12px 6px -6px black;
+  border: 1px solid black;
+  left: 20%;
+  top: 90%;
+  height: 250px;
+  width: 400px;
+  position: absolute;
+  background-color: lightgrey;
+  z-index: 2;
+  border-radius: 8%;
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
+}
+
+#reviewimageurl {
+  width: 330px;
+}
+
+#submitreviewphoto {
+  margin-left: 230px;
+}
+
+.closeImgUploadModal {
+  padding-left: 15px;
+  cursor: pointer;
+}
+
+.reviewphotosubmit {
+  height: 30px;
+  width: 130px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.reviewphotosubmit:hover {
+  font-weight: bolder;
+  border: 1px solid black;
+  padding-left: 20px;
+}
+
+#submitreview :hover {
+  color: lightgrey;
+  border: 1px solid black;
+  padding-left: 20px;
+}
+
+/* =====================
+Meta Star Bars
+=======================*/
+
+.starBarsContainer {
+  display: grid;
+  grid: 50px 180px 30px;
+}
+
+.starBars {
+  justify-content: center;
+}
+
+.starBarsLeft {
+  float: left;
+  width: 15%;
+  margin: 10px 0 0 5px;
+}
+
+.starBarsMiddle {
+  margin: 15px 0 0 10px;
+  float: left;
+  width: 70%;
+}
+
+.starsBarsRight {
+  text-align: left;
+  margin: 10px 5px 0 0;
+}
+
+.barcontainer {
+  width: 90%;
+  height: 10px;
+  background-color: whitesmoke;
+  text-align: center;
+  color:#e5ebf1;
+}
+
+.bar5,
+.bar4,
+.bar3,
+.bar2,
+.bar1 {
+  /* width: 70%; */
+  height: 10px;
+  background-color: #336c95;
+}
+
+/* =====================
+Characteristics Bars
+=======================*/
+
+.characteristicscontainer {
+  /* display: grid;
+  grid: 50px 180px; */
+}
+
+.characteristics {
+  justify-content: center;
+}
+
+
+#charname {
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+
+.charparent {
+  margin: 15px 0 0 10px;
+  float: left;
+  width: 90%;
+
+}
+
+.charcontainer {
+  /* display: flex;
+  flex-direction: row; */
+  height: 10px;
+  background-color: whitesmoke;
+  text-align: center;
+  color: white;
+  margin-left: 15px;
+  margin-right: 15px;
+  /* position: absolute; */
+}
+
+.fit,
+.sizechar,
+.comfort,
+.quality,
+.width,
+.length {
+  /* width: 90%; */
+  height: 10px;
+  color: black;
+  position: relative;
+  top: -7px;
+}
+

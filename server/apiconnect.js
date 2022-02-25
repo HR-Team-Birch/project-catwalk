@@ -8,7 +8,7 @@ const {TOKEN} = require('../config.js')
 
 const getAllProducts = () => {
   let options = {
-    url: `${url}/products`,
+    url: `${url}/products/?count=10`,
     headers: {
       'Authorization': `${TOKEN}`
     }
@@ -60,8 +60,8 @@ const getItemsInCart = () => {
 }
 
 //adds a product to the cart
-const addToCart = (prodID) => {
-  let data = prodID
+const addToCart = (dataObj) => {
+  let data = dataObj
   let options = {
     url: `${url}/cart`,
     headers: {
@@ -79,7 +79,7 @@ const addToCart = (prodID) => {
 
 const getReviews = (productId) => {
   let options = {
-    url: `${url}/reviews/?product_id=${productId.product_id}&count=${productId.count ? productId.count : 5}&page=${productId.page ? productId.page : 1}`,
+    url: `${url}/reviews/?product_id=${productId.product_id}&count=${productId.count}&sort=${productId.sort}`,
     headers: {
       'Authorization': `${TOKEN}`
     }
@@ -129,16 +129,16 @@ const reportReview = (reviewId) => {
   })
 }
 
-// //==========================================
-// // Questions And Answers Routes
-// //==========================================
+//==========================================
+// Questions And Answers Routes
+//==========================================
 
 
 const getQuestions = (productId) => {
   // console.log('product ID', productId);
   // need to setup multiple queries
   let options = {
-    url: `${url}/qa/questions/?product_id=${productId.product_id}`,
+    url: `${url}/qa/questions/?product_id=${productId.product_id}&count=500`,
     headers: {
       'Authorization': `${TOKEN}`
     }
@@ -147,7 +147,6 @@ const getQuestions = (productId) => {
 }
 
 const getAnswers = (questionId) => {
-  console.log('questionId', questionId);
   // need to get page and count query working
   let options = {
     url: `${url}/qa/questions/${questionId.question_id}/answers`,
