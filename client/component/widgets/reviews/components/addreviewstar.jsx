@@ -25,7 +25,7 @@ const AddReviewStar = ({getStarRating}) => {
             // onMouseLeave={ () => setStarHover(rating)}
           >
 
-            <span className="star">{solidStar}</span>
+            <span className="newstar">{solidStar}</span>
           </span>
         );
       })}
