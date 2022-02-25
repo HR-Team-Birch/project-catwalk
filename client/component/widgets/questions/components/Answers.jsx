@@ -56,7 +56,7 @@ const Answers = ({ answer }) => {
         <span>Helpful?</span>
         <a href="" onClick={markAnswerHelpful}>Yes</a>
         <span>{`(${answer.helpfulness})     |     `}</span>
-        <a href="" onClick={reportAnswer}>{reportAnswerStatus}</a>
+        <a href="" id="reportAnswer" onClick={reportAnswer}>{reportAnswerStatus}</a>
       </div>
     </div>
   )

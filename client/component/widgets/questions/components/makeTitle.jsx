@@ -1,9 +1,23 @@
 import React from 'react';
+import Highlighter from 'react-highlight-words';
 
-const MakeTitle = ({titleText, filteredStatus}) => {
-  //console.log('titleText', titleText);
+const MakeTitle = ({ titleText, filteredStatus, searchTerm}) => {
+
+  if(searchTerm) {
+    if(searchTerm.length < 3) {
+      searchTerm = '';
+    }
+  }
+
   return (
-    <div className='question'> Q: {titleText}</div>
+    <div>
+      <Highlighter
+        highlightClassName="YourHighlightClass"
+        searchWords={[searchTerm]}
+        autoEscape={true}
+        textToHighlight={titleText}
+      />,
+    </div>
   );
 }
 

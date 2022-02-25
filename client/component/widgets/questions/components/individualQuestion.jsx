@@ -65,7 +65,7 @@ const IndividualQuestion = ({ question, product, searchTerm, filteredStatus }) =
   return (
     <div className="eachQuestion">
       {showAnswerModal ? <AddAnswerModal show={setShowAnswerModal} question={question} name={product.name} /> : null}
-      <MakeTitle titleText={question.question_body} filteredStatus={filteredStatus}/>
+      <MakeTitle titleText={question.question_body} filteredStatus={filteredStatus} searchTerm={searchTerm}/>
       <span id="helpfulQ">
         <span>Helpful?   </span>
         <a href="" onClick={markQuestionHelpful}>Yes</a>
