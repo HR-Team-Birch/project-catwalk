@@ -1,3 +1,23 @@
+:root {
+  --primary-color: #859ab3;
+  --secondary-color: #d0dae6;
+  --font-color: #2E5475;
+  --bar-color: #336c95;
+  --darkest-color: #294965;
+  --transluscent-color: rgba(208, 218, 230, .6)
+}
+
+[data-theme="dark"] {
+  --primary-color:  #eebe5e;
+  --secondary-color: #f4eadc;
+  --font-color: #92461b;
+  --bar-color: #d69c33;
+  --darkest-color:  #5b2a0e;
+  --transluscent-colot: rgba(238, 190, 94, .6)
+}
+
+
+
 h1 {
   text-align: center;
   color: var(--font-color);
@@ -6,7 +26,6 @@ h1 {
 
 /*Big Stuff*/
 body {
-  background-color: #e5ebf1;
   margin: 0;
 }
 
@@ -17,8 +36,9 @@ body {
 }
 
 #overviewparent {
-  background-color: #859ab3;
+  background-color: var(--primary-color);
   padding-top: 30px;
+  padding-bottom: 30px
 }
 
 .Overview {
@@ -30,6 +50,8 @@ body {
   min-width: 1000px;
   margin-left: 80px;
   margin-top: 50px;
+  color: var(--font-color)
+
 }
 
 /*------------------------------------------------------*/
@@ -40,7 +62,7 @@ body {
   grid-column: 1 / span 5;
   grid-row: 1 / span 3;
   display: grid;
-  grid-template-columns: repeat(5, 20%);
+  grid-template-columns: 30% 10% 10% 25% 25%;
   grid-template-rows: repeat(3, 33%);
 }
 
@@ -50,19 +72,22 @@ body {
   /*border: 5px solid blue;*/
   grid-column: 1 / span 3;
   grid-row: 1 / span 3;
-  background-color: #d0dae6;
+  background-color: var(--primary-color);
   position: relative;
   margin-right: 30px;
-  box-shadow: 5px 5px 45px 1px;
+  /*box-shadow: 5px 5px 45px 1px;*/
   max-width: 700px;
-  max-height: 700px
+  max-height: 700px;
+  border-radius: 10px
+  
 }
 
 .mainimg {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  position: absolute
+  position: absolute;
+  border-radius: 10px
   /*grid-column: 1 / span 5;*/
 }
 
@@ -72,31 +97,34 @@ body {
   height: 100%;
   width: 20%;
   position: absolute;
-  /* display: flex; */
+  display: flex;
   /* flex-wrap: wrap; */
   flex-direction: column;
   margin-left: 10px;
   overflow: hidden;
-  max-width: 125px
+  max-width: 125px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--transluscent-color);
+  justify-content: space-evenly;
 }
 
 .thumbnails img {
   height: 75px;
   width: 75px;
-  border: 3px solid black;
   object-fit: cover;
   margin: 2px;
 }
 
 .theChosenOne {
-  border-radius: 50%;
+  box-shadow: 5px 5px 5px
 }
 
 /*buttons*/
 
 .fa-regular {
   font-size: 30px;
-  color: white;
+  color: var(--darkest-color);
 }
 
 .forwardArrow {
@@ -107,13 +135,13 @@ body {
 
 .backArrow {
   position: absolute;
-  left: 100px;
+  left: 25%;
   bottom: 50%;
 }
 
 .fa-expand {
   font-size: 30px;
-  color: white;
+  color: var(--darkest-color);
   position: absolute;
   right: 5px;
   top: 5px
@@ -123,7 +151,7 @@ body {
 
 .fa-minimize {
   font-size: 30px;
-  color: white;
+  color: var(--darkest-color);
   position: absolute;
   right: 5px;
   top: 5px
@@ -146,9 +174,10 @@ body {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: repeat(5, 20%);
-  background-color: #d0dae6;
-  box-shadow: 5px 5px 45px 1px;
+  background-color: var(--secondary-color);
+  /*box-shadow: 5px 5px 45px 1px;*/
   padding: 20px;
+  border-radius: 3%;
 }
 
 /*Product info*/
@@ -184,20 +213,6 @@ body {
   font-size: 30px
 }
 
-.fa-facebook {
-  color: blue
-}
-
-.fa-twitter {
-  color: rgb(69, 179, 216);
-}
-
-.fa-pinterest {
-  color: red;
-}
-
-/*Product details*/
-
 .Details {
   grid-column: 1 / span 3;
   grid-row: 2 / span 4;
@@ -215,7 +230,7 @@ body {
   font-size: 40px;
   font-weight: 700;
   grid-row: 2 / span 3;
-  color: #294965;
+  color: var(--darkest-color);
 }
 
 .productPrice {
@@ -224,9 +239,9 @@ body {
   grid-row: 5 /span 1
 }
 
-.stylename {
+/*.stylename {
   color: #336c95;
-}
+}*/
 
 /*Style Selector*/
 
@@ -281,30 +296,30 @@ i.fa-solid.fa-circle-check {
 .size {
   grid-row: 1 / span 1;
   grid-column: 1 / span 3;
-  border: 3px solid #336c95;
+  border: 3px solid var(--bar-color);
   margin: 5px;
-  font-family: 'Playfair Display', serif;
+  /*font-family: 'Playfair Display', serif;*/
   font-weight: 600;
 }
 
 .quantity {
   grid-row: 1 / span 1;
   grid-column: 4 / span 2;
-  border: 3px solid #336c95;
+  border: 3px solid var(--bar-color);
   margin: 5px;
-  font-family: 'Playfair Display', serif;
+  /*font-family: 'Playfair Display', serif;*/
   font-weight: 600;
 }
 
 .AddToCart button {
   grid-row-start: 2;
-  grid-column: 1 / span 4;
-  background-color: #e5ebf1;
-  border: 3px solid #336c95;
+  grid-column: 1 / span 5;
+  background-color: var(--primary-color);
+  border: 3px solid var(--bar-color);
   font-size: 18px;
   margin: 5px;
   font-weight: 500;
-  font-family: 'Playfair Display', serif;
+  /*font-family: 'Playfair Display', serif;*/
   font-weight: 600;
 }
 
@@ -320,6 +335,11 @@ i.fa-solid.fa-circle-check {
   font-weight: 400px;
   display: grid;
   grid-template-columns: 75% 25%;
+  background-color: var(--secondary-color);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px
+  
 }
 
 #slogan {
@@ -336,8 +356,8 @@ i.fa-solid.fa-circle-check {
 #features {
   grid-column-start: 2;
   grid-row: 1 / span 2;
-  border-left: 3px solid #336c95;
-  padding: 15px;
+  border-left: 3px solid var(--bar-color);
+  padding-left: 15px;
   line-height: 45px
 }
 

@@ -12,7 +12,7 @@ const SearchQuestions = ({ productQuestions, setFilteredQuestions, setFilteredSt
     let filtered = [];
     for (let i = 0; i < productQuestions.length; i++) {
       if (productQuestions[i].question_body.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
-         filtered.push(productQuestions[i]);
+        filtered.push(productQuestions[i]);
       }
     }
     setFilteredQuestions(filtered);
