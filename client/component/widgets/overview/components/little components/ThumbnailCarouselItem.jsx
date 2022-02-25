@@ -6,7 +6,9 @@ const ThumbnailCarouselItem = ({pic, setMainImg, mainImg, index, activeIndex, se
     setMainImg(url)
     setActiveIndex(newIndex)
   }
-  
+  if (index > 5) {
+    return null
+  }
   if (pic.url === mainImg) {
     return(
       <img className="theChosenOne" src={pic.url} alt="a thumbnail of the main style"/>
