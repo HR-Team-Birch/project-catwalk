@@ -71,9 +71,30 @@ const App = () => {
   }, []);
 
 
+  const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+  const switchTheme = (e) => {
+    if (e.target.checked) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  }
+
+
+
   return (
     <div>
       <h1>Kitty Catwalk</h1>
+      <div className="theme-switch-wrapper">
+        <label className="theme-switch" >
+          <input type="checkbox" id="checkbox" onClick={ switchTheme }/>
+          <div className="slider round"></div>
+        </label>
+        <em>Switch Theme</em>
+      </div>
+
       {selectedProduct &&
         <Overview reviewMeta={reviewMeta} selectedProduct={selectedProduct} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} allStyles={allStyles} setAllStyles={setAllStyles} productFeatures={productFeatures}/>}
       <RelatedComparison/>

@@ -3,6 +3,23 @@
   font-family: "adobe-clean", sans-serif;
 
 } */
+
+:root {
+  --primary-color: #859ab3;
+  --secondary-color: #d0dae6;
+  --font-color: #2E5475;
+  --bar-color: #336c95;
+}
+
+[data-theme="dark"] {
+  --primary-color:  #eebe5e;
+  --secondary-color: #d0dae6;
+  --font-color: #92461b;
+  --bar-color: #d69c33;
+}
+
+
+
 /*==============================
   Reviews
 ==============================*/
@@ -24,6 +41,9 @@
 
 }
 
+a {
+  color: #294965;
+}
 /*==============================
   Review Meta
 ==============================*/
@@ -45,6 +65,11 @@
 
 .star {
   color:#294965;
+}
+
+#ratingtitle {
+  color:#294965;
+  font-weight: 400px;
 }
 
 /*==============================
@@ -95,7 +120,15 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bolder;
   background-color: white;
+  color: #336c95;
+  border: 1px solid #336c95;
+}
+
+#morereviews:hover {
+  font-weight: bolder;
   border: 1px solid black;
+  color: black;
+  padding-left: 20px;
 }
 
 #addreviewbutton {
@@ -104,7 +137,15 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bolder;
   background-color: white;
+  color: #336c95;
+  border: 1px solid #336c95;
+}
+
+#addreviewbutton:hover {
+  font-weight: bolder;
   border: 1px solid black;
+  color: black;
+  padding-left: 20px;
 }
 /*==============================
   Review Tile
@@ -142,6 +183,7 @@
   font-size: 18px;
   width: 100%;
   margin:  15px 0 10px;
+  color:#294965;
 }
 
 .reviewtilewidth {
@@ -178,12 +220,20 @@
 
 .userdate {
   font-size: 10px;
+  color: #2E5475;
 }
 
 hr.divider {
   border-top: 3px solid black;
 }
 
+#recommend {
+  color: #2E5475;
+}
+
+u {
+  color: #2E5475;
+}
 /* =====================
 Helpful / Report
 =======================*/
@@ -199,8 +249,8 @@ Helpful / Report
 }
 .report {
   margin: 0 8px;
+  color: #294965;
 }
-
 
 
 /* =====================
@@ -226,20 +276,10 @@ Review Image Modal
 Add Review Modal
 =======================*/
 
-/* .addreviewoverlay {
-  width: 100%;
-  height: 100%; */
-  /* background: rgba(0, 0, 0, .7); */
-  /* position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-} */
-
 .addreviewmodal {
   position: fixed;
   z-index: 20;
-  background: #fff;
+  background: #e5ebf1;
   width: 650px;
   max-height: 90%;
   top: 50%;
@@ -271,8 +311,9 @@ Add Review Modal
 
 .addreviewtitle {
   flex-grow: 3;
-  padding: 0 20px 0 210px;
+  padding: 0 20px 0 225px;
   margin: 19px 0 0 0;
+  color: #294965;
 }
 
 .addreviewmain {
@@ -310,7 +351,7 @@ Add Review Modal
 }
 
 .on {
-  color: #000;
+  color: #2E5475;
 }
 .off {
   color: #ccc;
@@ -361,7 +402,8 @@ Add Review Modal
   width: 150px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid #336c95;
+  color: #336c95;
   cursor: pointer;
   margin-bottom: 2px;
 }
@@ -377,7 +419,8 @@ Add Review Modal
   width: 150px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid #336c95;
+  color: #336c95;
   cursor: pointer;
 }
 
@@ -425,7 +468,7 @@ Add Review Image Modal
   height: 30px;
   width: 130px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: white;
+  background-color: #e5ebf1;
   border: 1px solid black;
   cursor: pointer;
   margin-bottom: 2px;
@@ -543,3 +586,65 @@ Characteristics Bars
   top: -7px;
 }
 
+/* =====================
+Toggle Switch
+=======================*/
+/*Simple css to style it like a toggle switch*/
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+
+
+}
+em {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+.theme-switch {
+  display: inline-block;
+  height: 23px;
+  position: relative;
+  width: 50px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #859ab3;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 15px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 15px;
+}
+
+input:checked + .slider {
+  background-color: #eebe5e;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
