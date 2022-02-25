@@ -4,8 +4,6 @@ import StarRatings from './../../Shared components/starRatings.jsx'
 import axios from 'axios'
 
 const ProductInfo = ({ product, currentStyle, reviewMeta }) => {
-
-  console.log('🦩 Current Style:', currentStyle)
   
   return (
     <div className="ProductInfo" id="TEST">
