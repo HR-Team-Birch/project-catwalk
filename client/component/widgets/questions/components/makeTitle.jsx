@@ -10,13 +10,13 @@ const MakeTitle = ({ titleText, filteredStatus, searchTerm}) => {
   }
 
   return (
-    <div>
+    <div id="question">
       <Highlighter
         highlightClassName="YourHighlightClass"
         searchWords={[searchTerm]}
         autoEscape={true}
-        textToHighlight={titleText}
-      />,
+        textToHighlight={`Q:   ${titleText}`}
+      />
     </div>
   );
 }

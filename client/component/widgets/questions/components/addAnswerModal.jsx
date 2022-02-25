@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
+import AnswerPhotoModal from './AnswerPhotoModal.jsx';
+
 const axios = require('axios');
 const url = 'http://localhost:3000/qa/questions';
 
-const AddAnswerModal = ({show, question, name}) => {
+const AddAnswerModal = ({show, question, name, getAnswers}) => {
 
   const [answerField, setAnswerField] = useState('');
   const [nicknameField, setNicknameField] = useState('');
   const [emailField, setEmailField] = useState('');
   const [submitMessage, setSubmitMessage] = useState('');
+  const [modalPhotos, setModalPhotos] = useState([]);
+  const [showPhotoModal, setShowPhotoModal] = useState(false);
+
 
   const answerFieldChange = (event) => {
     setAnswerField(event.target.value);
@@ -53,7 +58,7 @@ const AddAnswerModal = ({show, question, name}) => {
         },
       })
         .then(() => {
-          console.log('success!!!!!!')
+          getAnswers();
           show(false);
         })
     }
@@ -63,8 +68,13 @@ const AddAnswerModal = ({show, question, name}) => {
     show(false);
   }
 
+  const showUploadModal = () => {
+    setShowPhotoModal(true);
+  }
+
   return (
     <div id="answerModal">
+      {showPhotoModal ? <AnswerPhotoModal show={setShowPhotoModal}/> : null}
       <span id="closeAModal" onClick={clickCloseModal}>&times;</span>
       <h3 id="AmodalTitle">Submit Your Answer</h3>
       <h5 id="AmodalSubTitle">{`${name}: ${question.question_body}`}</h5>
@@ -77,7 +87,7 @@ const AddAnswerModal = ({show, question, name}) => {
         <label className="aFieldNames">Your email *</label>
         <input type="text" maxLength="60" placeholder="Example: jack@email.com" onChange={emailFieldChange}></input>
         <span className="aModalInfo">For authentication reasons, you will not be emailed</span>
-        <button id="uploadAnswerPhoto">Upload Photo</button>
+        <button id="uploadAnswerPhoto" onClick={showUploadModal}>Upload Photo</button>
         <button id="submitAnswer" onClick={submitAnswer}>Submit Answer</button>
         <span id="submitAMessage">{submitMessage}</span>
       </div>

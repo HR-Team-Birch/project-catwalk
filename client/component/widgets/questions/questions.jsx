@@ -41,7 +41,7 @@ const Questions = ({ productId, product }) => {
       <div className="questions">
         <h3>QUESTIONS & ANSWERS</h3>
         <SearchQuestions productQuestions={productQuestions} setFilteredStatus={setFilteredStatus} setFilteredQuestions={setFilteredQuestions} setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
-        <QuestionList productQuestions={currentQuestions} product={product} searchTerm={searchTerm} filteredStatus={filteredStatus} />
+        <QuestionList productQuestions={currentQuestions} product={product} searchTerm={searchTerm} filteredStatus={filteredStatus} fetchQuestions={fetchQuestions} />
       </div>
     </div>
   )

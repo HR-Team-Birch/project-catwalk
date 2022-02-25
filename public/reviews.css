@@ -9,13 +9,15 @@
   --secondary-color: #d0dae6;
   --font-color: #2E5475;
   --bar-color: #336c95;
+  --darkest-color: #294965;
 }
 
 [data-theme="dark"] {
   --primary-color:  #eebe5e;
-  --secondary-color: #d0dae6;
+  --secondary-color: #f4eadc;
   --font-color: #92461b;
   --bar-color: #d69c33;
+  --darkest-color:  #5b2a0e;
 }
 
 

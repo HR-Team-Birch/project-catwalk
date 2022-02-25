@@ -28,8 +28,6 @@ const IndividualQuestion = ({ question, product, searchTerm, filteredStatus }) =
         .catch(() => {
           console.log('error marking question helpful');
         })
-    } else {
-      console.log('Already Marked Question Helpful')
     }
   }
 
@@ -64,7 +62,7 @@ const IndividualQuestion = ({ question, product, searchTerm, filteredStatus }) =
 
   return (
     <div className="eachQuestion">
-      {showAnswerModal ? <AddAnswerModal show={setShowAnswerModal} question={question} name={product.name} /> : null}
+      {showAnswerModal ? <AddAnswerModal show={setShowAnswerModal} question={question} name={product.name} getAnswers={getAnswers}/> : null}
       <MakeTitle titleText={question.question_body} filteredStatus={filteredStatus} searchTerm={searchTerm}/>
       <span id="helpfulQ">
         <span>Helpful?   </span>
