@@ -128,8 +128,8 @@ a {
 
 #morereviews:hover {
   font-weight: bolder;
-  border: 1px solid black;
-  color: black;
+  border: 1px solid var(--darkest-color);
+  color: var(--darkest-color);
   padding-left: 20px;
 }
 
@@ -145,8 +145,8 @@ a {
 
 #addreviewbutton:hover {
   font-weight: bolder;
-  border: 1px solid black;
-  color: black;
+  border: 1px solid var(--darkest-color);
+  color: var(--darkest-color);
   padding-left: 20px;
 }
 /*==============================
@@ -287,8 +287,8 @@ Add Review Modal
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  box-shadow: 0 8px 6px -6px black;
-  border: 1px solid black;
+  box-shadow: 0 8px 6px -6px var(--darkest-color);
+  border: 1px solid var(--darkest-color);
   overflow-y: scroll;
   border-radius: 8%;
   animation-name: animatetop;
@@ -438,8 +438,8 @@ Add Review Image Modal
 
 
 #reviewphotomodal  {
-  box-shadow: 0 12px 6px -6px black;
-  border: 1px solid black;
+  box-shadow: 0 12px 6px -6px var(--darkest-color);
+  border: 1px solid var(--darkest-color);
   left: 20%;
   top: 90%;
   height: 250px;
@@ -471,7 +471,8 @@ Add Review Image Modal
   width: 130px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: var(--primary-color);
-  border: 1px solid var(--secondary-color);
+  color: var(--darkest-color);
+  border: 1px solid var(--darkest-color);
   cursor: pointer;
   margin-bottom: 2px;
 }
