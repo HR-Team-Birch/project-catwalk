@@ -76,9 +76,15 @@
   margin-bottom: 5px;
   display: grid;
 }
-.question {
+
+#question {
   grid-row-start: 1;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+
+#question::first-letter {
+  font-weight: 600;
 }
 
 .question span {
@@ -109,7 +115,7 @@ mark {
 /* Answers */
 #answersInQuestion {
   display: grid;
-  grid-template-columns: 2% 98%;
+  grid-template-columns: 3% 98%;
   margin-top: 10px;
 }
 
@@ -593,7 +599,7 @@ h3 {
    background-color: var(--secondary-color);
    margin: auto;
    padding: 0;
-   border: 2px solid #888;
+   border: 2px solid var(--font-color);
    box-shadow: 0 40px 40px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
    animation-name: animatetop;
    animation-duration: 1s;
