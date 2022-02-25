@@ -53,16 +53,19 @@ body {
   background-color: #d0dae6;
   position: relative;
   margin-right: 30px;
-  box-shadow: 5px 5px 45px 1px;
+  /*box-shadow: 5px 5px 45px 1px;*/
   max-width: 700px;
-  max-height: 700px
+  max-height: 700px;
+  border-radius: 3%
+  
 }
 
 .mainimg {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  position: absolute
+  position: absolute;
+  border-radius: 3%;
   /*grid-column: 1 / span 5;*/
 }
 
@@ -147,8 +150,9 @@ body {
   grid-template-columns: 50% 50%;
   grid-template-rows: repeat(5, 20%);
   background-color: #d0dae6;
-  box-shadow: 5px 5px 45px 1px;
+  /*box-shadow: 5px 5px 45px 1px;*/
   padding: 20px;
+  border-radius: 3%;
 }
 
 /*Product info*/

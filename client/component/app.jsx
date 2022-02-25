@@ -73,12 +73,8 @@ const App = () => {
 
   return (
     <div>
-<<<<<<< HEAD
-      {selectedProduct && 
-=======
       <h1>Kitty Catwalk</h1>
       {selectedProduct &&
->>>>>>> dev
         <Overview reviewMeta={reviewMeta} selectedProduct={selectedProduct} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} allStyles={allStyles} setAllStyles={setAllStyles} productFeatures={productFeatures}/>}
       <RelatedComparison/>
       <Questions productId={productIdforQuestions} product={selectedProduct}/>
