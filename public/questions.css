@@ -140,11 +140,11 @@ mark {
 
 #answerUser {
   grid-row-start: 2;
-  color: #e5ebf1;
+  color: var(--secondary-color);
 }
 
 #answerDate {
-  color: #e5ebf1;
+  color: var(--secondary-color);
 }
 
 #loadAnswers {
@@ -503,7 +503,7 @@ mark {
 }
 
 #relatedTitle {
-  color: #294965;
+  color: var(--darkest-color);
   font-size: 25px;
   padding-top: 15px;
 }
@@ -576,3 +576,4 @@ mark {
 h3 {
   color: var(--font-color);
 }
+
