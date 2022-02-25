@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AddReviewStar from './addreviewstar.jsx';
 import UploadImageModal from './uploadimagemodal.jsx';
+import PhotoModalImage from '../../questions/components/PhotoModalImage.jsx'
 
 const AddReview = ({productId, product, reviewMeta, addReview}) => {
 
@@ -24,6 +25,8 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
 
   const [charCount, setCharCount] = useState(50);
   const [minNotMet, setMinNotMet] = useState(true);
+
+  // const [modalPhotos, setModalPhotos] = useState([]);
 
   const getStarRating = (stars) => {
     setRating(stars + 1);
@@ -320,6 +323,15 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
                   }
 
                   <br></br>
+
+                  <div id="newreviewPhotos">
+                    {photos.length > 0 ? photos.map((photo, index) => {
+                      return (
+                        <PhotoModalImage photo={photo} key={index} />
+                      )
+                    }) : null}
+                  </div>
+
                   <br></br>
                   <UploadImageModal setPhotos={setPhotos}/>
 

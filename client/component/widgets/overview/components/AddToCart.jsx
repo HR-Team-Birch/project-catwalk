@@ -10,7 +10,7 @@ const AddToCart = ({currentStyle, product}) => {
   const [selectedSku, setSelectedSku] = useState(null)
 
   //console.log(selectedSku, quantity)
-  // console.log(quantity)
+  //console.log(quantity)
 
   const addToCart = (ID) => {
     axios.post(`/cart`, {sku_id: ID,

@@ -160,6 +160,13 @@ a.reviewbody {
   color: var(--darkest-color);
   padding-left: 20px;
 }
+
+#newreviewPhotos {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  margin-left: 5px;
+}
 /*==============================
   Review Tile
 ==============================*/
