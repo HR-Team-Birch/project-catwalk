@@ -322,7 +322,7 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
                   <br></br>
                   <br></br>
                   <UploadImageModal setPhotos={setPhotos}/>
-                  <label>Pic thumbnails</label>
+
                   <br></br>
                   <div id="submitreviewmessage" >{addReviewSubmitMessage}</div>
 

@@ -46,7 +46,7 @@
 }
 
 a {
-  color: #294965;
+  color: var(--darkest-color);
 }
 /*==============================
   Review Meta
@@ -64,15 +64,15 @@ a {
 .ratingaverage {
   font-weight: bold;
   font-size: 35px;
-  color:#294965;
+  color:var(--darkest-color);
 }
 
 .star {
-  color:#294965;
+  color:var(--darkest-color);
 }
 
 #ratingtitle {
-  color:#294965;
+  color:var(--darkest-color);
   font-weight: 400px;
 }
 
@@ -124,14 +124,14 @@ a {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bolder;
   background-color: white;
-  color: #336c95;
-  border: 1px solid #336c95;
+  color: var(--bar-color);
+  border: 1px solid var(--bar-color);
 }
 
 #morereviews:hover {
   font-weight: bolder;
-  border: 1px solid black;
-  color: black;
+  border: 1px solid var(--darkest-color);
+  color: var(--darkest-color);
   padding-left: 20px;
 }
 
@@ -141,14 +141,14 @@ a {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bolder;
   background-color: white;
-  color: #336c95;
-  border: 1px solid #336c95;
+  color: var(--bar-color);
+  border: 1px solid var(--bar-color);
 }
 
 #addreviewbutton:hover {
   font-weight: bolder;
-  border: 1px solid black;
-  color: black;
+  border: 1px solid var(--darkest-color);
+  color: var(--darkest-color);
   padding-left: 20px;
 }
 /*==============================
@@ -171,7 +171,7 @@ a {
 #reviewtile {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid #336c95 ;
+  border-bottom: 1px solid var(--bar-color) ;
   max-height: 400px;
   order: 2;
   padding: 0;
@@ -187,7 +187,7 @@ a {
   font-size: 18px;
   width: 100%;
   margin:  15px 0 10px;
-  color:#294965;
+  color: var(--darkest-color);
 }
 
 .reviewtilewidth {
@@ -224,7 +224,7 @@ a {
 
 .userdate {
   font-size: 10px;
-  color: #2E5475;
+  color: var(--font-color);
 }
 
 hr.divider {
@@ -232,11 +232,11 @@ hr.divider {
 }
 
 #recommend {
-  color: #2E5475;
+  color: var(--font-color);
 }
 
 u {
-  color: #2E5475;
+  color: var(--font-color);
 }
 /* =====================
 Helpful / Report
@@ -253,7 +253,7 @@ Helpful / Report
 }
 .report {
   margin: 0 8px;
-  color: #294965;
+  color: var(--darkest-color);
 }
 
 
@@ -283,14 +283,14 @@ Add Review Modal
 .addreviewmodal {
   position: fixed;
   z-index: 20;
-  background: #e5ebf1;
+  background: var(--primary-color);
   width: 650px;
   max-height: 90%;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  box-shadow: 0 8px 6px -6px black;
-  border: 1px solid black;
+  box-shadow: 0 8px 6px -6px var(--darkest-color);
+  border: 1px solid var(--darkest-color);
   overflow-y: scroll;
   border-radius: 8%;
   animation-name: animatetop;
@@ -317,7 +317,7 @@ Add Review Modal
   flex-grow: 3;
   padding: 0 20px 0 225px;
   margin: 19px 0 0 0;
-  color: #294965;
+  color: var(--darkest-color);
 }
 
 .addreviewmain {
@@ -329,6 +329,7 @@ Add Review Modal
   margin: 0;
   display: flex;
   justify-content: center;
+  color: var(--darkest-color);
 }
 
 .closereviewmodal {
@@ -355,7 +356,7 @@ Add Review Modal
 }
 
 .on {
-  color: #2E5475;
+  color: var(--font-color);
 }
 .off {
   color: #ccc;
@@ -406,8 +407,8 @@ Add Review Modal
   width: 150px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: white;
-  border: 1px solid #336c95;
-  color: #336c95;
+  border: 1px solid var(--bar-color);
+  color: var(--bar-color);
   cursor: pointer;
   margin-bottom: 2px;
 }
@@ -423,8 +424,8 @@ Add Review Modal
   width: 150px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: white;
-  border: 1px solid #336c95;
-  color: #336c95;
+  border: 1px solid var(--bar-color);
+  color: var(--bar-color);
   cursor: pointer;
 }
 
@@ -440,14 +441,14 @@ Add Review Image Modal
 
 
 #reviewphotomodal  {
-  box-shadow: 0 12px 6px -6px black;
-  border: 1px solid black;
+  box-shadow: 0 12px 6px -6px var(--darkest-color);
+  border: 1px solid var(--darkest-color);
   left: 20%;
   top: 90%;
   height: 250px;
   width: 400px;
   position: absolute;
-  background-color: lightgrey;
+  background-color: var(--secondary-color);
   z-index: 2;
   border-radius: 8%;
   animation-name: animatetop;
@@ -472,21 +473,22 @@ Add Review Image Modal
   height: 30px;
   width: 130px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: #e5ebf1;
-  border: 1px solid black;
+  background-color: var(--primary-color);
+  color: var(--darkest-color);
+  border: 1px solid var(--darkest-color);
   cursor: pointer;
   margin-bottom: 2px;
 }
 
 .reviewphotosubmit:hover {
   font-weight: bolder;
-  border: 1px solid black;
+  border: 1px solid var(--secondary-color);
   padding-left: 20px;
 }
 
 #submitreview :hover {
   color: lightgrey;
-  border: 1px solid black;
+  border: 1px solid var(--secondary-color);
   padding-left: 20px;
 }
 
@@ -525,7 +527,7 @@ Meta Star Bars
   height: 10px;
   background-color: whitesmoke;
   text-align: center;
-  color:#e5ebf1;
+  color: var(--secondary-color);
 }
 
 .bar5,
@@ -535,7 +537,7 @@ Meta Star Bars
 .bar1 {
   /* width: 70%; */
   height: 10px;
-  background-color: #336c95;
+  background-color: var(--bar-color);
 }
 
 /* =====================
@@ -584,7 +586,7 @@ Characteristics Bars
 .length {
   /* width: 90%; */
   height: 10px;
-  color: black;
+  color: var(--darkest-color);
   position: relative;
   top: -7px;
 }
@@ -596,7 +598,7 @@ Toggle Switch
 .theme-switch-wrapper {
   display: flex;
   align-items: center;
-
+  padding: 0 0 5px 5px;
 
 }
 em {

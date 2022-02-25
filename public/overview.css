@@ -26,6 +26,7 @@ h1 {
 
 /*Big Stuff*/
 body {
+  background-color: var(--secondary-color);
   margin: 0;
 }
 
@@ -79,7 +80,7 @@ body {
   max-width: 700px;
   max-height: 700px;
   border-radius: 10px
-  
+
 }
 
 .mainimg {
@@ -339,7 +340,7 @@ i.fa-solid.fa-circle-check {
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 10px
-  
+
 }
 
 #slogan {
