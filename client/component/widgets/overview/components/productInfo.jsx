@@ -4,7 +4,7 @@ import StarRatings from './../../Shared components/starRatings.jsx'
 import axios from 'axios'
 
 const ProductInfo = ({ product, currentStyle, reviewMeta }) => {
-
+  
   return (
     <div className="ProductInfo" id="TEST">
       {reviewMeta ?
@@ -15,7 +15,16 @@ const ProductInfo = ({ product, currentStyle, reviewMeta }) => {
       <div className="Details">
         <div className="productCategory">{product.category?.toUpperCase()}</div>
         <div className="productName">{product.name}</div>
-        <div className="productPrice">$ {product.default_price}</div>
+        {currentStyle?.sale_price !== null
+          ? <div>
+              <span id="salePrice"> ${currentStyle?.sale_price}</span>
+              <span className="oldPrice"> ${product.default_price}</span>
+            </div>
+          : <div>
+              <span className="productPrice">$ {product.default_price}</span>
+          </div>
+          }
+
         <div className="stylename">Style > {currentStyle?.name}</div>
       </div>
     </div>

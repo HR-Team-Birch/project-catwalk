@@ -4,13 +4,13 @@ const PhotoModalImage = ({photo}) => {
   if(typeof(photo) === 'string') {
     return (
       <div id="photoModalImgContainer">
-        <img src={photo} id="photoModalImg"></img>
+        <img src={photo} id="photoModalImg" alt="customer photo"></img>
       </div>
     )
   } else {
     return (
       <div id="photoModalImgContainer">
-        <img src={photo.url} id="photoModalImg"></img>
+        <img src={photo.url} id="photoModalImg" alt="customer photo"></img>
       </div>
     )
   }

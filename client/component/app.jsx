@@ -18,7 +18,7 @@ const App = () => {
 
 
   //For when we want to switch products - not working on all widgets currently:
-  const currentProductIndex = 7
+  const currentProductIndex = 0
 
   const getProducts = () => {
     axios.get(`${url}/products`)
@@ -99,7 +99,6 @@ const App = () => {
   return (
     <div>
       <h1>Kitty Catwalk
-        {/*<SearchQuestions productQuestions={} setFilteredQuestions={} setFilteredStatus={} setSearchTerm={} searchTerm={}/>*/}
       </h1>
       <div className="theme-switch-wrapper">
         <label className="theme-switch" >
