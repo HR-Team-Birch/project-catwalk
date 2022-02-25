@@ -10,14 +10,14 @@ const AddToCart = ({currentStyle, product}) => {
   const [selectedSku, setSelectedSku] = useState(null)
 
   //console.log(selectedSku, quantity)
-  console.log(quantity)
+  //console.log(quantity)
 
   const addToCart = (ID) => {
     axios.post(`/cart`, {sku_id: ID,
     count: quantity})
     .then((response) => {
       alert(`🛍 Added ${quantity} ${product.name}(s) in ${currentStyle.name} in size: ${size.size} to cart! 🛒`)
-      
+
     })
     .catch((error) => {
         console.error('ERROR IN CLIENT GET', error)
