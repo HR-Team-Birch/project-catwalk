@@ -1,6 +1,6 @@
 h1 {
   text-align: center;
-  color: #2E5475;
+  color: var(--font-color);
   font-size: 50px;
 }
 
