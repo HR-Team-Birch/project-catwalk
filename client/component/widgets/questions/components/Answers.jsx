@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PhotoModalImage from './PhotoModalImage.jsx';
 
 const moment = require('moment');
 const axios = require('axios');
@@ -30,26 +31,33 @@ const Answers = ({ answer }) => {
 
   const reportAnswer = () => {
     event.preventDefault();
-    if(reportAnswerStatus === 'Report') {
+    if (reportAnswerStatus === 'Report') {
       axios({
         method: 'PUT',
         url: `${url}${answer.answer_id}/report`
       })
-      .then(() => {
-        setReportAnswerStatus('Reported');
-      })
-      .catch(() => {
-        console.log('error reporting answer');
-      })
+        .then(() => {
+          setReportAnswerStatus('Reported');
+        })
+        .catch(() => {
+          console.log('error reporting answer');
+        })
     } else {
       console.log('already reported answer');
     }
   }
 
-  // console.log('answer', answer);
+  //console.log('answer', answer);
   return (
     <div id="answerContainer">
       <span id="answerBody">{answer.body}</span>
+      <div id="qaPhotos">
+        {answer.photos.length > 0 ? answer.photos.map((photo, index) => {
+          return (
+            <PhotoModalImage photo={photo} key={index} />
+          )
+        }) : null}
+      </div>
       <div id="answers">
         <span id="answerUser">{`by ${answer.answerer_name},`}</span>
         <span id="answerDate">{`${moment(answer.date).format('MMMM D, YYYY')}     |     `}</span>

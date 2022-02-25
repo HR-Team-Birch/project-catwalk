@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const AnswerPhotoModal = ({ show }) => {
+const AnswerPhotoModal = ({ show, modalPhotos, setModalPhotos }) => {
 
   const [answerPhotoUrl, setAnswerPhotoUrl] = useState('');
 
@@ -13,7 +13,14 @@ const AnswerPhotoModal = ({ show }) => {
   }
 
   const submitAnswerPhoto = () => {
-
+    if(modalPhotos.length === 0) {
+      setModalPhotos([answerPhotoUrl]);
+      show(false);
+    } else {
+      modalPhotos.push(answerPhotoUrl);
+      setModalPhotos(modalPhotos);
+      show(false);
+    }
   }
 
   return (

@@ -119,6 +119,14 @@ mark {
   display: grid;
 }
 
+#qaPhotos {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
 #answers {
   display: inline-flex;
   padding-bottom: 10px;
@@ -434,6 +442,24 @@ mark {
   background-color: white;
   color: var(--bar-color);
   border: 2px solid var(--bar-color);
+}
+
+#allAnswerPhotos {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  margin-left: 5px;
+}
+
+#photoModalImgContainer {
+  margin-top: 10px;
+  height: 50px;
+  width: 70px;
+}
+
+#photoModalImg {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* Related Items */
