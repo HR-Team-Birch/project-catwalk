@@ -17,7 +17,7 @@ const RelatedView = (props) => {
       <div>{props.item.name}</div>
       <div>{props.item.expanded}</div>
       <div>{'$' + props.item.default_price}</div>
-      <div>{solidStar}{solidStar}{solidStar}{solidStar}{emptyStar}</div>
+      <div className="star">{solidStar}{solidStar}{solidStar}{solidStar}{emptyStar}</div>
     </div>
   )
 }

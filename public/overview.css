@@ -6,7 +6,7 @@ h1 {
 
 /*Big Stuff*/
 body {
-  background-color: #e5ebf1;
+  background-color: var(--secondary-color);
   margin: 0;
 }
 
