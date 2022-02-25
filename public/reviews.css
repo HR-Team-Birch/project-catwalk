@@ -22,7 +22,10 @@
   --transluscent-color: rgba(238, 190, 94, .6)
 }
 
-
+#header {
+  display: flex;
+  justify-content: space-between;
+}
 
 /*==============================
   Reviews
@@ -48,6 +51,10 @@
 a {
   color: var(--darkest-color);
 }
+
+a.reviewbody {
+  color: black;
+}
 /*==============================
   Review Meta
 ==============================*/
@@ -58,7 +65,7 @@ a {
   min-width: 250px;
   justify-content: center;
   order: 1;
-  flex-grow: 1;
+  /* flex-grow: 1; */
 }
 
 .ratingaverage {
@@ -81,9 +88,11 @@ a {
 ==============================*/
 
 .reviewlistparent {
-  flex-grow: 3;
+  /* flex-grow: 3; */
   order: 2;
   margin: 0 5px;
+  /* min-width: 700px; */
+  width: 70%;
 }
 
 .sortandsearchparent {
@@ -150,6 +159,13 @@ a {
   border: 1px solid var(--darkest-color);
   color: var(--darkest-color);
   padding-left: 20px;
+}
+
+#newreviewPhotos {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  margin-left: 5px;
 }
 /*==============================
   Review Tile
@@ -369,6 +385,7 @@ Add Review Modal
 #reviewbodytextbox {
   height: 100px;
   width: 400px;
+  color: var(--darkest-color);
 }
 
 #charparent {

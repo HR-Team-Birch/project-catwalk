@@ -52,7 +52,6 @@ body {
   margin-left: 80px;
   margin-top: 50px;
   color: var(--font-color)
-
 }
 
 /*------------------------------------------------------*/
@@ -348,8 +347,12 @@ i.fa-solid.fa-circle-check {
   background-color: var(--secondary-color);
   margin-top: 20px;
   margin-bottom: 20px;
-  border-radius: 10px
+  border-radius: 10px;
+  overflow-y: scroll;
+}
 
+.overviewDescription::-webkit-scrollbar {
+  display: none;
 }
 
 #slogan {

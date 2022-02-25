@@ -16,9 +16,18 @@ const App = () => {
   const [allStyles, setAllStyles] = useState(null);
   const [productFeatures, setProductFeatures] = useState([])
 
-
+  const [currentProductIndex, setCurrentProductIndex] = useState(0)
   //For when we want to switch products - not working on all widgets currently:
-  const currentProductIndex = 0
+
+
+  const handleSearch = (e) => {
+    setCurrentProductIndex(e.target.value)
+  }
+
+  useEffect(() => {
+    getProducts();
+    setReviewMeta()
+  }, [currentProductIndex])
 
   const getProducts = () => {
     axios.get(`${url}/products`)
@@ -83,33 +92,35 @@ const App = () => {
     }
   }
 
-  /*========================
-    props for search bar
-    productQuestions
-    setFilteredQuestions
-    setFilteredStatus
-    setSearchTerm
-    searchTerm
-
-
-
-  */
-
-
   return (
     <div>
-      <h1>Kitty Catwalk
-      </h1>
-      <div className="theme-switch-wrapper">
-        <label className="theme-switch" >
-          <input type="checkbox" id="checkbox" onClick={ switchTheme }/>
-          <div className="slider round"></div>
-        </label>
-        <em>Switch Theme</em>
+      <h1>Kitty Catwalk</h1>
+      <div id="header">
+        <div className="theme-switch-wrapper">
+          <label className="theme-switch" >
+            <input type="checkbox" id="checkbox" onClick={ switchTheme }/>
+            <div className="slider round"></div>
+          </label>
+          <em>Switch Theme</em>
+        </div>
+
+
+        <div id="searchProducts">
+          <select onChange={handleSearch} >
+            <option >SELECT PRODUCT</option>
+            {products?.map((product, index) => (
+              <option key={index} value={index}>{product.name}</option>))
+            }
+          </select>
+        </div>
       </div>
+
+
+
       <Overview reviewMeta={reviewMeta} selectedProduct={selectedProduct} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} allStyles={allStyles} setAllStyles={setAllStyles} productFeatures={productFeatures}/>
       <RelatedComparison/>
       <Questions productId={productIdforQuestions} product={selectedProduct}/>
+
       {productIdforQuestions && reviewMeta ?  <Reviews productId={productIdforQuestions} product={selectedProduct.name} reviewMeta={reviewMeta} getReviewMeta={getReviewMeta}/> : null }
     </div>
   );
