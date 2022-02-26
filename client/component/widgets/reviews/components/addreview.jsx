@@ -27,8 +27,6 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
   const [charCount, setCharCount] = useState(50);
   const [minNotMet, setMinNotMet] = useState(true);
 
-  console.log('photos', photos)
-
   useEffect(() => {
     setPhotoUploaded(true);
   }, [photos])
