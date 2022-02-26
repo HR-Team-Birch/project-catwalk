@@ -12,10 +12,7 @@ Kitty Catwalk is a monolithic e-Commerce website that deliver products to the us
 
 ### ✨ Demo
 #### Overview
-![](https://i.imgur.com/fyGgr7h.gif)
-
-#### Overview
-![](https://imgur.com/fyGgr7h.gif)
+![](https://imgur.com/pc03lvp.gif)
 
 #### Question & Answers
 ![](https://imgur.com/jZcttxB.gif)
