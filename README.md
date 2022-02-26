@@ -12,13 +12,13 @@ Kitty Catwalk is a monolithic e-Commerce website that deliver products to the us
 
 ### ✨ Demo
 #### Overview
-![](https://imgur.com/a/gfxrf31.gif)
+![](https://imgur.com/gfxrf31.gif)
 
 #### Question & Answers
 ![](https://imgur.com/jZcttxB.gif)
 
 #### Rating & Reviews
-![](https://imgur.com/a/9GzbfIx.gif)
+![](https://imgur.com/9GzbfIx.gif)
 
 ### 🧪 Technologies
 * Axios : Version 0.25.0,
