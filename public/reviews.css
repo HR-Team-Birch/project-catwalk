@@ -167,6 +167,27 @@ a.reviewbody {
   gap: 3px;
   margin-left: 5px;
 }
+
+#expandreviewmagemodal {
+  position: fixed;
+   top: 31%;
+   left: 25%;
+   width: auto;
+   height: 400px;
+   background-color: var(--secondary-color);
+   margin: auto;
+   padding: 0;
+   border: 2px solid var(--font-color);
+   box-shadow: 0 40px 40px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+   animation-name: animatetop;
+   animation-duration: 1s;
+   z-index: 1;
+}
+
+#expandedreviewimg {
+  max-width: 100%;
+  max-height: 100%;
+}
 /*==============================
   Review Tile
 ==============================*/
@@ -464,7 +485,7 @@ Add Review Image Modal
   top: 90%;
   height: 250px;
   width: 400px;
-  position: absolute;
+  position: fixed;
   background-color: var(--secondary-color);
   z-index: 2;
   border-radius: 8%;
@@ -508,6 +529,39 @@ Add Review Image Modal
   border: 1px solid var(--secondary-color);
   padding-left: 20px;
 }
+
+/* =====================
+Add Review Image Modal
+=======================*/
+
+#addreviewimagesection {
+
+  display: flex;
+
+}
+
+.newreviewimage {
+  object-fit: cover;
+  width: 50px;
+  max-height: auto;
+  border: 1px solid lightgrey;
+}
+
+.newreviewimagemodal {
+
+  box-shadow: 0 8px 6px -6px black;
+  border: 1px solid black;
+  left: 0%;
+  top: 70%;
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
+}
+
+.newimg {
+  width: 600px;
+}
+
 
 /* =====================
 Meta Star Bars
@@ -606,6 +660,7 @@ Characteristics Bars
   color: var(--darkest-color);
   position: relative;
   top: -7px;
+  float: right;
 }
 
 /* =====================

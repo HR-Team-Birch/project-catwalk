@@ -219,7 +219,7 @@ const ReviewMeta = ({reviewMeta, reviews, setBarFilter, setReviewsToRender}) => 
           <div id="charname" style={{fontSize: "14px"}}>Fit</div>
           <div className="charparent">
             <div className="charcontainer">
-              <div className="fit" style={{width: `${fitBar}`}}>{triangle}</div>
+              <div className="fit" style={{width: `${fitBar}%`}}>{triangle}</div>
             </div>
           </div>
         </div>
