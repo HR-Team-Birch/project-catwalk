@@ -29,6 +29,8 @@ const ReviewMeta = ({reviewMeta, reviews, setBarFilter, setReviewsToRender}) => 
   const [widthBar, setWidthBar] = useState(0);
   const [lengthBar, setLengthBar] = useState(0);
 
+  console.log('fitBar', fitBar)
+
   const [showFitBar, setShowFitBar] = useState(false);
   const [showSizeBar, setShowSizeBar] = useState(false);
   const [showComfortBar, setShowComfortBar] = useState(false);
@@ -219,7 +221,7 @@ const ReviewMeta = ({reviewMeta, reviews, setBarFilter, setReviewsToRender}) => 
           <div id="charname" style={{fontSize: "14px"}}>Fit</div>
           <div className="charparent">
             <div className="charcontainer">
-              <div className="fit" style={{width: `${fitBar}`}}>{triangle}</div>
+              <div className="fit" style={{width: `${fitBar}%`}}>{triangle}</div>
             </div>
           </div>
         </div>
