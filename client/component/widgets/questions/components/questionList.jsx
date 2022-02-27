@@ -12,20 +12,18 @@ const QuestionList = ({ productQuestions, product, searchTerm, filteredStatus, f
   const [showMoreQuestions, setShowMoreQuestions] = useState(true);
   const [questionGrow, setQuestionGrow] = useState('questionlist');
 
-  //et height = 10;
-
   const showAddQuestionModal = () => {
     setShowQuestionModal(true);
   }
 
-  useEffect(() => {
-    // height = document.getElementById("questionlist").scrollHeight
-    //  console.log(height);
-  }, [productQuestions]);
+  // useEffect(() => {
+  //   // height = document.getElementById("questionlist").scrollHeight
+  //   //  console.log(height);
+  // }, [productQuestions]);
 
-  useEffect(() => {
-    //console.log('changed search term');
-  }, [searchTerm]);
+  // useEffect(() => {
+  //   //console.log('changed search term');
+  // }, [searchTerm]);
 
   useEffect(() => {
     if (sliceIndex >= productQuestions.length && productQuestions.length > 2) {
