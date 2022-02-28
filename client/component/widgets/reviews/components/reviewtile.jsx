@@ -21,7 +21,7 @@ const ReviewTile = ({review, markHelpful, reportReview}) => {
   }
 
   const renderShortBody = () => (
-    <div className="reviewbody">{shortBody}<a onClick={ () => setRestOfBody(review.body.slice(250)) }>{restOfBody}</a></div>
+    <div className="reviewbody">{shortBody}<a className="reviewbody" onClick={ () => setRestOfBody(review.body.slice(250)) }>{restOfBody}</a></div>
   )
 
   return (

@@ -135,8 +135,7 @@ const reportReview = (reviewId) => {
 
 
 const getQuestions = (productId) => {
-  // console.log('product ID', productId);
-  // need to setup multiple queries
+
   let options = {
     url: `${url}/qa/questions/?product_id=${productId.product_id}&count=500`,
     headers: {
@@ -169,6 +168,7 @@ const addQuestion = (data) => {
 }
 
 const addAnswer = (questionId, data) => {
+
   let options = {
     url: `${url}/qa/questions/${questionId.question_id}/answers`,
     headers: {

@@ -6,12 +6,13 @@ import ExtendedView from './components/ExtendedView.jsx';
 
 const Overview = ({reviewMeta, selectedProduct, currentStyle, setCurrentStyle, allStyles, setAllStyles, productFeatures}) => (
   <div id="overviewparent">
+    {selectedProduct &&
+
     <div className="Overview">
       <ExtendedView currentStyle={currentStyle} allStyles={allStyles} product={selectedProduct} currentStyle={currentStyle} reviewMeta={reviewMeta} setCurrentStyle={setCurrentStyle}/>
       <Description product={selectedProduct} productFeatures={productFeatures}/>
-
     </div>
-
+    }
   </div>
 )
 

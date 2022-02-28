@@ -3,6 +3,7 @@ import Overview from './widgets/overview/overview.jsx';
 import Reviews from './widgets/reviews/reviews.jsx';
 import Questions from './widgets/questions/questions.jsx';
 import RelatedComparison from './widgets/related/relatedCompare.jsx';
+import SearchQuestions from './widgets/questions/components/searchQuestions.jsx'
 import axios from 'axios';
 const url = 'http://localhost:3000';
 
@@ -15,9 +16,18 @@ const App = () => {
   const [allStyles, setAllStyles] = useState(null);
   const [productFeatures, setProductFeatures] = useState([])
 
-
+  const [currentProductIndex, setCurrentProductIndex] = useState(0)
   //For when we want to switch products - not working on all widgets currently:
-  const currentProductIndex = 0
+
+
+  const handleSearch = (e) => {
+    setCurrentProductIndex(e.target.value)
+  }
+
+  useEffect(() => {
+    getProducts();
+    setReviewMeta()
+  }, [currentProductIndex])
 
   const getProducts = () => {
     axios.get(`${url}/products`)
@@ -71,13 +81,46 @@ const App = () => {
   }, []);
 
 
+  const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+  const switchTheme = (e) => {
+    if (e.target.checked) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  }
+
   return (
     <div>
       <h1>Kitty Catwalk</h1>
-      {selectedProduct &&
-        <Overview reviewMeta={reviewMeta} selectedProduct={selectedProduct} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} allStyles={allStyles} setAllStyles={setAllStyles} productFeatures={productFeatures}/>}
+      <div id="header">
+        <div className="theme-switch-wrapper">
+          <label className="theme-switch" >
+            <input type="checkbox" id="checkbox" onClick={ switchTheme }/>
+            <div className="slider round"></div>
+          </label>
+          <em>Switch Theme</em>
+        </div>
+
+
+        <div id="searchProducts">
+          <select onChange={handleSearch} >
+            <option >SELECT PRODUCT</option>
+            {products?.map((product, index) => (
+              <option key={index} value={index}>{product.name}</option>))
+            }
+          </select>
+        </div>
+      </div>
+
+
+
+      <Overview reviewMeta={reviewMeta} selectedProduct={selectedProduct} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} allStyles={allStyles} setAllStyles={setAllStyles} productFeatures={productFeatures}/>
       <RelatedComparison/>
       <Questions productId={productIdforQuestions} product={selectedProduct}/>
+
       {productIdforQuestions && reviewMeta ?  <Reviews productId={productIdforQuestions} product={selectedProduct.name} reviewMeta={reviewMeta} getReviewMeta={getReviewMeta}/> : null }
     </div>
   );

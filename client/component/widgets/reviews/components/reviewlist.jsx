@@ -5,8 +5,6 @@ import AddReview from './addreview.jsx';
 
 const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHelpful, reportReview, getReviewsSortHelpful, getReviewsSortNewest, getAllReviews, setSortOption}) => {
 
-  // TODO create search functionality?
-
   const [reviewTilesCount, setReviewTilesCount] = useState(2);
   const [sort, setSort] = useState('relevant');
   const [barFilter, setBarFilter] = useState(null);
@@ -14,13 +12,7 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
   const [reviewsToRender, setReviewsToRender] = useState(reviews);
   const [reviewsToRenderCount, setReviewsToRenderCount] = useState(reviewsToRender.length);
 
-  // console.log('barFilter', barFilter)
-  // console.log('reviewsToRender', reviewsToRender)
-
-  // console.log('sort', sort)
-
   const starFilterClicked = () => {
-    // iterate through reviews and filter out the ones with 5 stars
     let filteredReviews = [];
     if (barFilter === 5) {
       reviews.forEach((review) => {
@@ -93,7 +85,6 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
     setReviewsToRenderCount(reviewsToRender.length)
   }, [reviewsToRender]);
 
-  // console.log('meta in reviewlist', reviewMeta)
   return (
     <>
       <ReviewMeta reviewMeta={reviewMeta} reviews={reviews} setBarFilter={setBarFilter} setReviewsToRender={setReviewsToRender}/>
@@ -108,15 +99,6 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
               <option value="newest">Newest</option>
             </select>
           </div>
-
-          {/* <div className="reviewsearchparent">
-            <input id="reviewsearch" type="search" placeholder="search reviews...">
-            </input>
-            <button>Submit</button>
-          </div> */}
-
-{/* TODO fix stars not rendering right when filtering by stars */}
-
 
         </div>
         <div className="reviewtileparent">

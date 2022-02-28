@@ -12,12 +12,12 @@ const RelatedView = (props) => {
   return (
     <div id="relatedItemParent">
       <div id="relatedcontainer"></div>
-      <img src={image} id="relatedPhoto"></img>
+      <img src={image} id="relatedPhoto" alt="related product photo"></img>
       <div>{props.item.category}</div>
       <div>{props.item.name}</div>
       <div>{props.item.expanded}</div>
       <div>{'$' + props.item.default_price}</div>
-      <div>{solidStar}{solidStar}{solidStar}{solidStar}{emptyStar}</div>
+      <div className="star">{solidStar}{solidStar}{solidStar}{solidStar}{emptyStar}</div>
     </div>
   )
 }

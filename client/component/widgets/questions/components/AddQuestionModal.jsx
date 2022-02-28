@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+
 const axios = require('axios');
 const url = 'http://localhost:3000/qa/questions';
 
-const AddQuestionModal = ({ name, productId, show }) => {
+const AddQuestionModal = ({ name, productId, show, fetchQuestions }) => {
 
   const [questionField, setQuestionField] = useState('');
   const [nicknameField, setNicknameField] = useState('');
@@ -52,7 +53,7 @@ const AddQuestionModal = ({ name, productId, show }) => {
         },
       })
         .then(() => {
-          console.log('success!!!!!!')
+          fetchQuestions();
           show(false);
         })
     }

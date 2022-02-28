@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AddReviewStar from './addreviewstar.jsx';
 import UploadImageModal from './uploadimagemodal.jsx';
+import UploadReviewImageModal from './uploadreviewimagemodal.jsx';
 
 const AddReview = ({productId, product, reviewMeta, addReview}) => {
 
@@ -13,6 +14,7 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [photos, setPhotos] = useState([]);
+  const [photoUploaded, setPhotoUploaded] = useState(false);
   const [addReviewSubmitMessage, setAddReviewSubmitMessage] = useState('');
 
   const [sizeRating, setSizeRating] = useState('none selected');
@@ -24,6 +26,10 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
 
   const [charCount, setCharCount] = useState(50);
   const [minNotMet, setMinNotMet] = useState(true);
+
+  useEffect(() => {
+    setPhotoUploaded(true);
+  }, [photos])
 
   const getStarRating = (stars) => {
     setRating(stars + 1);
@@ -320,9 +326,18 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
                   }
 
                   <br></br>
+
+                  <div id="newreviewPhotos">
+                    {photoUploaded
+                    ? photos.map((photo, index) => (
+                      <UploadReviewImageModal photo={photo} key={index} />
+                      )) : null
+                    }
+                  </div>
+
                   <br></br>
                   <UploadImageModal setPhotos={setPhotos}/>
-                  <label>Pic thumbnails</label>
+
                   <br></br>
                   <div id="submitreviewmessage" >{addReviewSubmitMessage}</div>
 

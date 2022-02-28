@@ -3,6 +3,30 @@
   font-family: "adobe-clean", sans-serif;
 
 } */
+
+:root {
+  --primary-color: #859ab3;
+  --secondary-color: #d0dae6;
+  --font-color: #2E5475;
+  --bar-color: #336c95;
+  --darkest-color: #294965;
+  --transluscent-color: rgba(208, 218, 230, .6)
+}
+
+[data-theme="dark"] {
+  --primary-color:  #eebe5e;
+  --secondary-color: #f4eadc;
+  --font-color: #92461b;
+  --bar-color: #d69c33;
+  --darkest-color:  #5b2a0e;
+  --transluscent-color: rgba(238, 190, 94, .6)
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+}
+
 /*==============================
   Reviews
 ==============================*/
@@ -24,6 +48,13 @@
 
 }
 
+a {
+  color: var(--darkest-color);
+}
+
+a.reviewbody {
+  color: black;
+}
 /*==============================
   Review Meta
 ==============================*/
@@ -34,17 +65,22 @@
   min-width: 250px;
   justify-content: center;
   order: 1;
-  flex-grow: 1;
+  /* flex-grow: 1; */
 }
 
 .ratingaverage {
   font-weight: bold;
   font-size: 35px;
-  color:#294965;
+  color:var(--darkest-color);
 }
 
 .star {
-  color:#294965;
+  color:var(--darkest-color);
+}
+
+#ratingtitle {
+  color:var(--darkest-color);
+  font-weight: 400px;
 }
 
 /*==============================
@@ -52,9 +88,11 @@
 ==============================*/
 
 .reviewlistparent {
-  flex-grow: 3;
+  /* flex-grow: 3; */
   order: 2;
   margin: 0 5px;
+  /* min-width: 700px; */
+  width: 70%;
 }
 
 .sortandsearchparent {
@@ -95,7 +133,15 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bolder;
   background-color: white;
-  border: 1px solid black;
+  color: var(--bar-color);
+  border: 1px solid var(--bar-color);
+}
+
+#morereviews:hover {
+  font-weight: bolder;
+  border: 1px solid var(--darkest-color);
+  color: var(--darkest-color);
+  padding-left: 20px;
 }
 
 #addreviewbutton {
@@ -104,7 +150,43 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bolder;
   background-color: white;
-  border: 1px solid black;
+  color: var(--bar-color);
+  border: 1px solid var(--bar-color);
+}
+
+#addreviewbutton:hover {
+  font-weight: bolder;
+  border: 1px solid var(--darkest-color);
+  color: var(--darkest-color);
+  padding-left: 20px;
+}
+
+#newreviewPhotos {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  margin-left: 5px;
+}
+
+#expandreviewmagemodal {
+  position: fixed;
+   top: 31%;
+   left: 25%;
+   width: auto;
+   height: 400px;
+   background-color: var(--secondary-color);
+   margin: auto;
+   padding: 0;
+   border: 2px solid var(--font-color);
+   box-shadow: 0 40px 40px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+   animation-name: animatetop;
+   animation-duration: 1s;
+   z-index: 1;
+}
+
+#expandedreviewimg {
+  max-width: 100%;
+  max-height: 100%;
 }
 /*==============================
   Review Tile
@@ -126,7 +208,7 @@
 #reviewtile {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid #336c95 ;
+  border-bottom: 1px solid var(--bar-color) ;
   max-height: 400px;
   order: 2;
   padding: 0;
@@ -142,6 +224,7 @@
   font-size: 18px;
   width: 100%;
   margin:  15px 0 10px;
+  color: var(--darkest-color);
 }
 
 .reviewtilewidth {
@@ -178,12 +261,20 @@
 
 .userdate {
   font-size: 10px;
+  color: var(--font-color);
 }
 
 hr.divider {
   border-top: 3px solid black;
 }
 
+#recommend {
+  color: var(--font-color);
+}
+
+u {
+  color: var(--font-color);
+}
 /* =====================
 Helpful / Report
 =======================*/
@@ -199,8 +290,8 @@ Helpful / Report
 }
 .report {
   margin: 0 8px;
+  color: var(--darkest-color);
 }
-
 
 
 /* =====================
@@ -226,27 +317,17 @@ Review Image Modal
 Add Review Modal
 =======================*/
 
-/* .addreviewoverlay {
-  width: 100%;
-  height: 100%; */
-  /* background: rgba(0, 0, 0, .7); */
-  /* position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-} */
-
 .addreviewmodal {
   position: fixed;
   z-index: 20;
-  background: #fff;
+  background: var(--primary-color);
   width: 650px;
   max-height: 90%;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  box-shadow: 0 8px 6px -6px black;
-  border: 1px solid black;
+  box-shadow: 0 8px 6px -6px var(--darkest-color);
+  border: 1px solid var(--darkest-color);
   overflow-y: scroll;
   border-radius: 8%;
   animation-name: animatetop;
@@ -271,8 +352,9 @@ Add Review Modal
 
 .addreviewtitle {
   flex-grow: 3;
-  padding: 0 20px 0 210px;
+  padding: 0 20px 0 225px;
   margin: 19px 0 0 0;
+  color: var(--darkest-color);
 }
 
 .addreviewmain {
@@ -284,6 +366,7 @@ Add Review Modal
   margin: 0;
   display: flex;
   justify-content: center;
+  color: var(--darkest-color);
 }
 
 .closereviewmodal {
@@ -310,7 +393,7 @@ Add Review Modal
 }
 
 .on {
-  color: #000;
+  color: var(--font-color);
 }
 .off {
   color: #ccc;
@@ -323,6 +406,7 @@ Add Review Modal
 #reviewbodytextbox {
   height: 100px;
   width: 400px;
+  color: var(--darkest-color);
 }
 
 #charparent {
@@ -361,7 +445,8 @@ Add Review Modal
   width: 150px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid var(--bar-color);
+  color: var(--bar-color);
   cursor: pointer;
   margin-bottom: 2px;
 }
@@ -377,7 +462,8 @@ Add Review Modal
   width: 150px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid var(--bar-color);
+  color: var(--bar-color);
   cursor: pointer;
 }
 
@@ -393,14 +479,14 @@ Add Review Image Modal
 
 
 #reviewphotomodal  {
-  box-shadow: 0 12px 6px -6px black;
-  border: 1px solid black;
+  box-shadow: 0 12px 6px -6px var(--darkest-color);
+  border: 1px solid var(--darkest-color);
   left: 20%;
   top: 90%;
   height: 250px;
   width: 400px;
-  position: absolute;
-  background-color: lightgrey;
+  position: fixed;
+  background-color: var(--secondary-color);
   z-index: 2;
   border-radius: 8%;
   animation-name: animatetop;
@@ -425,23 +511,57 @@ Add Review Image Modal
   height: 30px;
   width: 130px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: white;
-  border: 1px solid black;
+  background-color: var(--primary-color);
+  color: var(--darkest-color);
+  border: 1px solid var(--darkest-color);
   cursor: pointer;
   margin-bottom: 2px;
 }
 
 .reviewphotosubmit:hover {
   font-weight: bolder;
-  border: 1px solid black;
+  border: 1px solid var(--secondary-color);
   padding-left: 20px;
 }
 
 #submitreview :hover {
   color: lightgrey;
-  border: 1px solid black;
+  border: 1px solid var(--secondary-color);
   padding-left: 20px;
 }
+
+/* =====================
+Add Review Image Modal
+=======================*/
+
+#addreviewimagesection {
+
+  display: flex;
+
+}
+
+.newreviewimage {
+  object-fit: cover;
+  width: 50px;
+  max-height: auto;
+  border: 1px solid lightgrey;
+}
+
+.newreviewimagemodal {
+
+  box-shadow: 0 8px 6px -6px black;
+  border: 1px solid black;
+  left: 0%;
+  top: 70%;
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
+}
+
+.newimg {
+  width: 600px;
+}
+
 
 /* =====================
 Meta Star Bars
@@ -478,7 +598,7 @@ Meta Star Bars
   height: 10px;
   background-color: whitesmoke;
   text-align: center;
-  color:#e5ebf1;
+  color: var(--secondary-color);
 }
 
 .bar5,
@@ -488,17 +608,16 @@ Meta Star Bars
 .bar1 {
   /* width: 70%; */
   height: 10px;
-  background-color: #336c95;
+  background-color: var(--bar-color);
 }
 
 /* =====================
 Characteristics Bars
 =======================*/
 
-.characteristicscontainer {
+/*.characteristicscontainer {
   /* display: grid;
   grid: 50px 180px; */
-}
 
 .characteristics {
   justify-content: center;
@@ -538,8 +657,71 @@ Characteristics Bars
 .length {
   /* width: 90%; */
   height: 10px;
-  color: black;
+  color: var(--darkest-color);
   position: relative;
   top: -7px;
+  float: right;
 }
 
+/* =====================
+Toggle Switch
+=======================*/
+/*Simple css to style it like a toggle switch*/
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 0 0 5px 5px;
+
+}
+em {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+.theme-switch {
+  display: inline-block;
+  height: 23px;
+  position: relative;
+  width: 50px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #859ab3;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 15px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 15px;
+}
+
+input:checked + .slider {
+  background-color: #eebe5e;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

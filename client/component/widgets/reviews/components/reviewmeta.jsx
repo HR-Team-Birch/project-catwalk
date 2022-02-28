@@ -128,7 +128,7 @@ const ReviewMeta = ({reviewMeta, reviews, setBarFilter, setReviewsToRender}) => 
 
   return (
     <div className="reviewsmeta">
-      <p style={{ fontWeight: "400"}}>RATINGS & REVIEWS</p>
+      <p id="ratingtitle" style={{ fontWeight: "bold", fontSize: "20px"}}>RATINGS & REVIEWS</p>
       <div style={{marginLeft: "15px"}}>
         <StarRatings  meta={reviewMeta.ratings}/>
       </div>
@@ -219,7 +219,7 @@ const ReviewMeta = ({reviewMeta, reviews, setBarFilter, setReviewsToRender}) => 
           <div id="charname" style={{fontSize: "14px"}}>Fit</div>
           <div className="charparent">
             <div className="charcontainer">
-              <div className="fit" style={{width: `${fitBar}`}}>{triangle}</div>
+              <div className="fit" style={{width: `${fitBar}%`}}>{triangle}</div>
             </div>
           </div>
         </div>

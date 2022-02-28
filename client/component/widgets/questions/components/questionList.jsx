@@ -5,7 +5,7 @@ import MoreQuestions from './moreQuestions.jsx';
 import AddQuestion from './addQuestion.jsx'
 import AddQuestionModal from './AddQuestionModal.jsx';
 
-const QuestionList = ({ productQuestions, product, searchTerm, filteredStatus }) => {
+const QuestionList = ({ productQuestions, product, searchTerm, filteredStatus, fetchQuestions }) => {
 
   const [showQuestionModal, setShowQuestionModal] = useState(false);
   const [sliceIndex, setSliceIndex] = useState(2);
@@ -16,13 +16,14 @@ const QuestionList = ({ productQuestions, product, searchTerm, filteredStatus })
     setShowQuestionModal(true);
   }
 
-  useEffect(() => {
-    //console.log('hit useEffect questions');
-  }, [productQuestions]);
+  // useEffect(() => {
+  //   // height = document.getElementById("questionlist").scrollHeight
+  //   //  console.log(height);
+  // }, [productQuestions]);
 
-  useEffect(() => {
-    //console.log('changed search term');
-  }, [searchTerm]);
+  // useEffect(() => {
+  //   //console.log('changed search term');
+  // }, [searchTerm]);
 
   useEffect(() => {
     if (sliceIndex >= productQuestions.length && productQuestions.length > 2) {
@@ -34,7 +35,7 @@ const QuestionList = ({ productQuestions, product, searchTerm, filteredStatus })
     <div id="qlistParent">
       <div id={`${questionGrow}`}>
         <span id="modalContainer">
-          {showQuestionModal ? <AddQuestionModal show={setShowQuestionModal} name={product.name} productId={product.id} /> : null}
+          {showQuestionModal ? <AddQuestionModal show={setShowQuestionModal} name={product.name} productId={product.id} fetchQuestions={fetchQuestions} /> : null}
         </span>
         {productQuestions ? productQuestions.slice(0, sliceIndex).map((question, index) => {
           return (
