@@ -24,8 +24,6 @@ const Answers = ({ answer }) => {
         .catch(() => {
           console.log('error marking answer helpful');
         })
-    } else {
-      console.log('Already Marked Answer Helpful')
     }
   }
 
@@ -42,12 +40,9 @@ const Answers = ({ answer }) => {
         .catch(() => {
           console.log('error reporting answer');
         })
-    } else {
-      console.log('already reported answer');
     }
   }
 
-  //console.log('answer', answer);
   return (
     <div id="answerContainer">
       <span id="answerBody">{answer.body}</span>
