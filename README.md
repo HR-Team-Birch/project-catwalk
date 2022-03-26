@@ -8,7 +8,7 @@
 
 
 ### General Info
-Quizlin's Quiz Quorner is an interactive quiz site where users can see, make, and take quizzes
+Kitty Catwalk is an e-commerce site with the ability to view products, and its related reviews and questions.
 
 ### ✨ Demo
 
