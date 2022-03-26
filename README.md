@@ -8,7 +8,7 @@
 
 
 ### General Info
-Kitty Catwalk is a monolithic e-Commerce website that deliver products to the users.
+Quizlin's Quiz Quorner is an interactive quiz site where users can see, make, and take quizzes
 
 ### ✨ Demo
 
