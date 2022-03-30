@@ -3,12 +3,11 @@ import ReviewMeta from './reviewmeta.jsx';
 import ReviewTile from './reviewtile.jsx';
 import AddReview from './addreview.jsx';
 
-const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHelpful, reportReview, getReviewsSortHelpful, getReviewsSortNewest, getAllReviews, setSortOption}) => {
+const ReviewList = ({ reviews, productId, product, reviewMeta, addReview, markHelpful, reportReview, getReviewsSortHelpful, getReviewsSortNewest, getAllReviews, setSortOption }) => {
 
   const [reviewTilesCount, setReviewTilesCount] = useState(2);
   const [sort, setSort] = useState('relevant');
   const [barFilter, setBarFilter] = useState(null);
-
   const [reviewsToRender, setReviewsToRender] = useState(reviews);
   const [reviewsToRenderCount, setReviewsToRenderCount] = useState(reviewsToRender.length);
 
@@ -49,7 +48,6 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
     setReviewsToRender(filteredReviews);
   }
 
-
   const renderMoreReviews = () => {
     let count = reviewTilesCount + 2;
     setReviewTilesCount(count);
@@ -62,11 +60,11 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
 
   const renderMoreBarReviews = () => {
     !barFilter && reviewsToRenderCount > 2 ?
-    <button id="morereviews"
-      onClick={ () => {renderMoreReviews(); setReviewsToRenderCount(reviewsToRenderCount - 2)} }
+      <button id="morereviews"
+        onClick={() => { renderMoreReviews(); setReviewsToRenderCount(reviewsToRenderCount - 2) }}
       >MORE REVIEWS
-    </button>
-    : <div></div>
+      </button>
+      : <div></div>
   }
 
   useEffect(() => {
@@ -75,7 +73,7 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
 
   useEffect(() => {
     starFilterClicked();
-  }, [barFilter] );
+  }, [barFilter]);
 
   useEffect(() => {
     setReviewsToRender(reviews)
@@ -87,13 +85,13 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
 
   return (
     <>
-      <ReviewMeta reviewMeta={reviewMeta} reviews={reviews} setBarFilter={setBarFilter} setReviewsToRender={setReviewsToRender}/>
+      <ReviewMeta reviewMeta={reviewMeta} reviews={reviews} setBarFilter={setBarFilter} setReviewsToRender={setReviewsToRender} />
       <div className="reviewlistparent">
         <div className="sortandsearchparent">
 
           <div className="sort">
             <label> {reviews.length} reviews, sorted by </label>
-            <select id="reviewsort" onChange={ (e) => setSort(e.target.value)}>
+            <select id="reviewsort" onChange={(e) => setSort(e.target.value)}>
               <option value="relevant">Relevant</option>
               <option value="helpful">Helpful</option>
               <option value="newest">Newest</option>
@@ -104,19 +102,19 @@ const ReviewList = ({reviews, productId, product, reviewMeta, addReview, markHel
         <div className="reviewtileparent">
           {reviewTilesCount < reviewsToRender.length ?
             reviewsToRender.slice(0, reviewTilesCount).map((review, idx) => (
-              <ReviewTile review={review} markHelpful={markHelpful} reportReview={reportReview} key={idx}/>
+              <ReviewTile review={review} markHelpful={markHelpful} reportReview={reportReview} key={idx} />
             )) : null
           }
           {reviewTilesCount >= reviewsToRender.length ?
             reviewsToRender.map((review, idx) => (
-              <ReviewTile review={review} markHelpful={markHelpful} reportReview={reportReview} key={idx}/>
+              <ReviewTile review={review} markHelpful={markHelpful} reportReview={reportReview} key={idx} />
             )) : null
           }
         </div>
 
         <div id="reviewbuttons">
-          {reviewsToRenderCount > 2 ? <button id="morereviews" onClick={ () => {renderMoreReviews(); toggleMoreReviewButton(); } }>MORE REVIEWS</button> : null}
-          <AddReview productId={productId} product={product} reviewMeta={reviewMeta.characteristics} addReview={addReview}/>
+          {reviewsToRenderCount > 2 ? <button id="morereviews" onClick={() => { renderMoreReviews(); toggleMoreReviewButton(); }}>MORE REVIEWS</button> : null}
+          <AddReview productId={productId} product={product} reviewMeta={reviewMeta.characteristics} addReview={addReview} />
 
         </div>
 
