@@ -3,7 +3,7 @@ import AddReviewStar from './addreviewstar.jsx';
 import UploadImageModal from './uploadimagemodal.jsx';
 import UploadReviewImageModal from './uploadreviewimagemodal.jsx';
 
-const AddReview = ({productId, product, reviewMeta, addReview}) => {
+const AddReview = ({ productId, product, reviewMeta, addReview }) => {
 
   const [showAddReviewModal, setShowAddReviewModal] = useState(false);
 
@@ -162,193 +162,193 @@ const AddReview = ({productId, product, reviewMeta, addReview}) => {
 
   return (
     <>
-      <button id="addreviewbutton" onClick={ ()=> setShowAddReviewModal(true) } >ADD A REVIEW +</button>
-        {showAddReviewModal && (
-          <>
-            <div className="addreviewoverlay"></div>
-            <div className="addreviewmodal">
-              <header className="addreviewmodalheader">
-                <h2 className="addreviewtitle">Write Your Review</h2>
-                <br></br>
-                <button className="closereviewmodal" onClick={() => setShowAddReviewModal(false)}>&times;</button>
-              </header>
-              <h4 className="addreviewsubtitle">About the {product} Here</h4>
-              <main className="addreviewmain">
-                <div>
-                  <label>Overall Rating
-                    <AddReviewStar getStarRating={getStarRating}/>
-                  </label>
+      <button id="addreviewbutton" onClick={() => setShowAddReviewModal(true)} >ADD A REVIEW +</button>
+      {showAddReviewModal && (
+        <>
+          <div className="addreviewoverlay"></div>
+          <div className="addreviewmodal">
+            <header className="addreviewmodalheader">
+              <h2 className="addreviewtitle">Write Your Review</h2>
+              <br></br>
+              <button className="closereviewmodal" onClick={() => setShowAddReviewModal(false)}>&times;</button>
+            </header>
+            <h4 className="addreviewsubtitle">About the {product} Here</h4>
+            <main className="addreviewmain">
+              <div>
+                <label>Overall Rating
+                  <AddReviewStar getStarRating={getStarRating} />
+                </label>
+              </div>
+
+              <div className="addreviewspacing">
+                <span style={{ margin: "0 0 50px 0" }}>Do you recommend this product?
+                  <input required type="radio" name="recommend" onClick={() => setRecommend(true)} />
+                  Yes
+                </span>
+                <label>
+                  <input type="radio" name="recommend" onClick={() => setRecommend(false)} />
+                  No
+                </label>
+              </div>
+
+              <div className="addreviewspacing">
+                <label>What is your nickname? </label>
+                <input type="text" onChange={e => setName(e.target.value)}></input>
+              </div>
+
+              <div className="addreviewspacing">
+                <label>Your email </label>
+                <input type="text" style={{ width: "50%" }} onChange={e => setEmail(e.target.value)}></input>
+              </div>
+
+              <div>
+                <div>Characteristics</div>
+
+                <div id="charparent">
+
+                  <div style={{ width: "250px", display: "flex", justifyContent: "center" }}>Size</div>
+                  <span style={{ fontSize: "10px", width: "250px", margin: "3px 0", display: "flex", justifyContent: "center" }}>{sizeRating}</span>
+                  <div id="characteristics">
+                    <input type="radio" name="size" onClick={() => setSizeRating("A size too small")} />
+                    <input type="radio" name="size" onClick={() => setSizeRating("1/2 a size too small")} />
+                    <input type="radio" name="size" onClick={() => setSizeRating("Perfect")} />
+                    <input type="radio" name="size" onClick={() => setSizeRating("1/2 a size too big")} />
+                    <input type="radio" name="size" onClick={() => setSizeRating("A size too big")} />
+                    <span className="charlabel">A size too small</span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span className="charlabel">A size too big</span>
+                  </div>
                 </div>
 
-                  <div className="addreviewspacing">
-                    <span style={{margin: "0 0 50px 0"}}>Do you recommend this product?
-                      <input required type="radio" name="recommend" onClick={ () => setRecommend(true)} />
-                        Yes
-                    </span>
-                    <label>
-                      <input type="radio" name="recommend" onClick={ () => setRecommend(false)}/>
-                        No
-                    </label>
+                <div id="charparent">
+                  <div style={{ width: "250px", display: "flex", justifyContent: "center", paddingTop: "10px" }} >Width</div>
+                  <span style={{ fontSize: "10px", width: "250px", margin: "3px 0", display: "flex", justifyContent: "center" }}>{widthRating}</span>
+
+                  <div id="characteristics">
+                    <input type="radio" name="width" onClick={() => setWidthRating("Too narrow")} />
+                    <input type="radio" name="width" onClick={() => setWidthRating("Slightly narrow")} />
+                    <input type="radio" name="width" onClick={() => setWidthRating("Perfect")} />
+                    <input type="radio" name="width" onClick={() => setWidthRating("Slightly Wide")} />
+                    <input type="radio" name="width" onClick={() => setWidthRating("Too wide")} />
+                    <span className="charlabel">Too narrow</span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span className="charlabel">Too wide</span>
                   </div>
+                </div>
 
-                  <div className="addreviewspacing">
-                    <label>What is your nickname? </label>
-                    <input type="text" onChange={ e => setName(e.target.value)}></input>
+                <div id="charparent">
+                  <div style={{ width: "250px", display: "flex", justifyContent: "center", paddingTop: "10px" }}>Comfort</div>
+                  <span style={{ fontSize: "10px", width: "250px", margin: "3px 0", display: "flex", justifyContent: "center" }}>{comfortRating}</span>
+
+                  <div id="characteristics">
+                    <input type="radio" name="comfort" onClick={() => setComfortRating("Uncomfortable")} />
+                    <input type="radio" name="comfort" onClick={() => setComfortRating("Slightly uncomfortable")} />
+                    <input type="radio" name="comfort" onClick={() => setComfortRating("Ok")} />
+                    <input type="radio" name="comfort" onClick={() => setComfortRating("Comfortable")} />
+                    <input type="radio" name="comfort" onClick={() => setComfortRating("Perfect")} />
+                    <span className="charlabel">Uncomfortable</span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span className="charlabel">Perfect</span>
                   </div>
+                </div>
 
-                  <div className="addreviewspacing">
-                    <label>Your email </label>
-                    <input type="text" style={{width : "50%"}} onChange={ e => setEmail(e.target.value)}></input>
+                <div id="charparent">
+                  <div style={{ width: "250px", display: "flex", justifyContent: "center", paddingTop: "10px" }}>Quality</div>
+                  <span style={{ fontSize: "10px", width: "250px", margin: "3px 0", display: "flex", justifyContent: "center" }}>{qualityRating}</span>
+
+                  <div id="characteristics">
+                    <input type="radio" name="quality" onClick={() => setQualityRating("Poor")} />
+                    <input type="radio" name="quality" onClick={() => setQualityRating("Below average")} />
+                    <input type="radio" name="quality" onClick={() => setQualityRating("What I expected")} />
+                    <input type="radio" name="quality" onClick={() => setQualityRating("Pretty great")} />
+                    <input type="radio" name="quality" onClick={() => setQualityRating("Perfect")} />
+                    <span className="charlabel">Poor</span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span className="charlabel">Perfect</span>
                   </div>
+                </div>
 
-                  <div>
-                    <div>Characteristics</div>
+                <div id="charparent">
+                  <div style={{ width: "250px", display: "flex", justifyContent: "center", paddingTop: "10px" }}>Length</div>
+                  <span style={{ fontSize: "10px", width: "250px", margin: "3px 0", display: "flex", justifyContent: "center" }}>{lengthRating}</span>
 
-                    <div id="charparent">
-
-                      <div style={{width: "250px", display: "flex", justifyContent: "center"}}>Size</div>
-                      <span style={{fontSize : "10px",  width: "250px", margin: "3px 0", display: "flex", justifyContent: "center"}}>{sizeRating}</span>
-                      <div id="characteristics">
-                        <input type="radio" name="size" onClick={ () => setSizeRating("A size too small") }/>
-                        <input type="radio" name="size" onClick={ () => setSizeRating("1/2 a size too small") }/>
-                        <input type="radio" name="size" onClick={ () => setSizeRating("Perfect") }/>
-                        <input type="radio" name="size" onClick={ () => setSizeRating("1/2 a size too big") }/>
-                        <input type="radio" name="size" onClick={ () => setSizeRating("A size too big") }/>
-                        <span className="charlabel">A size too small</span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span className="charlabel">A size too big</span>
-                      </div>
-                    </div>
-
-                    <div id="charparent">
-                      <div style={{width: "250px", display: "flex", justifyContent: "center", paddingTop: "10px"}} >Width</div>
-                      <span style={{fontSize : "10px",  width: "250px", margin: "3px 0", display: "flex", justifyContent: "center"}}>{widthRating}</span>
-
-                      <div id="characteristics">
-                        <input type="radio" name="width" onClick={ () => setWidthRating("Too narrow") }/>
-                        <input type="radio" name="width" onClick={ () => setWidthRating("Slightly narrow") }/>
-                        <input type="radio" name="width" onClick={ () => setWidthRating("Perfect") }/>
-                        <input type="radio" name="width" onClick={ () => setWidthRating("Slightly Wide") }/>
-                        <input type="radio" name="width" onClick={ () => setWidthRating("Too wide") }/>
-                        <span className="charlabel">Too narrow</span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span className="charlabel">Too wide</span>
-                      </div>
-                    </div>
-
-                    <div id="charparent">
-                      <div style={{width: "250px", display: "flex", justifyContent: "center", paddingTop: "10px"}}>Comfort</div>
-                      <span style={{fontSize : "10px",  width: "250px", margin: "3px 0", display: "flex", justifyContent: "center"}}>{comfortRating}</span>
-
-                      <div id="characteristics">
-                        <input type="radio" name="comfort" onClick={ () => setComfortRating("Uncomfortable") }/>
-                        <input type="radio" name="comfort" onClick={ () => setComfortRating("Slightly uncomfortable") }/>
-                        <input type="radio" name="comfort" onClick={ () => setComfortRating("Ok") }/>
-                        <input type="radio" name="comfort" onClick={ () => setComfortRating("Comfortable") }/>
-                        <input type="radio" name="comfort" onClick={ () => setComfortRating("Perfect") }/>
-                        <span className="charlabel">Uncomfortable</span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span className="charlabel">Perfect</span>
-                      </div>
-                    </div>
-
-                    <div id="charparent">
-                      <div style={{width: "250px", display: "flex", justifyContent: "center", paddingTop: "10px"}}>Quality</div>
-                      <span style={{fontSize : "10px",  width: "250px", margin: "3px 0", display: "flex", justifyContent: "center"}}>{qualityRating}</span>
-
-                      <div id="characteristics">
-                        <input type="radio" name="quality" onClick={ () => setQualityRating("Poor") }/>
-                        <input type="radio" name="quality" onClick={ () => setQualityRating("Below average") }/>
-                        <input type="radio" name="quality" onClick={ () => setQualityRating("What I expected") }/>
-                        <input type="radio" name="quality" onClick={ () => setQualityRating("Pretty great") }/>
-                        <input type="radio" name="quality" onClick={ () => setQualityRating("Perfect") }/>
-                        <span className="charlabel">Poor</span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span className="charlabel">Perfect</span>
-                      </div>
-                    </div>
-
-                    <div id="charparent">
-                      <div style={{width: "250px", display: "flex", justifyContent: "center", paddingTop: "10px"}}>Length</div>
-                      <span style={{fontSize : "10px",  width: "250px", margin: "3px 0", display: "flex", justifyContent: "center"}}>{lengthRating}</span>
-
-                      <div id="characteristics">
-                        <input type="radio" name="length" onClick={ () => setLengthRating("Runs short") }/>
-                        <input type="radio" name="length" onClick={ () => setLengthRating("Runs slightly short") }/>
-                        <input type="radio" name="length" onClick={ () => setLengthRating("Perfect") }/>
-                        <input type="radio" name="length" onClick={ () => setLengthRating("Runs slightly long") }/>
-                        <input type="radio" name="length" onClick={ () => setLengthRating("Runs long") }/>
-                        <span className="charlabel">Runs short</span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span className="charlabel">Runs long</span>
-                      </div>
-                    </div>
-
-                    <div id="charparent">
-                      <div style={{width: "250px", display: "flex", justifyContent: "center", paddingTop: "10px"}}>Fit</div>
-                      <span style={{fontSize : "10px",  width: "250px", margin: "3px 0", display: "flex", justifyContent: "center"}}>{fitRating}</span>
-
-                      <div id="characteristics">
-                        <input type="radio" name="fit" onClick={ () => setFitRating("Runs tight") }/>
-                        <input type="radio" name="fit" onClick={ () => setFitRating("Runs slightly tight") }/>
-                        <input type="radio" name="fit" onClick={ () => setFitRating("Perfect") }/>
-                        <input type="radio" name="fit" onClick={ () => setFitRating("Runs slightly long") }/>
-                        <input type="radio" name="fit" onClick={ () => setFitRating("Runs long") }/>
-                        <span className="charlabel">Runs tight</span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span className="charlabel">Runs long</span>
-                      </div>
-                    </div>
-
+                  <div id="characteristics">
+                    <input type="radio" name="length" onClick={() => setLengthRating("Runs short")} />
+                    <input type="radio" name="length" onClick={() => setLengthRating("Runs slightly short")} />
+                    <input type="radio" name="length" onClick={() => setLengthRating("Perfect")} />
+                    <input type="radio" name="length" onClick={() => setLengthRating("Runs slightly long")} />
+                    <input type="radio" name="length" onClick={() => setLengthRating("Runs long")} />
+                    <span className="charlabel">Runs short</span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span className="charlabel">Runs long</span>
                   </div>
-                  <br></br>
+                </div>
 
-                  <div style={{margin: "0 0 5px 0"}}>Review Summary</div>
-                  <input type="text" id="reviewsummarytextbox" onChange={ e => setSummary(e.target.value)} maxLength="60"></input>
+                <div id="charparent">
+                  <div style={{ width: "250px", display: "flex", justifyContent: "center", paddingTop: "10px" }}>Fit</div>
+                  <span style={{ fontSize: "10px", width: "250px", margin: "3px 0", display: "flex", justifyContent: "center" }}>{fitRating}</span>
 
-                  <br></br>
-                  <div style={{margin: "20px 0 5px 0"}}>Review Body</div>
-                  <textarea type="text" id="reviewbodytextbox" onChange={ e => {setBody(e.target.value); charLeft();} } required minLength="50" maxLength="1000"></textarea>
-                  {minNotMet ? <span id="minchar" onChange={ () => charLeft() }>Minimum required characters left : {charCount}</span>
-                  : <span id="minchar">Minimum reached</span>
-                  }
-
-                  <br></br>
-
-                  <div id="newreviewPhotos">
-                    {photoUploaded
-                    ? photos.map((photo, index) => (
-                      <UploadReviewImageModal photo={photo} key={index} />
-                      )) : null
-                    }
+                  <div id="characteristics">
+                    <input type="radio" name="fit" onClick={() => setFitRating("Runs tight")} />
+                    <input type="radio" name="fit" onClick={() => setFitRating("Runs slightly tight")} />
+                    <input type="radio" name="fit" onClick={() => setFitRating("Perfect")} />
+                    <input type="radio" name="fit" onClick={() => setFitRating("Runs slightly long")} />
+                    <input type="radio" name="fit" onClick={() => setFitRating("Runs long")} />
+                    <span className="charlabel">Runs tight</span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span className="charlabel">Runs long</span>
                   </div>
+                </div>
 
-                  <br></br>
-                  <UploadImageModal setPhotos={setPhotos}/>
+              </div>
+              <br></br>
 
-                  <br></br>
-                  <div id="submitreviewmessage" >{addReviewSubmitMessage}</div>
+              <div style={{ margin: "0 0 5px 0" }}>Review Summary</div>
+              <input type="text" id="reviewsummarytextbox" onChange={e => setSummary(e.target.value)} maxLength="60"></input>
 
-                  <button id="submitreview" onClick={ () => {
-                    handleSubmit(); sizeDescriptions(); widthDescriptions(); comfortDescriptions();qualityDescriptions(); lengthDescriptions(); fitDescriptions();
-                    }   }>Submit</button>
+              <br></br>
+              <div style={{ margin: "20px 0 5px 0" }}>Review Body</div>
+              <textarea type="text" id="reviewbodytextbox" onChange={e => { setBody(e.target.value); charLeft(); }} required minLength="50" maxLength="1000"></textarea>
+              {minNotMet ? <span id="minchar" onChange={() => charLeft()}>Minimum required characters left : {charCount}</span>
+                : <span id="minchar">Minimum reached</span>
+              }
 
-              </main>
-            </div>
-          </>
-        )}
+              <br></br>
+
+              <div id="newreviewPhotos">
+                {photoUploaded
+                  ? photos.map((photo, index) => (
+                    <UploadReviewImageModal photo={photo} key={index} />
+                  )) : null
+                }
+              </div>
+
+              <br></br>
+              <UploadImageModal setPhotos={setPhotos} />
+
+              <br></br>
+              <div id="submitreviewmessage" >{addReviewSubmitMessage}</div>
+
+              <button id="submitreview" onClick={() => {
+                handleSubmit(); sizeDescriptions(); widthDescriptions(); comfortDescriptions(); qualityDescriptions(); lengthDescriptions(); fitDescriptions();
+              }}>Submit</button>
+
+            </main>
+          </div>
+        </>
+      )}
     </>
   )
 };

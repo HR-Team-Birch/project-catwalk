@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-
-const UploadReviewImageModal = ({photo}) => {
+const UploadReviewImageModal = ({ photo }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleShowDialog = () => {
@@ -14,10 +13,10 @@ const UploadReviewImageModal = ({photo}) => {
 
   return (
     <div id="addreviewimagesection">
-      <img className="newreviewimage" src={photo} onClick={ handleShowDialog} alt="no image"></img>
+      <img className="newreviewimage" src={photo} onClick={handleShowDialog} alt="no image"></img>
 
       {isOpen && (
-        <dialog className="newreviewimagemodal" style={{ position: "fixed"}} open onClick={handleCloseDialog}>
+        <dialog className="newreviewimagemodal" style={{ position: "fixed" }} open onClick={handleCloseDialog}>
           <img className="newimg" src={photo} onClick={handleCloseDialog} alt="no image"></img>
         </dialog>
       )}

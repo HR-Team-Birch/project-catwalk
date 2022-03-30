@@ -4,7 +4,7 @@ import ReviewList from './components/reviewlist.jsx';
 import AddReview from './components/addreview.jsx';
 import ReviewMeta from './components/reviewmeta.jsx';
 
-const Reviews = ({productId, product, reviewMeta, getReviewMeta}) => {
+const Reviews = ({ productId, product, reviewMeta, getReviewMeta }) => {
 
   const [reviews, setReviews] = useState(null);
   const [sortOption, setSortOption] = useState('relevant');
@@ -29,18 +29,18 @@ const Reviews = ({productId, product, reviewMeta, getReviewMeta}) => {
 
   const getReviewsSortHelpful = () => {
     axios.get(`/reviews/?product_id=${productId}&count=500&sort=helpful`)
-    .then((reviews) => {
-      setReviews(reviews.data.results);
-    })
-    .catch((err) => console.error(err));
+      .then((reviews) => {
+        setReviews(reviews.data.results);
+      })
+      .catch((err) => console.error(err));
   }
 
   const getReviewsSortNewest = () => {
     axios.get(`/reviews/?product_id=${productId}&count=500&sort=newest`)
-    .then((reviews) => {
-      setReviews(reviews.data.results);
-    })
-    .catch((err) => console.error(err));
+      .then((reviews) => {
+        setReviews(reviews.data.results);
+      })
+      .catch((err) => console.error(err));
   }
 
   const addReview = (review) => {
@@ -69,27 +69,18 @@ const Reviews = ({productId, product, reviewMeta, getReviewMeta}) => {
       .catch((err) => console.error(err));
   }
 
-  // useEffect(() => {
-  //   sortReviews();
-
-  // }, []);
-
   useEffect(() => {
     sortReviews();
   }, [sortOption])
 
-
   return (
     <div id="reviewsparentcontainer">
       <div className="reviewsparent">
-        {reviews && reviewMeta ? <ReviewList reviews={reviews} productId={productId} product={product} reviewMeta={reviewMeta} addReview={addReview} markHelpful={markHelpful} reportReview={reportReview} getReviewsSortHelpful={getReviewsSortHelpful} getReviewsSortNewest={getReviewsSortNewest} getAllReviews={getAllReviews} setSortOption={setSortOption}/> : null}
+        {reviews && reviewMeta ? <ReviewList reviews={reviews} productId={productId} product={product} reviewMeta={reviewMeta} addReview={addReview} markHelpful={markHelpful} reportReview={reportReview} getReviewsSortHelpful={getReviewsSortHelpful} getReviewsSortNewest={getReviewsSortNewest} getAllReviews={getAllReviews} setSortOption={setSortOption} /> : null}
       </div>
-
     </div>
   )
-
 }
-
 
 export default Reviews;
 
