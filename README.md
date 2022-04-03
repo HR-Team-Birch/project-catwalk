@@ -8,7 +8,7 @@
 
 
 ### General Info
-Kitty Catwalk is an e-commerce site with the ability to view products, and its related reviews and questions.
+Project Catwalk is an e-commerce site with the ability to view products, and its related reviews and questions.
 
 ### ✨ Demo
 
